@@ -37,7 +37,7 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   Fault-tolerant AWS orchestration for 24×7 regulatory processing. Includes observability hooks, compliance triggers,
   and retry-safe execution paths.
 
-- **[Murex On‑Demand](/projects/murex/)**  
+- **[Murex On‑Demand](/about/murex/)**  
   A containerised, CI/CD‑driven Murex platform enabling rapid, reproducible environment provisioning for development,
   testing, and training. Built on orchestration and configuration‑as‑code principles, it integrates with Datamart
   pipelines, secure messaging flows, and managed task extensions to deliver full environments in minutes instead of
