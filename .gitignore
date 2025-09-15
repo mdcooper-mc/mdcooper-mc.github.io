@@ -2,3 +2,8 @@
 # IDE
 .idea
 *.iml
+
+# Hugo
+.hugo_build.lock
+resources
+go.sum

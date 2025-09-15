@@ -1,0 +1,8 @@
+baseURL = 'https://mdcooper-mc.github.io/'
+languageCode = 'en-uk'
+title = 'Mark Cooper'
+theme = ["github.com/luizdepra/hugo-coder"]
+
+[module]
+[[module.imports]]
+path = "github.com/luizdepra/hugo-coder"
