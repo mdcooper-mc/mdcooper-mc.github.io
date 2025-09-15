@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Platforms on Mark Cooper</title>
+    <link>https://mdcooper-mc.github.io/platforms/</link>
+    <description>Recent content in Platforms on Mark Cooper</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <atom:link href="https://mdcooper-mc.github.io/platforms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Real‑Time Orchestration Platform</title>
+      <link>https://mdcooper-mc.github.io/platforms/real-time-orchestration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/platforms/real-time-orchestration/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;&#xA;  Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;This platform was designed to unify complex, multi‑stage workflows into a single, scalable system capable of handling real‑time processing in a high‑stakes environment. It brings together service orchestration, data processing, and intelligent automation under one architecture, enabling teams to deliver faster, more reliably, and with greater flexibility.&lt;/p&gt;&#xA;&lt;h2 id=&#34;architecture--core-engineering&#34;&gt;&#xA;  Architecture &amp;amp; Core Engineering&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#architecture--core-engineering&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The build began with a modular architecture, where each service and calculation engine could be deployed independently yet work seamlessly together. This separation allowed for rapid iteration, reduced interdependencies, and consistent quality across all components. Automated CI/CD pipelines ensured that every change — from small configuration updates to major feature releases — could be deployed safely across development, testing, and production environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
