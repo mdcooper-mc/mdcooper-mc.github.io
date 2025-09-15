@@ -44,6 +44,13 @@
       <description>&lt;p&gt;I design and deliver financial systems that support the full trade lifecycle — from capture and enrichment to&#xA;reconciliation, reporting, and compliance. My platforms are built for runtime clarity, auditability, and strategic reuse&#xA;across asset classes and regulatory regimes.&lt;/p&gt;&#xA;&lt;p&gt;I’ve engineered solutions for FX/MM, derivatives, fixed income, and structured products, integrating standards like FIX,&#xA;FpML, and SWIFT MT/MX. My work spans real-time trade processing, exposure tracking, margining, and capital allocation —&#xA;with embedded controls for cost variance, earned value, and budget performance.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Image Classification</title>
+      <link>https://mdcooper-mc.github.io/projects/image-classification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/image-classification/</guid>
+      <description>&lt;p&gt;This project was built to bring order to large, mixed‑quality media collections — the kind that blend treasured photos with everyday clutter. It takes a simple list of files and transforms it into a rich, structured dataset that’s easy to search, filter, and work with.&lt;/p&gt;&#xA;&lt;p&gt;The process starts by checking what’s already known about each file and filling in any missing details. It then creates lightweight, high‑quality thumbnails to speed up processing and reduce strain on storage and networks. These thumbnails are cached so they can be reused without repeatedly loading the original files.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Murex Engineering</title>
       <link>https://mdcooper-mc.github.io/about/murex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

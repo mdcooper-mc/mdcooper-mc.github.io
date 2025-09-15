@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Image Classification · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A GPU‑accelerated framework for organising and enriching large collections of images and videos.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Image Classification">
+  <meta name="twitter:description" content="A GPU‑accelerated framework for organising and enriching large collections of images and videos.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/projects/image-classification/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Image Classification">
+  <meta property="og:description" content="A GPU‑accelerated framework for organising and enriching large collections of images and videos.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/projects/image-classification/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/projects/image-classification/">
+          Image Classification
+        </a>
+      </h1>
+    </header>
+
+    <p>This project was built to bring order to large, mixed‑quality media collections — the kind that blend treasured photos with everyday clutter. It takes a simple list of files and transforms it into a rich, structured dataset that’s easy to search, filter, and work with.</p>
+<p>The process starts by checking what’s already known about each file and filling in any missing details. It then creates lightweight, high‑quality thumbnails to speed up processing and reduce strain on storage and networks. These thumbnails are cached so they can be reused without repeatedly loading the original files.</p>
+<p>Once the images are prepared, the system uses an AI model to suggest descriptive labels, drawing from a broad vocabulary that blends curated terms with general concepts. It also applies a “junk” filter — a mix of AI scoring and simple rules — to flag content that’s unlikely to be useful, while avoiding false positives on personal or meaningful images.</p>
+<p>Beyond classification, the pipeline can identify people and animals in a scene and produce a short, natural‑language description of what’s shown. It works in batches, takes advantage of GPU acceleration when available, and saves progress regularly so it can pick up where it left off.</p>
+<p>The architecture is modular, with each stage handling a single task. This makes it easy to adapt, extend, or fine‑tune over time. The result is a fast, reliable way to turn a raw folder of mixed media into an organised, searchable library.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Languages &amp; Frameworks</strong><br>
+Python | PyTorch | Transformers | OpenCV | Pandas | NumPy | NLTK</p>
+<p><strong>AI &amp; Machine Learning</strong><br>
+Image Labelling | Content Classification | Vocabulary Expansion | Similarity Scoring</p>
+<p><strong>Image &amp; Video Processing</strong><br>
+Thumbnail Generation &amp; Caching | Metadata Extraction | Video Frame Capture</p>
+<p><strong>Architecture &amp; Design</strong><br>
+Modular Processing | Cache‑Centric Design | Automated Progress Saving</p>
+<p><strong>Performance &amp; Optimisation</strong><br>
+GPU Acceleration | Batch Processing | Efficient I/O Handling</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
