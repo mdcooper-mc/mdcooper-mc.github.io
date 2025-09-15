@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Java on Mark Cooper</title>
+        <link>http://localhost:1313/categories/java/</link>
+        <description>Recent content in Java on Mark Cooper</description>
+        <generator>Hugo</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
+        <atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>Reconciliation Engine</title>
+            <link>http://localhost:1313/projects/reconciliation-framework/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/projects/reconciliation-framework/</guid>
+            <description>&lt;h2 id=&#34;reconciliation-framework&#34;&gt;&#xA; Reconciliation Framework&#xA; &lt;a
+                class=&#34;heading-link&#34; href=&#34;#reconciliation-framework&#34;&gt;&#xA; &lt;i class=&#34;fa-solid
+                fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA; &lt;span
+                class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA; &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The
+                Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation
+                routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context
+                configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a
+                provider pattern. This design enables flexible orchestration of reconciliation workflows without
+                requiring changes to the core application.&lt;/p&gt;&#xA;&lt;p&gt;At its heart, the engine accepts a
+                reconciliation name as a command-line argument and uses a &lt;code&gt;Provider&amp;lt;String,
+                ReconcileEngine&amp;gt;&lt;/code&gt; to locate the appropriate implementation. This approach decouples
+                the execution logic from the entry point, allowing new reconciliation types to be added simply by
+                registering them in the Spring context. Additional arguments passed at runtime can be used to inject
+                system properties, making the engine highly configurable and environment-aware.&lt;/p&gt;
+            </description>
+        </item>
+    </channel>
+</rss>
