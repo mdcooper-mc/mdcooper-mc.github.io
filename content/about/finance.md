@@ -26,23 +26,13 @@ strategic asset — engineered to extract insight, enforce governance, and adapt
 
 ## Training Platforms
 
-I’ve designed and integrated training environments that simulate real-world trading, reconciliation, and risk
-workflows — enabling teams to rehearse operational scenarios, validate system behaviour, and accelerate onboarding.
+I’ve designed and integrated Murex-specific training environments that mirror production workflows across trade processing, reconciliation, and regulatory reporting. These platforms enable teams to rehearse operational scenarios, validate system behaviour, and accelerate onboarding with precision and reproducibility.
 
-These platforms include:
+One such environment includes CI/CD-driven refresh simulators that reduce full Murex environment rebuilds from eight days to under fifteen minutes — using Git-based automation to streamline configuration and deployment. I’ve also built Datamart replay engines that reconstruct historical VaR and MRA flows, allowing compliance teams to validate risk logic under real-world conditions. For secure messaging, I developed SWIFT signing labs that simulate HMAC-secured digital signature workflows, enabling robust testing of exchange message integrity.
 
-- **Synthetic Trade Simulation**: Generating realistic FIX and FpML flows for testing trade capture, enrichment, and
-  downstream processing.
-- **Regulatory Replay Engines**: Reconstructing historical market conditions to validate compliance logic under Basel,
-  FRTB, and EMIR regimes.
-- **Reconciliation Sandboxes**: Isolated environments for testing provider-driven reconciliation logic, exception
-  handling, and audit trails.
-- **Stress Testing Labs**: Configurable pipelines for scenario analysis, VaR modelling, and capital impact simulations.
-- **Training-as-Code**: Modular Hugo-based documentation and walkthroughs embedded directly into CI/CD pipelines and
-  developer portals.
+Authentication sandboxes provide isolated environments for rehearsing LDAP and Kerberos integration, including multi-factor authentication via RSA and federated identity flows. To support documentation and repeatability, I embed modular walkthroughs directly into Hugo-based developer portals, integrating training-as-code into CI/CD pipelines for seamless access and version control.
 
-These systems are built for reproducibility, runtime introspection, and strategic reuse — enabling teams to train with
-the same rigor they deploy.
+These systems are engineered for runtime introspection, strategic reuse, and operational clarity — ensuring that teams train with the same rigor and transparency they deploy.
 
 ---
 

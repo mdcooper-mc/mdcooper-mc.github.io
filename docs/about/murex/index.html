@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Murex Engineering · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="Strategic delivery across Murex platforms">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Murex Engineering">
+  <meta name="twitter:description" content="Strategic delivery across Murex platforms">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/about/murex/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Murex Engineering">
+  <meta property="og:description" content="Strategic delivery across Murex platforms">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="about">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/about/murex/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/about/murex/">
+          Murex Engineering
+        </a>
+      </h1>
+    </header>
+
+    <p>I’ve led Murex engineering across Société Générale, Rabobank, Daiwa, LSEG, and the London Stock Exchange — modernising trade feeds, upgrading environments, and embedding secure authentication and reporting into high‑volume trading infrastructure. My work spans FX/MM, derivatives, and fixed income workflows, with deep integration across pre‑trade, post‑trade, and risk domains. Whether orchestrating FIX, SWIFT, and FpML flows into MxMLExchange or refactoring Datamart pipelines, I treat Murex as a strategic substrate for runtime clarity, compliance, and operational control.</p>
+<p>These platforms support real‑time processing with embedded controls for reconciliation, VaR, and regulatory reporting. I’ve delivered upgrades from Murex 2.x to 3.x and .29 to .49, compressing full environment refresh from eight days to around fifteen minutes through Git‑based CI/CD, tokenised builds, and deterministic configuration promotion. I’ve migrated Murex configurations from Oracle to PostgreSQL to reduce cost and increase agility, decoupling database logic into Groovy/Java services where appropriate. I’ve implemented SWIFT LAU/HMAC signing in exchange workflows, integrated LDAP/Kerberos with RSA MFA via Murex SPIs, and tuned VaR and stress testing pipelines to align with Basel III/IV and FRTB requirements.</p>
+<p>My architecture emphasises separation of concerns, provider‑driven design, and runtime introspection — enabling transparency, auditability, and operational agility across Murex environments. I’ve also collaborated directly with product teams and adjacent platform groups to align custom workflows, security, and reporting with evolving compliance and operational standards.</p>
+<hr>
+<h2 id="workflow-orchestration">
+  Workflow Orchestration
+  <a class="heading-link" href="#workflow-orchestration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I design MxMLExchange workflows using a clean split between source, middle, and end tasks, selecting poll‑driven or event‑driven execution based on latency, dependency, and back‑pressure requirements. Managed Task Extension patterns provide predictable lifecycle, dependency injection, and retry semantics, with transactional boundaries defined where trade persistence or downstream warehouse notification must commit atomically. Entry schemas are versioned and validated at the edges; routers and enrichers isolate business logic from transport; and error channels preserve observability without stalling critical paths. This orchestration allows teams to compose bespoke flows — imports, transformations, routing, validation, and persistence — without sacrificing determinism or diagnosability.</p>
+<hr>
+<h2 id="trade-repository-and-business-object-services">
+  Trade Repository and Business Object Services
+  <a class="heading-link" href="#trade-repository-and-business-object-services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>For trade capture, lifecycle events, and extraction, I integrate the Trade Repository API for contract insertion, cancel/reissue, restructures, and exports, using XA transaction management to guarantee consistency across financial deal tables, warehouse notifications, and post‑trade workflow triggers. For statics and cross‑cutting references, I leverage the Business Object Repository service to manage counterparties, calendars, and identifiers, with alternate ID management to maintain external system alignment. This pattern keeps domain state authoritative in Murex while exposing stable integration seams to upstream and downstream systems.</p>
+<hr>
+<h2 id="reporting-and-data-services">
+  Reporting and Data Services
+  <a class="heading-link" href="#reporting-and-data-services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>For reporting and analytics, I combine Datamart pipelines with the Data Publisher (DAP) service to execute dynamic table calculations and extract results in XML/CSV, wrapping them in reproducible job definitions and observable CI/CD jobs. I build replayable reporting flows that reconstruct historical VaR/MRA results for validation and audit, tying each run to a versioned configuration, market data slice, and policy baseline. At runtime, reporting outputs are indexed and catalogued for traceability, with lineage back to trades, events, and calculation templates — supporting regulatory assertions and model governance.</p>
+<hr>
+<h2 id="integration-and-platform-interfaces">
+  Integration and Platform Interfaces
+  <a class="heading-link" href="#integration-and-platform-interfaces">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Across front‑to‑back, I integrate FIX/FpML trade flows with MxMLExchange, validate schemas at ingress, and standardise contract templates for consistent downstream behaviour. I’ve implemented SWIFT MT/MX and ISO 20022 messaging through managed tasks with digital signing and validation gates, feeding post‑trade and payment processes. On security, I’ve delivered external user authentication via SPIs, including LDAP/Kerberos and MFA, while keeping group and policy management within MX for least‑privilege alignment. These interfaces are versioned, observable, and wrapped in provider patterns so teams can swap transports or enrichers without collateral changes.</p>
+<hr>
+<h2 id="architecture-blueprint">
+  Architecture Blueprint
+  <a class="heading-link" href="#architecture-blueprint">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Domain boundaries</strong> are explicit: source adapters handle connectivity and schema validation; middle tasks perform enrichment, matching, and routing; end tasks persist, acknowledge, or publish.</li>
+<li><strong>Transactions</strong> are isolated where state mutates, using XA for trade/event updates to keep repository operations, warehouse updates, and workflow triggers consistent.</li>
+<li><strong>Configuration is code</strong>: environment refreshes, template promotion, and workflow deployment are deterministic, idempotent, and auditable.</li>
+<li><strong>Observability</strong> is first‑class: structured logs, metrics, and traces at each hop, with correlation IDs bridging across services and Murex tasks into external platforms.</li>
+<li><strong>Security</strong> is federated: external authentication for identity, MX group/policy for authorisation, and cryptographic signing for exchanges — minimising trust boundaries while preserving operator ergonomics.</li>
+</ul>
+<hr>
+<h2 id="training-platforms">
+  Training Platforms
+  <a class="heading-link" href="#training-platforms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To support onboarding and operational rehearsal, I’ve built Murex‑specific training environments that mirror production workflows across trade processing, reconciliation, and reporting. These include CI/CD‑driven environment refresh simulators cutting rebuild times from eight days to fifteen minutes, Datamart replay engines that reconstruct historical VaR and MRA flows for compliance validation, and SWIFT signing labs that simulate HMAC‑secured digital messaging. I’ve also developed authentication sandboxes for LDAP/Kerberos with MFA and embedded modular walkthroughs directly into Hugo‑based developer portals and pipelines. These systems are engineered for reproducibility, runtime introspection, and strategic reuse — so teams train with the same rigour and transparency they deploy.</p>
+<hr>
+<h2 id="selected-results">
+  Selected Results
+  <a class="heading-link" href="#selected-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I reduced environment refresh from days to minutes with Git‑based builds and tokenised deployment, enabling rapid clone/spin‑up and safe promotion. I migrated Murex configuration from Oracle to PostgreSQL on AWS for cost reduction and operational control, moving embedded logic into service code to simplify maintenance. I delivered Log4j remediation programmes across trading platforms, orchestrating upgrades and vendor coordination without service disruption. And I’ve consistently embedded auditability and runtime clarity — so every flow, calculation, and message is attributable, replayable, and governed.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Murex Domains</strong><br>
+Pre‑Trade | Post‑Trade | Risk | Collateral | Treasury | Datamart | MxMLExchange</p>
+<p><strong>Trade Lifecycle &amp; Operations</strong><br>
+Trade Capture | Trade Processing | Reconciliation | Compression | VaR | P&amp;L Attribution | Regulatory Reporting</p>
+<p><strong>Messaging &amp; Standards</strong><br>
+FIX | FpML | SWIFT MT/MX | ISO 20022 | Murex Workflows | Murex SPIs</p>
+<p><strong>Integration &amp; Platforms</strong><br>
+Oracle | PostgreSQL | Groovy | Java | Spring Boot | Docker | Kubernetes | Git | Jenkins | Helm | Terraform</p>
+<p><strong>Security &amp; Authentication</strong><br>
+LDAP | Kerberos | RSA MFA | OAuth2 | HMAC | Federated Identity | SWIFT LAU Signing</p>
+<p><strong>Architecture &amp; Practices</strong><br>
+CI/CD Automation | Environment Refresh | Runtime Introspection | Auditability | Observability | Strategic Reuse | Domain‑Driven Design</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

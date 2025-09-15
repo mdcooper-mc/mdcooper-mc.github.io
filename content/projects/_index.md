@@ -4,9 +4,9 @@ description = "Technical projects and architectural frameworks by Mark Cooper"
 +++
 
 Welcome to my projects portfolio. This section highlights a selection of systems I've designed and delivered across
-cloud-native architecture, AI orchestration, and financial risk platforms. Each project reflects a strategic approach to
-modularity, resilience, and operational clarity — whether it's orchestrating BAU workflows, extracting behavioural
-signals from market data, or embedding governance into model-driven pipelines.
+cloud-native architecture, AI orchestration, financial risk platforms and capital markets. Each project reflects a
+strategic approach to modularity, resilience, and operational clarity — whether it's orchestrating BAU workflows,
+extracting behavioural signals from market data, or embedding governance into model-driven pipelines.
 
 The portfolio is built around frameworks that are difficult to replicate and easy to extend. I focus on separating
 mechanical complexity from human intent, allowing systems to remain composable, cache-centric, and runtime-aware.
@@ -36,6 +36,12 @@ mechanical complexity from human intent, allowing systems to remain composable, 
 - **Real-Time Payments Platform**  
   Fault-tolerant AWS orchestration for 24×7 regulatory processing. Includes observability hooks, compliance triggers,
   and retry-safe execution paths.
+
+- **[Murex On‑Demand](/projects/murex/)**  
+  A containerised, CI/CD‑driven Murex platform enabling rapid, reproducible environment provisioning for development,
+  testing, and training. Built on orchestration and configuration‑as‑code principles, it integrates with Datamart
+  pipelines, secure messaging flows, and managed task extensions to deliver full environments in minutes instead of
+  days.
 
 Each project page includes architecture notes, runtime behaviour, and design rationale — with more to come as the
 portfolio expands.

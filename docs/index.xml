@@ -44,6 +44,13 @@
       <description>&lt;p&gt;I design and deliver financial systems that support the full trade lifecycle — from capture and enrichment to&#xA;reconciliation, reporting, and compliance. My platforms are built for runtime clarity, auditability, and strategic reuse&#xA;across asset classes and regulatory regimes.&lt;/p&gt;&#xA;&lt;p&gt;I’ve engineered solutions for FX/MM, derivatives, fixed income, and structured products, integrating standards like FIX,&#xA;FpML, and SWIFT MT/MX. My work spans real-time trade processing, exposure tracking, margining, and capital allocation —&#xA;with embedded controls for cost variance, earned value, and budget performance.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Murex Engineering</title>
+      <link>https://mdcooper-mc.github.io/about/murex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/about/murex/</guid>
+      <description>&lt;p&gt;I’ve led Murex engineering across Société Générale, Rabobank, Daiwa, LSEG, and the London Stock Exchange — modernising trade feeds, upgrading environments, and embedding secure authentication and reporting into high‑volume trading infrastructure. My work spans FX/MM, derivatives, and fixed income workflows, with deep integration across pre‑trade, post‑trade, and risk domains. Whether orchestrating FIX, SWIFT, and FpML flows into MxMLExchange or refactoring Datamart pipelines, I treat Murex as a strategic substrate for runtime clarity, compliance, and operational control.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Software Skills</title>
       <link>https://mdcooper-mc.github.io/about/software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
