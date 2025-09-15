@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Spring Boot on Mark Cooper</title>
+        <link>https://mdcooper-mc.github.io/categories/spring-boot/</link>
+        <description>Recent content in Spring Boot on Mark Cooper</description>
+        <generator>Hugo</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://mdcooper-mc.github.io/categories/spring-boot/index.xml" rel="self"
+                   type="application/rss+xml"/>
+        <item>
+            <title>Service Framework</title>
+            <link>https://mdcooper-mc.github.io/projects/service-framework/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/projects/service-framework/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;https://dev.azure.com/mdcoopermc/_git/services-framework&#34; class=&#34;external-link&#34;
+                target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;📥 browse this repository&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2
+                id=&#34;service-framework&#34;&gt;&#xA; Service Framework&#xA; &lt;a class=&#34;heading-link&#34; href=&#34;#service-framework&#34;&gt;&#xA;
+                &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;
+                &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA; &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The
+                Service Framework enables the development of &lt;strong&gt;event-based services&lt;/strong&gt; to
+                orchestrate BAU workflows. It provides a&#xA;declarative, annotation-driven model for defining service
+                behavior, routing logic, and execution conditions — all within&#xA;a Spring Boot environment.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3
+                id=&#34;configuration-overview&#34;&gt;&#xA; Configuration Overview&#xA; &lt;a class=&#34;heading-link&#34;
+                href=&#34;#configuration-overview&#34;&gt;&#xA; &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34;
+                title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA; &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;
+                &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;To activate default components like &lt;code&gt;RestTemplate&lt;/code&gt;
+                and &lt;code&gt;ObjectMapper&lt;/code&gt;, launch your application with:&lt;/p&gt;
+            </description>
+        </item>
+    </channel>
+</rss>

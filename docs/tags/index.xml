@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags on Mark Cooper</title>
+        <link>https://mdcooper-mc.github.io/tags/</link>
+        <description>Recent content in Tags on Mark Cooper</description>
+        <generator>Hugo</generator>
+        <language>en-uk</language>
+        <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://mdcooper-mc.github.io/tags/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>Annotation-Based</title>
+            <link>https://mdcooper-mc.github.io/tags/annotation-based/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/annotation-based/</guid>
+            <description></description>
+        </item>
+        <item>
+            <title>Batch Processing</title>
+            <link>https://mdcooper-mc.github.io/tags/batch-processing/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/batch-processing/</guid>
+            <description></description>
+        </item>
+        <item>
+            <title>BAU Workflows</title>
+            <link>https://mdcooper-mc.github.io/tags/bau-workflows/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/bau-workflows/</guid>
+            <description></description>
+        </item>
+        <item>
+            <title>Event-Driven</title>
+            <link>https://mdcooper-mc.github.io/tags/event-driven/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/event-driven/</guid>
+            <description></description>
+        </item>
+        <item>
+            <title>Joda-Time</title>
+            <link>https://mdcooper-mc.github.io/tags/joda-time/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/joda-time/</guid>
+            <description></description>
+        </item>
+        <item>
+            <title>Provider Pattern</title>
+            <link>https://mdcooper-mc.github.io/tags/provider-pattern/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/provider-pattern/</guid>
+            <description></description>
+        </item>
+        <item>
+            <title>Reconciliation</title>
+            <link>https://mdcooper-mc.github.io/tags/reconciliation/</link>
+            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+            <guid>https://mdcooper-mc.github.io/tags/reconciliation/</guid>
+            <description></description>
+        </item>
+    </channel>
+</rss>
