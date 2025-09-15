@@ -5,7 +5,7 @@ theme = ["github.com/luizdepra/hugo-coder"]
 
 [params]
 author = "Mark Cooper"
-info = "Full Stack Cloud/AI engeneer"
+info = "Cloud-Native Finance & AI Engineer"
 avatarURL = "images/me-toon.png"
 
 # -------------------
