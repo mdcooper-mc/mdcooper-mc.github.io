@@ -2,65 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/annotation-based/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/annotation-based/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/architecture/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/architecture/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/batch-processing/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/batch-processing/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bau-workflows/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/bau-workflows/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/event-driven/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/event-driven/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/java/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/java/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/joda-time/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/joda-time/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://mdcooper-mc.github.io/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/provider-pattern/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/provider-pattern/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/reconciliation/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/reconciliation/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/reconciliation-framework/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/reconciliation-framework/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/service-framework/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/service-framework/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/spring/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/spring/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/spring-boot/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/spring-boot/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://mdcooper-mc.github.io/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/aiml/</loc>
+    <loc>https://mdcooper-mc.github.io/about/aiml/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/cloud/</loc>
+    <loc>https://mdcooper-mc.github.io/about/cloud/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/finance/</loc>
+    <loc>https://mdcooper-mc.github.io/about/finance/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/software/</loc>
+    <loc>https://mdcooper-mc.github.io/about/software/</loc>
   </url>
 </urlset>

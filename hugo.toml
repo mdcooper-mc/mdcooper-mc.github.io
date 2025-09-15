@@ -1,9 +1,9 @@
-baseURL = 'https://mdcooper-mc.github.io/'
+baseURL = 'https://mdcooper-mc.github.io'
 languageCode = 'en-uk'
 title = 'Mark Cooper'
 theme = ["github.com/luizdepra/hugo-coder"]
 publishDir = "docs"
-enableGitInfo = false
+
 
 [params]
 author = "Mark Cooper"
@@ -11,9 +11,9 @@ info = "Cloud-Native Finance & AI Engineer"
 avatarURL = "images/me-toon.png"
 
 # -------------------
-[module]
-[[module.imports]]
-path = "github.com/luizdepra/hugo-coder"
+#[module]
+#[[module.imports]]
+#path = "github.com/luizdepra/hugo-coder"
 
 # -------------------
 
