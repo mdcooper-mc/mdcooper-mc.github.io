@@ -2,6 +2,7 @@ baseURL = 'https://mdcooper-mc.github.io/'
 languageCode = 'en-uk'
 title = 'Mark Cooper'
 theme = ["github.com/luizdepra/hugo-coder"]
+publishDir = "docs"
 
 [params]
 author = "Mark Cooper"

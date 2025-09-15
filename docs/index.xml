@@ -1,118 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Mark Cooper</title>
-        <link>https://mdcooper-mc.github.io/</link>
-        <description>Recent content on Mark Cooper</description>
-        <generator>Hugo</generator>
-        <language>en-uk</language>
-        <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
-        <atom:link href="https://mdcooper-mc.github.io/index.xml" rel="self" type="application/rss+xml"/>
-        <item>
-            <title>Reconciliation Engine</title>
-            <link>https://mdcooper-mc.github.io/projects/reconciliation-framework/</link>
-            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-            <guid>https://mdcooper-mc.github.io/projects/reconciliation-framework/</guid>
-            <description>&lt;h2 id=&#34;reconciliation-framework&#34;&gt;&#xA; Reconciliation Framework&#xA; &lt;a
-                class=&#34;heading-link&#34; href=&#34;#reconciliation-framework&#34;&gt;&#xA; &lt;i class=&#34;fa-solid
-                fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA; &lt;span
-                class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA; &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The
-                Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation
-                routines with&#xA;precision and operational clarity. Built in Java and powered by Spring’s XML-based
-                context configuration, the engine&#xA;allows for dynamic resolution of reconciliation logic at runtime
-                using a provider pattern. This design enables flexible&#xA;orchestration of reconciliation workflows
-                without requiring changes to the core application.&lt;/p&gt;&#xA;&lt;p&gt;At its heart, the engine
-                accepts a reconciliation name as a command-line argument and uses a&#xA;&lt;code&gt;Provider&amp;lt;String,
-                ReconcileEngine&amp;gt;&lt;/code&gt; to locate the appropriate implementation. This approach decouples
-                the execution&#xA;logic from the entry point, allowing new reconciliation types to be added simply by
-                registering them in the Spring&#xA;context. Additional arguments passed at runtime can be used to inject
-                system properties, making the engine highly&#xA;configurable and environment-aware.&lt;/p&gt;
-            </description>
-        </item>
-        <item>
-            <title>Service Framework</title>
-            <link>https://mdcooper-mc.github.io/projects/service-framework/</link>
-            <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-            <guid>https://mdcooper-mc.github.io/projects/service-framework/</guid>
-            <description>&lt;p&gt;&lt;a href=&#34;https://dev.azure.com/mdcoopermc/_git/services-framework&#34; class=&#34;external-link&#34;
-                target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;📥 browse this repository&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2
-                id=&#34;service-framework&#34;&gt;&#xA; Service Framework&#xA; &lt;a class=&#34;heading-link&#34; href=&#34;#service-framework&#34;&gt;&#xA;
-                &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;
-                &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA; &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The
-                Service Framework enables the development of &lt;strong&gt;event-based services&lt;/strong&gt; to
-                orchestrate BAU workflows. It provides a&#xA;declarative, annotation-driven model for defining service
-                behavior, routing logic, and execution conditions — all within&#xA;a Spring Boot environment.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3
-                id=&#34;configuration-overview&#34;&gt;&#xA; Configuration Overview&#xA; &lt;a class=&#34;heading-link&#34;
-                href=&#34;#configuration-overview&#34;&gt;&#xA; &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34;
-                title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA; &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;
-                &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;To activate default components like &lt;code&gt;RestTemplate&lt;/code&gt;
-                and &lt;code&gt;ObjectMapper&lt;/code&gt;, launch your application with:&lt;/p&gt;
-            </description>
-        </item>
-        <item>
-            <title>AI / ML Systems</title>
-            <link>https://mdcooper-mc.github.io/about/aiml/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://mdcooper-mc.github.io/about/aiml/</guid>
-            <description>&lt;p&gt;This page documents my work in &lt;strong&gt;AI architecture&lt;/strong&gt;, &lt;strong&gt;deep
-                learning&lt;/strong&gt;, and &lt;strong&gt;reinforcement learning&lt;/strong&gt; — with a focus on&#xA;&lt;strong&gt;reproducibility&lt;/strong&gt;,
-                &lt;strong&gt;behavioural signal extraction&lt;/strong&gt;, and &lt;strong&gt;agentic orchestration&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I
-                build systems that treat AI as a composable extension of infrastructure — not just a model, but a
-                runtime framework&#xA;for &lt;strong&gt;insight&lt;/strong&gt;, &lt;strong&gt;control&lt;/strong&gt;,
-                and &lt;strong&gt;strategic reuse&lt;/strong&gt;. My platforms span &lt;strong&gt;character-level neural
-                networks&lt;/strong&gt;, *&#xA;&lt;em&gt;transformer-based pipelines&lt;/em&gt;*, and &lt;strong&gt;OpenAI
-                Gym–driven agents&lt;/strong&gt; — engineered for &lt;strong&gt;clarity&lt;/strong&gt;, &lt;strong&gt;modularity&lt;/strong&gt;,
-                and *&#xA;&lt;em&gt;embedded governance&lt;/em&gt;*.&lt;/p&gt;
-            </description>
-        </item>
-        <item>
-            <title>Cloud Technology</title>
-            <link>https://mdcooper-mc.github.io/about/cloud/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://mdcooper-mc.github.io/about/cloud/</guid>
-            <description>&lt;h2 id=&#34;cloud-technology&#34;&gt;&#xA; Cloud Technology&#xA; &lt;a class=&#34;heading-link&#34;
-                href=&#34;#cloud-technology&#34;&gt;&#xA; &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34;
-                title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA; &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;
-                &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;This section documents my work in cloud-native architecture,
-                infrastructure-as-code, and serverless orchestration — with&#xA;a focus on reproducibility, runtime
-                clarity, and strategic reuse across AWS and Azure.&lt;/p&gt;&#xA;&lt;p&gt;I build systems that treat
-                cloud infrastructure as programmable, observable, and modular — engineered for fault&#xA;tolerance,
-                secure delivery, and operational transparency.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;-aws--azure-architecture&#34;&gt;&#xA;
-                ☁️ AWS &amp;amp; Azure Architecture&#xA; &lt;a class=&#34;heading-link&#34; href=&#34;#-aws--azure-architecture&#34;&gt;&#xA;
-                &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;
-                &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA; &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;I’ve
-                designed and delivered cloud-native platforms across both AWS and Azure, including:&lt;/p&gt;
-            </description>
-        </item>
-        <item>
-            <title>Finance Skills</title>
-            <link>https://mdcooper-mc.github.io/about/finance/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://mdcooper-mc.github.io/about/finance/</guid>
-            <description>&lt;p&gt;I design and deliver financial systems that support the full trade lifecycle — from
-                capture and enrichment to&#xA;reconciliation, reporting, and compliance. My platforms are built for
-                runtime clarity, auditability, and strategic reuse&#xA;across asset classes and regulatory regimes.&lt;/p&gt;&#xA;&lt;p&gt;I’ve
-                engineered solutions for FX/MM, derivatives, fixed income, and structured products, integrating
-                standards like FIX,&#xA;FpML, and SWIFT MT/MX. My work spans real-time trade processing, exposure
-                tracking, margining, and capital allocation —&#xA;with embedded controls for cost variance, earned
-                value, and budget performance.&lt;/p&gt;
-            </description>
-        </item>
-        <item>
-            <title>Software Skills</title>
-            <link>https://mdcooper-mc.github.io/about/software/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://mdcooper-mc.github.io/about/software/</guid>
-            <description>&lt;p&gt;I specialise in designing and delivering modular, high-performance systems across
-                microservices architectures. With over&#xA;two decades of experience in capital markets, I’ve built
-                platforms that span trading, risk, and regulatory domains —&#xA;engineered for resilience,
-                observability, and strategic reuse.&lt;/p&gt;&#xA;&lt;p&gt;My core development expertise includes &lt;strong&gt;Java
-                (8–21)&lt;/strong&gt;, &lt;strong&gt;Spring Boot&lt;/strong&gt;, &lt;strong&gt;Python&lt;/strong&gt;,
-                &lt;strong&gt;GoLang&lt;/strong&gt;, and &lt;strong&gt;Groovy&lt;/strong&gt; —&#xA;applied across
-                microservices, event-driven systems, and secure API ecosystems. I’ve led the design of scalable backend&#xA;services,
-                containerised deployments, and orchestration frameworks that support real-time trade processing and
-                analytics.&lt;/p&gt;
-            </description>
-        </item>
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mark Cooper</title>
+    <link>https://mdcooper-mc.github.io/</link>
+    <description>Recent content on Mark Cooper</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://mdcooper-mc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reconciliation Engine</title>
+      <link>https://mdcooper-mc.github.io/projects/reconciliation-framework/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/reconciliation-framework/</guid>
+      <description>&lt;h2 id=&#34;reconciliation-framework&#34;&gt;&#xA;  Reconciliation Framework&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#reconciliation-framework&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with&#xA;precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine&#xA;allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible&#xA;orchestration of reconciliation workflows without requiring changes to the core application.&lt;/p&gt;&#xA;&lt;p&gt;At its heart, the engine accepts a reconciliation name as a command-line argument and uses a&#xA;&lt;code&gt;Provider&amp;lt;String, ReconcileEngine&amp;gt;&lt;/code&gt; to locate the appropriate implementation. This approach decouples the execution&#xA;logic from the entry point, allowing new reconciliation types to be added simply by registering them in the Spring&#xA;context. Additional arguments passed at runtime can be used to inject system properties, making the engine highly&#xA;configurable and environment-aware.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Service Framework</title>
+      <link>https://mdcooper-mc.github.io/projects/service-framework/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/service-framework/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://dev.azure.com/mdcoopermc/_git/services-framework&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;📥 browse this repository&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;service-framework&#34;&gt;&#xA;  Service Framework&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#service-framework&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The Service Framework enables the development of &lt;strong&gt;event-based services&lt;/strong&gt; to orchestrate BAU workflows. It provides a&#xA;declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions — all within&#xA;a Spring Boot environment.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;configuration-overview&#34;&gt;&#xA;  Configuration Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#configuration-overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;To activate default components like &lt;code&gt;RestTemplate&lt;/code&gt; and &lt;code&gt;ObjectMapper&lt;/code&gt;, launch your application with:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI / ML Systems</title>
+      <link>https://mdcooper-mc.github.io/about/aiml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/about/aiml/</guid>
+      <description>&lt;p&gt;This page documents my work in &lt;strong&gt;AI architecture&lt;/strong&gt;, &lt;strong&gt;deep learning&lt;/strong&gt;, and &lt;strong&gt;reinforcement learning&lt;/strong&gt; — with a focus on&#xA;&lt;strong&gt;reproducibility&lt;/strong&gt;, &lt;strong&gt;behavioural signal extraction&lt;/strong&gt;, and &lt;strong&gt;agentic orchestration&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I build systems that treat AI as a composable extension of infrastructure — not just a model, but a runtime framework&#xA;for &lt;strong&gt;insight&lt;/strong&gt;, &lt;strong&gt;control&lt;/strong&gt;, and &lt;strong&gt;strategic reuse&lt;/strong&gt;. My platforms span &lt;strong&gt;character-level neural networks&lt;/strong&gt;, *&#xA;&lt;em&gt;transformer-based pipelines&lt;/em&gt;*, and &lt;strong&gt;OpenAI Gym–driven agents&lt;/strong&gt; — engineered for &lt;strong&gt;clarity&lt;/strong&gt;, &lt;strong&gt;modularity&lt;/strong&gt;, and *&#xA;&lt;em&gt;embedded governance&lt;/em&gt;*.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cloud Technology</title>
+      <link>https://mdcooper-mc.github.io/about/cloud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/about/cloud/</guid>
+      <description>&lt;h2 id=&#34;cloud-technology&#34;&gt;&#xA;  Cloud Technology&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#cloud-technology&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;This section documents my work in cloud-native architecture, infrastructure-as-code, and serverless orchestration — with&#xA;a focus on reproducibility, runtime clarity, and strategic reuse across AWS and Azure.&lt;/p&gt;&#xA;&lt;p&gt;I build systems that treat cloud infrastructure as programmable, observable, and modular — engineered for fault&#xA;tolerance, secure delivery, and operational transparency.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;-aws--azure-architecture&#34;&gt;&#xA;  ☁️ AWS &amp;amp; Azure Architecture&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-aws--azure-architecture&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;I’ve designed and delivered cloud-native platforms across both AWS and Azure, including:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finance Skills</title>
+      <link>https://mdcooper-mc.github.io/about/finance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/about/finance/</guid>
+      <description>&lt;p&gt;I design and deliver financial systems that support the full trade lifecycle — from capture and enrichment to&#xA;reconciliation, reporting, and compliance. My platforms are built for runtime clarity, auditability, and strategic reuse&#xA;across asset classes and regulatory regimes.&lt;/p&gt;&#xA;&lt;p&gt;I’ve engineered solutions for FX/MM, derivatives, fixed income, and structured products, integrating standards like FIX,&#xA;FpML, and SWIFT MT/MX. My work spans real-time trade processing, exposure tracking, margining, and capital allocation —&#xA;with embedded controls for cost variance, earned value, and budget performance.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Software Skills</title>
+      <link>https://mdcooper-mc.github.io/about/software/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/about/software/</guid>
+      <description>&lt;p&gt;I specialise in designing and delivering modular, high-performance systems across microservices architectures. With over&#xA;two decades of experience in capital markets, I’ve built platforms that span trading, risk, and regulatory domains —&#xA;engineered for resilience, observability, and strategic reuse.&lt;/p&gt;&#xA;&lt;p&gt;My core development expertise includes &lt;strong&gt;Java (8–21)&lt;/strong&gt;, &lt;strong&gt;Spring Boot&lt;/strong&gt;, &lt;strong&gt;Python&lt;/strong&gt;, &lt;strong&gt;GoLang&lt;/strong&gt;, and &lt;strong&gt;Groovy&lt;/strong&gt; —&#xA;applied across microservices, event-driven systems, and secure API ecosystems. I’ve led the design of scalable backend&#xA;services, containerised deployments, and orchestration frameworks that support real-time trade processing and analytics.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>
