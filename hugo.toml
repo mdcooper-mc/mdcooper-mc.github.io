@@ -9,6 +9,8 @@ publishDir = "docs"
 author = "Mark Cooper"
 info = "Cloud-Native Finance & AI Engineer"
 avatarURL = "images/me-toon.png"
+avatarLink = "/about"
+titleLink = "/about"
 
 # -------------------
 #[module]
