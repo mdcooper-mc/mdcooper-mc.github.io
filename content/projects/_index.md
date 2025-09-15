@@ -3,7 +3,7 @@ title = "Projects"
 description = "Technical projects and architectural frameworks by Mark Cooper"
 +++
 
-Welcome to my projects portfolio. This section highlights a selection of systems I've designed and delivered across
+Welcome to my portfolio of projects. This section highlights a selection of systems I've designed and delivered across
 cloud-native architecture, AI orchestration, financial risk platforms and capital markets. Each project reflects a
 strategic approach to modularity, resilience, and operational clarity — whether it's orchestrating BAU workflows,
 extracting behavioural signals from market data, or embedding governance into model-driven pipelines.

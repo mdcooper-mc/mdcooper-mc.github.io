@@ -51,13 +51,13 @@ To support onboarding and operational rehearsal, I’ve built Murex‑specific t
 
 ---
 
-## Selected Results
+## Quick overview
 
-I reduced environment refresh from days to minutes with Git‑based builds and tokenised deployment, enabling rapid clone/spin‑up and safe promotion. I migrated Murex configuration from Oracle to PostgreSQL on AWS for cost reduction and operational control, moving embedded logic into service code to simplify maintenance. I delivered Log4j remediation programmes across trading platforms, orchestrating upgrades and vendor coordination without service disruption. And I’ve consistently embedded auditability and runtime clarity — so every flow, calculation, and message is attributable, replayable, and governed.
+I reduced environment refresh from days to minutes with Git‑based builds and tokenised deployment, enabling rapid clone/spin‑up and safe promotion. I migrated Murex configuration from Oracle to PostgreSQL on AWS for cost reduction and operational control, moving embedded logic into service code to simplify maintenance. I delivered Log4j remediation programmes across trading platforms, orchestrating upgrades and vendor coordination without service disruption. And I’ve consistently embedded auditability and runtime clarity — so every flow, calculation, and message is attributable, re-playable, and governed.
 
 ---
 
-## Skills
+## Skill Set
 
 **Murex Domains**  
 Pre‑Trade | Post‑Trade | Risk | Collateral | Treasury | Datamart | MxMLExchange
