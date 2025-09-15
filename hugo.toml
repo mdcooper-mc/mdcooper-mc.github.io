@@ -3,6 +3,7 @@ languageCode = 'en-uk'
 title = 'Mark Cooper'
 theme = ["github.com/luizdepra/hugo-coder"]
 publishDir = "docs"
+enableGitInfo = false
 
 [params]
 author = "Mark Cooper"
