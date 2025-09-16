@@ -97,7 +97,7 @@ strategic reuse — so teams train with the same rigour and transparency they de
 
 ---
 
-## Quick Overview
+## Review
 
 - Reduced environment refresh from days to minutes with Git‑based builds and tokenised deployment.
 - Migrated Murex configuration from Oracle to PostgreSQL on AWS for cost reduction and operational control.
