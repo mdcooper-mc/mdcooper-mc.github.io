@@ -3,7 +3,7 @@ title = "Murex Engineering"
 description = "Strategic delivery across Murex platforms"
 +++
 
-I’ve led Murex engineering across Société Générale, Rabobank, Daiwa, LSEG, and the London Stock Exchange — modernising trade feeds, upgrading environments, and embedding secure authentication and reporting into high‑volume trading infrastructure. My work spans FX/MM, derivatives, and fixed income workflows, with deep integration across pre‑trade, post‑trade, and risk domains. Whether orchestrating FIX, SWIFT, and FpML flows into MxMLExchange or refactoring Datamart pipelines, I treat Murex as a strategic substrate for runtime clarity, compliance, and operational control.
+I’ve led **Murex Trading engineering** across Société Générale, Rabobank, Daiwa, LSEG, and the London Stock Exchange — modernising trade feeds, upgrading environments, and embedding secure authentication and reporting into high‑volume trading infrastructure. My work spans FX/MM, derivatives, and fixed income workflows, with deep integration across pre‑trade, post‑trade, and risk domains. Whether orchestrating FIX, SWIFT, and FpML flows into MxMLExchange or refactoring Datamart pipelines, I treat Murex as a strategic substrate for runtime clarity, compliance, and operational control.
 
 These platforms support real‑time processing with embedded controls for reconciliation, VaR, and regulatory reporting. I’ve delivered upgrades from Murex 2.x to 3.x and .29 to .49, compressing full environment refresh from eight days to around fifteen minutes through Git‑based CI/CD, tokenised builds, and deterministic configuration promotion. I’ve migrated Murex configurations from Oracle to PostgreSQL to reduce cost and increase agility, decoupling database logic into Groovy/Java services where appropriate. I’ve implemented SWIFT LAU/HMAC signing in exchange workflows, integrated LDAP/Kerberos with RSA MFA via Murex SPIs, and tuned VaR and stress testing pipelines to align with Basel III/IV and FRTB requirements.
 
@@ -51,9 +51,12 @@ To support onboarding and operational rehearsal, I’ve built Murex‑specific t
 
 ---
 
-## Quick overview
+## Quick Overview
 
-I reduced environment refresh from days to minutes with Git‑based builds and tokenised deployment, enabling rapid clone/spin‑up and safe promotion. I migrated Murex configuration from Oracle to PostgreSQL on AWS for cost reduction and operational control, moving embedded logic into service code to simplify maintenance. I delivered Log4j remediation programmes across trading platforms, orchestrating upgrades and vendor coordination without service disruption. And I’ve consistently embedded auditability and runtime clarity — so every flow, calculation, and message is attributable, re-playable, and governed.
+- Reduced environment refresh from days to minutes with Git‑based builds and tokenised deployment.
+- Migrated Murex configuration from Oracle to PostgreSQL on AWS for cost reduction and operational control.
+- Delivered Log4j remediation programmes across trading platforms, orchestrating upgrades and vendor coordination without service disruption.
+- Consistently embedded auditability and runtime clarity — so every flow, calculation, and message is attributable, replayable, and governed.
 
 ---
 
@@ -75,4 +78,4 @@ Oracle | PostgreSQL | Groovy | Java | Spring Boot | Docker | Kubernetes | Git 
 LDAP | Kerberos | RSA MFA | OAuth2 | HMAC | Federated Identity | SWIFT LAU Signing
 
 **Architecture & Practices**  
-CI/CD Automation | Environment Refresh | Runtime Introspection | Auditability | Observability | Strategic Reuse | Domain‑Driven Design
+CI/CD Automation | Environment Refresh | Runtime Introspection | Auditability | Observability | Strategic Reuse | Domain‑Driven Design  
