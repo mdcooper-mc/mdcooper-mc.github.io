@@ -18,10 +18,10 @@ behavioural signal extraction from market data. I’ve built systems that handle
 exposure tracking — with embedded controls for cost variance, earned value, and budget performance. Whether integrating
 FIX, FpML, or SWIFT flows, I focus on separating mechanical complexity from strategic insight.
 
-I’ve also led Murex engineering programmes across Société Générale, Rabobank, and the London Stock Exchange — delivering
-real-time trade feeds, CI/CD-driven upgrades, and secure authentication flows. My work spans FIX, SWIFT, and FpML
-orchestration, Datamart and VaR enhancements, and SWIFT LAU signing — treating Murex as a strategic substrate for
-clarity, compliance, and runtime control.
+I’ve also led engineering programmes across the Murex Trading platform at Société Générale, Rabobank, and the London
+Stock Exchange — delivering real-time trade feeds, CI/CD-driven upgrades, and secure authentication flows. My work spans
+FIX, SWIFT, and FpML orchestration, Datamart and VaR enhancements, and SWIFT LAU signing — treating Murex as a strategic
+substrate for clarity, compliance, and runtime control.
 
 I hold a **BSc in Computer Science** and an **MSc in Distributed Systems Engineering**, with a strong academic
 foundation in algorithm design, concurrency, and systems architecture. My postgraduate research included the design and
