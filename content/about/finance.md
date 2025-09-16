@@ -19,20 +19,31 @@ I’ve also delivered reconciliation engines, compression workflows, and collate
 high-volume, multi-venue trading environments. My architecture emphasizes separation of concerns, provider-driven
 design, and runtime introspection — enabling transparency and control across financial operations.
 
-Whether integrating with DTCC, LCH Clearlink, Bloomberg, Refinitiv, or **Murex Trading platform**, I treat financial infrastructure as a
+Whether integrating with DTCC, LCH Clearlink, Bloomberg, Refinitiv, or **Murex Trading platform**, I treat financial
+infrastructure as a
 strategic asset — engineered to extract insight, enforce governance, and adapt to change.
 
 ---
 
 ## Training Platforms
 
-I’ve designed and integrated Murex-specific environments that mirror production workflows across trade processing, reconciliation, and regulatory reporting. These platforms enable teams to rehearse operational scenarios, validate system behaviour, and accelerate onboarding with precision and reproducibility.
+I’ve designed and integrated Murex-specific environments that mirror production workflows across trade processing,
+reconciliation, and regulatory reporting. These platforms enable teams to rehearse operational scenarios, validate
+system behaviour, and accelerate onboarding with precision and reproducibility.
 
-One such environment includes CI/CD-driven refresh simulators that reduce full Murex environment rebuilds from eight days to under fifteen minutes — using Git-based automation to streamline configuration and deployment. I’ve also built Datamart replay engines that reconstruct historical VaR and MRA flows, allowing compliance teams to validate risk logic under real-world conditions. For secure messaging, I developed SWIFT signing labs that simulate HMAC-secured digital signature workflows, enabling robust testing of exchange message integrity.
+One such environment includes CI/CD-driven refresh simulators that reduce full Murex environment rebuilds from eight
+days to under fifteen minutes — using Git-based automation to streamline configuration and deployment. I’ve also built
+Datamart replay engines that reconstruct historical VaR and MRA flows, allowing compliance teams to validate risk logic
+under real-world conditions. For secure messaging, I developed SWIFT signing labs that simulate HMAC-secured digital
+signature workflows, enabling robust testing of exchange message integrity.
 
-Authentication sandboxes provide isolated environments for rehearsing LDAP and Kerberos integration, including multi-factor authentication via RSA and federated identity flows. To support documentation and repeatability, I embed modular walkthroughs directly into Hugo-based developer portals, integrating training-as-code into CI/CD pipelines for seamless access and version control.
+Authentication sandboxes provide isolated environments for rehearsing LDAP and Kerberos integration, including
+multi-factor authentication via RSA and federated identity flows. To support documentation and repeatability, I embed
+modular walkthroughs directly into Hugo-based developer portals, integrating training-as-code into CI/CD pipelines for
+seamless access and version control.
 
-These systems are engineered for runtime introspection, strategic reuse, and operational clarity — ensuring that teams train with the same rigor and transparency they deploy.
+These systems are engineered for runtime introspection, strategic reuse, and operational clarity — ensuring that teams
+train with the same rigor and transparency they deploy.
 
 ---
 

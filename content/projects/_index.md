@@ -38,7 +38,9 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   and retry-safe execution paths.
 
 - **[Image Classification](/projects/image-classification/)**  
-  A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails, assigns CLIP‑based semantic labels, detects people and animals, and applies a hybrid AI/heuristic model to flag junk content — all in a modular, reproducible pipeline.
+  A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails,
+  assigns CLIP‑based semantic labels, detects people and animals, and applies a hybrid AI/heuristic model to flag junk
+  content — all in a modular, reproducible pipeline.
 
 - **[Murex On‑Demand](/about/murex/)**  
   A containerised, CI/CD‑driven Murex platform enabling rapid, reproducible environment provisioning for development,

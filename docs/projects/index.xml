@@ -27,7 +27,7 @@
       <link>https://mdcooper-mc.github.io/projects/image-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mdcooper-mc.github.io/projects/image-classification/</guid>
-      <description>&lt;p&gt;This project was built to bring order to large, mixed‑quality media collections — the kind that blend treasured photos with everyday clutter. It takes a simple list of files and transforms it into a rich, structured dataset that’s easy to search, filter, and work with.&lt;/p&gt;&#xA;&lt;p&gt;The process starts by checking what’s already known about each file and filling in any missing details. It then creates lightweight, high‑quality thumbnails to speed up processing and reduce strain on storage and networks. These thumbnails are cached so they can be reused without repeatedly loading the original files.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This project was built to bring order to large, mixed‑quality media collections — the kind that blend treasured photos&#xA;with everyday clutter. It takes a simple list of files and transforms it into a rich, structured dataset that’s easy to&#xA;search, filter, and work with.&lt;/p&gt;&#xA;&lt;p&gt;The process starts by checking what’s already known about each file and filling in any missing details. It then creates&#xA;lightweight, high‑quality thumbnails to speed up processing and reduce strain on storage and networks. These thumbnails&#xA;are cached so they can be reused without repeatedly loading the original files.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
