@@ -21,6 +21,10 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   A provider-based framework for simplifying reconciliation logic. Engineers focus on domain-specific rules while the
   engine handles boilerplate execution, timing, and exit signalling.
 
+- **[Permissions Service](/projects/permissions-service/)**  
+  A showcase for managing fine-grained ingress permissions within Kubernetes where Angular, TypeScript are used as a
+  frontend backed by a ReST API using GoLang for the permission and group management of IdP provided users via JWTs.
+
 - **Swaps Pricing Engine (MVP)**  
   GPU-accelerated pricing and behavioural signal extraction for structured derivatives. Designed to surface intent
   curves from market data and support real-time decisioning.

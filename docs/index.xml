@@ -58,6 +58,13 @@
       <description>&lt;p&gt;I’ve led &lt;strong&gt;Murex Trading engineering&lt;/strong&gt; across Société Générale, Rabobank, Daiwa, LSEG, and the London Stock Exchange —&#xA;modernising trade feeds, upgrading environments, and embedding secure authentication and reporting into high‑volume&#xA;trading infrastructure. My work spans FX/MM, derivatives, and fixed income workflows, with deep integration across&#xA;pre‑trade, post‑trade, and risk domains. Whether orchestrating FIX, SWIFT, and FpML flows into MxMLExchange or&#xA;refactoring Datamart pipelines, I treat Murex as a strategic substrate for runtime clarity, compliance, and operational&#xA;control.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Permissions Application Suite</title>
+      <link>https://mdcooper-mc.github.io/projects/permissions-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/permissions-service/</guid>
+      <description>&lt;p&gt;The &lt;strong&gt;Permissions Application Suite&lt;/strong&gt; is a cutting-edge solution that enables efficient and scalable permission, directory group, and management group handling in modern enterprise systems. It consists of two complementary components, the &lt;strong&gt;Permissions Admin&lt;/strong&gt; and the &lt;strong&gt;Permissions Service&lt;/strong&gt;, combined with a focus on leveraging &lt;strong&gt;Angular&lt;/strong&gt;, &lt;strong&gt;React design principles&lt;/strong&gt;, and &lt;strong&gt;TypeScript&lt;/strong&gt;. This suite provides an advanced framework for handling complex workflows, ensuring precise access control and improving developer efficiency.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;overview-of-permissions-application-suite&#34;&gt;&#xA;  Overview of Permissions Application Suite&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#overview-of-permissions-application-suite&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Permissions Admin&lt;/strong&gt; serves as the modular, responsive frontend interface, enabling administrators to manage permissions dynamically through an interactive and user-friendly Angular-based interface. It empowers enterprise teams to configure roles and groups intuitively.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Real‑Time Orchestration Platform</title>
       <link>https://mdcooper-mc.github.io/platforms/real-time-orchestration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

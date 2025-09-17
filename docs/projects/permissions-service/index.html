@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Permissions Application Suite · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A unified solution combining the Permissions Admin application and Permissions Service for managing permissions, directory groups, and data partitioning, utilizing Angular, React design principles, and TypeScript.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Permissions Application Suite">
+  <meta name="twitter:description" content="A unified solution combining the Permissions Admin application and Permissions Service for managing permissions, directory groups, and data partitioning, utilizing Angular, React design principles, and TypeScript.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/projects/permissions-service/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Permissions Application Suite">
+  <meta property="og:description" content="A unified solution combining the Permissions Admin application and Permissions Service for managing permissions, directory groups, and data partitioning, utilizing Angular, React design principles, and TypeScript.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/projects/permissions-service/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/projects/permissions-service/">
+          Permissions Application Suite
+        </a>
+      </h1>
+    </header>
+
+    <p>The <strong>Permissions Application Suite</strong> is a cutting-edge solution that enables efficient and scalable permission, directory group, and management group handling in modern enterprise systems. It consists of two complementary components, the <strong>Permissions Admin</strong> and the <strong>Permissions Service</strong>, combined with a focus on leveraging <strong>Angular</strong>, <strong>React design principles</strong>, and <strong>TypeScript</strong>. This suite provides an advanced framework for handling complex workflows, ensuring precise access control and improving developer efficiency.</p>
+<hr>
+<h2 id="overview-of-permissions-application-suite">
+  Overview of Permissions Application Suite
+  <a class="heading-link" href="#overview-of-permissions-application-suite">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>Permissions Admin</strong> serves as the modular, responsive frontend interface, enabling administrators to manage permissions dynamically through an interactive and user-friendly Angular-based interface. It empowers enterprise teams to configure roles and groups intuitively.</p>
+<p>The <strong>Permissions Service</strong>, a Go-based backend system, complements the frontend application by offering robust APIs that securely handle data, roles, and group allocations. With its scalability and secure design, it ensures smooth communication between the frontend and backend elements.</p>
+<p>These two components operate cohesively to provide an end-to-end solution that simplifies enterprise-level permission management and governance.</p>
+<hr>
+<h2 id="angular-the-foundation-of-the-permissions-admin-interface">
+  Angular: The Foundation of the Permissions Admin Interface
+  <a class="heading-link" href="#angular-the-foundation-of-the-permissions-admin-interface">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>Permissions Admin</strong>, built with Angular, stands out as a highly modular and component-driven SPA (Single Page Application). Angular’s features, such as dependency injection, component trees, modularization, and reactive programming, make it the ideal framework to support this dynamic and complex application.</p>
+<p>Angular divides the Permissions Admin into reusable components. These smaller, focused components address specific functionalities like managing permissions, creating directory groups, or defining management groups. For example, the <strong>PermissionsManagementComponent</strong> acts as the central hub for CRUD operations on permissions, while components like <strong>DirectoryGroupComponent</strong> and <strong>ManagementGroupComponent</strong> are designed to handle intricacies related to directory grouping and management.</p>
+<p>Dynamic forms are central to workflows in the application. By leveraging Angular’s <strong>Reactive Forms module</strong>, administrators can build and interact with highly customizable forms in real time. These forms ensure fields are dynamically updated based on user interactions, providing real-time validation and interactivity. For example, as administrators create a permission set, the form automatically adjusts based on selected options like permission types or assignment methods.</p>
+<p>Angular’s <strong>RxJS library</strong> provides reactive state management, enabling seamless updates across components. If permissions are enabled, disabled, created, or modified, RxJS observes and updates the relevant application data streams instantly, ensuring administrators always work with the most recent and accurate data. With Angular’s integration of RxJS, the Permissions Admin achieves real-time responsiveness, becoming a more reliable tool for mission-critical workflows.</p>
+<p>Additionally, Angular optimizes navigation within the suite using the <strong>RouterModule</strong>, which enables smooth transitions between managing permissions, directory groups, and management groups. Lazy loading is used to ensure features are loaded only when required, further improving efficiency without overloading resources.</p>
+<p>Angular’s modular nature ensures that every feature of the Permissions Admin is built to accommodate future scalability while maintaining a consistent user experience. Its flexible architecture makes adding new components or extending existing ones a straightforward task.</p>
+<hr>
+<h2 id="react-inspired-design-principles-reusability-and-data-flow">
+  React-Inspired Design Principles: Reusability and Data Flow
+  <a class="heading-link" href="#react-inspired-design-principles-reusability-and-data-flow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Though built with Angular, the Permissions Admin incorporates design principles inspired by <strong>React</strong>, primarily focusing on reusability and unidirectional data flow. These React-inspired principles allow the application to achieve better maintainability, efficiency, and scalability.</p>
+<p>Reusability plays a crucial role in simplifying the development process. Each Angular component in the Permissions Admin is designed to be self-contained and modular. For example, the <strong>ToggleComponent</strong> provides a consistent UI element for permission toggles throughout the application. Similarly, the <strong>ModalDialogComponent</strong> consolidates the logic and styles for modal use cases, removing duplication while ensuring consistent behavior across the suite.</p>
+<p>A React-inspired focus on <strong>unidirectional data flow</strong> ensures that the application&rsquo;s state management is both predictable and maintainable. Utilizing BehaviorSubjects from RxJS, the Permissions Admin maintains strict control over how data flows through components. Any changes made to core application data, such as assigning permissions to a group, follow a clear and traceable path, reducing debugging complexity and ensuring reliable behavior.</p>
+<p>Efficiency in component updates is achieved through Angular’s <strong>OnPush Change Detection Strategy</strong>, mirroring React’s focus on virtual DOM updates. By limiting component updates to situations where inputs have been explicitly changed, performance overhead is significantly reduced, particularly in scenarios involving a large number of users, permissions, or groups.</p>
+<p>By combining React’s modular design philosophy and data management principles with Angular’s native strengths, the Permissions Admin achieves a harmonious balance of usability and performance.</p>
+<hr>
+<h2 id="typescript-the-backbone-of-development">
+  TypeScript: The Backbone of Development
+  <a class="heading-link" href="#typescript-the-backbone-of-development">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The Permissions Application Suite is built entirely with <strong>TypeScript</strong>, providing a robust foundation for development. TypeScript’s static typing, interfaces, and type-safe development practices ensure the codebase is reliable, maintainable, and easy to scale, all while reducing runtime errors.</p>
+<p>TypeScript interfaces and types are used extensively to define data models for the application. For example, a <code>Permission</code> interface standardizes the structure of permission-related data, ensuring that components and services interact seamlessly using the same data schema. This reduces ambiguity and increases the readability of the code.</p>
+<p>Enumerations (<code>enum</code>) are leveraged to define sets of constant values, such as permission types (<code>READ</code>, <code>WRITE</code>, <code>DELETE</code>), ensuring consistent usage throughout the codebase. Enumerations simplify how values are handled while preventing accidental errors caused by misspellings or undefined constants.</p>
+<p>Type safety enhances API interactions by ensuring that the data being sent or received matches the expected structure. For example, backend APIs return strongly-typed objects and lists, enabling frontend services to handle this data correctly. TypeScript also enables features like <code>async</code> and <code>await</code>, ensuring that asynchronous operations, such as retrieving permissions or saving data, are handled cleanly.</p>
+<p>The reliability TypeScript brings extends its benefits to collaborative development as well. It ensures that different team members working on the system can rely on detailed type definitions and models, improving code consistency, reducing onboarding time, and avoiding costly interface mismatches.</p>
+<hr>
+<h2 id="skills--technologies">
+  Skills &amp; Technologies
+  <a class="heading-link" href="#skills--technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="frontend-admin">
+  Frontend (Admin)
+  <a class="heading-link" href="#frontend-admin">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The <strong>Permissions Admin</strong> frontend application relies on modern technologies and frameworks to deliver a scalable and responsive user experience:</p>
+<ul>
+<li><strong>Frameworks</strong>: Angular | RxJS | SCSS Styling | TypeScript.</li>
+<li><strong>Features</strong>: Modular UI components, Reactive Forms for dynamic interactions, and seamless REST API integration.</li>
+</ul>
+<h3 id="backend-service">
+  Backend (Service)
+  <a class="heading-link" href="#backend-service">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The <strong>Permissions Service</strong> backend is designed with scalability and security in mind, incorporating advanced tools to ensure reliable data management and secure operations:</p>
+<ul>
+<li><strong>Languages &amp; Libraries</strong>: Go | Gorilla Mux | PostgreSQL | GORM.</li>
+<li><strong>Security</strong>: JWT for authentication, SHA1 hashing, and Base64 encoding for data integrity.</li>
+</ul>
+<hr>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The Permissions Application Suite is a sophisticated system combining the <strong>Permissions Admin</strong> and <strong>Permissions Service</strong> to deliver enterprise-grade permission and access control. By leveraging <strong>Angular</strong>, <strong>React-inspired principles</strong>, and <strong>TypeScript</strong>, the suite achieves a high level of scalability, maintainability, and usability. Angular’s modular architecture powers the admin UI; React’s focus on dataflow and reusability ensures clarity and efficiency; and TypeScript reinforces the entire system with type-safe, error-free development.</p>
+<p>This blend of modern technologies creates a forward-thinking solution for enterprises, enabling them to manage permissions, directory groups, and resource partitions with unparalleled ease and precision. Whether managing small-scale teams or large organizations, the Permissions Application Suite provides a secure, reliable, and future-proof foundation.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
