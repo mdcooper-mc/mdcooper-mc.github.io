@@ -44,6 +44,13 @@
       <description>&lt;p&gt;I design and deliver financial systems that support the full trade lifecycle — from capture and enrichment to&#xA;reconciliation, reporting, and compliance. My platforms are built for runtime clarity, auditability, and strategic reuse&#xA;across asset classes and regulatory regimes.&lt;/p&gt;&#xA;&lt;p&gt;I’ve engineered solutions for FX/MM, derivatives, fixed income, and structured products, integrating standards like FIX,&#xA;FpML, and SWIFT MT/MX. My work spans real-time trade processing, exposure tracking, margining, and capital allocation —&#xA;with embedded controls for cost variance, earned value, and budget performance.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Identity‑Anchored Encryption</title>
+      <link>https://mdcooper-mc.github.io/projects/identity-centric-encryption-with-user-consent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/identity-centric-encryption-with-user-consent/</guid>
+      <description>&lt;p&gt;This project demonstrates how encryption can be made &lt;strong&gt;identity‑centric&lt;/strong&gt; — shifting control from purely key‑based&#xA;systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then&#xA;wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.&lt;/p&gt;&#xA;&lt;p&gt;Decryption is never automatic. It requires:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;A valid identity token (JWT) issued by the Identity Provider (Okta).&lt;/li&gt;&#xA;&lt;li&gt;Explicit user approval if the actor requesting access is not the data owner.&lt;/li&gt;&#xA;&lt;li&gt;A successful unwrap of the record’s encryption key by the Key Management Service.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Every decrypt event is logged with actor, subject, purpose, and key version, ensuring a defensible audit trail. This&#xA;makes the Identity Provider the &lt;strong&gt;front door for decryption&lt;/strong&gt; — the arbiter of whether access is legitimate.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Image Classification</title>
       <link>https://mdcooper-mc.github.io/projects/image-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
