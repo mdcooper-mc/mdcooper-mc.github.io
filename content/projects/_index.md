@@ -13,6 +13,10 @@ mechanical complexity from human intent, allowing systems to remain composable, 
 
 ### Featured Projects
 
+- **[Identity‑Centric Encryption with User Consent](/projects/identity-centric-encryption-with-user-consent/)**
+  Every record is protected with its own key, and decryption requires both verified identity and explicit user approval,
+  ensuring security, consent, and a clear audit trail.
+
 - **[Service Framework](/projects/service-framework/)**  
   An annotation-driven event orchestration engine for BAU workflows. It enables declarative routing, conditional
   execution, and modular service composition using Spring Boot.
