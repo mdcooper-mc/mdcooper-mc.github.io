@@ -22,13 +22,6 @@
       <description>&lt;h2 id=&#34;mpc-project-analyser&#34;&gt;&#xA;  MPC Project Analyser&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#mpc-project-analyser&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;MPC Project Analyser&lt;/strong&gt; is a deterministic, batch-based analysis engine written in Python. It bridges the gap&#xA;between expensive, high-reasoning AI models and cost-effective execution models. Rather than feeding raw source code&#xA;to every AI agent, the analyser generates compact structural metadata — AST signatures, file trees, documentation&#xA;maps — that enables agents to plan software changes safely and efficiently without consuming unnecessary context.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Real-Time Payments Platform</title>
-      <link>https://mdcooper-mc.github.io/projects/real-time-payments-platform/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/projects/real-time-payments-platform/</guid>
-      <description>&lt;p&gt;The Real-Time Payments Platform is an end-to-end orchestration system for equity derivatives calculation at&#xA;institutional scale. It coordinates data collection, instrument conversion, pricing calculation, and results&#xA;publication across multiple AWS services — running continuously against live market positions and publishing&#xA;structured output downstream for risk management and regulatory reporting.&lt;/p&gt;&#xA;&lt;p&gt;The platform was architected, built, and delivered from the ground up. It spans an Apache Airflow DAG layer for&#xA;workflow orchestration, a Python utility library that abstracts all AWS and API interactions, a versioned CI/CD&#xA;pipeline for reproducible deployment, and a Kubernetes-hosted calculation service tier. All core services,&#xA;calculations, and infrastructure were designed and implemented as a cohesive, extensible platform — reviewed by&#xA;AWS and assessed as highly scalable and well-designed.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Swaps Pricing Engine (MVP)</title>
       <link>https://mdcooper-mc.github.io/projects/swaps-pricing-engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

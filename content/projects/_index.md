@@ -52,9 +52,6 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   AI agents can plan software changes without consuming raw source code. Pairs with a three-persona workflow — Reviewer,
   Planner, and Coder — to keep premium model usage focused on reasoning and architecture.
 
-- **[Real-Time Payments Platform](/projects/real-time-payments-platform/)**  
-  A fault-tolerant AWS orchestration platform for 24×7 regulatory equity derivatives processing. Built on Apache
-  Airflow, a Python microservices library, Kubernetes, and a versioned CI/CD pipeline spanning DEV, QA, and production.
 
 - **[AI-Based Image Classification & Face Recognition](/projects/image-classification/)**  
   A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails,
