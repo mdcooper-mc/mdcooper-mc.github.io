@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  MPC Project Analyser · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MPC Project Analyser">
+  <meta name="twitter:description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively.">
+
+<meta property="og:url" content="http://localhost:1313/projects/optimising-ai-credits/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="MPC Project Analyser">
+  <meta property="og:description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Architecture">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/optimising-ai-credits/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/optimising-ai-credits/">
+          MPC Project Analyser
+        </a>
+      </h1>
+    </header>
+
+    <h2 id="mpc-project-analyser">
+  MPC Project Analyser
+  <a class="heading-link" href="#mpc-project-analyser">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>MPC Project Analyser</strong> is a deterministic, batch-based analysis engine written in Python. It bridges the gap
+between expensive, high-reasoning AI models and cost-effective execution models. Rather than feeding raw source code
+to every AI agent, the analyser generates compact structural metadata — AST signatures, file trees, documentation
+maps — that enables agents to plan software changes safely and efficiently without consuming unnecessary context.</p>
+<p>The driving insight is that most AI credits are wasted when a single premium model does everything: deep reasoning,
+mechanical coding, test generation, and repetitive fixes. By assigning distinct <strong>personas</strong> to different model tiers
+and switching between them deliberately, the same quality of output is achievable at a fraction of the cost. Premium
+models think — they review completed work and produce architectural plans. Free or standard models build — they
+execute the plan, write code, and update logs. Each phase runs in its own <strong>new chat session</strong> so context stays
+clean and no premium credits are spent on deterministic work a free model can handle.</p>
+<hr>
+<h2 id="engineering-principles">
+  Engineering Principles
+  <a class="heading-link" href="#engineering-principles">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The analyser is built on principles that make its output reliable enough for AI consumption.</p>
+<p><strong>Structure-first</strong> means the system analyses the <em>shape</em> of code — classes, functions, namespaces, call signatures
+— rather than its raw text. This produces compact, token-efficient output that communicates intent without noise.
+<strong>Deterministic output</strong> ensures that given the same input the analyser produces bit-exact output every time, which
+is a prerequisite for AI agents that need to compare runs or detect drift. <strong>Interface-driven design</strong> means all
+dependencies are injected via <code>Protocol</code> abstractions; the core never references concrete classes directly.
+<strong>Single Responsibility</strong> is enforced at the package level: <code>capabilities</code>, <code>configuration</code>, and <code>output</code> are
+separate domains. <strong>Zero side effects</strong> means the analyser reads code but never modifies it; data goes to <code>stdout</code>
+and logs go to <code>stderr</code>.</p>
+<hr>
+<h2 id="architecture">
+  Architecture
+  <a class="heading-link" href="#architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The system is partitioned into five domains that build on each other cleanly.</p>
+<p>The <strong>error and logging infrastructure</strong> was established first. A typed exception hierarchy —
+<code>ContentAnalyserError</code>, <code>ConfigurationError</code>, <code>FileSystemError</code> — ensures failures are granular and catchable.
+Logging is centralised and idempotent, writing exclusively to <code>stderr</code> so <code>stdout</code> remains clean for JSON output.</p>
+<p>The <strong>configuration system</strong> treats configuration as a domain model rather than a dictionary. <code>AnalysisConfig</code> and
+<code>OperationConfig</code> provide type-safe wrappers around user input. A validated JSON loader acts as the gateway,
+applying the fail-fast principle by rejecting invalid schemas at startup before any analysis begins.</p>
+<p>The <strong>capability engine</strong> is the core of the system and is built on the Strategy pattern. A registry of named
+capabilities allows the CLI to be open for extension without modification. <code>FileTree</code> generates nested directory
+maps to visualise project layout. <code>FileWalker</code> extracts metadata — line counts, file sizes, types — for resource
+estimation. <code>CodeTree</code> uses Python&rsquo;s <code>ast</code> module to parse source into high-level signatures (classes, methods,
+functions, parameters) while skipping implementation bodies entirely, minimising token usage for downstream AI
+consumers.</p>
+<p>The <strong>CLI and output layer</strong> is intentionally thin. A <code>main.py</code> orchestrator using <code>argparse</code> supports two modes:
+schema mode outputs the validator schema when called with no arguments; analysis mode executes the requested
+operations when passed a <code>--config</code> flag. A <code>JsonResultFormatter</code> ensures all data is serialised to strictly
+formatted, deterministic JSON.</p>
+<hr>
+<h2 id="ast-metadata">
+  AST Metadata
+  <a class="heading-link" href="#ast-metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The Abstract Syntax Tree (AST) is a structured representation of source code produced by the language parser before
+compilation or execution. Rather than treating code as raw text, the AST exposes it as a tree of named nodes —
+modules, classes, functions, parameters, decorators, return types — each with precise location information. The
+analyser walks this tree and extracts only the structural signatures, discarding all implementation bodies. The
+result is a compact, token-efficient summary of what the code <em>does</em> without encoding how it does it.</p>
+<p>This matters for AI consumption because large language models have finite context windows. Sending raw source files
+fills that window with implementation detail that is irrelevant to planning. An AST summary for a module with ten
+classes and fifty methods might consume a few hundred tokens where the original source would consume tens of
+thousands. The planner can reason about the entire codebase structure in a single context, identify what needs to
+change, and write precise subtasks — all without ever seeing a line of implementation.</p>
+<p>The metadata produced by <code>CodeTree</code> for each source file includes the module path, top-level imports, and for each
+class: its name, base classes, decorators, and a list of methods with their signatures, parameter names, type hints,
+and return types. Functions defined at module level are captured with the same detail. This is sufficient for a
+premium model to assess architecture, identify violations, and plan interfaces-first changes without ambiguity.</p>
+<hr>
+<h2 id="the-persona-workflow">
+  The Persona Workflow
+  <a class="heading-link" href="#the-persona-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The analyser is designed to be used alongside a three-persona AI workflow. Each persona runs in a new chat session
+with the appropriate model tier, and the instruction files below are loaded at the start of every session to ensure
+consistent engineering standards regardless of which model is running.</p>
+<ul>
+<li><strong><a href="/projects/ai/reviewer-instructions/" >Reviewer</a></strong> — premium model; reads all source, tests, and docs; writes a prioritised <code>issues.md</code> report; strictly read-only.</li>
+<li><strong><a href="/projects/ai/planner-instructions/" >Planner</a></strong> — premium model; reads issues and change-log; writes a deterministic <code>plan.md</code>; never touches code.</li>
+<li><strong><a href="/projects/ai/coder-instructions/" >Coder</a></strong> — free or standard model; executes the plan exactly; updates the change-log after every subtask.</li>
+</ul>
+<p>The supporting reference files that every persona reads:</p>
+<ul>
+<li><strong><a href="/projects/ai/copilot-instructions/" >copilot-instructions</a></strong> — universal coding standards applied across all sessions.</li>
+<li><strong><a href="/projects/ai/best-practice/" >best-practice</a></strong> — the engineering handbook covering patterns, testing, architecture, and package structure.</li>
+</ul>
+<h3 id="reviewer-prompt">
+  Reviewer Prompt
+  <a class="heading-link" href="#reviewer-prompt">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You are the Reviewer. Read the reviewer-instructions, copilot-instructions, and .github/best-practice.md first.
+</span></span><span style="display:flex;"><span>Then read all source, test, config, and documentation files including plan.md and change-log.md. Produce a
+</span></span><span style="display:flex;"><span>prioritised best-practice report in reference/documentation/planning/issues.md covering architectural violations,
+</span></span><span style="display:flex;"><span>design patterns, package structure, and quality issues — with severity, violated standard, impact, and next steps
+</span></span><span style="display:flex;"><span>for each. Your role is strictly read-only. Do not modify code, tests, plans, or create any file other than issues.md.
+</span></span></code></pre></div><h3 id="planner-prompt">
+  Planner Prompt
+  <a class="heading-link" href="#planner-prompt">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You are the Planner. Read the planner-instructions, copilot-instructions, and .github/best-practice.md first.
+</span></span><span style="display:flex;"><span>Then read reference/documentation/planning/issues.md, reference/documentation/change-log.md, and
+</span></span><span style="display:flex;"><span>reference/session-summary.md. Remove completed tasks from the existing plan and produce
+</span></span><span style="display:flex;"><span>reference/documentation/planning/plan.md with 3–10 milestone tasks and no more than 100 subtasks. Write every
+</span></span><span style="display:flex;"><span>subtask interfaces-first using the strict subtask format. Resolve all issues from issues.md before adding new
+</span></span><span style="display:flex;"><span>work. Do not modify any file except plan.md. Finish the plan with: &#34;Ready for Coder execution&#34;.
+</span></span></code></pre></div><h3 id="coder-prompt">
+  Coder Prompt
+  <a class="heading-link" href="#coder-prompt">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You are the Coder. Read the coder-instructions, copilot-instructions, and .github/best-practice.md first. Fix
+</span></span><span style="display:flex;"><span>all issues in reference/documentation/planning/issues.md, then execute every task in
+</span></span><span style="display:flex;"><span>reference/documentation/planning/plan.md exactly as written — interfaces before implementations, one task at a
+</span></span><span style="display:flex;"><span>time. Update reference/documentation/change-log.md with an ISO-8601 entry after each subtask. Do not modify
+</span></span><span style="display:flex;"><span>planning files, add unrequested features, or ask questions.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Before moving to the next task, verify your work against the coder-instructions: correct interfaces, no
+</span></span><span style="display:flex;"><span>placeholder comments, tests written and passing, change-log updated, and size limits respected. Summarise
+</span></span><span style="display:flex;"><span>completed subtasks and confirm before starting the next task.
+</span></span></code></pre></div><hr>
+<h2 id="developer-guidelines">
+  Developer Guidelines
+  <a class="heading-link" href="#developer-guidelines">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The project layout mirrors the domain structure. <code>src/content_analyser/</code> contains source code partitioned by
+domain. <code>tests/</code> mirrors the source structure exactly — one test class per source class, in the same relative
+path. <code>reference/</code> holds documentation and planning artefacts.</p>
+<p>Tests follow AAA (Arrange, Act, Assert) with one test method per use case. Internal logic is never mocked; only
+external systems and expensive operations are isolated. Temporary test artefacts go to <code>out/tests/&lt;domain&gt;/</code> to
+keep the workspace clean.</p>
+<p>The contribution workflow is: check <code>issues.md</code> for prioritised tasks, follow <code>plan.md</code> strictly, update
+<code>change-log.md</code> with every significant change.</p>
+<hr>
+<h2 id="roadmap">
+  Roadmap
+  <a class="heading-link" href="#roadmap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The functional core is complete. Current focus is test hygiene, docstring coverage on public interfaces, and
+decoupling the CLI from concrete implementations. Planned extensions include multi-language <code>CodeTree</code> support
+(TypeScript, Java, C#), a Markdown heading analyser for documentation structure extraction, further JSON
+compression for token optimisation, and a <code>pip</code>-publishable distribution workflow.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Languages &amp; Tools</strong>
+Python | AST Parsing | argparse | JSON Schema Validation | Pytest</p>
+<p><strong>Architecture &amp; Design</strong>
+Strategy Pattern | Capability Registry | Interface-Driven Design | Domain-Driven Packages | Fail-Fast Configuration</p>
+<p><strong>AI Workflow</strong>
+Persona-Driven Development | Premium vs Free Model Routing | Context Window Optimisation | Token-Efficient Metadata</p>
+<p><strong>Code Quality</strong>
+Pure Functions | Zero Side Effects | Typed Exception Hierarchy | Structured Logging | Deterministic Output</p>
+<p><strong>Testing</strong>
+AAA Pattern | Fast-Failing Tests | Mirrored Test Structure | One Test per Use Case | Domain-Grouped Test Classes</p>
+<p><strong>Process</strong>
+Interfaces-First Planning | Change-Log Discipline | Issues-Driven Iteration | Three-Persona Review Cycle</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

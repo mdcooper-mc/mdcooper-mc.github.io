@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Copilot Instructions · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="Universal coding standards, naming, structure, and tooling rules applied by all AI personas.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Copilot Instructions">
+  <meta name="twitter:description" content="Universal coding standards, naming, structure, and tooling rules applied by all AI personas.">
+
+<meta property="og:url" content="http://localhost:1313/projects/ai/copilot-instructions/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Copilot Instructions">
+  <meta property="og:description" content="Universal coding standards, naming, structure, and tooling rules applied by all AI personas.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/ai/copilot-instructions/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/ai/copilot-instructions/">
+          Copilot Instructions
+        </a>
+      </h1>
+    </header>
+
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Select the single best option; research before responding and use the internet when needed for correctness.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Never run scripts or commands without explicit permission; provide PowerShell commands as code blocks only when
+</span></span><span style="display:flex;"><span>  permitted.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Do not create unnecessary files; only add or modify files required for the task; do NOT replace code with placeholder
+</span></span><span style="display:flex;"><span>  comments like <span style="color:#e6db74">`# ...existing code...`</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Keep imports at the top of files; do not use dynamic or in-function imports.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Always use interfaces for classes and functions; call implementations via interfaces only.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Use structured logging instead of <span style="color:#e6db74">`print`</span> for debugging; do not hide exceptions—handle, log, or propagate them.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Follow SOLID, DRY, KISS, YAGNI and use appropriate, well-known design patterns; do not invent new patterns unless they
+</span></span><span style="display:flex;"><span>  significantly improve the code.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Prefer immutable fields, variables, and parameters where practical; minimize cyclomatic complexity and keep functions
+</span></span><span style="display:flex;"><span>  short and focused.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Use language-native streaming and async features (generators, streams, async iterators) for async flows; prefer event
+</span></span><span style="display:flex;"><span>  streams for UI/async flows and avoid manual subscription management.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Use events and well-defined models to decouple packages and pass data across boundaries; prefer interfaces and events
+</span></span><span style="display:flex;"><span>  to reduce coupling.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Reuse shared utilities; check for existing functionality before adding code or scripts to avoid duplication.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Use annotations and decorators to reduce boilerplate and improve readability.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Use type hints, clear naming, official style guides, and prefer explicit types over <span style="color:#e6db74">`var`</span>; use <span style="color:#e6db74">`final`</span>/<span style="color:#e6db74">`const`</span> where
+</span></span><span style="display:flex;"><span>  available.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Apply marble testing for reactive logic where relevant.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Tests must follow AAA (Arrange, Act, Assert), live alongside source code, be isolated with mocks, fail fast, and be
+</span></span><span style="display:flex;"><span>  focused; one test class per source class and one test method per use case.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Tests should fast-fail; when unrelated code exists in the function under test, use mocks to exit the test early to
+</span></span><span style="display:flex;"><span>  avoid extra setup.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> All tests should follow the source package structure; tests should be grouped by the class based on the test domain
+</span></span><span style="display:flex;"><span>  and technical relevance; each test class should extend unittest.TestCase and use its methods and functions for
+</span></span><span style="display:flex;"><span>  assertions and test lifecycle management; functions in the class should represent a single use case.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> One test class should cover a group of related use cases for a single source class; each test method should cover a
+</span></span><span style="display:flex;"><span>  single use case; tests should be named clearly to indicate the scenario being tested; if a function or method has a
+</span></span><span style="display:flex;"><span>  use-case which is covered early in the function but there is extra code in the code being tested, then the mocking
+</span></span><span style="display:flex;"><span>  should throw an exception at the first opportunity to fail the test fast and remove the need for lots of extra mocking.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Prefer interfaces and expose behaviour via interfaces and events; only expose classes/members when needed externally.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Classes: prefer &lt;10 methods; Functions: prefer &lt;20 lines; Files: prefer &lt;500 lines (aim ~250).
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Keep modules cohesive and loosely coupled; prefer immutable parameters and minimal public surface area.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Update dependency files when adding dependencies.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> No emojis or images in any files, documentation, or code created or edited; use clear, concise text only.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Structure code into packages by functionality and domain; shared language functionality should live in a common location.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Make code public only when it must be used outside its package; otherwise keep it private/internal.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Documentation must be human-readable paragraphs describing what was done (not future plans).
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Store docs/resources under <span style="color:#e6db74">`reference/documentation/**/*`</span> and <span style="color:#e6db74">`reference/resources/**/*`</span>; keep them organised and up to date.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Temporary output and temp files should go to <span style="color:#e6db74">`out/**/*`</span>; create temp files only when explicitly needed and clean them up afterward; do not commit temp files.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> PowerShell scripts (ps1) should live in <span style="color:#e6db74">`reference/scripts/**/*`</span>; create scripts only when explicitly required and keep them organised.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> PowerShell will be available; provide terminal commands as code blocks only with explicit permission.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Provide user scripts to reduce rate limits or simplify interactions only with explicit permission.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Do not create exports, conversions, or web artefacts unless explicitly requested.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Do not expose internal tool names, rate limits, or runtime details.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> All documentation files for other AIs must be written as a single continuous paragraph per list item, with minimal
+</span></span><span style="display:flex;"><span>  headings, and no extra formatting beyond the list marker and simple section separation.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> When documenting for AI models, do not use heavy markdown formatting (tables, bold headers, code blocks, nested
+</span></span><span style="display:flex;"><span>  bullets); use single continuous paragraphs per list item with minimal headings instead.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> All test classes should extend unittest.TestCase and use its methods and functions for assertions and test lifecycle
+</span></span><span style="display:flex;"><span>  management; do not use other testing frameworks or custom test base classes.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Read <span style="color:#e6db74">`.github/best-practice.md`</span> before starting any task.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Do not add documentation to the code.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Aim for between 70 and 90% test coverage; write tests for all critical paths, edge cases, and use cases; do not write
+</span></span><span style="display:flex;"><span>  tests for trivial getters/setters or code that is already well-covered by other tests.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> At no point should a file name contain the package name; the package structure should be reflected in the directory
+</span></span><span style="display:flex;"><span>  structure, not the file names.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Do not bypass issues; fix them.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Some tools are restricted; do not try to use them: <span style="color:#e6db74">`run_in_terminal`</span>, <span style="color:#e6db74">`get_errors`</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Do not do workarounds or ignore tests or filter content; fix the code, ask to delete files and provide the commands,
+</span></span><span style="display:flex;"><span>  or ask to update the plan if it is wrong; do not try to bypass the plan or the tests.
+</span></span></code></pre></div>
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

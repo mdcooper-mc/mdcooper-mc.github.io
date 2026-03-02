@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Mark Cooper</title>
-    <link>https://mdcooper-mc.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mdcooper-mc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Architecture</title>
-      <link>https://mdcooper-mc.github.io/categories/architecture/</link>
+      <link>http://localhost:1313/categories/architecture/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/categories/architecture/</guid>
+      <guid>http://localhost:1313/categories/architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>https://mdcooper-mc.github.io/categories/java/</link>
+      <link>http://localhost:1313/categories/java/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/categories/java/</guid>
+      <guid>http://localhost:1313/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring</title>
-      <link>https://mdcooper-mc.github.io/categories/spring/</link>
+      <link>http://localhost:1313/categories/spring/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/categories/spring/</guid>
+      <guid>http://localhost:1313/categories/spring/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring Boot</title>
-      <link>https://mdcooper-mc.github.io/categories/spring-boot/</link>
+      <link>http://localhost:1313/categories/spring-boot/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/categories/spring-boot/</guid>
+      <guid>http://localhost:1313/categories/spring-boot/</guid>
       <description></description>
     </item>
   </channel>

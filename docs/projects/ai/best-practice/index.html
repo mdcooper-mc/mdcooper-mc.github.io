@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Best Practice · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A practical engineering handbook covering design principles, patterns, testing discipline, and architecture guidelines.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Best Practice">
+  <meta name="twitter:description" content="A practical engineering handbook covering design principles, patterns, testing discipline, and architecture guidelines.">
+
+<meta property="og:url" content="http://localhost:1313/projects/ai/best-practice/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Best Practice">
+  <meta property="og:description" content="A practical engineering handbook covering design principles, patterns, testing discipline, and architecture guidelines.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/ai/best-practice/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/ai/best-practice/">
+          Best Practice
+        </a>
+      </h1>
+    </header>
+
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## The Foundation: Four Principles Every Codebase Needs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Good software starts with four principles that work together. The <span style="font-weight:bold">**Single Responsibility Principle (SRP)**</span> says that every module, class, and function should have exactly one reason to change. When a unit handles multiple concerns, a change in one area risks breaking another, and tests become difficult to reason about because behavior spans unrelated paths. Keeping things focused makes refactoring safe and failures easy to isolate.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Don&#39;t Repeat Yourself (DRY)**</span> means every piece of domain knowledge has one unambiguous home in the codebase. Duplication is not just a code smell — it is a maintenance liability. When the same rule exists in three places, they will eventually diverge. Consolidate logic into shared abstractions and your system stays consistent as it grows.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Keep It Simple**</span> is the hardest principle to follow under pressure. Complexity compounds faster than most engineers expect. Every unnecessary abstraction, every premature optimization, and every clever trick adds cognitive load for the next person. Prefer the simplest solution that solves the actual problem, and resist the temptation to build for imagined futures.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Interface-Driven Design**</span> ties the others together. All code should depend on abstractions, not concrete implementations. Use interfaces as the type for variables, fields, parameters, and return values everywhere. Concrete types belong only at composition roots — the places where the application is wired together. This gives you loose coupling, easy substitution, clean mocking in tests, and enforced boundaries between domains. It is not a suggestion; it is the foundation of a maintainable system.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Design Patterns
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Patterns are vocabulary for solutions that recur across different problems. Knowing them means you can communicate intent clearly and apply proven structures instead of reinventing them. They fall into three classical groups.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Creational patterns**</span> control how objects come into existence. The <span style="font-weight:bold">**Factory Method**</span> delegates the decision of which concrete type to create to a subclass or a strategy, keeping the calling code unaware of the implementation. The <span style="font-weight:bold">**Builder**</span> constructs complex objects step by step, allowing different configurations without bloated constructors. The <span style="font-weight:bold">**Abstract Factory**</span> creates families of related objects and is useful when the entire set of implementations must be switched together. <span style="font-weight:bold">**Prototype**</span> clones existing objects when construction is expensive. <span style="font-weight:bold">**Singleton**</span> ensures a single instance exists globally, though it should be used sparingly as it introduces hidden coupling.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Structural patterns**</span> describe how components are assembled. The <span style="font-weight:bold">**Adapter**</span> wraps an incompatible interface so it fits where another is expected — invaluable when integrating third-party libraries. The <span style="font-weight:bold">**Decorator**</span> adds behavior to an object at runtime without subclassing, composing capabilities cleanly. The <span style="font-weight:bold">**Facade**</span> simplifies a complex subsystem behind a single, coherent interface. The <span style="font-weight:bold">**Composite**</span> lets trees of objects be treated uniformly, which is the right model for hierarchical data. The <span style="font-weight:bold">**Proxy**</span> controls access to another object, adding caching, authorization, or lazy initialization. <span style="font-weight:bold">**Bridge**</span> separates abstraction from implementation so both can vary independently. <span style="font-weight:bold">**Flyweight**</span> shares common state across many small objects to reduce memory pressure.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Behavioral patterns**</span> define how objects communicate. The <span style="font-weight:bold">**Strategy**</span> pattern encapsulates interchangeable algorithms behind a common interface, making runtime behavior changes clean and testable. <span style="font-weight:bold">**Observer**</span> notifies dependents automatically when state changes — the backbone of event-driven systems. <span style="font-weight:bold">**Command**</span> wraps an action as an object, enabling queuing, undo, and logging. <span style="font-weight:bold">**Chain of Responsibility**</span> passes a request along a chain of handlers until one processes it, decoupling senders from receivers. <span style="font-weight:bold">**State**</span> lets an object&#39;s behavior change when its internal state changes without a mass of conditionals. <span style="font-weight:bold">**Template Method**</span> defines an algorithm&#39;s skeleton in a base class and lets subclasses fill in the steps. <span style="font-weight:bold">**Visitor**</span> separates an algorithm from the structure it operates on, letting you add operations without touching the objects. <span style="font-weight:bold">**Mediator**</span> centralises communication between objects, reducing direct dependencies. <span style="font-weight:bold">**Memento**</span> captures and restores state without exposing internals.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Beyond the Gang of Four, several architectural patterns are now standard. <span style="font-weight:bold">**Event Sourcing**</span> stores state as an immutable sequence of events rather than current values, giving you a full audit trail and the ability to replay history. <span style="font-weight:bold">**CQRS**</span> separates read and write models so each can be optimised independently. The <span style="font-weight:bold">**Repository**</span> pattern abstracts data access behind a domain-facing interface, keeping storage details out of business logic. The <span style="font-weight:bold">**Service Layer**</span> encapsulates business operations as explicit, reusable services. The <span style="font-weight:bold">**Saga**</span> pattern coordinates distributed transactions across microservices using compensating actions rather than locks. <span style="font-weight:bold">**Null Object**</span> eliminates null checks by providing a do-nothing implementation that satisfies the interface contract.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Functional Programming
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Functional programming is not an all-or-nothing paradigm — most of its value comes from applying its principles selectively inside any language or architecture.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The core idea is <span style="font-weight:bold">**immutability**</span>: data does not change once created. New values are produced from old ones through transformation. This eliminates a wide class of bugs caused by shared mutable state, makes functions easy to reason about in isolation, and simplifies concurrency because there is nothing to lock.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Pure functions**</span> take inputs and return outputs with no side effects and no hidden dependencies on external state. Given the same inputs, they always produce the same output. Pure functions are trivially testable, safe to cache, and safe to run in parallel. They are the right tool for all data transformation logic.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Higher-order functions**</span> — functions that accept or return other functions — enable <span style="font-weight:bold">**composition**</span>: building complex behavior by chaining small, focused transformations. Map, filter, and reduce are the workhorses. Pipelines built from these primitives are declarative, readable, and easy to extend by inserting a new step.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>For error handling, <span style="font-weight:bold">**railway-oriented programming**</span> models success and failure as two tracks flowing through a pipeline. An <span style="color:#e6db74">`Either`</span> type (or equivalent) carries either a result or an error forward without exception-based control flow. This makes error paths explicit, composable, and impossible to accidentally ignore.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The <span style="font-weight:bold">**Functional Core / Imperative Shell**</span> architecture applies these ideas at scale: keep all business logic in pure functions, push side effects — database writes, HTTP calls, file I/O — to the outermost shell. The core is fully testable without mocks. The shell is thin and straightforward.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Object-Oriented Design
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Object-oriented design is most effective when it mirrors the domain. <span style="font-weight:bold">**Entities**</span> have identity that persists over time — a customer account is the same account regardless of how its attributes change. <span style="font-weight:bold">**Value Objects**</span> are defined entirely by their attributes and carry no identity — a monetary amount, a date range, or a GPS coordinate. Treat value objects as immutable. <span style="font-weight:bold">**Aggregates**</span> cluster related entities and value objects into a consistency boundary; the aggregate root is the only entry point for modifying anything inside it.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The most common misuse of inheritance is using it for code reuse rather than to express genuine is-a relationships. <span style="font-weight:bold">**Favour composition over inheritance**</span>: assemble behaviour by combining small, focused interfaces rather than building deep class hierarchies. Hierarchies are rigid; composition is flexible.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>OOP and functional programming are not opposites. Use pure functions for deterministic data transformations and use objects with interfaces for stateful or polymorphic behaviour. The two styles complement each other when applied to the problems they are suited to.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Testing Discipline
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Tests are not an afterthought — they are the primary mechanism for verifying that software does what it claims to do, and for maintaining that guarantee as the system changes.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Every test must follow <span style="font-weight:bold">**Arrange–Act–Assert**</span>. Arrange sets up the context: inputs, mocks, and preconditions. Act executes exactly one behaviour. Assert verifies the outcome with specific, minimal expectations. This structure makes the intent of each test immediately readable and prevents hidden setup or assertion from obscuring failures.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Each test method should cover <span style="font-weight:bold">**one use case only**</span>. No branching, no multiple scenarios, no &#34;and also&#34; assertions. A test is a short story: it has a single premise and a single conclusion. When a test fails, you should know immediately which behaviour broke without reading through a tangle of conditionals.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Fast-failing tests**</span> are a discipline, not just a performance concern. When the function under test contains logic that is irrelevant to the scenario being verified, use a mock that throws a controlled exception at the first opportunity. This avoids building deep mock chains for code paths that are not part of the use case, keeps tests small, and makes failures precise.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tests should be <span style="font-weight:bold">**organised by domain**</span>, not by technical layer. A test class represents a domain concept; its methods represent use cases within that concept. This mirrors the way real users think about behaviour and makes gaps in coverage obvious. The test directory should mirror the source directory exactly — one test file per source file, in the same relative path.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Aim for <span style="font-weight:bold">**70–90% coverage**</span> on critical paths, edge cases, and error conditions. Do not write tests for trivial getters or well-covered infrastructure code — that effort is better spent on logic that actually makes decisions. Mock only external systems and expensive operations; avoid mocking internal logic, as that leads to tests that verify the mock rather than the code.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Code Size and Complexity
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Size limits are not arbitrary rules — they are indicators of structural problems. A file that grows beyond 200–500 lines usually contains mixed responsibilities. A class with more than ten methods is probably doing too much. A function longer than twenty lines almost certainly has a simpler decomposition waiting to be found.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Cyclomatic complexity**</span> is the number of independent execution paths through a function. High complexity means more test cases, more cognitive load, and higher bug probability. When complexity rises, it signals the need for decomposition: extract a strategy, introduce a state machine, or split into smaller functions.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Deep nesting is a form of complexity. More than two or three levels of indentation usually means the logic can be restructured using early returns, extracted helper functions, or a more appropriate pattern. Flat is better than nested.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Package and Module Structure
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Organise code by <span style="font-weight:bold">**domain**</span>, not by technical role. A folder called <span style="color:#e6db74">`services/`</span> or <span style="color:#e6db74">`controllers/`</span> tells you nothing about what the code does; a folder called <span style="color:#e6db74">`payments/`</span> or <span style="color:#e6db74">`identity/`</span> tells you everything. Each domain package should contain everything relevant to that domain: its models, interfaces, implementations, factories, validators, and tests. This keeps related code together and makes the codebase navigable without knowing the architecture in advance.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Expose only what needs to be public. Everything else should be private or internal to its package. A minimal public surface area reduces coupling, makes refactoring safer, and makes the intended extension points explicit.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File names should not repeat the package name. The directory path already provides that context. A file named <span style="color:#e6db74">`payment_service.py`</span> inside a <span style="color:#e6db74">`payments/`</span> package repeats <span style="color:#e6db74">`payment`</span> unnecessarily — <span style="color:#e6db74">`service.py`</span> is sufficient and cleaner.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Avoid circular imports. They indicate that two modules are too tightly coupled and one of them is probably doing too much. Introduce a shared abstraction or invert the dependency.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Architecture and Reliability
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Good architecture makes the system easy to change without breaking things. The key properties are <span style="font-weight:bold">**low coupling**</span> — components depend on abstractions, not on each other&#39;s internals — and <span style="font-weight:bold">**high cohesion**</span> — everything in a component genuinely belongs together.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Design for <span style="font-weight:bold">**observability**</span> from the start. Structured logging, metrics, and distributed tracing are not optional extras. When something goes wrong in production, they are the only tools available. Use contextual log entries that capture what the system was doing, not just that an error occurred.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Graceful degradation**</span> means the system continues to provide partial value when a dependency fails, rather than failing entirely. Design every integration point with a fallback: cached data, a default response, or a clear error to the caller. Fail fast on invalid input at the boundary; never let bad data propagate deeper into the system.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Externalise configuration. Hard-coded values are the fastest path to environment-specific bugs and the slowest path to fixing them. Use environment variables, configuration files, or a configuration service, and validate configuration at startup so problems surface immediately rather than at the worst possible moment.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## DevOps and Delivery
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Infrastructure as Code**</span> means environments are defined, versioned, and reproduced the same way every time. Manual environment setup is a source of drift, inconsistency, and toil. If you cannot reproduce an environment from a repository checkout, you do not have a reliable environment.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Quality gates**</span> enforce standards before code reaches production. Linting, type checking, test coverage thresholds, and security scanning belong in the CI pipeline — not in code review, where they slow humans down with mechanical concerns that tools handle better.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Blue-green and canary deployments**</span> shift traffic gradually to new versions, allowing real-world validation before full rollout. Combined with <span style="font-weight:bold">**post-incident reviews**</span> that focus on systemic causes rather than individual blame, they build a culture where failure is a learning event rather than a crisis.
+</span></span></code></pre></div>
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
