@@ -41,6 +41,11 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   Embedding governance, resilience, and reproducibility into model-driven workflows for regulated environments. Supports
   auditability and runtime introspection.
 
+- **[MPC Project Analyser](/projects/optimising-ai-credits/)**  
+  A deterministic Python analysis engine that generates compact AST metadata, file trees, and documentation maps so
+  AI agents can plan software changes without consuming raw source code. Pairs with a three-persona workflow — Reviewer,
+  Planner, and Coder — to keep premium model usage focused on reasoning and architecture.
+
 - **Real-Time Payments Platform**  
   Fault-tolerant AWS orchestration for 24×7 regulatory processing. Includes observability hooks, compliance triggers,
   and retry-safe execution paths.
