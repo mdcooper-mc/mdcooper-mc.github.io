@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Cloud Cost Optimisation &amp; Platform Engineering · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="£2M&#43; annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cloud Cost Optimisation & Platform Engineering">
+  <meta name="twitter:description" content="£2M&#43; annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Cloud Cost Optimisation & Platform Engineering">
+  <meta property="og:description" content="£2M&#43; annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="Architecture">
+    <meta property="article:tag" content="CI/CD">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/">
+          Cloud Cost Optimisation &amp; Platform Engineering
+        </a>
+      </h1>
+    </header>
+
+    <p>Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings
+delivered here came from eliminating waste built into the platform&rsquo;s foundations: over-provisioned compute,
+manual deployment processes that required bespoke configuration per environment, and a lack of shared tooling
+that caused every team to solve the same infrastructure problems independently.</p>
+<p>The work spanned three interconnected areas: right-sizing and tuning the Kubernetes workloads running on AWS
+EKS, designing and delivering a versioned CI/CD framework that was subsequently adopted across multiple teams,
+and architecting the broader AWS environment — an architecture reviewed by AWS and assessed as highly scalable
+and well-designed.</p>
+<hr>
+<h2 id="kubernetes-right-sizing-and-compute-optimisation">
+  Kubernetes Right-Sizing and Compute Optimisation
+  <a class="heading-link" href="#kubernetes-right-sizing-and-compute-optimisation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Kubernetes clusters running in AWS EKS accumulate cost through over-provisioned resource requests, idle node
+capacity, and workloads that hold compute they no longer need between runs. The optimisation work addressed
+each of these directly.</p>
+<p>Resource requests and limits were tuned against observed peak and steady-state usage rather than conservative
+estimates. This reduced the effective CPU and memory reservations per pod, which in turn reduced the number of
+nodes required to schedule the same workload. Node groups were configured with appropriate instance types and
+spot instance policies where workload characteristics allowed, capturing the price differential between on-demand
+and spot without sacrificing availability.</p>
+<p>Workloads were profiled and rescheduled to align compute-intensive jobs with off-peak pricing windows and to
+avoid the idle-capacity cost of keeping large nodes warm between batch runs. Helm chart configurations were
+standardised and versioned, ensuring that every environment ran the same resource policy and that tuning changes
+propagated consistently rather than drifting back to defaults during the next manual deployment.</p>
+<p>The Kubernetes configuration is managed through a versioned Helm chart published to an internal chart repository.
+Each release pins the chart version alongside all other platform dependencies in a <code>versions.yaml</code> manifest,
+making the exact compute configuration of any environment reproducible from a single file and a pipeline trigger.</p>
+<hr>
+<h2 id="versioned-cicd-framework">
+  Versioned CI/CD Framework
+  <a class="heading-link" href="#versioned-cicd-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Before the framework existed, each service had its own deployment approach — a mix of manual steps, per-service
+scripts, and environment-specific configuration embedded in code. Promoting from DEV to QA to production required
+human judgement at each step to reconcile differences. There was no standard for what a release looked like, no
+guarantee that what passed QA was what reached production, and no fast path for rollback.</p>
+<p>The CI/CD framework replaced this with a small, composable set of PowerShell functions and a Jenkins/Bamboo
+pipeline that applies them consistently. Build versions are generated from the current date and time in the
+format <code>YYYY.DDD.HHMM.SS</code> — deterministic, sortable, and human-readable without a registry lookup. Every
+artefact produced by a build carries this version in its name and in its Artifactory path.</p>
+<p>Deployment is driven by <code>versions.yaml</code>, a single manifest that declares the authoritative version of every
+component in a platform release: the Python utility package, the Airflow DAG bundle, the Kubernetes Helm chart,
+and the Windows EC2 node bundles (application, pricing engine, licence, nginx, .NET runtime). Promoting a release
+from QA to production means updating one version tag and running the pipeline — no environment-specific branches,
+no manual substitutions.</p>
+<p>The <code>deploy.ps1</code> script downloads each versioned bundle from Artifactory, expands it into a versioned
+installation directory, applies environment secrets through a user-secrets substitution step (resolving values
+from the user&rsquo;s local credential store or a CI secret), and registers or restarts services. Rollback is a
+re-deploy of the prior version tag. The installation directory structure preserves previous versions until
+explicitly cleaned, giving operations a safe window for validation before removal.</p>
+<p>Configuration values are externalised entirely to AWS SSM Parameter Store using a structured
+<code>/ENV/SERVICE/COMPONENT/SETTING</code> naming convention. The application reads from SSM at startup; the only
+difference between environments is the prefix. This means environment parity is a property of the system, not a
+discipline that depends on engineers remembering which values to change.</p>
+<p>The framework was subsequently adopted by the RDS team as their standard approach for configuration, local
+builds, CI/CD pipelines, project templates, and versioned release processes — extending its impact well beyond
+the platform it was originally built for.</p>
+<hr>
+<h2 id="aws-architecture">
+  AWS Architecture
+  <a class="heading-link" href="#aws-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The AWS environment was designed to support 24×7 regulatory processing across multiple compute tiers while
+remaining operationally manageable by a small team. The architecture separates concerns clearly: MWAA for
+orchestration, EKS for stateless services, EC2 for the Windows-based pricing node, and managed services (S3,
+DynamoDB, API Gateway) for storage, state, and ingress.</p>
+<p>All inter-service communication routes through VPC endpoints, keeping traffic within the AWS network boundary
+and eliminating data transfer costs for high-volume operations like S3 reads and DynamoDB writes. API Gateway
+fronts the calculation and data services with a VPC endpoint configuration that restricts external access while
+maintaining full internal reachability.</p>
+<p>IAM roles follow least-privilege: MWAA&rsquo;s execution role grants only the SSM, S3, DynamoDB, and network
+permissions it requires; service roles are scoped to their specific resources. SSM Parameter Store access is
+granted via <code>ssm:GetParameter</code> on path-prefixed resources rather than broad policy statements.</p>
+<p>The overall architecture was reviewed by AWS and formally assessed as highly scalable and well-designed.</p>
+<hr>
+<h2 id="vdi-development-environment">
+  VDI Development Environment
+  <a class="heading-link" href="#vdi-development-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Alongside the cloud infrastructure, a standardised VDI development environment was designed and delivered to
+improve team velocity and consistency. The environment provides every developer with an identical baseline
+— same tool versions, same credential handling, same build scripts — eliminating the &ldquo;works on my machine&rdquo;
+class of problems that slow onboarding and CI diagnosis.</p>
+<p>The VDI setup reduced the time for a new team member to reach a productive development state from days to hours
+and materially improved the consistency of local builds versus CI outputs, reducing the frequency of
+environment-specific failures reaching QA.</p>
+<hr>
+<h2 id="impact">
+  Impact
+  <a class="heading-link" href="#impact">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The combined effect of Kubernetes right-sizing, architectural refactoring, and operational tooling delivered
+over <strong>£2 million in annual cloud cost savings</strong>. The CI/CD framework and deployment automation reduced
+deployment overhead across the platform and were adopted as the standard by a second team. The AWS architecture
+review provided external validation of the design decisions and informed the roadmap for the next phase of
+infrastructure investment.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Cloud &amp; Infrastructure</strong>
+AWS EKS | AWS MWAA | AWS API Gateway | AWS DynamoDB | AWS S3 | SSM Parameter Store | VPC Endpoints | IAM Least-Privilege</p>
+<p><strong>Kubernetes &amp; Containers</strong>
+Helm | Skaffold | Docker | Resource Right-Sizing | Spot Instance Strategy | Node Group Configuration</p>
+<p><strong>CI/CD &amp; Automation</strong>
+Jenkins | Bamboo | Artifactory | PowerShell Automation | Versioned Build System | Rollback Strategy | Multi-Environment Promotion</p>
+<p><strong>Architecture</strong>
+Platform Engineering | Multi-Tier AWS Design | Environment Parity | Configuration Externalisation | AWS Architecture Review</p>
+<p><strong>Operational Excellence</strong>
+Cost Optimisation | Infrastructure as Code | Standardised Developer Environments | Cross-Team Framework Adoption</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Synthetic Platform Versioning · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A YAML-driven release coordination system that cuts synchronised git tags across every component repository multiple times a week — creating a single, auditable platform release from independently versioned services.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Synthetic Platform Versioning">
+  <meta name="twitter:description" content="A YAML-driven release coordination system that cuts synchronised git tags across every component repository multiple times a week — creating a single, auditable platform release from independently versioned services.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Synthetic Platform Versioning">
+  <meta property="og:description" content="A YAML-driven release coordination system that cuts synchronised git tags across every component repository multiple times a week — creating a single, auditable platform release from independently versioned services.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="CI/CD">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Architecture">
+    <meta property="article:tag" content="PowerShell">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/">
+          Synthetic Platform Versioning
+        </a>
+      </h1>
+    </header>
+
+    <p>A distributed platform is made up of independently deployed components — a Python utility package, an Airflow
+DAG bundle, a Kubernetes Helm chart, an EC2 application wrapper, API contracts, and supporting scripts. Each
+component has its own build pipeline and its own version number. The challenge is that when you ask &ldquo;what is
+running in production right now?&rdquo;, you should be able to answer precisely — not just for one service, but for
+every component simultaneously.</p>
+<p>The synthetic versioning system solves this by treating the platform as a single releasable unit. A single YAML
+manifest declares the authoritative version of every component. A PowerShell script reads that manifest, verifies
+each component is at the correct build, and cuts a synchronised semantic version tag — <code>vN.M</code> — across every
+repository at once. The result is that <code>v1.2</code> means exactly one thing: a specific, reproducible, fully
+auditable snapshot of the entire platform.</p>
+<hr>
+<h2 id="the-problem-with-independent-versions">
+  The Problem With Independent Versions
+  <a class="heading-link" href="#the-problem-with-independent-versions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>When services version independently, platform state becomes implicit. You know service A is at <code>2025.5.16</code> and
+service B is at <code>2025.5.14</code>, but you have no artefact that says these two versions were tested together and are
+safe to run together. Promotions from QA to production require someone to mentally reconcile a matrix of build
+dates. Rollback means coordinating multiple independent deployments and hoping the combination you&rsquo;re rolling
+back to was ever actually tested.</p>
+<p>The conventional answer — a monorepo — trades independent deployment for coupling. All services move together,
+which is exactly the wrong tradeoff for a platform where different components are owned by different teams and
+deployed to different infrastructure.</p>
+<p>The synthetic versioning approach keeps repositories independent while giving the platform a coherent release
+identity. Each service moves at its own pace. The versioning system takes a point-in-time snapshot of all of
+them and names it.</p>
+<hr>
+<h2 id="the-versionsyaml-manifest">
+  The versions.yaml Manifest
+  <a class="heading-link" href="#the-versionsyaml-manifest">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The manifest is the single source of truth for a platform release. It declares the required configuration keys
+the platform depends on, and the exact version of every deployable component:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">platform</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/ENV/PLATFORM/SERVICES/API/CALCULATION/BASE_URL</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/ENV/PLATFORM/SERVICES/API/DATA/BASE_URL</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">/ENV/PLATFORM/SERVICES/API/STATUS/TABLE/NAME</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">requirements</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">openapi</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">calculation</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">version</span>: <span style="color:#ae81ff">v0.1.1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://.../openapi/raw/calculation.yaml?at=refs%2Ftags%2Fv0.1.1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">data</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">version</span>: <span style="color:#ae81ff">v0.1.1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://.../openapi/raw/data.yaml?at=refs%2Ftags%2Fv0.1.1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">mwaa</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">repo</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">clone</span>: <span style="color:#ae81ff">https://.../orchestration-dags.git</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">tag</span>: <span style="color:#ae81ff">v0.1.2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">python</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">packages</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">platform-utilities</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2025.5.16.184454</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ec2</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">pricing-service</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">tags</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">v0.1.2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">urls</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">pricing-service</span>: <span style="color:#ae81ff">https://.../pricing-service-windows/2025.140.269.465/pricing-service-2025.140.269.465.zip</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">scripts</span>: <span style="color:#ae81ff">https://.../deploy-scripts/2025.140.269.465/deploy-scripts-2025.140.269.465.zip</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">nginx</span>: <span style="color:#ae81ff">https://.../nginx-1.28.0-windows/25.120.0.687/nginx-1.28.0-windows-25.120.0.687.zip</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">dotnet</span>: <span style="color:#ae81ff">https://.../dotnet-6.0.36-windows/25.132.0.877/dotnet-6.0.36-windows-25.132.0.877.zip</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kubernetes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">helm</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">chart</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">helm-prod-local/platform-core</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2025.5.20-9397</span>
+</span></span></code></pre></div><p>Every Artifactory URL encodes its own version in the path. Every Git reference is a tag. There are no floating
+references, no <code>latest</code>, no ambiguity. Updating the manifest to a new component version is a one-line diff with
+a clear, reviewable history.</p>
+<hr>
+<h2 id="cutting-a-release">
+  Cutting a Release
+  <a class="heading-link" href="#cutting-a-release">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The release process is automated by a PowerShell script that accepts a <code>ReleaseType</code> parameter (<code>major</code>,
+<code>minor</code>, or <code>patch</code>) and an optional explicit previous tag, then executes the following sequence.</p>
+<p><strong>Version calculation.</strong> The script clones the <code>versions</code> repository, fetches all existing tags matching the
+<code>vN.M</code> pattern, sorts them by numeric value, and derives the next semantic version by incrementing the
+appropriate component. A minor release of <code>v1.2</code> produces <code>v1.3</code>.</p>
+<p><strong>Build version extraction.</strong> The script parses <code>versions.yaml</code> with targeted regular expressions to extract
+the build version of every component. The orchestration DAG bundle version is extracted from the S3 URL path.
+The OpenAPI contract version is extracted from the Bitbucket tag reference in the URL. The EC2 application
+wrapper version is extracted from the Artifactory path segment before the filename. Kubernetes service image
+tags are extracted from the environment values file using a pattern that matches the <code>service.image.tag</code>
+structure for each named service. For any component whose version cannot be automatically determined, the script
+prompts the operator to enter it manually, then continues — making the system robust to structural variation
+without silently skipping components.</p>
+<p><strong>Repository validation.</strong> The script clones each component repository and checks out the exact tag that
+<code>versions.yaml</code> declares. If the fetch fails for any tag — because it does not exist or the repository is
+unreachable — the script throws immediately. Every component must be provably at its declared version before
+any tags are written. This is the guarantee that makes the release meaningful: the platform tag only exists if
+all components are verified.</p>
+<p><strong>Confirmation gate.</strong> Before writing anything, the script prints a summary of every repository and the tag it
+is about to receive, then requires explicit <code>y</code> confirmation. This prevents accidental releases and gives the
+operator a final chance to verify the matrix.</p>
+<p><strong>Tag application.</strong> For each component repository, the script checks whether the release tag already exists
+(idempotent if re-run) and creates it if not, using an annotated tag with a descriptive message. All tags are
+pushed to origin immediately. The <code>versions</code> repository itself receives the same tag, making the manifest
+version part of the platform release record.</p>
+<p><strong>Release notes generation.</strong> After all tags are applied, a diff script is called with the previous and new
+tags, generating a changelog that spans every repository in the platform — a single document describing every
+change included in the release.</p>
+<hr>
+<h2 id="release-cadence">
+  Release Cadence
+  <a class="heading-link" href="#release-cadence">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Because the process is automated and the confirmation step takes seconds, releases are cut multiple times a week
+— whenever a component reaches a stable, tested state and the platform is ready to snapshot it. There is no
+release freeze, no manual coordination meeting, no spreadsheet of component versions. The manifest is updated,
+the script is run, and the platform has a new named release.</p>
+<p>This cadence is only possible because the versioning system is synthetic. The underlying repositories have not
+changed their branching strategies or introduced release trains. The platform tag is layered on top of their
+existing build tags without requiring any changes to how individual services operate.</p>
+<hr>
+<h2 id="environment-promotion">
+  Environment Promotion
+  <a class="heading-link" href="#environment-promotion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Promoting a release from DEV to QA to production is a single operation: update the <code>versions.yaml</code> tag reference
+in the target environment&rsquo;s configuration and run the deployment pipeline. Because every component version is
+pinned in the manifest, there is no ambiguity about what gets deployed. Because the platform tag exists in every
+component repository, every team can see exactly which platform release their service version belongs to.</p>
+<p>Rollback follows the same pattern. The previous <code>versions.yaml</code> state is already tagged in the repository. A
+re-deploy against the prior tag returns the entire platform to its last known good state in one operation, with
+no per-service coordination required.</p>
+<hr>
+<h2 id="kubernetes-service-versioning">
+  Kubernetes Service Versioning
+  <a class="heading-link" href="#kubernetes-service-versioning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The Kubernetes tier adds a second layer of versioning on top of the platform release. The <code>platform-core</code> Helm
+chart is a meta-chart that composes individual service charts — each with its own image tag declared
+independently in the environment values file. The Helm chart version itself is generated in CI using the same
+date-based scheme, keeping the Kubernetes deployment version traceable to the build that produced it.</p>
+<p>The CI pipeline bakes the chart version at build time using a date expression that produces a <code>YYYY.M.D-HHMMSS</code>
+format, packages the chart, and pushes it to the internal Artifactory Helm registry. Deployment uses
+<code>helm upgrade --install</code> with a per-namespace isolation strategy, ensuring that DEV and production can run
+different chart versions against the same cluster without conflict.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Release Engineering</strong>
+Synthetic Versioning | Semantic Version Calculation | Multi-Repository Tag Coordination | Automated Release Notes</p>
+<p><strong>CI/CD &amp; Automation</strong>
+Jenkins | Bamboo | PowerShell | Bash | Helm | Artifactory | Git Tag Management | Idempotent Release Scripts</p>
+<p><strong>Infrastructure as Code</strong>
+YAML-Driven Platform Configuration | SSM Parameter Store | Environment Parity | Single-Manifest Promotion</p>
+<p><strong>Architecture</strong>
+Distributed Release Coordination | Independent Service Deployment | Platform Snapshot Pattern | Rollback Strategy</p>
+<p><strong>Kubernetes</strong>
+Helm Chart Composition | Per-Service Image Tagging | Namespace Isolation | Versioned Chart Publication</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

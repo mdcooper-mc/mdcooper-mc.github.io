@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Finance on Mark Cooper</title>
+    <link>https://mdcooper-mc.github.io/tags/finance/</link>
+    <description>Recent content in Finance on Mark Cooper</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <atom:link href="https://mdcooper-mc.github.io/tags/finance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Real-Time Payments Platform</title>
+      <link>https://mdcooper-mc.github.io/projects/real-time-payments-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/real-time-payments-platform/</guid>
+      <description>&lt;p&gt;The Real-Time Payments Platform is an end-to-end orchestration system for equity derivatives calculation at&#xA;institutional scale. It coordinates data collection, instrument conversion, pricing calculation, and results&#xA;publication across multiple AWS services — running continuously against live market positions and publishing&#xA;structured output downstream for risk management and regulatory reporting.&lt;/p&gt;&#xA;&lt;p&gt;The platform was architected, built, and delivered from the ground up. It spans an Apache Airflow DAG layer for&#xA;workflow orchestration, a Python utility library that abstracts all AWS and API interactions, a versioned CI/CD&#xA;pipeline for reproducible deployment, and a Kubernetes-hosted calculation service tier. All core services,&#xA;calculations, and infrastructure were designed and implemented as a cohesive, extensible platform — reviewed by&#xA;AWS and assessed as highly scalable and well-designed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Swaps Pricing Engine (MVP)</title>
+      <link>https://mdcooper-mc.github.io/projects/swaps-pricing-engine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/swaps-pricing-engine/</guid>
+      <description>&lt;p&gt;The Swaps Pricing Engine is a production-ready C# library that prices total return equity swaps against a proprietary&#xA;COM-based pricing engine. Rather than exposing the engine&amp;rsquo;s unmanaged handle-based interfaces directly, the library&#xA;introduces a thin but complete domain model that maps naturally onto how traders and risk managers think about equity&#xA;swap contracts and positions. The result is a system that is easy to use correctly and difficult to use incorrectly —&#xA;enforcing market conventions through the type system, guiding consumers through a fluent API, and validating inputs&#xA;through a layered rule framework before anything reaches the pricing engine.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

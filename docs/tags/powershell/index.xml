@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PowerShell on Mark Cooper</title>
+    <link>https://mdcooper-mc.github.io/tags/powershell/</link>
+    <description>Recent content in PowerShell on Mark Cooper</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <atom:link href="https://mdcooper-mc.github.io/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Synthetic Platform Versioning</title>
+      <link>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</guid>
+      <description>&lt;p&gt;A distributed platform is made up of independently deployed components — a Python utility package, an Airflow&#xA;DAG bundle, a Kubernetes Helm chart, an EC2 application wrapper, API contracts, and supporting scripts. Each&#xA;component has its own build pipeline and its own version number. The challenge is that when you ask &amp;ldquo;what is&#xA;running in production right now?&amp;rdquo;, you should be able to answer precisely — not just for one service, but for&#xA;every component simultaneously.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

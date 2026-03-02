@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI/CD on Mark Cooper</title>
+    <link>https://mdcooper-mc.github.io/tags/ci/cd/</link>
+    <description>Recent content in CI/CD on Mark Cooper</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <atom:link href="https://mdcooper-mc.github.io/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Cost Optimisation &amp; Platform Engineering</title>
+      <link>https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/</guid>
+      <description>&lt;p&gt;Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings&#xA;delivered here came from eliminating waste built into the platform&amp;rsquo;s foundations: over-provisioned compute,&#xA;manual deployment processes that required bespoke configuration per environment, and a lack of shared tooling&#xA;that caused every team to solve the same infrastructure problems independently.&lt;/p&gt;&#xA;&lt;p&gt;The work spanned three interconnected areas: right-sizing and tuning the Kubernetes workloads running on AWS&#xA;EKS, designing and delivering a versioned CI/CD framework that was subsequently adopted across multiple teams,&#xA;and architecting the broader AWS environment — an architecture reviewed by AWS and assessed as highly scalable&#xA;and well-designed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Synthetic Platform Versioning</title>
+      <link>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</guid>
+      <description>&lt;p&gt;A distributed platform is made up of independently deployed components — a Python utility package, an Airflow&#xA;DAG bundle, a Kubernetes Helm chart, an EC2 application wrapper, API contracts, and supporting scripts. Each&#xA;component has its own build pipeline and its own version number. The challenge is that when you ask &amp;ldquo;what is&#xA;running in production right now?&amp;rdquo;, you should be able to answer precisely — not just for one service, but for&#xA;every component simultaneously.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

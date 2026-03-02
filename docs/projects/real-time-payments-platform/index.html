@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Real-Time Payments Platform · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A fault-tolerant AWS orchestration platform for 24×7 regulatory equity derivatives processing, built on Apache Airflow, Python microservices, Kubernetes, and a versioned CI/CD pipeline.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Real-Time Payments Platform">
+  <meta name="twitter:description" content="A fault-tolerant AWS orchestration platform for 24×7 regulatory equity derivatives processing, built on Apache Airflow, Python microservices, Kubernetes, and a versioned CI/CD pipeline.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/projects/real-time-payments-platform/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Real-Time Payments Platform">
+  <meta property="og:description" content="A fault-tolerant AWS orchestration platform for 24×7 regulatory equity derivatives processing, built on Apache Airflow, Python microservices, Kubernetes, and a versioned CI/CD pipeline.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Airflow">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Finance">
+    <meta property="article:tag" content="Architecture">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/projects/real-time-payments-platform/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/projects/real-time-payments-platform/">
+          Real-Time Payments Platform
+        </a>
+      </h1>
+    </header>
+
+    <p>The Real-Time Payments Platform is an end-to-end orchestration system for equity derivatives calculation at
+institutional scale. It coordinates data collection, instrument conversion, pricing calculation, and results
+publication across multiple AWS services — running continuously against live market positions and publishing
+structured output downstream for risk management and regulatory reporting.</p>
+<p>The platform was architected, built, and delivered from the ground up. It spans an Apache Airflow DAG layer for
+workflow orchestration, a Python utility library that abstracts all AWS and API interactions, a versioned CI/CD
+pipeline for reproducible deployment, and a Kubernetes-hosted calculation service tier. All core services,
+calculations, and infrastructure were designed and implemented as a cohesive, extensible platform — reviewed by
+AWS and assessed as highly scalable and well-designed.</p>
+<hr>
+<h2 id="the-problem">
+  The Problem
+  <a class="heading-link" href="#the-problem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Equity derivatives processing at a regulated institution requires more than running calculations on demand. It
+demands provenance — knowing exactly which positions, market data, and instruments were used for any given
+result, and being able to reproduce that result on request. It demands resilience — the system must continue
+processing through partial failures without corrupting state or losing progress. It demands observability — every
+stage of a multi-hour run must be traceable in real time. And it demands operability — teams across development,
+QA, and production environments need to deploy and configure consistently without manual intervention.</p>
+<p>Existing tooling was fragmented: ad hoc scripts, no shared status tracking, no unified client library, and no
+versioned release process. Each environment was a snowflake. Deployments were manual and error-prone.</p>
+<hr>
+<h2 id="orchestration-architecture">
+  Orchestration Architecture
+  <a class="heading-link" href="#orchestration-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The orchestration layer is built on <strong>Apache Airflow (MWAA)</strong> running on AWS. The core DAG — <code>E2E</code> — defines the
+full end-to-end workflow for a given business date and calculator configuration. It is structured as a sequence
+of task groups that enforce data dependencies while maximising parallelism.</p>
+<p>The DAG begins with a <code>validate_run_params</code> task that parses the user-supplied run configuration, merges it with
+the DAG-level environment context, and validates all required fields (business date, node, calculator name) before
+any downstream work begins. Fail-fast validation at the entry point prevents wasted compute on malformed runs.</p>
+<p>A <code>Query-For-Events</code> task then fetches all data events tagged with the requested business date from the Risk Data
+Hub. These events carry S3 URLs for positions, market data, instruments, and time series snapshots. The
+<code>Data-Collection</code> task group processes each event type in parallel — <code>Tag-Positions</code>, <code>Tag-Market-Data</code>,
+<code>Tag-Instruments</code>, <code>Tag-Time-Series</code> — fetching the tagged S3 URLs and converting each to Parquet via the
+calculation services API. Static data (model control parameters and scenario sets) is collected in the same group.</p>
+<p>A branch task filters data sources based on what the selected calculator requires, skipping conversion steps for
+unused data types. The <code>Update-Config</code> task assembles the final run configuration, combining tag data references
+with static data and recording calculator metadata.</p>
+<p>The <code>Calculators</code> task group runs the pricing engine. It creates the calculation payload, submits it to the
+calculation service, collects result URLs, converts results to Parquet, and returns the output S3 location.
+<code>Move-Results</code> stages the Parquet output to the publication bucket. <code>Publish-Calculation-Results</code> assembles the
+final publication payload — including dataset name, calculation type, business date, and input tag references —
+and posts it to the Risk Data Hub for downstream consumption.</p>
+<p>Every stage writes status updates to DynamoDB via the <code>Status</code> class, recording <code>Accepted</code>, <code>In Progress</code>,
+<code>Complete</code>, or <code>Failed</code> with full payload context and timestamp. This provides a live audit trail of every run,
+queryable by process ID and correlated across parent and child stages.</p>
+<hr>
+<h2 id="python-utility-library">
+  Python Utility Library
+  <a class="heading-link" href="#python-utility-library">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <code>rtp-utilities</code> package is the shared foundation all services and DAGs build on. It is published to an
+internal Artifactory PyPI repository and versioned using a date-based scheme (<code>YYYY.DDD.HHMM.SS</code>). Services
+declare a pinned version in their <code>requirements.txt</code>, ensuring deterministic environments across dev, QA, and
+production.</p>
+<p>The library is organised into four domains. The <strong><code>aws</code></strong> package wraps DynamoDB and S3. <code>Status</code> provides a
+full lifecycle state machine — accepted, in-progress, complete, failed, custom — persisting each transition to a
+DynamoDB table with process ID, parent correlation, timestamp, and serialisable payload. <code>S3</code> provides typed
+bucket and key management for structured object storage.</p>
+<p>The <strong><code>client</code></strong> package abstracts all external service interactions. <code>CalculationServicesClient</code> and
+<code>RiskDataServicesClient</code> extend <code>APIClientEndpointResolver</code>, which handles URL construction, HTTP method
+dispatch, exponential backoff with jitter, and a configurable payload callback for observability. The <code>Calculator</code>
+interface defines the contract all calculation implementations must satisfy: <code>sources()</code>, <code>payload()</code>, <code>run()</code>,
+<code>report()</code>, and <code>close()</code>. <code>Provider</code> resolves calculator instances by dotted module path at runtime, making the
+calculator registry open for extension without code changes. <code>DataSource.Name</code> enumerates the canonical data types
+— Positions, Market Data, Time Series, Instruments, Model Control, Scenarios — giving the entire platform a
+shared vocabulary for data routing.</p>
+<p>The <strong><code>core</code></strong> package contains shared pure functions and I/O utilities. The <strong><code>etc</code></strong> package provides the
+<code>@config</code> decorator, which injects YAML-configured values into function parameters by key path. This eliminates
+ad hoc environment variable parsing and keeps all configuration paths explicit and discoverable.</p>
+<p>The library is containerised via Docker, built through a Jenkins CI pipeline with automated packaging and
+Artifactory publication, and tested with pytest. Coverage, quality, and complexity badges are published alongside
+each release.</p>
+<hr>
+<h2 id="api-and-service-contracts">
+  API and Service Contracts
+  <a class="heading-link" href="#api-and-service-contracts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Service interfaces are defined as OpenAPI 3.0 specifications and versioned independently. The Calculation Services
+API exposes endpoints for data conversion (positions, market data, instruments, time series, calculation results),
+model control retrieval, scenario set creation, and result publication. All long-running operations follow a
+HATEOAS link-following pattern: the initial request returns a <code>_link</code> that the client polls until the operation
+completes. This decouples the client from service internals and allows the service tier to scale independently.</p>
+<p>The API gateway is deployed on AWS API Gateway behind a VPC endpoint (<code>vpce-07c9f314154992d45</code>), restricting
+access to within the AWS network boundary. Requests carry correlation IDs derived from the run&rsquo;s DynamoDB status
+ID, enabling end-to-end tracing from the Airflow task through the API call to the calculation result.</p>
+<hr>
+<h2 id="versioned-cicd-pipeline">
+  Versioned CI/CD Pipeline
+  <a class="heading-link" href="#versioned-cicd-pipeline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Every component in the platform — the Python library, the DAGs, the EC2 pricing node, the Kubernetes services
+— is built, versioned, packaged, and deployed through a unified CI/CD framework of PowerShell scripts backed by
+Jenkins and Bamboo.</p>
+<p>Build versions are generated deterministically from the current date and time (<code>YYYY.DDD.HHMM.SS</code>), giving every
+artefact a unique, sortable, human-readable identifier. The <code>deploy.ps1</code> script downloads versioned bundles from
+Artifactory, expands them into versioned installation directories, applies environment-specific configuration via
+<code>user-secrets</code> substitution, and registers or restarts services. Rollback is a re-deploy of a prior version tag
+— no state to unwind.</p>
+<p>The <code>versions.yaml</code> manifest declares the exact versions of every dependency: the MWAA DAG tag, the Python
+package version, the Kubernetes Helm chart version, and the EC2 pricing node bundle versions (application,
+engine, licence, scripts, nginx, dotnet runtime). This single file is the authoritative description of a
+platform release. Promoting from QA to production means updating one tag and re-running the pipeline.</p>
+<p>The CI/CD framework was subsequently adopted by the RDS team for their own services, establishing it as the
+standard build, configuration, and release process across the broader platform.</p>
+<hr>
+<h2 id="infrastructure">
+  Infrastructure
+  <a class="heading-link" href="#infrastructure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The platform runs across three compute tiers on AWS. <strong>MWAA</strong> hosts the Airflow orchestration layer, configured
+via SSM Parameter Store secrets and deployed by updating S3 with a new DAG bundle and triggering MWAA
+re-deployment. <strong>Kubernetes</strong> (EKS, managed via Helm charts) hosts the calculation and data services,
+deployed using a versioned Helm chart from the internal chart repository. <strong>EC2</strong> hosts the pricing engine node
+on Windows, running nginx as a reverse proxy, the .NET 6 application wrapper, and the pricing engine as a Windows
+service — all installed and configured by the PowerShell deployment scripts.</p>
+<p>The AWS environment was architected from first principles and reviewed by AWS, who assessed it as highly scalable
+and well-designed. Infrastructure configuration is managed through SSM Parameter Store with a structured
+<code>/ENV/SERVICE/COMPONENT/SETTING</code> naming convention, ensuring environment promotion requires only a prefix change
+with no code modifications.</p>
+<hr>
+<h2 id="deployment-environments">
+  Deployment Environments
+  <a class="heading-link" href="#deployment-environments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The platform has been delivered through DEV, QA, and Fidessa integration environments, with Swaps onboarding
+in progress. Each environment is defined entirely by its SSM parameter prefix and versions manifest — there are
+no environment-specific code branches. This design makes environment parity a property of the system rather than
+a discipline to be enforced manually.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Languages &amp; Frameworks</strong>
+Python | PowerShell | YAML | OpenAPI 3.0 | Dockerfile | Bash</p>
+<p><strong>AWS</strong>
+MWAA (Managed Airflow) | DynamoDB | S3 | API Gateway | VPC Endpoints | SSM Parameter Store | EKS</p>
+<p><strong>Orchestration &amp; Workflow</strong>
+Apache Airflow | DAG Design | Task Groups | XCom | Branching | Dynamic Task Generation</p>
+<p><strong>Architecture &amp; Design</strong>
+Microservices | Plugin-Based Calculator Registry | HATEOAS API Pattern | Status Lifecycle State Machine | Domain-Driven Package Structure</p>
+<p><strong>CI/CD &amp; DevOps</strong>
+Jenkins | Bamboo | Artifactory | Versioned Builds | Helm | Kubernetes | Docker | Skaffold | PowerShell Automation</p>
+<p><strong>Observability</strong>
+DynamoDB Audit Trail | Correlation IDs | Structured Logging | Payload Callbacks | Per-Stage Status Tracking</p>
+<p><strong>Testing &amp; Quality</strong>
+pytest | Coverage Reporting | Complexity Badges | Isolated Unit Tests | Integration Test Fixtures</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Swaps Pricing Engine (MVP) · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
+<meta name="keywords" content="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Swaps Pricing Engine (MVP)">
+  <meta name="twitter:description" content="A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/projects/swaps-pricing-engine/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Swaps Pricing Engine (MVP)">
+  <meta property="og:description" content="A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:tag" content="Finance">
+    <meta property="article:tag" content="C#">
+    <meta property="article:tag" content="Architecture">
+    <meta property="article:tag" content="Derivatives">
+
+
+
+
+<link rel="canonical" href="https://mdcooper-mc.github.io/projects/swaps-pricing-engine/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/projects/swaps-pricing-engine/">
+          Swaps Pricing Engine (MVP)
+        </a>
+      </h1>
+    </header>
+
+    <p>The Swaps Pricing Engine is a production-ready C# library that prices total return equity swaps against a proprietary
+COM-based pricing engine. Rather than exposing the engine&rsquo;s unmanaged handle-based interfaces directly, the library
+introduces a thin but complete domain model that maps naturally onto how traders and risk managers think about equity
+swap contracts and positions. The result is a system that is easy to use correctly and difficult to use incorrectly —
+enforcing market conventions through the type system, guiding consumers through a fluent API, and validating inputs
+through a layered rule framework before anything reaches the pricing engine.</p>
+<p>The MVP achieved an <strong>81.6% pass rate across 500 live production positions</strong>, covering same-currency and
+cross-currency swaps, long and short positions, and a range of underlying equity types including stocks, ETFs, and
+indices.</p>
+<hr>
+<h2 id="the-problem">
+  The Problem
+  <a class="heading-link" href="#the-problem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Equity swap pricing engines built on COM expose a complex, callback-driven programming model. Consumers must allocate
+and manage opaque instrument handles, marshal data structures between managed and unmanaged memory, register callback
+interfaces to receive results, and carefully manage resource lifetime to avoid leaks. This low-level surface area
+makes integration error-prone and test coverage impractical.</p>
+<p>At the same time, equity swaps carry a model ambiguity that trips up nearly every first implementation: the
+distinction between contract notional and signed position exposure. An ISDA confirmation always expresses notional as
+a positive number. Direction — which party pays which leg — is stated in legal language, not in the sign of a number.
+Dealer systems translate this into a positive contract notional combined with a signed quantity, where positive means
+long equity (receive equity returns, pay financing) and negative means short (pay equity returns, receive financing).
+Encoding direction into the notional itself violates both ISDA conventions and the pricing engine&rsquo;s database
+constraints, which enforce <code>Notional &gt; 0</code> at the SQL schema level.</p>
+<p>The library solves both problems: it hides the COM complexity behind idiomatic .NET, and it enforces the correct
+contract/position separation through its type model.</p>
+<hr>
+<h2 id="domain-model">
+  Domain Model
+  <a class="heading-link" href="#domain-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The library represents swap economics through two immutable records that mirror real-world market practice.</p>
+<p><code>SwapContract</code> encapsulates all static contract parameters agreed between counterparties — the underlying equity,
+currencies, rate, spread, notional, day count convention, accrual adjustment, start and maturity dates, and initial
+fixings. Notional is always positive. The contract has no directionality; it is the symmetric agreement both parties
+reference.</p>
+<p><code>ContractPosition</code> links a contract to a signed quantity. A positive quantity represents long equity exposure — the
+holder receives equity returns and pays floating. A negative quantity represents short equity exposure — the holder
+pays equity returns and receives financing income. Position-level exposure is simply <code>Quantity × Notional</code>, making
+aggregation and risk attribution straightforward.</p>
+<p><code>ContractMarketData</code> carries the market inputs required to price a contract: spot prices for the underlying, FX spots
+for currency conversion, and historical equity and FX fixings for accrual calculations. It references the contract
+directly, keeping market data co-located with the instrument definition it belongs to.</p>
+<p>All three records implement <code>IDeterministic</code>, a marker interface that guarantees stable hash codes across the
+application lifetime. This enables them to be safely used as keys in concurrent dictionaries and cached collections
+without unexpected equality failures.</p>
+<hr>
+<h2 id="architecture">
+  Architecture
+  <a class="heading-link" href="#architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The system is organised into four layers that separate concerns cleanly.</p>
+<p>The <strong>domain objects</strong> layer (<code>Data/Objects/</code>) defines <code>SwapContract</code>, <code>ContractPosition</code>, <code>ContractMarketData</code>,
+<code>Underlying</code>, <code>Spot</code>, <code>Fx</code>, and <code>Fixing</code> as immutable C# records. These types carry no pricing logic and have no
+dependency on the pricing engine. They are pure data.</p>
+<p>The <strong>data store</strong> layer (<code>Data/Store.cs</code>) manages four in-memory stores that mirror the pricing engine&rsquo;s internal
+partitions: instrument store, market data store, position store, and historical store. The <code>DataStore</code> record
+routes <code>IDataItem</code> objects to the correct store by origin, emitting <code>BeforeDataSave</code> and <code>AfterDataSave</code> events so
+consumers can observe every write. A <code>RemoveAll</code> method cleans up all items associated with a given session UUID,
+preventing data leakage between pricing calls.</p>
+<p>The <strong>validation</strong> layer (<code>Data/Objects/Validation/</code>) defines small, focused rule classes that each check one
+constraint. Rules are registered with <code>ValidationProvider</code> and can be applied individually or all at once via
+<code>ValidateAndThrow</code>. The <code>NotionalValidationRule</code> is representative: it throws a <code>ValidationException</code> with a
+contextual message if <code>Notional &lt;= 0</code>. Over 25 validation rules cover the contract, market data, and position
+types, catching invalid inputs before they reach the pricing engine.</p>
+<p>The <strong>pricing API</strong> (<code>API.cs</code>) exposes the engine through a type-state fluent builder. Interfaces partition the
+valid transitions: <code>ICanSetDataStore → ICanSetReferenceData → ICanPrice</code>. This means the compiler prevents calling
+<code>Price()</code> before providing a data store, a contract, market data, a position, and a pricing date. There is no way
+to skip a required step.</p>
+<hr>
+<h2 id="the-fluent-builder">
+  The Fluent Builder
+  <a class="heading-link" href="#the-fluent-builder">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <code>EquitySwapPricer</code> implements all three builder interfaces and progresses through an internal <code>State</code> enum
+(<code>None → Initialised → HasDataStore → ReadyToPrice</code>). Each method validates the current state before executing,
+throwing a descriptive exception if called out of sequence.</p>
+<p><code>Init()</code> is a thread-safe singleton initialiser. It validates the presence of configuration and licence files, loads
+required unmanaged assemblies, and initialises the COM interop layer exactly once using a double-checked lock. All
+subsequent pricers share the same initialised state.</p>
+<p><code>With(DataStore)</code> attaches a data store to the session. <code>With(ReferenceData)</code> dispatches on the runtime type of the
+argument — <code>SwapContract</code>, <code>ContractPosition</code>, or <code>ContractMarketData</code> — routing each to the correct data item
+provider. <code>With(DateTime)</code> sets the pricing date and triggers context creation after verifying all three data objects
+have been provided.</p>
+<p><code>Price(currency)</code> retrieves the registered position from the position store, calls <code>CalculatePortfolio</code> on the
+pricing context, wraps the result in a <code>Calculation</code> record, and fires <code>OnPrice</code> or <code>OnPriceError</code> events
+depending on outcome. <code>CleanUp()</code> removes all session data and resets state to <code>HasDataStore</code>, allowing the same
+pricer instance to be reused for a subsequent position without re-initialising.</p>
+<hr>
+<h2 id="validation-and-market-conventions">
+  Validation and Market Conventions
+  <a class="heading-link" href="#validation-and-market-conventions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The validation framework enforces the contract/position model at runtime with explicit, actionable error messages.
+Key rules include:</p>
+<ul>
+<li>Notional must be strictly positive — reflects the ISDA convention and the pricing engine&rsquo;s SQL <code>CHECK (Notional &gt; 0)</code> constraint.</li>
+<li>Quantity must be non-zero — a zero quantity represents no position and has no economic meaning.</li>
+<li>Start date must precede maturity date — catches transposed dates early.</li>
+<li>Initial equity fixing must be positive — zero or negative fixings produce undefined accrual calculations.</li>
+<li>Required market data must be present — spot prices and FX rates for the contract&rsquo;s currencies must exist before pricing.</li>
+</ul>
+<p>Validation runs before any data reaches the pricing engine, so failures surface as typed <code>ValidationException</code>
+instances with context, not as opaque COM errors or silent incorrect results.</p>
+<hr>
+<h2 id="pricing-flow">
+  Pricing Flow
+  <a class="heading-link" href="#pricing-flow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>A complete pricing call follows five steps. First, the consumer constructs the domain objects and calls
+<code>ValidationProvider.ValidateAndThrow</code> on each. Second, the fluent builder registers the contract and position
+as <code>IDataItem</code> objects in the instrument and position stores. Third, <code>With(DateTime)</code> creates a market data context
+in the pricing engine, populating it from the market data store. Fourth, <code>Price(currency)</code> calls
+<code>CalculatePortfolio</code>, which runs the total return swap pricer against the assembled context. Fifth, the <code>Calculation</code>
+result exposes typed measure accessors — <code>Get&lt;PV&gt;()</code>, <code>Get&lt;Delta&gt;()</code>, <code>Get&lt;Theta&gt;()</code> — so consumers retrieve only
+the values they need without parsing unstructured output.</p>
+<p>The <code>Calculation</code> record carries a <code>Success()</code> method that returns false if the pricing engine reported errors,
+allowing the consumer to branch cleanly without catching exceptions for expected failure modes.</p>
+<hr>
+<h2 id="cross-currency-support">
+  Cross-Currency Support
+  <a class="heading-link" href="#cross-currency-support">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>When the swap currency differs from the underlying equity currency, the engine operates in composite style. The
+<code>IsCompoStyle</code> derived property is computed by comparing <code>SwapCurrency</code> against <code>Underlying.StockCurrency</code>. When
+they differ, the market data must include both an equity FX spot and historical FX fixings for the currency pair.
+The pricing engine applies FX adjustments transparently during valuation, converting equity leg cashflows into the
+swap currency at each fixing date.</p>
+<p>Self-referencing FX pairs — <code>JPY/JPY = 1.0</code>, <code>GBP/GBP = 1.0</code> — must be provided for same-currency swaps. The
+pricing engine does not default these internally; omitting them produces a missing-data error at pricing time rather
+than a silent wrong result.</p>
+<hr>
+<h2 id="data-architecture-and-object-identity">
+  Data Architecture and Object Identity
+  <a class="heading-link" href="#data-architecture-and-object-identity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The pricing engine uses a hierarchical object model: Book → Account → Position → Instrument, with market data
+supplied through a separate context. Each object is identified by a composite key of <code>Name</code> and <code>AsOf</code> date, with
+<code>Name</code> limited to 64 characters by the underlying SQL schema.</p>
+<p>The library generates session-scoped names by combining a UUID prefix with the position identifier. Instrument names
+embed the position UUID so that positions priced concurrently never collide in the shared instrument store. This
+design enables thread-safe parallel pricing at the cost of creating unique instrument instances per position —
+which matches the pricing engine&rsquo;s own data model, where each position holds its own instrument instance by design.</p>
+<p>An analysis of 56,678 production JSON files confirmed that this intentional duplication carries no meaningful
+redundancy: every position is unique by quantity, counterparty, and terms. An 84% space reduction is achievable
+through JSON.NET metadata removal and GZIP compression without touching the object model.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Languages &amp; Frameworks</strong>
+C# | .NET | COM Interop | log4net | SQLite</p>
+<p><strong>Financial Domain</strong>
+Equity Swaps | Total Return Swaps | ISDA Conventions | Derivative Pricing | Position Economics | Delta / Theta</p>
+<p><strong>Architecture &amp; Design</strong>
+Type-State Builder Pattern | Domain-Driven Design | Immutable Records | Interface Segregation | Fluent API Design</p>
+<p><strong>Validation</strong>
+Rule-Based Validation Framework | Layered Validation | Fail-Fast Validation | Typed Exceptions</p>
+<p><strong>Concurrency &amp; Safety</strong>
+Thread-Safe Initialisation | Double-Checked Locking | Session-Scoped Identifiers | Concurrent Data Stores</p>
+<p><strong>Testing &amp; Quality</strong>
+25+ Validation Rules | 500-Position Test Suite | 81.6% Pass Rate | Deterministic Data Structures</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <div>
+        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

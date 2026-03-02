@@ -2,95 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/annotation-based/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/annotation-based/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/architecture/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/architecture/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/batch-processing/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/batch-processing/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bau-workflows/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/bau-workflows/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/event-driven/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/event-driven/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/java/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/java/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/joda-time/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/joda-time/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://mdcooper-mc.github.io/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/provider-pattern/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/provider-pattern/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/reconciliation/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/reconciliation/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/reconciliation-framework/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/reconciliation-framework/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/projects/service-framework/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/service-framework/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/spring/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/spring/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/spring-boot/</loc>
+    <loc>https://mdcooper-mc.github.io/categories/spring-boot/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://mdcooper-mc.github.io/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/ai/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/ai/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/aiml/</loc>
+    <loc>https://mdcooper-mc.github.io/about/aiml/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/architecture/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/airflow/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/ai/best-practice/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/architecture/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/cloud/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/aws/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/ai/coder-instructions/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/ai/best-practice/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/ai/copilot-instructions/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/c%23/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/finance/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/ci/cd/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/identity-centric-encryption-with-user-consent/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/image-classification/</loc>
+    <loc>https://mdcooper-mc.github.io/about/cloud/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/optimising-ai-credits/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/ai/coder-instructions/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/murex/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/ai/copilot-instructions/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/permissions-service/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/derivatives/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/ai/planner-instructions/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/devops/</loc>
   </url><url>
-    <loc>http://localhost:1313/platforms/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/finance/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
+    <loc>https://mdcooper-mc.github.io/about/finance/</loc>
   </url><url>
-    <loc>http://localhost:1313/platforms/real-time-orchestration/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/identity-centric-encryption-with-user-consent/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/ai/reviewer-instructions/</loc>
+    <loc>https://mdcooper-mc.github.io/projects/image-classification/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/software/</loc>
+    <loc>https://mdcooper-mc.github.io/tags/kubernetes/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/optimising-ai-credits/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/about/murex/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/permissions-service/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/ai/planner-instructions/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/platforms/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/tags/powershell/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/tags/python/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/real-time-payments-platform/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/platforms/real-time-orchestration/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/ai/reviewer-instructions/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/about/software/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/swaps-pricing-engine/</loc>
+  </url><url>
+    <loc>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</loc>
   </url>
 </urlset>

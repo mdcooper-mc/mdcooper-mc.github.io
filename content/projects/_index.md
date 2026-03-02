@@ -29,13 +29,19 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   A showcase for managing fine-grained ingress permissions within Kubernetes where Angular, TypeScript are used as a
   frontend backed by a ReST API using GoLang for the permission and group management of IdP provided users via JWTs.
 
-- **Swaps Pricing Engine (MVP)**  
-  GPU-accelerated pricing and behavioural signal extraction for structured derivatives. Designed to surface intent
-  curves from market data and support real-time decisioning.
+- **[Swaps Pricing Engine (MVP)](/projects/swaps-pricing-engine/)**  
+  A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind
+  idiomatic .NET domain objects, a fluent type-state builder API, and a layered validation framework. Achieved an
+  81.6% pass rate across 500 live production positions.
 
-- **Cloud Cost Optimisation**  
-  £2M+ annual savings achieved through Kubernetes tuning, compute right-sizing, and architectural refactoring across
-  cloud workloads.
+- **[Cloud Cost Optimisation & Platform Engineering](/projects/cloud-cost-optimisation/)**  
+  £2M+ annual savings delivered through Kubernetes right-sizing, compute tuning, and a versioned CI/CD framework
+  subsequently adopted by multiple teams. AWS architecture reviewed and assessed as highly scalable and well-designed.
+
+- **[Synthetic Platform Versioning](/projects/synthetic-platform-versioning/)**  
+  A YAML-driven release coordination system that cuts synchronised git tags across every component repository multiple
+  times a week — creating a single, auditable platform release from independently versioned services without monorepo
+  coupling.
 
 - **AI-Enabled Delivery Pipelines**  
   Embedding governance, resilience, and reproducibility into model-driven workflows for regulated environments. Supports
@@ -46,9 +52,9 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   AI agents can plan software changes without consuming raw source code. Pairs with a three-persona workflow — Reviewer,
   Planner, and Coder — to keep premium model usage focused on reasoning and architecture.
 
-- **Real-Time Payments Platform**  
-  Fault-tolerant AWS orchestration for 24×7 regulatory processing. Includes observability hooks, compliance triggers,
-  and retry-safe execution paths.
+- **[Real-Time Payments Platform](/projects/real-time-payments-platform/)**  
+  A fault-tolerant AWS orchestration platform for 24×7 regulatory equity derivatives processing. Built on Apache
+  Airflow, a Python microservices library, Kubernetes, and a versioned CI/CD pipeline spanning DEV, QA, and production.
 
 - **[AI-Based Image Classification & Face Recognition](/projects/image-classification/)**  
   A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails,
