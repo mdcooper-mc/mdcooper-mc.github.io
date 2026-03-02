@@ -156,3 +156,26 @@ The functional core is complete. Current focus is test hygiene, docstring covera
 decoupling the CLI from concrete implementations. Planned extensions include multi-language `CodeTree` support
 (TypeScript, Java, C#), a Markdown heading analyser for documentation structure extraction, further JSON
 compression for token optimisation, and a `pip`-publishable distribution workflow.
+
+---
+
+## Skills
+
+**Languages & Tools**
+Python | AST Parsing | argparse | JSON Schema Validation | Pytest
+
+**Architecture & Design**
+Strategy Pattern | Capability Registry | Interface-Driven Design | Domain-Driven Packages | Fail-Fast Configuration
+
+**AI Workflow**
+Persona-Driven Development | Premium vs Free Model Routing | Context Window Optimisation | Token-Efficient Metadata
+
+**Code Quality**
+Pure Functions | Zero Side Effects | Typed Exception Hierarchy | Structured Logging | Deterministic Output
+
+**Testing**
+AAA Pattern | Fast-Failing Tests | Mirrored Test Structure | One Test per Use Case | Domain-Grouped Test Classes
+
+**Process**
+Interfaces-First Planning | Change-Log Discipline | Issues-Driven Iteration | Three-Persona Review Cycle
+

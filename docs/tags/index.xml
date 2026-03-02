@@ -57,5 +57,26 @@
       <guid>https://mdcooper-mc.github.io/tags/reconciliation/</guid>
       <description></description>
     </item>
+    <item>
+      <title>AI</title>
+      <link>https://mdcooper-mc.github.io/tags/ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>https://mdcooper-mc.github.io/tags/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://mdcooper-mc.github.io/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mdcooper-mc.github.io/tags/python/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

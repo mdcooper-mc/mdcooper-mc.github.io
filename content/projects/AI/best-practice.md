@@ -3,6 +3,7 @@ title = "Best Practice"
 description = "A practical engineering handbook covering design principles, patterns, testing discipline, and architecture guidelines."
 +++
 
+```markdown
 ## The Foundation: Four Principles Every Codebase Needs
 
 Good software starts with four principles that work together. The **Single Responsibility Principle (SRP)** says that every module, class, and function should have exactly one reason to change. When a unit handles multiple concerns, a change in one area risks breaking another, and tests become difficult to reason about because behavior spans unrelated paths. Keeping things focused makes refactoring safe and failures easy to isolate.
@@ -112,3 +113,6 @@ Externalise configuration. Hard-coded values are the fastest path to environment
 **Quality gates** enforce standards before code reaches production. Linting, type checking, test coverage thresholds, and security scanning belong in the CI pipeline — not in code review, where they slow humans down with mechanical concerns that tools handle better.
 
 **Blue-green and canary deployments** shift traffic gradually to new versions, allowing real-world validation before full rollout. Combined with **post-incident reviews** that focus on systemic causes rather than individual blame, they build a culture where failure is a learning event rather than a crisis.
+```
+
+

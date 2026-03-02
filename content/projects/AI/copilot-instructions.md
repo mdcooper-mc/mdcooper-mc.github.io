@@ -68,3 +68,5 @@ description = "Universal coding standards, naming, structure, and tooling rules 
 - Do not do workarounds or ignore tests or filter content; fix the code, ask to delete files and provide the commands,
   or ask to update the plan if it is wrong; do not try to bypass the plan or the tests.
 ```
+
+

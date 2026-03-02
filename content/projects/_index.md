@@ -50,7 +50,7 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   Fault-tolerant AWS orchestration for 24×7 regulatory processing. Includes observability hooks, compliance triggers,
   and retry-safe execution paths.
 
-- **[Image Classification](/projects/image-classification/)**  
+- **[AI-Based Image Classification & Face Recognition](/projects/image-classification/)**  
   A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails,
   assigns CLIP‑based semantic labels, detects people and animals, and applies a hybrid AI/heuristic model to flag junk
   content — all in a modular, reproducible pipeline.

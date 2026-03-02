@@ -59,3 +59,5 @@ description = "Rules for the Coder persona: execute the plan exactly, size limit
 - Tone & format: be precise, minimal, and unambiguous; prefer single-line, machine-parsable bullets for actionable
   items; include concrete examples and explicit expected outputs in subtask implementations when plan requires them.
 ```
+
+
