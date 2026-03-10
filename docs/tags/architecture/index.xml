@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Architecture on Mark Cooper</title>
-    <link>https://mdcooper-mc.github.io/tags/architecture/</link>
+    <link>http://localhost:1313/tags/architecture/</link>
     <description>Recent content in Architecture on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <atom:link href="https://mdcooper-mc.github.io/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MPC Project Analyser</title>
-      <link>https://mdcooper-mc.github.io/projects/optimising-ai-credits/</link>
+      <link>http://localhost:1313/projects/optimising-ai-credits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/projects/optimising-ai-credits/</guid>
+      <guid>http://localhost:1313/projects/optimising-ai-credits/</guid>
       <description>&lt;h2 id=&#34;mpc-project-analyser&#34;&gt;&#xA;  MPC Project Analyser&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#mpc-project-analyser&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;MPC Project Analyser&lt;/strong&gt; is a deterministic, batch-based analysis engine written in Python. It bridges the gap&#xA;between expensive, high-reasoning AI models and cost-effective execution models. Rather than feeding raw source code&#xA;to every AI agent, the analyser generates compact structural metadata — AST signatures, file trees, documentation&#xA;maps — that enables agents to plan software changes safely and efficiently without consuming unnecessary context.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Swaps Pricing Engine (MVP)</title>
-      <link>https://mdcooper-mc.github.io/projects/swaps-pricing-engine/</link>
+      <link>http://localhost:1313/projects/swaps-pricing-engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/projects/swaps-pricing-engine/</guid>
+      <guid>http://localhost:1313/projects/swaps-pricing-engine/</guid>
       <description>&lt;p&gt;The Swaps Pricing Engine is a production-ready C# library that prices total return equity swaps against a proprietary&#xA;COM-based pricing engine. Rather than exposing the engine&amp;rsquo;s unmanaged handle-based interfaces directly, the library&#xA;introduces a thin but complete domain model that maps naturally onto how traders and risk managers think about equity&#xA;swap contracts and positions. The result is a system that is easy to use correctly and difficult to use incorrectly —&#xA;enforcing market conventions through the type system, guiding consumers through a fluent API, and validating inputs&#xA;through a layered rule framework before anything reaches the pricing engine.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Synthetic Platform Versioning</title>
-      <link>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</link>
+      <link>http://localhost:1313/projects/synthetic-platform-versioning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/projects/synthetic-platform-versioning/</guid>
+      <guid>http://localhost:1313/projects/synthetic-platform-versioning/</guid>
       <description>&lt;p&gt;A distributed platform is made up of independently deployed components — a Python utility package, an Airflow&#xA;DAG bundle, a Kubernetes Helm chart, an EC2 application wrapper, API contracts, and supporting scripts. Each&#xA;component has its own build pipeline and its own version number. The challenge is that when you ask &amp;ldquo;what is&#xA;running in production right now?&amp;rdquo;, you should be able to answer precisely — not just for one service, but for&#xA;every component simultaneously.&lt;/p&gt;</description>
     </item>
   </channel>

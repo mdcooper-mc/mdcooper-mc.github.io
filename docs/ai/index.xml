@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI on Mark Cooper</title>
-    <link>https://mdcooper-mc.github.io/ai/</link>
+    <link>http://localhost:1313/ai/</link>
     <description>Recent content in AI on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mdcooper-mc.github.io/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reinforcement Learning &amp; Autonomous Agents</title>
-      <link>https://mdcooper-mc.github.io/ai/reinforcement-learning/</link>
+      <link>http://localhost:1313/ai/reinforcement-learning/</link>
       <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/reinforcement-learning/</guid>
+      <guid>http://localhost:1313/ai/reinforcement-learning/</guid>
       <description>&lt;p&gt;Reinforcement Learning (RL) represents a fundamental shift in how machines learn. Unlike supervised learning, where a&#xA;model is provided with a &amp;ldquo;ground truth&amp;rdquo; label for every input, an RL agent must discover which actions yield the highest&#xA;reward by interacting with a dynamic environment.&lt;/p&gt;&#xA;&lt;p&gt;I developed a set of autonomous agents capable of navigating complex, stochastic environments. This project explores the&#xA;transition from traditional Q-learning to Deep Q-Networks (DQN) and the integration of physical laws into the learning&#xA;process through Physics-Informed Reinforcement Learning (PIRL).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Distributed Training Infrastructure: Scaling to GPT-2</title>
-      <link>https://mdcooper-mc.github.io/ai/distributed-training-infrastructure/</link>
+      <link>http://localhost:1313/ai/distributed-training-infrastructure/</link>
       <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/distributed-training-infrastructure/</guid>
+      <guid>http://localhost:1313/ai/distributed-training-infrastructure/</guid>
       <description>&lt;p&gt;Scaling from toy-sized Transformers to Large Language Models (LLMs) like GPT-2 is a fundamental engineering challenge.&#xA;At this scale, the primary bottleneck is no longer just mathematical correctness—it is hardware memory bandwidth,&#xA;interconnect latency, and computational throughput.&lt;/p&gt;&#xA;&lt;p&gt;I designed and implemented a professional-grade training infrastructure capable of training a 124M parameter GPT-2&#xA;model. This project involved orchestrating multi-GPU clusters, maximizing FLOPS through mixed-precision arithmetic, and&#xA;managing massive data streams for billions of tokens.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Transformer Architecture: Building GPT-2 from Scratch</title>
-      <link>https://mdcooper-mc.github.io/ai/transformer-architecture/</link>
+      <link>http://localhost:1313/ai/transformer-architecture/</link>
       <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/transformer-architecture/</guid>
+      <guid>http://localhost:1313/ai/transformer-architecture/</guid>
       <description>&lt;p&gt;The Transformer architecture is the engine behind modern generative AI. Unlike previous sequential models (RNNs) or&#xA;hierarchical models (WaveNets) that rely on fixed patterns, the Transformer uses &lt;strong&gt;Self-Attention&lt;/strong&gt; to dynamically&#xA;weight the importance of every token in a sequence relative to every other token.&lt;/p&gt;&#xA;&lt;p&gt;I built a complete Transformer decoder—the same architecture used in the GPT family—from the ground up. This project&#xA;involved implementing the core attention mechanism, modular multi-head blocks, and the engineering required to stabilize&#xA;deep residual networks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Professional PyTorch Workflow: Engineering Patterns</title>
-      <link>https://mdcooper-mc.github.io/ai/pytorch-engineering-workflow/</link>
+      <link>http://localhost:1313/ai/pytorch-engineering-workflow/</link>
       <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/pytorch-engineering-workflow/</guid>
+      <guid>http://localhost:1313/ai/pytorch-engineering-workflow/</guid>
       <description>&lt;p&gt;In the rapidly evolving landscape of artificial intelligence, there is a fundamental distinction between merely writing&#xA;a script and architecting a solution. A professional AI workflow requires more than just calling &lt;code&gt;.train()&lt;/code&gt;; it demands&#xA;a rigorous, reproducible framework that covers the entire lifecycle of a model—from hardware-agnostic data orchestration&#xA;to deterministic performance monitoring.&lt;/p&gt;&#xA;&lt;p&gt;I developed a robust PyTorch engineering workflow designed for discovery and reliability. This project outlines the core&#xA;pillars of my approach to building high-performance AI systems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Language Modelling</title>
-      <link>https://mdcooper-mc.github.io/ai/language-modelling/</link>
+      <link>http://localhost:1313/ai/language-modelling/</link>
       <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/language-modelling/</guid>
+      <guid>http://localhost:1313/ai/language-modelling/</guid>
       <description>&lt;p&gt;To predict the next character or word in a sequence, a model must &amp;ldquo;remember&amp;rdquo; what came before. I explored this&#xA;progression from first principles, starting with basic statistical counting and evolving into deep, hierarchical neural&#xA;architectures that capture complex linguistic structures.&lt;/p&gt;&#xA;&lt;p&gt;This project covers the transition from frequentist models to neural-based optimization, the introduction of continuous&#xA;embeddings, and the engineering required to stabilize deep networks.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-problem-the-curse-of-dimensionality&#34;&gt;&#xA;  The Problem: The Curse of Dimensionality&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-problem-the-curse-of-dimensionality&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In a simple &lt;strong&gt;Bigram Model&lt;/strong&gt;, we predict the next character based solely on the current one. If we have 27 possible&#xA;characters (a-z plus space), we can store all possible transitions in a $27 \times 27$ lookup table.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Scalar-Valued Autograd Engine from First Principles</title>
-      <link>https://mdcooper-mc.github.io/ai/autograd-engine/</link>
+      <link>http://localhost:1313/ai/autograd-engine/</link>
       <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/autograd-engine/</guid>
+      <guid>http://localhost:1313/ai/autograd-engine/</guid>
       <description>&lt;p&gt;Modern deep learning frameworks like PyTorch and TensorFlow abstract away the complex calculus involved in model&#xA;training. While efficient, this abstraction can lead to a &amp;ldquo;black box&amp;rdquo; understanding of how models actually learn. To&#xA;bridge this gap, I built a fully functional, scalar-valued automatic differentiation engine from scratch.&lt;/p&gt;&#xA;&lt;p&gt;This engine, which I&amp;rsquo;ve termed my &amp;ldquo;Value Engine,&amp;rdquo; implements backpropagation over a Directed Acyclic Graph (DAG) and&#xA;supports the training of multi-layer perceptrons (MLP) using only basic Python and scalar math.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI Engineering: Core Concepts &amp; Technical Deep Dive</title>
-      <link>https://mdcooper-mc.github.io/ai/core-concepts/</link>
+      <link>http://localhost:1313/ai/core-concepts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://mdcooper-mc.github.io/ai/core-concepts/</guid>
+      <guid>http://localhost:1313/ai/core-concepts/</guid>
       <description>&lt;p&gt;This page provides a technical consolidation of the core principles encountered across the AI engineering landscape.&#xA;Rather than a simple collection of definitions, this guide serves as a narrative reference for the essential components&#xA;of modern deep learning, tracing the path from fundamental calculus and statistical bigrams to the distributed&#xA;orchestration of large-scale transformer models.&lt;/p&gt;&#xA;&lt;p&gt;The driving insight is that sophisticated AI behaviour is built on a foundation of &amp;ldquo;first principles&amp;rdquo; engineering. By&#xA;understanding the local derivative, we unlock the global gradient; by mastering initialisation and normalisation, we&#xA;stabilise the signal; and by engineering for hardware efficiency, we scale these principles to the level of human&#xA;language.&lt;/p&gt;</description>
     </item>
   </channel>

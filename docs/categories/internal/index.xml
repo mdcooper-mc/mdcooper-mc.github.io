@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Internal on Mark Cooper</title>
-    <link>https://mdcooper-mc.github.io/categories/internal/</link>
+    <link>http://localhost:1313/categories/internal/</link>
     <description>Recent content in Internal on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://mdcooper-mc.github.io/categories/internal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/internal/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
