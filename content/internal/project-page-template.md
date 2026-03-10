@@ -74,6 +74,9 @@ Detail how the system handles failures. Mention specific mechanisms like:
 - **Validation**: Startup checks, type-safety, and contract enforcement.
 - **Error Propagation**: How exceptions are handled and communicated across the system.
 
+### 3.6 Header and Footer
+The navigation header and the standard footer are global components and must not be modified or overridden within individual project pages. The footer is optimized for both light and dark modes to ensure accessibility and readability.
+
 ---
 
 ## 4. Skills and Technologies (ATS Optimization)

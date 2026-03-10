@@ -5,7 +5,7 @@
   <title>Tag: PostgreSQL · Mark Cooper</title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 
 
 
@@ -45,12 +45,6 @@
 
 
 
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
-  
-
 
 
  
@@ -82,9 +76,16 @@
 
 
 
-
-
-<body class="preload-transitions colorscheme-dark">
+<body class="preload-transitions colorscheme-light">
+  <script>
+    (function() {
+      var theme = localStorage.getItem("colorscheme");
+      if (theme) {
+        document.body.classList.remove('colorscheme-light', 'colorscheme-dark', 'colorscheme-auto');
+        document.body.classList.add('colorscheme-' + theme);
+      }
+    })();
+  </script>
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -162,9 +163,24 @@
 
     </div>
 
-    <footer class="footer" style="text-align:center; font-size: 11px;">
+    <style>
+  .footer {
+    color: #000;
+  }
+  .footer a {
+    color: #1565c0;
+    text-decoration: underline;
+  }
+  body.colorscheme-dark .footer {
+    color: #dadada !important;
+  }
+  body.colorscheme-dark .footer a {
+    color: #448aff !important;
+  }
+</style>
+<footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
+        <p>&copy; 2026 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

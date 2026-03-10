@@ -12,7 +12,7 @@ avatarURL = "images/me-toon.png"
 avatarLink = "/about"
 titleLink = "/about"
 math = true
-colorScheme = "dark"
+colorScheme = "light"
 
 # -------------------
 #[module]
