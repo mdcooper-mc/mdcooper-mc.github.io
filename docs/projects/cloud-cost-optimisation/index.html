@@ -13,27 +13,38 @@
 
 
 <meta name="author" content="Mark Cooper">
-<meta name="description" content="£2M&#43; annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams.">
+<meta name="description" content="Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings
+delivered here came from eliminating waste built into the platform&rsquo;s foundations: over-provisioned compute,
+manual deployment processes that required bespoke configuration per environment, and a lack of shared tooling
+that caused every team to solve the same infrastructure problems independently.
+The work spanned three interconnected areas: right-sizing and tuning the Kubernetes workloads running on AWS
+EKS, designing and delivering a versioned CI/CD framework that was subsequently adopted across multiple teams,
+and architecting the broader AWS environment — an architecture reviewed by AWS and assessed as highly scalable
+and well-designed.">
 <meta name="keywords" content="">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cloud Cost Optimisation & Platform Engineering">
-  <meta name="twitter:description" content="£2M&#43; annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams.">
+  <meta name="twitter:description" content="Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings delivered here came from eliminating waste built into the platform’s foundations: over-provisioned compute, manual deployment processes that required bespoke configuration per environment, and a lack of shared tooling that caused every team to solve the same infrastructure problems independently.
+The work spanned three interconnected areas: right-sizing and tuning the Kubernetes workloads running on AWS EKS, designing and delivering a versioned CI/CD framework that was subsequently adopted across multiple teams, and architecting the broader AWS environment — an architecture reviewed by AWS and assessed as highly scalable and well-designed.">
 
 <meta property="og:url" content="https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/">
   <meta property="og:site_name" content="Mark Cooper">
   <meta property="og:title" content="Cloud Cost Optimisation & Platform Engineering">
-  <meta property="og:description" content="£2M&#43; annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams.">
+  <meta property="og:description" content="Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings delivered here came from eliminating waste built into the platform’s foundations: over-provisioned compute, manual deployment processes that required bespoke configuration per environment, and a lack of shared tooling that caused every team to solve the same infrastructure problems independently.
+The work spanned three interconnected areas: right-sizing and tuning the Kubernetes workloads running on AWS EKS, designing and delivering a versioned CI/CD framework that was subsequently adopted across multiple teams, and architecting the broader AWS environment — an architecture reviewed by AWS and assessed as highly scalable and well-designed.">
   <meta property="og:locale" content="en_uk">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-04-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-15T00:00:00+00:00">
     <meta property="article:tag" content="AWS">
     <meta property="article:tag" content="Kubernetes">
     <meta property="article:tag" content="DevOps">
-    <meta property="article:tag" content="Architecture">
     <meta property="article:tag" content="CI/CD">
+    <meta property="article:tag" content="EKS">
 
 
 
@@ -54,6 +65,12 @@
 
 
 
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
 
 
 
@@ -85,7 +102,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -108,13 +127,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -259,37 +278,32 @@ deployment overhead across the platform and were adopted as the standard by a se
 review provided external validation of the design decisions and informed the roadmap for the next phase of
 infrastructure investment.</p>
 <hr>
-<h2 id="skills">
-  Skills
-  <a class="heading-link" href="#skills">
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Cloud &amp; Infrastructure</strong>
-AWS EKS | AWS MWAA | AWS API Gateway | AWS DynamoDB | AWS S3 | SSM Parameter Store | VPC Endpoints | IAM Least-Privilege</p>
-<p><strong>Kubernetes &amp; Containers</strong>
-Helm | Skaffold | Docker | Resource Right-Sizing | Spot Instance Strategy | Node Group Configuration</p>
-<p><strong>CI/CD &amp; Automation</strong>
-Jenkins | Bamboo | Artifactory | PowerShell Automation | Versioned Build System | Rollback Strategy | Multi-Environment Promotion</p>
-<p><strong>Architecture</strong>
-Platform Engineering | Multi-Tier AWS Design | Environment Parity | Configuration Externalisation | AWS Architecture Review</p>
-<p><strong>Operational Excellence</strong>
-Cost Optimisation | Infrastructure as Code | Standardised Developer Environments | Cross-Team Framework Adoption</p>
+<ul>
+<li><strong>Cloud Infrastructure (AWS)</strong>: EKS, MWAA, API Gateway, DynamoDB, S3, SSM Parameter Store, VPC endpoints, IAM (least-privilege).</li>
+<li><strong>Kubernetes &amp; Containers</strong>: Helm, Skaffold, resource right‑sizing, spot instance policies, node group configuration.</li>
+<li><strong>CI/CD &amp; Automation</strong>: Jenkins, Bamboo, Artifactory, PowerShell automation framework, versioned build system, multi‑environment promotion, rollback.</li>
+<li><strong>Architecture &amp; Engineering</strong>: Platform engineering, multi-tier AWS design, environment parity, infrastructure as code (IaC).</li>
+<li><strong>Operations &amp; Optimization</strong>: Cost optimization, standardized developer environments (VDI), framework adoption.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -298,14 +312,13 @@ Cost Optimisation | Infrastructure as Code | Standardised Developer Environments
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

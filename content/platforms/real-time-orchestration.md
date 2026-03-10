@@ -161,14 +161,7 @@ building directly on the backend services and APIs.
 
 ## Cost Reduction
 
-Three targeted initiatives delivered measurable cost savings while improving performance:
-
-- **Caching & Storage Efficiencies** — Reduced repeated data retrieval and optimised storage tiers, lowering I/O
-  costs and improving throughput.
-- **Dynamic EC2 Provisioning** — Implemented on‑demand scaling of compute resources, ensuring capacity matched
-  workload demand without over‑provisioning.
-- **EKS Optimisation** — Tuned Kubernetes cluster configurations for workload patterns, reducing idle resource
-  consumption and improving pod scheduling efficiency.
+The platform achieved significant cost savings through three targeted initiatives. First, we implemented advanced caching and storage efficiencies to reduce repeated data retrieval, which lowered I/O costs and improved overall throughput. Second, we introduced dynamic EC2 provisioning to ensure that compute resources scale on‑demand, matching capacity to workload without the expense of over‑provisioning. Finally, we optimized the EKS cluster configurations specifically for our workload patterns, significantly reducing idle resource consumption and improving pod scheduling efficiency.
 
 ---
 
@@ -181,28 +174,11 @@ discipline to be enforced manually.
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Languages & Frameworks**  
-Python | PowerShell | YAML | OpenAPI 3.0 | Dockerfile | Bash
-
-**AWS**  
-MWAA (Managed Airflow) | DynamoDB | S3 | API Gateway | VPC Endpoints | SSM Parameter Store | EKS
-
-**Orchestration & Workflow**  
-Apache Airflow | DAG Design | Task Groups | XCom | Branching | Dynamic Task Generation | AI‑Driven Automation
-
-**Architecture & Design**  
-Microservices | Plugin-Based Calculator Registry | HATEOAS API Pattern | Status Lifecycle State Machine | Domain-Driven Package Structure | Modular Service Design | Reusable Frameworks
-
-**CI/CD & DevOps**  
-Jenkins | Bamboo | Artifactory | Versioned Builds | Helm | Kubernetes | Docker | Skaffold | PowerShell Automation | Infrastructure as Code
-
-**Observability**  
-DynamoDB Audit Trail | Correlation IDs | Structured Logging | Payload Callbacks | Per-Stage Status Tracking | CloudWatch
-
-**Performance & Optimisation**  
-Dynamic Scaling | Caching Strategies | Cost‑Efficient Resource Allocation | Parallel Processing | Efficient I/O Handling
-
-**Testing & Quality**  
-pytest | Coverage Reporting | Complexity Badges | Isolated Unit Tests | Integration Test Fixtures
+- **Cloud & Infrastructure (AWS)**: MWAA (Airflow), EKS (Kubernetes), DynamoDB, S3, API Gateway, SSM Parameter Store, VPC Endpoints, EC2.
+- **Languages & Frameworks**: Python, PowerShell, .NET 6, Bash, YAML, OpenAPI 3.0.
+- **Orchestration & Workflow**: Apache Airflow, DAG Design, HATEOAS API Patterns, Plugin-based Registry, Parallel Processing.
+- **CI/CD & DevOps**: Jenkins, Bamboo, Artifactory, Helm, Docker, Synthetic Versioning, Idempotent Deployment.
+- **Observability & Quality**: DynamoDB Audit Trail, Correlation IDs, Structured Logging, Pytest, Lifecycle State Machines.
+- **Performance & Optimization**: Dynamic Scaling, Caching, Resource Right-sizing, Fail-fast Validation.

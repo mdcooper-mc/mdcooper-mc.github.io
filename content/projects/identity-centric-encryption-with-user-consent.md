@@ -1,173 +1,89 @@
 +++
 title = "Identity‑Anchored Encryption"
-description = "An identity‑centric encryption model where every record is protected with its own key, and decryption requires verified identity, explicit user approval, and full auditability."
+date = 2025-06-10
+categories = ["Security", "Architecture"]
+tags = ["Okta", "Envelope Encryption", "JWT", "AES-GCM", "Go", "Python"]
 +++
+
+---
+
+## Identity-Centric Security Model
 
 This project demonstrates how encryption can be made **identity‑centric** — shifting control from purely key‑based
 systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then
 wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.
 
-Decryption is never automatic. It requires:
+Decryption is never an automatic process. Instead, it is governed by a multi‑step verification sequence that begins with a valid identity token (JWT) issued by Okta. If the actor requesting access is not the original data owner, the system triggers an explicit user approval workflow. Only after identity is verified and consent is granted does the Key Management Service attempt to unwrap the record’s unique encryption key.
 
-1. A valid identity token (JWT) issued by the Identity Provider (Okta).
-2. Explicit user approval if the actor requesting access is not the data owner.
-3. A successful unwrap of the record’s encryption key by the Key Management Service.
-
-Every decrypt event is logged with actor, subject, purpose, and key version, ensuring a defensible audit trail. This
-makes the Identity Provider the **front door for decryption** — the arbiter of whether access is legitimate.
+Every decrypt event is logged with actor, subject, purpose, and key version, ensuring a defensible audit trail. This makes the Identity Provider the **front door for decryption** — the arbiter of whether access is legitimate.
 
 ---
 
-# Per-user Envelope Encryption with Okta Approval
+## Envelope Encryption with Okta Approval
 
-## Plain-language Summary (for non-technical readers)
+### Plain-language Summary
 
-We are designing a system to keep each customer’s information safe.  
-Here’s the simple idea:
+Our system is designed with a fundamental focus on keeping customer information secure through a multi‑layered approach. At its core, every individual piece of data is locked with its own unique digital padlock (a random key). To further enhance security, each padlock is then sealed inside a protective box that can only be opened with the customer’s personal key.
 
-- Every piece of data is locked with its own unique “padlock” (a random key).
-- That padlock is then sealed inside a box that only the customer’s personal key can open.
-- When someone (like support staff) needs to see the data, they must:  
-  &nbsp;&nbsp;&nbsp;&nbsp;1. Prove who they are by signing in.  
-  &nbsp;&nbsp;&nbsp;&nbsp;2. Get the customer’s approval if they are not the customer themselves.  
-  &nbsp;&nbsp;&nbsp;&nbsp;3. Only then can the system unlock the padlock and show the information.
-- Every time this happens, it is recorded so there’s a clear trail of who accessed what and why.
+When access is needed — for example, if a support staff member needs to view the data to assist — they must first prove their identity by signing in. If the person requesting access is not the customer themselves, the system requires explicit approval from the customer before proceeding. Only once these conditions are met can the system unlock the padlock and reveal the information. Throughout this entire process, every action is meticulously recorded, creating a clear and auditable trail of who accessed what and for what purpose.
 
-This means:
-
-- Customers stay in control of their own information.
-- Support staff can help, but only with permission.
-- Even if one padlock is broken, it only affects that single piece of data, not everything.
+This architecture ensures that customers remain in full control of their own information at all times. Support staff are empowered to provide help, but their access is strictly limited by the customer’s permission. Furthermore, by using individual keys for every record, we ensure that even if one padlock were ever compromised, the impact would be confined to that single piece of data rather than the entire system.
 
 ---
 
-## Overview
+### Architectural Overview
 
-- Encrypt each record with a random **Data Encryption Key (DEK)**.
-- Wrap the DEK with the user’s **public key**.
-- Require a valid **JWT** and **user approval** (if impersonated) to unwrap the DEK.
-- Audit every decrypt with both actor and subject identities.
+The model operates by encrypting each individual record with a random **Data Encryption Key (DEK)**, which is then wrapped using the user’s **public key**. Accessing the data requires a valid **JWT** and, if the request is being made through impersonation, explicit **user approval** to unwrap the DEK. To maintain accountability, every decryption event is **audited** with both the actor and subject identities.
 
 ---
 
 ## Write Path (Encrypt)
 
-1. **Identify subject**  
-   `user_sub` = stable ID from Okta.
+The write process begins by identifying the subject using their stable Okta ID. The system then generates a unique, one‑time **Data Encryption Key (DEK)** using the AES‑GCM algorithm to encrypt the record. Once the **ciphertext** is created, the DEK is itself wrapped with the subject’s **public key**. The resulting record, which includes the subject ID, ciphertext, wrapped DEK, and key version identifier, is then stored as shown in the following JSON example:
 
-2. **Generate DEK**  
-   Random symmetric key (AES-GCM), used only for this record.
-
-3. **Encrypt data**  
-   `ciphertext = Encrypt(data, DEK)`
-
-4. **Wrap DEK**  
-   `wrappedDEK = Encrypt(DEK, user_public_key)`
-
-5. **Store record**
-   ```json
-   {
-   "user_sub": "00u123...",
-   "ciphertext": "...",
-   "wrappedDEK": "...",
-   "kid": "k_v1"
-   }
-   ```
+```json
+{
+"user_sub": "00u123...",
+"ciphertext": "...",
+"wrappedDEK": "...",
+"kid": "k_v1"
+}
+```
 
 ---
 
 ## Read Path (Decrypt)
 
-1. **Authenticate actor**
-    - Validate JWT from Okta.
-    - If actor ≠ subject → trigger Okta approval flow.
-    - Only proceed if approval granted.
-
-2. **Fetch record**
-    - Retrieve `ciphertext`, `wrappedDEK`, `kid`.
-
-3. **Unwrap DEK**  
-   `DEK = Decrypt(wrappedDEK, user_private_key)`  
-   (private key held securely in KMS or user device).
-
-4. **Decrypt ciphertext**  
-   `plaintext = Decrypt(ciphertext, DEK)`
-
-5. **Audit**
-    - Log `actorSub`, `subjectSub`, `approval`, `kid`, `timestamp`.
+Decryption starts with the authentication of the actor, validating their Okta JWT. If the person attempting to access the data is not the subject, the system triggers an Okta approval flow and only proceeds once consent is explicitly granted. After these checks, the system retrieves the ciphertext and wrapped DEK. The DEK is then unwrapped using the subject’s private key — which is held securely within a Key Management Service or on a trusted device. With the original DEK restored, the system decrypts the ciphertext into its original plaintext. Finally, every step is recorded in an audit log that captures the actor, subject, approval status, and timestamp.
 
 ---
 
 ## Key Concepts
 
-- **DEK:** Short-lived, random key used to encrypt actual data; exists only in memory during operations.
-- **Public/Private Key Pair (PPK):**  
-  &nbsp;&nbsp;- Public key: stored in Okta or a key registry; used to wrap DEKs.  
-  &nbsp;&nbsp;- Private key: never leaves secure storage; used to unwrap DEKs.
-- **Approval Flow:** Okta push/email prompt ensures the subject consents when actor ≠ subject.
-- **Audit Trail:** Every decrypt event records actor, subject, purpose, and key version.
+The system relies on several core components to maintain its identity‑centric security model. The **Data Encryption Key (DEK)** is a short‑lived, random key used only for the initial encryption of data, remaining in memory only for as long as necessary. To protect these keys, we use a **Public/Private Key Pair (PPK)**; the public key is used for wrapping DEKs, while the private key is kept securely within a KMS to unwrap them when needed. The **Approval Flow** is a critical security layer that uses Okta push or email prompts to ensure consent is granted whenever someone other than the data owner requests access. Finally, the **Audit Trail** ensures that every decryption event is logged with full context, including the actor, subject, purpose, and key version.
 
 ---
 
-## One-Liner Summaries
+## Summary of Operations
 
-- **Encrypt:**  
-  `(user_sub, data → [generate DEK → encrypt data → wrap DEK with user’s public key])`
-
-- **Decrypt:**  
-  `(JWT + Okta approval → unwrap DEK with user’s private key → decrypt ciphertext → return plaintext)`
-
----
-
-## Your Shorthand Mnemonics
-
-- **Encrypt:**  
-  [user_sub, data (PPK > DEK >> data)]
-
-- **Decrypt:**  
-  JWT (approval flow via Okta [user/supportuser]) → DEK unwrap → decrypt key → decrypt(enc_text)
+In summary, the encryption process takes a subject ID and their data to generate a per‑record DEK, which is then used to encrypt the data before being wrapped by the user’s public key. The corresponding decryption process requires a valid JWT and any necessary Okta approvals to unwrap that DEK using the private key, ultimately revealing the original plaintext after a successful audit event.
 
 ---
 
 ## Identity Provider as the Front Door
 
-In this model, the **Identity Provider (Okta)** is not just authenticating users but also acting as the **policy
-gatekeeper** for decryption:
+In this model, the **Identity Provider (Okta)** serves as both the authentication mechanism and the primary policy gatekeeper for all decryption activities. The IdP issues JWTs that bind actor and subject identities, enforces necessary approval workflows such as push or email consent, and provides the claims that the Key Management Service (KMS) uses to decide whether to unwrap a DEK.
 
-- **Identity Provider (IdP) role:**  
-  &nbsp;&nbsp;- Issues JWTs binding actor identity (`actor_sub`) and subject identity (`user_sub`).  
-  &nbsp;&nbsp;- Enforces approval workflows (push/email consent).  
-  &nbsp;&nbsp;- Provides claims that the KMS/decrypt service uses to decide whether to unwrap the DEK.
+The Key Management Service holds the essential private keys and only performs unwrapping operations when the IdP‑backed claims confirm authorization. Each such operation is then logged with full context. On the application side, the system stores the ciphertext and wrapped DEKs and orchestrates calls to both the IdP and KMS when a decrypt is requested. Plaintext is only returned to the user after both identity and approval checks have successfully passed.
 
-- **Key Management role:**  
-  &nbsp;&nbsp;- Holds private/master keys.  
-  &nbsp;&nbsp;- Only unwraps DEKs if IdP-backed claims say “yes.”  
-  &nbsp;&nbsp;- Logs every unwrap with actor/subject context.
-
-- **Application role:**  
-  &nbsp;&nbsp;- Stores ciphertext + wrapped DEK.  
-  &nbsp;&nbsp;- Calls out to IdP + KMS when a decrypt is requested.  
-  &nbsp;&nbsp;- Returns plaintext only after both identity and approval checks pass.
-
-**Key takeaway:** Okta becomes the **front door for decryption** — the arbiter of whether a decrypt request is
-legitimate. This shifts the model from being purely key-centric to being **identity-centric**, with consent and
-auditability built in.
+**Key takeaway:** By making Okta the front door for decryption, the model moves from a traditional key‑centric system to an **identity‑centric** one, where every access request is audited and governed by explicit user consent.
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Languages & Frameworks**  
-Python | Go | Rust | Markdown Documentation | Okta SDKs
-
-**Security & Identity**  
-JWT | Okta Approval Flows | Consent‑Driven Access | Audit Logging
-
-**Encryption & Key Management**  
-Envelope Encryption | Per‑Record DEKs | AES‑GCM | KMS/HSM Integration | Public/Private Key Wrapping
-
-**Architecture & Design**  
-Identity‑Centric Security | Modular Microservices | Consent‑First Workflows | Regulatory Defensibility
-
-**Documentation & Communication**  
-Narrative‑Driven Markdown | Business‑Friendly Summaries | Shorthand Mnemonics | Example‑Rich Use Cases
+- **Identity & Access Management**: Okta SDKs, JWT, Okta Approval Flows, Identity-Centric Security.
+- **Languages**: Python, Go, Rust.
+- **Cryptography**: Envelope Encryption, AES-GCM, Per-record DEKs, Public/Private Key Wrapping, KMS/HSM Integration.
+- **Architecture**: Modular Microservices, Consent-Driven Access, Regulatory Defensibility.
+- **Documentation**: Narrative-driven Markdown, Technical and Business-friendly Documentation.

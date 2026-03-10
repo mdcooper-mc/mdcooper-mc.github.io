@@ -25,46 +25,27 @@ strategic asset — engineered to extract insight, enforce governance, and adapt
 
 ---
 
-## Training Platforms
+## Strategic Execution
 
-I’ve designed and integrated Murex-specific environments that mirror production workflows across trade processing,
-reconciliation, and regulatory reporting. These platforms enable teams to rehearse operational scenarios, validate
-system behaviour, and accelerate onboarding with precision and reproducibility.
+I’ve delivered architecture and engineering solutions for firms including Jefferies, Citi, BlackRock, and Société
+Générale — focusing on real-time trade processing, exposure tracking, and margining. My platforms are engineered for
+reproducibility and strategic reuse, ensuring that complex financial workflows remain observable, auditable, and
+strategically impactful.
 
-One such environment includes CI/CD-driven refresh simulators that reduce full Murex environment rebuilds from eight
-days to under fifteen minutes — using Git-based automation to streamline configuration and deployment. I’ve also built
-Datamart replay engines that reconstruct historical VaR and MRA flows, allowing compliance teams to validate risk logic
-under real-world conditions. For secure messaging, I developed SWIFT signing labs that simulate HMAC-secured digital
-signature workflows, enabling robust testing of exchange message integrity.
+This approach extends to regulatory reporting and compliance, where I’ve built systems aligned with Basel III/IV, FRTB,
+and MiFID II. By separating high-level reasoning from mechanical execution, I ensure that these systems can adapt to
+changing market requirements without sacrificing performance or control.
 
-Authentication sandboxes provide isolated environments for rehearsing LDAP and Kerberos integration, including
-multi-factor authentication via RSA and federated identity flows. To support documentation and repeatability, I embed
-modular walkthroughs directly into Hugo-based developer portals, integrating training-as-code into CI/CD pipelines for
-seamless access and version control.
-
-These systems are engineered for runtime introspection, strategic reuse, and operational clarity — ensuring that teams
-train with the same rigor and transparency they deploy.
+These systems are engineered for runtime introspection, strategic reuse, and operational clarity — ensuring that every
+trade, calculation, and reporting flow is attributable, replayable, and governed.
 
 ---
 
 ## Skill Set
 
-**Instruments & Markets**  
-FX/MM | Derivatives | Fixed Income | Structured Products | Swaps | Options
-
-**Trade Lifecycle & Operations**  
-Trade Capture | Trade Processing | Reconciliation | Compression | Collateral Management | Exposure Tracking |  
-Margining | Capital Allocation
-
-**Regulatory & Risk Frameworks**  
-Basel III/IV | FRTB | MiFID II | EMIR | Dodd-Frank | Stress Testing | Scenario Analysis | P&L Attribution | Regulatory  
-Reporting
-
-**Messaging & Standards**  
-FIX | FpML | SWIFT MT/MX | ISO 20022 | ISO 8583
-
-**Integration & Platforms**  
-DTCC | LCH Clearlink | Bloomberg API | Refinitiv | Marketwire | **Murex Trading platform** | Datamart | MxMLExchange
-
-**Architecture & Practices**  
-Provider Patterns | Runtime Introspection | Auditability | Observability | Strategic Reuse | Domain-Driven Design  
+- **Instruments & Markets**: FX/MM, Derivatives, Fixed Income, Structured Products, Swaps, Options.
+- **Trade Lifecycle & Operations**: Trade Capture, Trade Processing, Reconciliation, Compression, Collateral Management, Exposure Tracking, Margining, Capital Allocation.
+- **Regulatory & Risk Frameworks**: Basel III/IV, FRTB, MiFID II, EMIR, Dodd-Frank, Stress Testing, Scenario Analysis, P&L Attribution, Regulatory Reporting.
+- **Messaging & Standards**: FIX, FpML, SWIFT MT/MX, ISO 20022, ISO 8583.
+- **Integration & Platforms**: DTCC, LCH Clearlink, Bloomberg API, Refinitiv, Marketwire, **Murex Trading platform**, Datamart, MxMLExchange.
+- **Architecture & Practices**: Provider Patterns, Runtime Introspection, Auditability, Observability, Strategic Reuse, Domain-Driven Design.

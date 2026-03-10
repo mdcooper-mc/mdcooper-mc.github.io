@@ -130,18 +130,10 @@ object-oriented framework for deep learning that mirrors the internal design of 
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Architectures**  
-Bigram Models | Multi-Layer Perceptrons (MLP) | WaveNet (Hierarchical Temporal Flattening) | Residual Connections
-
-**Training & Optimization**  
-Negative Log-Likelihood (NLL) | Stochastic Gradient Descent (SGD) | Kaiming Initialisation | Batch Normalisation |
-Learning Rate Schedulers
-
-**Engineering Patterns**  
-Continuous Embeddings | One-Hot Encoding | Modular API Design | Diagnostic Visualisation (Activation Histograms,
-Gradient Flow)
-
-**Mathematical Foundations**  
-Information Theory (Entropy) | Multivariable Calculus | Statistical Language Modelling | Vector Space Geometry
+- **Neural Architectures**: Bigram Models, Multi-Layer Perceptrons (MLP), Hierarchical WaveNet, Residual Connections.
+- **Optimization & Training**: Negative Log-Likelihood (NLL), Stochastic Gradient Descent (SGD), Kaiming Initialisation, Batch Normalisation.
+- **Deep Learning Engineering**: Continuous Embeddings, One-hot Encoding, Modular API Design, Learning Rate Scheduling.
+- **Diagnostics & Health**: Activation Histograms, Gradient Flow Analysis, Diagnostic Visualisations.
+- **Mathematical Foundations**: Information Theory, Multivariable Calculus, Vector Space Geometry.

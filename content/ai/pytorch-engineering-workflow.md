@@ -129,16 +129,7 @@ massive transformer architectures with complete confidence in the results.
 
 ## Skills
 
-**Core Engineering**  
-Device-Agnostic Programming | Five-Step Training Loop | Early Stopping | Deterministic Research | Model Persistence (
-state_dict) | Inference Mode
-
-**Architectures**  
-Linear Regression | Multi-Layer Perceptrons (MLP) | Neural Classification | Non-Linear Activations (ReLU/LeakyReLU) |
-Layer Normalisation
-
-**Optimisation & Loss**  
-AdamW | Fused Optimisers | BCEWithLogitsLoss | Log-Sum-Exp Trick | Weight Decay | Learning Rate Schedulers
-
-**Performance & Scaling**  
-Mixed Precision Training (BFloat16) | torch.autocast | Batch Processing | Vectorised Computation | Hardware-Aware Tuning
+- **Core Engineering**: Device-Agnostic Programming, Five-Step Training Loop, Early Stopping, Deterministic Research, Model Persistence (state_dict), Inference Mode.
+- **Neural Architectures**: Linear Regression, Multi-Layer Perceptrons (MLP), Neural Classification, Non-Linear Activations (ReLU/LeakyReLU), Layer Normalisation.
+- **Optimisation & Loss**: AdamW, Fused Optimisers, BCEWithLogitsLoss, Log-Sum-Exp Trick, Weight Decay, Learning Rate Schedulers.
+- **Performance & Scaling**: Mixed Precision Training (BFloat16), torch.autocast, Batch Processing, Vectorised Computation, Hardware-Aware Tuning.

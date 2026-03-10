@@ -116,14 +116,7 @@ domain knowledge can be used to constrain and accelerate the learning process.
 
 ## Skills
 
-**Autonomous Agents**  
-Deep Q-Networks (DQN) | Policy Gradient | Exploration-Exploitation | Temperature Annealing | Experience Replay
-
-**Environments & Physics**  
-Gymnasium (OpenAI Gym) | Physics-Informed Neural Networks (PINNs) | Kinematic Constraints | Reward Shaping
-
-**Optimisation & Theory**  
-Bellman Optimality | Temporal Difference (TD) Learning | Markov Decision Processes (MDP) | Discount Factors
-
-**Mathematical Foundations**  
-Stochastic Environments | Automatic Differentiation | Partial Differential Equations | Vectorised State Handling
+- **Autonomous Agents**: Deep Q-Networks (DQN), Policy Gradient, Exploration-Exploitation, Temperature Annealing, Experience Replay.
+- **Environments & Physics**: Gymnasium (OpenAI Gym), Physics-Informed Neural Networks (PINNs), Kinematic Constraints, Reward Shaping.
+- **Optimisation & Theory**: Bellman Optimality, Temporal Difference (TD) Learning, Markov Decision Processes (MDP), Discount Factors.
+- **Mathematical Foundations**: Stochastic Environments, Automatic Differentiation, Partial Differential Equations, Vectorised State Handling.

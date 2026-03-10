@@ -515,17 +515,8 @@ accurate.
 
 ## Skills
 
-**Mathematics & Theory**  
-Backpropagation | Chain Rule | Topological Sort | Information Theory | Bellman Equations | PINNs
-
-**Architectures**  
-Transformers (KQV) | Multi-Head Attention | MLPs | WaveNet | CNNs | Residual Networks
-
-**Optimisation & Training**  
-AdamW | Kaiming Initialisation | Batch/Layer Normalisation | Cosine Decay | Dropout | Weight Decay
-
-**Performance Engineering**  
-GPU Acceleration | DDP | Mixed Precision (BF16/TF32) | Kernel Fusion | torch.compile | Gradient Accumulation
-
-**Evaluation & Benchmarking**  
-Perplexity | Cross-Entropy | HellaSwag | Validation Visualisation
+- **Mathematics & Theory**: Backpropagation, Chain Rule, Topological Sort, Information Theory, Bellman Equations, Physics-Informed Neural Networks (PINNs).
+- **Model Architectures**: Transformers (KQV), Multi-Head Attention, Multi-Layer Perceptrons (MLP), WaveNet, CNNs, Residual Networks.
+- **Optimisation & Training**: AdamW, Kaiming Initialisation, Batch/Layer Normalisation, Cosine Decay with Warmup, Dropout, Weight Decay.
+- **Performance Engineering**: GPU Acceleration, Distributed Data Parallel (DDP), Mixed Precision (BF16/TF32), Kernel Fusion, torch.compile, Gradient Accumulation.
+- **Evaluation & Benchmarking**: Perplexity, Cross-Entropy, HellaSwag, Validation Visualisation.

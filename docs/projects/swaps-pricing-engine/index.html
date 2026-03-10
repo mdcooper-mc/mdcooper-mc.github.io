@@ -13,23 +13,24 @@
 
 
 <meta name="author" content="Mark Cooper">
-<meta name="description" content="A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
+<meta name="description" content="A production-ready .NET / C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
 <meta name="keywords" content="">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Swaps Pricing Engine (MVP)">
-  <meta name="twitter:description" content="A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
+  <meta name="twitter:description" content="A production-ready .NET / C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
 
 <meta property="og:url" content="https://mdcooper-mc.github.io/projects/swaps-pricing-engine/">
   <meta property="og:site_name" content="Mark Cooper">
   <meta property="og:title" content="Swaps Pricing Engine (MVP)">
-  <meta property="og:description" content="A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
+  <meta property="og:description" content="A production-ready .NET / C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework.">
   <meta property="og:locale" content="en_uk">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
     <meta property="article:tag" content="Finance">
+    <meta property="article:tag" content="Dotnet">
     <meta property="article:tag" content="C#">
     <meta property="article:tag" content="Architecture">
     <meta property="article:tag" content="Derivatives">
@@ -53,6 +54,12 @@
 
 
 
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
 
 
 
@@ -84,7 +91,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -107,13 +116,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -151,7 +160,7 @@ introduces a thin but complete domain model that maps naturally onto how traders
 swap contracts and positions. The result is a system that is easy to use correctly and difficult to use incorrectly —
 enforcing market conventions through the type system, guiding consumers through a fluent API, and validating inputs
 through a layered rule framework before anything reaches the pricing engine.</p>
-<p>The MVP achieved an <strong>81.6% pass rate across 500 live production positions</strong>, covering same-currency and
+<p>The MVP achieved an <strong>81.6% pass rate across 25000 live production positions</strong>, covering same-currency and
 cross-currency swaps, long and short positions, and a range of underlying equity types including stocks, ETFs, and
 indices.</p>
 <hr>
@@ -173,7 +182,7 @@ Dealer systems translate this into a positive contract notional combined with a 
 long equity (receive equity returns, pay financing) and negative means short (pay equity returns, receive financing).
 Encoding direction into the notional itself violates both ISDA conventions and the pricing engine&rsquo;s database
 constraints, which enforce <code>Notional &gt; 0</code> at the SQL schema level.</p>
-<p>The library solves both problems: it hides the COM complexity behind idiomatic .NET, and it enforces the correct
+<p>The library solves both problems: it hides the COM complexity behind idiomatic .NET / C#, and it enforces the correct
 contract/position separation through its type model.</p>
 <hr>
 <h2 id="domain-model">
@@ -317,39 +326,32 @@ which matches the pricing engine&rsquo;s own data model, where each position hol
 redundancy: every position is unique by quantity, counterparty, and terms. An 84% space reduction is achievable
 through JSON.NET metadata removal and GZIP compression without touching the object model.</p>
 <hr>
-<h2 id="skills">
-  Skills
-  <a class="heading-link" href="#skills">
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Languages &amp; Frameworks</strong>
-C# | .NET | COM Interop | log4net | SQLite</p>
-<p><strong>Financial Domain</strong>
-Equity Swaps | Total Return Swaps | ISDA Conventions | Derivative Pricing | Position Economics | Delta / Theta</p>
-<p><strong>Architecture &amp; Design</strong>
-Type-State Builder Pattern | Domain-Driven Design | Immutable Records | Interface Segregation | Fluent API Design</p>
-<p><strong>Validation</strong>
-Rule-Based Validation Framework | Layered Validation | Fail-Fast Validation | Typed Exceptions</p>
-<p><strong>Concurrency &amp; Safety</strong>
-Thread-Safe Initialisation | Double-Checked Locking | Session-Scoped Identifiers | Concurrent Data Stores</p>
-<p><strong>Testing &amp; Quality</strong>
-25+ Validation Rules | 500-Position Test Suite | 81.6% Pass Rate | Deterministic Data Structures</p>
+<ul>
+<li><strong>Programming &amp; Frameworks</strong>: C# (.NET), COM Interop, Fluent API, Type-state Builder Pattern.</li>
+<li><strong>Financial Engineering</strong>: Equity Swaps, Total Return Swaps (TRS), ISDA Conventions, Delta/Theta Calculations, Market Conventions.</li>
+<li><strong>Architecture</strong>: Domain-Driven Design (DDD), Immutable Records, Interface Segregation, Layered Validation Framework.</li>
+<li><strong>Data &amp; Operations</strong>: SQLite, log4net, Thread-safe Initialization, Session-scoped Identifiers, Concurrent Pricing.</li>
+<li><strong>Testing &amp; Quality</strong>: Rule-based Validation (25+ rules), Automated Test Suite (25,000+ positions), 81.6% Production Pass Rate.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -358,14 +360,13 @@ Thread-Safe Initialisation | Double-Checked Locking | Session-Scoped Identifiers
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

@@ -2,369 +2,311 @@
 <html lang="en">
 
 <head>
-    <title>
-        Language Modelling · Mark Cooper
-    </title>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="light dark" name="color-scheme">
+  <title>
+  Language Modelling · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
 
-    <meta content="Mark Cooper" name="author">
-    <meta content="A technical progression from simple statistical character-level models to deep hierarchical neural networks for language generation."
-          name="description">
-    <meta content="" name="keywords">
 
 
-    <meta content="summary" name="twitter:card">
-    <meta content="Language Modelling" name="twitter:title">
-    <meta content="A technical progression from simple statistical character-level models to deep hierarchical neural networks for language generation."
-          name="twitter:description">
-
-    <meta content="https://mdcooper-mc.github.io/ai/language-modelling/" property="og:url">
-    <meta content="Mark Cooper" property="og:site_name">
-    <meta content="Language Modelling" property="og:title">
-    <meta content="A technical progression from simple statistical character-level models to deep hierarchical neural networks for language generation."
-          property="og:description">
-    <meta content="en_uk" property="og:locale">
-    <meta content="article" property="og:type">
-    <meta content="ai" property="article:section">
-    <meta content="2024-03-21T00:00:00+00:00" property="article:published_time">
-    <meta content="2024-03-21T00:00:00+00:00" property="article:modified_time">
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A technical progression from simple statistical character-level models to deep hierarchical neural networks for language generation.">
+<meta name="keywords" content="">
 
 
-    <link href="https://mdcooper-mc.github.io/ai/language-modelling/" rel="canonical">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Language Modelling">
+  <meta name="twitter:description" content="A technical progression from simple statistical character-level models to deep hierarchical neural networks for language generation.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/ai/language-modelling/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Language Modelling">
+  <meta property="og:description" content="A technical progression from simple statistical character-level models to deep hierarchical neural networks for language generation.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai">
+    <meta property="article:published_time" content="2024-03-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-21T00:00:00+00:00">
 
 
-    <link as="font" crossorigin href="/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2">
-    <link as="font" crossorigin href="/fonts/fa-regular-400.woff2" rel="preload" type="font/woff2">
-    <link as="font" crossorigin href="/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2">
 
 
-    <link crossorigin="anonymous" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css"
-          integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" media="screen" rel="stylesheet"/>
+<link rel="canonical" href="https://mdcooper-mc.github.io/ai/language-modelling/">
 
 
-    <link href="/images/favicon.svg" rel="icon" sizes="any" type="image/svg+xml">
-    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
-    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 
-    <link href="/site.webmanifest" rel="manifest">
-    <link color="#5bbad5" href="/images/safari-pinned-tab.svg" rel="mask-icon">
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
 
 
 </head>
 
 
-<body class="preload-transitions colorscheme-light">
 
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
 <div class="float-container">
-    <a class="colorscheme-toggle" id="dark-mode-toggle">
-        <i aria-hidden="true" class="fa-solid fa-adjust fa-fw"></i>
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
 
-<main class="wrapper">
+  <main class="wrapper">
     <nav class="navigation">
-        <section class="container">
-
-            <a class="navigation-title" href="https://mdcooper-mc.github.io/">
-                Mark Cooper
-            </a>
-
-
-            <input id="menu-toggle" type="checkbox"/>
-            <label class="menu-button float-right" for="menu-toggle">
-                <i aria-hidden="true" class="fa-solid fa-bars fa-fw"></i>
-            </label>
-            <ul class="navigation-list">
-
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/ai/">AI</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/projects/">Projects</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/platforms/">Platforms</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/about/">About</a>
-                </li>
-
-
-            </ul>
-
-        </section>
-    </nav>
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ai/">AI</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
 
 
     <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/ai/language-modelling/">
+          Language Modelling
+        </a>
+      </h1>
+    </header>
 
-        <section class="container page">
-            <article>
-                <header>
-                    <h1 class="title">
-                        <a class="title-link" href="https://mdcooper-mc.github.io/ai/language-modelling/">
-                            Language Modelling
-                        </a>
-                    </h1>
-                </header>
-
-                <p>To predict the next character or word in a sequence, a model must &ldquo;remember&rdquo; what came
-                    before. I explored this
-                    progression from first principles, starting with basic statistical counting and evolving into deep,
-                    hierarchical neural
-                    architectures that capture complex linguistic structures.</p>
-                <p>This project covers the transition from frequentist models to neural-based optimization, the
-                    introduction of continuous
-                    embeddings, and the engineering required to stabilize deep networks.</p>
-                <hr>
-                <h2 id="the-problem-the-curse-of-dimensionality">
-                    The Problem: The Curse of Dimensionality
-                    <a class="heading-link" href="#the-problem-the-curse-of-dimensionality">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>In a simple <strong>Bigram Model</strong>, we predict the next character based solely on the current
-                    one. If we have 27 possible
-                    characters (a-z plus space), we can store all possible transitions in a $27 \times 27$ lookup table.
-                </p>
-                <p>However, language is not a bigram process. To predict the next character accurately, we often need to
-                    look back 5, 10,
-                    or 20 characters. If we try to extend the lookup table approach to a context of 10 characters, we
-                    would need a table
-                    with $27^{10}$ entries—approximately $205$ trillion cells. This is the <strong>Curse of
-                        Dimensionality</strong>: as the context
-                    window grows, the state space explodes exponentially, making pure statistical counting impossible.
-                </p>
-                <hr>
-                <h2 id="phase-1-statistical-vs-neural-bigrams">
-                    Phase 1: Statistical vs. Neural Bigrams
-                    <a class="heading-link" href="#phase-1-statistical-vs-neural-bigrams">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>I first implemented a bigram model using a simple counting matrix. By normalizing the rows of this
-                    matrix, we get a
-                    probability distribution: $P(\text{next} | \text{current})$.</p>
-                <p>The transition to AI occurs when we frame this &ldquo;counting&rdquo; problem as an optimization
-                    task. Instead of counting, we
-                    initialize a weight matrix $W$ and use <strong>Gradient Descent</strong> to minimize the <strong>Negative
-                        Log-Likelihood (NLL)</strong> of the
-                    training data.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#75715e"># The Neural Bigram approach</span>
-</span></span><span style="display:flex;"><span>x_encoded <span style="color:#f92672">=</span> F<span
-                        style="color:#f92672">.</span>one_hot(x, num_classes<span style="color:#f92672">=</span><span
-                        style="color:#ae81ff">27</span>)<span style="color:#f92672">.</span>float()
-</span></span><span style="display:flex;"><span>logits <span style="color:#f92672">=</span> x_encoded <span
-                        style="color:#f92672">@</span> W  <span
-                        style="color:#75715e"># (B, 27) @ (27, 27) -&gt; (B, 27)</span>
-</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> logits<span
-                        style="color:#f92672">.</span>exp()
-</span></span><span style="display:flex;"><span>probs <span style="color:#f92672">=</span> counts <span
-                        style="color:#f92672">/</span> counts<span style="color:#f92672">.</span>sum(<span
-                        style="color:#ae81ff">1</span>, keepdims<span style="color:#f92672">=</span><span
-                        style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>loss <span style="color:#f92672">=</span> <span
-                        style="color:#f92672">-</span>probs[torch<span style="color:#f92672">.</span>arange(num_examples), y]<span
-                        style="color:#f92672">.</span>log()<span style="color:#f92672">.</span>mean()
-</span></span></code></pre>
-                </div>
-                <p>This equivalence is profound: a single-layer neural network with a softmax output is mathematically
-                    identical to a
-                    bigram lookup table, but it provides a differentiable framework that can be extended to much more
-                    complex architectures.</p>
-                <hr>
-                <h2 id="phase-2-continuous-embeddings--mlps">
-                    Phase 2: Continuous Embeddings &amp; MLPs
-                    <a class="heading-link" href="#phase-2-continuous-embeddings--mlps">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>To solve the Curse of Dimensionality, I moved from one-hot encoding to <strong>Continuous
-                    Embeddings</strong>. Instead of treating
-                    each character as an isolated category, we map them into a low-dimensional vector space (e.g., 2
-                    dimensions or 30
-                    dimensions).</p>
-                <p>In this space, the model can learn that &ldquo;a&rdquo;, &ldquo;e&rdquo;, &ldquo;i&rdquo;, &ldquo;o&rdquo;,
-                    and &ldquo;u&rdquo; are similar because they appear in similar contexts.
-                    This allows for <strong>generalization</strong>: the model can make intelligent guesses about
-                    character combinations it has never
-                    seen before by leveraging the geometric relationships in the embedding space.</p>
-                <p>I implemented a Multi-Layer Perceptron (MLP) that takes a context of $N$ characters, lookups their
-                    embeddings,
-                    concatenates them, and passes them through a hidden layer with a <code>tanh</code> non-linearity.
-                </p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#75715e"># Embedding lookup and flattening</span>
-</span></span><span style="display:flex;"><span>emb <span style="color:#f92672">=</span> C[X]  <span
-                        style="color:#75715e"># (B, context_size, n_embd)</span>
+    <p>To predict the next character or word in a sequence, a model must &ldquo;remember&rdquo; what came before. I explored this
+progression from first principles, starting with basic statistical counting and evolving into deep, hierarchical neural
+architectures that capture complex linguistic structures.</p>
+<p>This project covers the transition from frequentist models to neural-based optimization, the introduction of continuous
+embeddings, and the engineering required to stabilize deep networks.</p>
+<hr>
+<h2 id="the-problem-the-curse-of-dimensionality">
+  The Problem: The Curse of Dimensionality
+  <a class="heading-link" href="#the-problem-the-curse-of-dimensionality">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In a simple <strong>Bigram Model</strong>, we predict the next character based solely on the current one. If we have 27 possible
+characters (a-z plus space), we can store all possible transitions in a $27 \times 27$ lookup table.</p>
+<p>However, language is not a bigram process. To predict the next character accurately, we often need to look back 5, 10,
+or 20 characters. If we try to extend the lookup table approach to a context of 10 characters, we would need a table
+with $27^{10}$ entries—approximately $205$ trillion cells. This is the <strong>Curse of Dimensionality</strong>: as the context
+window grows, the state space explodes exponentially, making pure statistical counting impossible.</p>
+<hr>
+<h2 id="phase-1-statistical-vs-neural-bigrams">
+  Phase 1: Statistical vs. Neural Bigrams
+  <a class="heading-link" href="#phase-1-statistical-vs-neural-bigrams">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I first implemented a bigram model using a simple counting matrix. By normalizing the rows of this matrix, we get a
+probability distribution: $P(\text{next} | \text{current})$.</p>
+<p>The transition to AI occurs when we frame this &ldquo;counting&rdquo; problem as an optimization task. Instead of counting, we
+initialize a weight matrix $W$ and use <strong>Gradient Descent</strong> to minimize the <strong>Negative Log-Likelihood (NLL)</strong> of the
+training data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># The Neural Bigram approach</span>
+</span></span><span style="display:flex;"><span>x_encoded <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>one_hot(x, num_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">27</span>)<span style="color:#f92672">.</span>float()
+</span></span><span style="display:flex;"><span>logits <span style="color:#f92672">=</span> x_encoded <span style="color:#f92672">@</span> W  <span style="color:#75715e"># (B, 27) @ (27, 27) -&gt; (B, 27)</span>
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> logits<span style="color:#f92672">.</span>exp()
+</span></span><span style="display:flex;"><span>probs <span style="color:#f92672">=</span> counts <span style="color:#f92672">/</span> counts<span style="color:#f92672">.</span>sum(<span style="color:#ae81ff">1</span>, keepdims<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>loss <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>probs[torch<span style="color:#f92672">.</span>arange(num_examples), y]<span style="color:#f92672">.</span>log()<span style="color:#f92672">.</span>mean()
+</span></span></code></pre></div><p>This equivalence is profound: a single-layer neural network with a softmax output is mathematically identical to a
+bigram lookup table, but it provides a differentiable framework that can be extended to much more complex architectures.</p>
+<hr>
+<h2 id="phase-2-continuous-embeddings--mlps">
+  Phase 2: Continuous Embeddings &amp; MLPs
+  <a class="heading-link" href="#phase-2-continuous-embeddings--mlps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To solve the Curse of Dimensionality, I moved from one-hot encoding to <strong>Continuous Embeddings</strong>. Instead of treating
+each character as an isolated category, we map them into a low-dimensional vector space (e.g., 2 dimensions or 30
+dimensions).</p>
+<p>In this space, the model can learn that &ldquo;a&rdquo;, &ldquo;e&rdquo;, &ldquo;i&rdquo;, &ldquo;o&rdquo;, and &ldquo;u&rdquo; are similar because they appear in similar contexts.
+This allows for <strong>generalization</strong>: the model can make intelligent guesses about character combinations it has never
+seen before by leveraging the geometric relationships in the embedding space.</p>
+<p>I implemented a Multi-Layer Perceptron (MLP) that takes a context of $N$ characters, lookups their embeddings,
+concatenates them, and passes them through a hidden layer with a <code>tanh</code> non-linearity.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Embedding lookup and flattening</span>
+</span></span><span style="display:flex;"><span>emb <span style="color:#f92672">=</span> C[X]  <span style="color:#75715e"># (B, context_size, n_embd)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Concatenate the context: (B, context_size * n_embd)</span>
-</span></span><span style="display:flex;"><span>h <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tanh(emb<span
-                        style="color:#f92672">.</span>view(<span style="color:#f92672">-</span><span
-                        style="color:#ae81ff">1</span>, n_inputs) <span style="color:#f92672">@</span> W1 <span
-                        style="color:#f92672">+</span> b1)
-</span></span><span style="display:flex;"><span>logits <span style="color:#f92672">=</span> h <span
-                        style="color:#f92672">@</span> W2 <span style="color:#f92672">+</span> b2
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="phase-3-stabilizing-deep-dynamics">
-                    Phase 3: Stabilizing Deep Dynamics
-                    <a class="heading-link" href="#phase-3-stabilizing-deep-dynamics">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>As the MLP grew deeper, training became unstable. I addressed this through two critical engineering
-                    patterns:</p>
-                <h3 id="1-kaiming-initialisation">
-                    1. Kaiming Initialisation
-                    <a class="heading-link" href="#1-kaiming-initialisation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>If weights are initialized too large, the <code>tanh</code> activations saturate at -1 or 1, causing
-                    &ldquo;dead gradients&rdquo; where the
-                    model stops learning. If they are too small, the signal vanishes. I implemented <strong>Kaiming
-                        Initialisation</strong>, scaling
-                    weights by $\text{gain} / \sqrt{\text{fan_in}}$ to ensure the variance of activations remains
-                    constant across layers.</p>
-                <h3 id="2-batch-normalisation">
-                    2. Batch Normalisation
-                    <a class="heading-link" href="#2-batch-normalisation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>To further stabilize the &ldquo;internal covariate shift,&rdquo; I implemented <strong>Batch
-                    Normalisation</strong>. By forcing the activations
-                    in each mini-batch to have zero mean and unit variance, the loss landscape becomes much smoother,
-                    allowing for
-                    significantly higher learning rates and faster convergence.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#75715e"># BatchNorm implementation logic</span>
-</span></span><span style="display:flex;"><span>bn_mean <span style="color:#f92672">=</span> h_preact<span
-                        style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>, keepdim<span
-                        style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>bn_var <span style="color:#f92672">=</span> h_preact<span
-                        style="color:#f92672">.</span>var(<span style="color:#ae81ff">0</span>, keepdim<span
-                        style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>h_normalized <span style="color:#f92672">=</span> (h_preact <span
-                        style="color:#f92672">-</span> bn_mean) <span style="color:#f92672">/</span> torch<span
-                        style="color:#f92672">.</span>sqrt(bn_var <span style="color:#f92672">+</span> <span
-                        style="color:#ae81ff">1e-5</span>)
-</span></span><span style="display:flex;"><span>h_out <span style="color:#f92672">=</span> gamma <span
-                        style="color:#f92672">*</span> h_normalized <span style="color:#f92672">+</span> beta  <span
-                        style="color:#75715e"># scale and shift</span>
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="phase-4-hierarchical-wavenet-architectures">
-                    Phase 4: Hierarchical WaveNet Architectures
-                    <a class="heading-link" href="#phase-4-hierarchical-wavenet-architectures">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>To efficiently process even longer context windows (e.g., 8+ characters), a flat MLP becomes too
-                    &ldquo;top-heavy.&rdquo; I
-                    implemented a <strong>Hierarchical Architecture</strong> inspired by WaveNet.</p>
-                <p>Instead of squashing the entire context into one hidden layer, the model processes tokens in pairs
-                    across multiple
-                    layers. The first layer processes 8 tokens into 4 representations; the second layer processes those
-                    4 into 2; and the
-                    final layer produces the prediction. This tree-like structure preserves temporal locality and allows
-                    the model to learn
-                    hierarchical patterns (letters $\rightarrow$ syllables $\rightarrow$ words) with far fewer
-                    parameters than a flat
-                    network.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#75715e"># Modular Hierarchical API</span>
+</span></span><span style="display:flex;"><span>h <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tanh(emb<span style="color:#f92672">.</span>view(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, n_inputs) <span style="color:#f92672">@</span> W1 <span style="color:#f92672">+</span> b1)
+</span></span><span style="display:flex;"><span>logits <span style="color:#f92672">=</span> h <span style="color:#f92672">@</span> W2 <span style="color:#f92672">+</span> b2
+</span></span></code></pre></div><hr>
+<h2 id="phase-3-stabilizing-deep-dynamics">
+  Phase 3: Stabilizing Deep Dynamics
+  <a class="heading-link" href="#phase-3-stabilizing-deep-dynamics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>As the MLP grew deeper, training became unstable. I addressed this through two critical engineering patterns:</p>
+<h3 id="1-kaiming-initialisation">
+  1. Kaiming Initialisation
+  <a class="heading-link" href="#1-kaiming-initialisation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If weights are initialized too large, the <code>tanh</code> activations saturate at -1 or 1, causing &ldquo;dead gradients&rdquo; where the
+model stops learning. If they are too small, the signal vanishes. I implemented <strong>Kaiming Initialisation</strong>, scaling
+weights by $\text{gain} / \sqrt{\text{fan_in}}$ to ensure the variance of activations remains constant across layers.</p>
+<h3 id="2-batch-normalisation">
+  2. Batch Normalisation
+  <a class="heading-link" href="#2-batch-normalisation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To further stabilize the &ldquo;internal covariate shift,&rdquo; I implemented <strong>Batch Normalisation</strong>. By forcing the activations
+in each mini-batch to have zero mean and unit variance, the loss landscape becomes much smoother, allowing for
+significantly higher learning rates and faster convergence.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># BatchNorm implementation logic</span>
+</span></span><span style="display:flex;"><span>bn_mean <span style="color:#f92672">=</span> h_preact<span style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>, keepdim<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>bn_var <span style="color:#f92672">=</span> h_preact<span style="color:#f92672">.</span>var(<span style="color:#ae81ff">0</span>, keepdim<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>h_normalized <span style="color:#f92672">=</span> (h_preact <span style="color:#f92672">-</span> bn_mean) <span style="color:#f92672">/</span> torch<span style="color:#f92672">.</span>sqrt(bn_var <span style="color:#f92672">+</span> <span style="color:#ae81ff">1e-5</span>)
+</span></span><span style="display:flex;"><span>h_out <span style="color:#f92672">=</span> gamma <span style="color:#f92672">*</span> h_normalized <span style="color:#f92672">+</span> beta  <span style="color:#75715e"># scale and shift</span>
+</span></span></code></pre></div><hr>
+<h2 id="phase-4-hierarchical-wavenet-architectures">
+  Phase 4: Hierarchical WaveNet Architectures
+  <a class="heading-link" href="#phase-4-hierarchical-wavenet-architectures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To efficiently process even longer context windows (e.g., 8+ characters), a flat MLP becomes too &ldquo;top-heavy.&rdquo; I
+implemented a <strong>Hierarchical Architecture</strong> inspired by WaveNet.</p>
+<p>Instead of squashing the entire context into one hidden layer, the model processes tokens in pairs across multiple
+layers. The first layer processes 8 tokens into 4 representations; the second layer processes those 4 into 2; and the
+final layer produces the prediction. This tree-like structure preserves temporal locality and allows the model to learn
+hierarchical patterns (letters $\rightarrow$ syllables $\rightarrow$ words) with far fewer parameters than a flat
+network.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Modular Hierarchical API</span>
 </span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Sequential([
 </span></span><span style="display:flex;"><span>    Embedding(vocab_size, n_embd),
-</span></span><span style="display:flex;"><span>    FlattenConsecutive(<span style="color:#ae81ff">2</span>), Linear(n_embd <span
-                        style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, n_hidden), BatchNorm(n_hidden), Tanh(),
-</span></span><span style="display:flex;"><span>    FlattenConsecutive(<span style="color:#ae81ff">2</span>), Linear(n_hidden <span
-                        style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, n_hidden), BatchNorm(n_hidden), Tanh(),
-</span></span><span style="display:flex;"><span>    FlattenConsecutive(<span style="color:#ae81ff">2</span>), Linear(n_hidden <span
-                        style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, n_hidden), BatchNorm(n_hidden), Tanh(),
+</span></span><span style="display:flex;"><span>    FlattenConsecutive(<span style="color:#ae81ff">2</span>), Linear(n_embd <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, n_hidden), BatchNorm(n_hidden), Tanh(),
+</span></span><span style="display:flex;"><span>    FlattenConsecutive(<span style="color:#ae81ff">2</span>), Linear(n_hidden <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, n_hidden), BatchNorm(n_hidden), Tanh(),
+</span></span><span style="display:flex;"><span>    FlattenConsecutive(<span style="color:#ae81ff">2</span>), Linear(n_hidden <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, n_hidden), BatchNorm(n_hidden), Tanh(),
 </span></span><span style="display:flex;"><span>    Linear(n_hidden, vocab_size)
 </span></span><span style="display:flex;"><span>])
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="impact--results">
-                    Impact &amp; Results
-                    <a class="heading-link" href="#impact--results">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>By evolving the architecture from a simple bigram to a hierarchical WaveNet, I reduced the model&rsquo;s
-                    validation loss
-                    significantly while maintaining a context window 8x larger than the original MLP. More importantly,
-                    I built a modular,
-                    object-oriented framework for deep learning that mirrors the internal design of professional
-                    libraries like PyTorch.</p>
-                <hr>
-                <h2 id="skills">
-                    Skills
-                    <a class="heading-link" href="#skills">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p><strong>Architectures</strong><br>
-                    Bigram Models | Multi-Layer Perceptrons (MLP) | WaveNet (Hierarchical Temporal Flattening) |
-                    Residual Connections</p>
-                <p><strong>Training &amp; Optimization</strong><br>
-                    Negative Log-Likelihood (NLL) | Stochastic Gradient Descent (SGD) | Kaiming Initialisation | Batch
-                    Normalisation |
-                    Learning Rate Schedulers</p>
-                <p><strong>Engineering Patterns</strong><br>
-                    Continuous Embeddings | One-Hot Encoding | Modular API Design | Diagnostic Visualisation (Activation
-                    Histograms,
-                    Gradient Flow)</p>
-                <p><strong>Mathematical Foundations</strong><br>
-                    Information Theory (Entropy) | Multivariable Calculus | Statistical Language Modelling | Vector
-                    Space Geometry</p>
+</span></span></code></pre></div><hr>
+<h2 id="impact--results">
+  Impact &amp; Results
+  <a class="heading-link" href="#impact--results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>By evolving the architecture from a simple bigram to a hierarchical WaveNet, I reduced the model&rsquo;s validation loss
+significantly while maintaining a context window 8x larger than the original MLP. More importantly, I built a modular,
+object-oriented framework for deep learning that mirrors the internal design of professional libraries like PyTorch.</p>
+<hr>
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Neural Architectures</strong>: Bigram Models, Multi-Layer Perceptrons (MLP), Hierarchical WaveNet, Residual Connections.</li>
+<li><strong>Optimization &amp; Training</strong>: Negative Log-Likelihood (NLL), Stochastic Gradient Descent (SGD), Kaiming Initialisation, Batch Normalisation.</li>
+<li><strong>Deep Learning Engineering</strong>: Continuous Embeddings, One-hot Encoding, Modular API Design, Learning Rate Scheduling.</li>
+<li><strong>Diagnostics &amp; Health</strong>: Activation Histograms, Gradient Flow Analysis, Diagnostic Visualisations.</li>
+<li><strong>Mathematical Foundations</strong>: Information Theory, Multivariable Calculus, Vector Space Geometry.</li>
+</ul>
 
-            </article>
-        </section>
+  </article>
+</section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -373,24 +315,63 @@
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
-        <div>
-            <p>&copy; 2025 Mark Cooper - <a
-                    href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
-                CV</a></p>
-        </div>
-    </footer>
-</main>
+    <footer class="footer" style="text-align:center; font-size: 11px;">
+    <div>
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
+                href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+            CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
 
 
-<script integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="
-        src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js"></script>
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </body>
 </html>

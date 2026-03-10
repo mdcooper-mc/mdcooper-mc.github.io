@@ -37,7 +37,7 @@ I approach behavioural signal extraction, model design, and runtime introspectio
 ## Professional Stack
 
 - [**Software**](/about/software/)  
-  Modular systems built with Java, Spring Boot, GoLang, and AWS — designed for runtime clarity, cache-centric
+  Modular systems built with Java, .NET, Spring Boot, GoLang, and AWS — designed for runtime clarity, cache-centric
   orchestration, and CI/CD-driven delivery.
 
 - [**Finance**](/about/finance/)  

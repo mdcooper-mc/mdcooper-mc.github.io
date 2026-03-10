@@ -13,22 +13,43 @@
 
 
 <meta name="author" content="Mark Cooper">
-<meta name="description" content="An identity‑centric encryption model where every record is protected with its own key, and decryption requires verified identity, explicit user approval, and full auditability.">
+<meta name="description" content="
+
+  Identity-Centric Security Model
+  
+    
+    Link to heading
+  
+
+This project demonstrates how encryption can be made identity‑centric — shifting control from purely key‑based
+systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then
+wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.
+Decryption is never an automatic process. Instead, it is governed by a multi‑step verification sequence that begins with a valid identity token (JWT) issued by Okta. If the actor requesting access is not the original data owner, the system triggers an explicit user approval workflow. Only after identity is verified and consent is granted does the Key Management Service attempt to unwrap the record’s unique encryption key.">
 <meta name="keywords" content="">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Identity‑Anchored Encryption">
-  <meta name="twitter:description" content="An identity‑centric encryption model where every record is protected with its own key, and decryption requires verified identity, explicit user approval, and full auditability.">
+  <meta name="twitter:description" content="Identity-Centric Security Model Link to heading This project demonstrates how encryption can be made identity‑centric — shifting control from purely key‑based systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.
+Decryption is never an automatic process. Instead, it is governed by a multi‑step verification sequence that begins with a valid identity token (JWT) issued by Okta. If the actor requesting access is not the original data owner, the system triggers an explicit user approval workflow. Only after identity is verified and consent is granted does the Key Management Service attempt to unwrap the record’s unique encryption key.">
 
 <meta property="og:url" content="https://mdcooper-mc.github.io/projects/identity-centric-encryption-with-user-consent/">
   <meta property="og:site_name" content="Mark Cooper">
   <meta property="og:title" content="Identity‑Anchored Encryption">
-  <meta property="og:description" content="An identity‑centric encryption model where every record is protected with its own key, and decryption requires verified identity, explicit user approval, and full auditability.">
+  <meta property="og:description" content="Identity-Centric Security Model Link to heading This project demonstrates how encryption can be made identity‑centric — shifting control from purely key‑based systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.
+Decryption is never an automatic process. Instead, it is governed by a multi‑step verification sequence that begins with a valid identity token (JWT) issued by Okta. If the actor requesting access is not the original data owner, the system triggers an explicit user approval workflow. Only after identity is verified and consent is granted does the Key Management Service attempt to unwrap the record’s unique encryption key.">
   <meta property="og:locale" content="en_uk">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-06-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-06-10T00:00:00+00:00">
+    <meta property="article:tag" content="Okta">
+    <meta property="article:tag" content="Envelope Encryption">
+    <meta property="article:tag" content="JWT">
+    <meta property="article:tag" content="AES-GCM">
+    <meta property="article:tag" content="Go">
+    <meta property="article:tag" content="Python">
 
 
 
@@ -49,6 +70,12 @@
 
 
 
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
 
 
 
@@ -80,7 +107,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -103,13 +132,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -141,63 +170,46 @@
       </h1>
     </header>
 
-    <p>This project demonstrates how encryption can be made <strong>identity‑centric</strong> — shifting control from purely key‑based
+    <hr>
+<h2 id="identity-centric-security-model">
+  Identity-Centric Security Model
+  <a class="heading-link" href="#identity-centric-security-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This project demonstrates how encryption can be made <strong>identity‑centric</strong> — shifting control from purely key‑based
 systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then
 wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.</p>
-<p>Decryption is never automatic. It requires:</p>
-<ol>
-<li>A valid identity token (JWT) issued by the Identity Provider (Okta).</li>
-<li>Explicit user approval if the actor requesting access is not the data owner.</li>
-<li>A successful unwrap of the record’s encryption key by the Key Management Service.</li>
-</ol>
-<p>Every decrypt event is logged with actor, subject, purpose, and key version, ensuring a defensible audit trail. This
-makes the Identity Provider the <strong>front door for decryption</strong> — the arbiter of whether access is legitimate.</p>
+<p>Decryption is never an automatic process. Instead, it is governed by a multi‑step verification sequence that begins with a valid identity token (JWT) issued by Okta. If the actor requesting access is not the original data owner, the system triggers an explicit user approval workflow. Only after identity is verified and consent is granted does the Key Management Service attempt to unwrap the record’s unique encryption key.</p>
+<p>Every decrypt event is logged with actor, subject, purpose, and key version, ensuring a defensible audit trail. This makes the Identity Provider the <strong>front door for decryption</strong> — the arbiter of whether access is legitimate.</p>
 <hr>
-<h1 id="per-user-envelope-encryption-with-okta-approval">
-  Per-user Envelope Encryption with Okta Approval
-  <a class="heading-link" href="#per-user-envelope-encryption-with-okta-approval">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h1>
-<h2 id="plain-language-summary-for-non-technical-readers">
-  Plain-language Summary (for non-technical readers)
-  <a class="heading-link" href="#plain-language-summary-for-non-technical-readers">
+<h2 id="envelope-encryption-with-okta-approval">
+  Envelope Encryption with Okta Approval
+  <a class="heading-link" href="#envelope-encryption-with-okta-approval">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>We are designing a system to keep each customer’s information safe.<br>
-Here’s the simple idea:</p>
-<ul>
-<li>Every piece of data is locked with its own unique “padlock” (a random key).</li>
-<li>That padlock is then sealed inside a box that only the customer’s personal key can open.</li>
-<li>When someone (like support staff) needs to see the data, they must:<br>
-    1. Prove who they are by signing in.<br>
-    2. Get the customer’s approval if they are not the customer themselves.<br>
-    3. Only then can the system unlock the padlock and show the information.</li>
-<li>Every time this happens, it is recorded so there’s a clear trail of who accessed what and why.</li>
-</ul>
-<p>This means:</p>
-<ul>
-<li>Customers stay in control of their own information.</li>
-<li>Support staff can help, but only with permission.</li>
-<li>Even if one padlock is broken, it only affects that single piece of data, not everything.</li>
-</ul>
-<hr>
-<h2 id="overview">
-  Overview
-  <a class="heading-link" href="#overview">
+<h3 id="plain-language-summary">
+  Plain-language Summary
+  <a class="heading-link" href="#plain-language-summary">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
-</h2>
-<ul>
-<li>Encrypt each record with a random <strong>Data Encryption Key (DEK)</strong>.</li>
-<li>Wrap the DEK with the user’s <strong>public key</strong>.</li>
-<li>Require a valid <strong>JWT</strong> and <strong>user approval</strong> (if impersonated) to unwrap the DEK.</li>
-<li>Audit every decrypt with both actor and subject identities.</li>
-</ul>
+</h3>
+<p>Our system is designed with a fundamental focus on keeping customer information secure through a multi‑layered approach. At its core, every individual piece of data is locked with its own unique digital padlock (a random key). To further enhance security, each padlock is then sealed inside a protective box that can only be opened with the customer’s personal key.</p>
+<p>When access is needed — for example, if a support staff member needs to view the data to assist — they must first prove their identity by signing in. If the person requesting access is not the customer themselves, the system requires explicit approval from the customer before proceeding. Only once these conditions are met can the system unlock the padlock and reveal the information. Throughout this entire process, every action is meticulously recorded, creating a clear and auditable trail of who accessed what and for what purpose.</p>
+<p>This architecture ensures that customers remain in full control of their own information at all times. Support staff are empowered to provide help, but their access is strictly limited by the customer’s permission. Furthermore, by using individual keys for every record, we ensure that even if one padlock were ever compromised, the impact would be confined to that single piece of data rather than the entire system.</p>
+<hr>
+<h3 id="architectural-overview">
+  Architectural Overview
+  <a class="heading-link" href="#architectural-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The model operates by encrypting each individual record with a random <strong>Data Encryption Key (DEK)</strong>, which is then wrapped using the user’s <strong>public key</strong>. Accessing the data requires a valid <strong>JWT</strong> and, if the request is being made through impersonation, explicit <strong>user approval</strong> to unwrap the DEK. To maintain accountability, every decryption event is <strong>audited</strong> with both the actor and subject identities.</p>
 <hr>
 <h2 id="write-path-encrypt">
   Write Path (Encrypt)
@@ -206,34 +218,14 @@ Here’s the simple idea:</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<ol>
-<li>
-<p><strong>Identify subject</strong><br>
-<code>user_sub</code> = stable ID from Okta.</p>
-</li>
-<li>
-<p><strong>Generate DEK</strong><br>
-Random symmetric key (AES-GCM), used only for this record.</p>
-</li>
-<li>
-<p><strong>Encrypt data</strong><br>
-<code>ciphertext = Encrypt(data, DEK)</code></p>
-</li>
-<li>
-<p><strong>Wrap DEK</strong><br>
-<code>wrappedDEK = Encrypt(DEK, user_public_key)</code></p>
-</li>
-<li>
-<p><strong>Store record</strong></p>
+<p>The write process begins by identifying the subject using their stable Okta ID. The system then generates a unique, one‑time <strong>Data Encryption Key (DEK)</strong> using the AES‑GCM algorithm to encrypt the record. Once the <strong>ciphertext</strong> is created, the DEK is itself wrapped with the subject’s <strong>public key</strong>. The resulting record, which includes the subject ID, ciphertext, wrapped DEK, and key version identifier, is then stored as shown in the following JSON example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;user_sub&#34;</span>: <span style="color:#e6db74">&#34;00u123...&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;ciphertext&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;wrappedDEK&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;kid&#34;</span>: <span style="color:#e6db74">&#34;k_v1&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
-</ol>
-<hr>
+</span></span></code></pre></div><hr>
 <h2 id="read-path-decrypt">
   Read Path (Decrypt)
   <a class="heading-link" href="#read-path-decrypt">
@@ -241,37 +233,7 @@ Random symmetric key (AES-GCM), used only for this record.</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<ol>
-<li>
-<p><strong>Authenticate actor</strong></p>
-<ul>
-<li>Validate JWT from Okta.</li>
-<li>If actor ≠ subject → trigger Okta approval flow.</li>
-<li>Only proceed if approval granted.</li>
-</ul>
-</li>
-<li>
-<p><strong>Fetch record</strong></p>
-<ul>
-<li>Retrieve <code>ciphertext</code>, <code>wrappedDEK</code>, <code>kid</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Unwrap DEK</strong><br>
-<code>DEK = Decrypt(wrappedDEK, user_private_key)</code><br>
-(private key held securely in KMS or user device).</p>
-</li>
-<li>
-<p><strong>Decrypt ciphertext</strong><br>
-<code>plaintext = Decrypt(ciphertext, DEK)</code></p>
-</li>
-<li>
-<p><strong>Audit</strong></p>
-<ul>
-<li>Log <code>actorSub</code>, <code>subjectSub</code>, <code>approval</code>, <code>kid</code>, <code>timestamp</code>.</li>
-</ul>
-</li>
-</ol>
+<p>Decryption starts with the authentication of the actor, validating their Okta JWT. If the person attempting to access the data is not the subject, the system triggers an Okta approval flow and only proceeds once consent is explicitly granted. After these checks, the system retrieves the ciphertext and wrapped DEK. The DEK is then unwrapped using the subject’s private key — which is held securely within a Key Management Service or on a trusted device. With the original DEK restored, the system decrypts the ciphertext into its original plaintext. Finally, every step is recorded in an audit log that captures the actor, subject, approval status, and timestamp.</p>
 <hr>
 <h2 id="key-concepts">
   Key Concepts
@@ -280,50 +242,16 @@ Random symmetric key (AES-GCM), used only for this record.</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<ul>
-<li><strong>DEK:</strong> Short-lived, random key used to encrypt actual data; exists only in memory during operations.</li>
-<li><strong>Public/Private Key Pair (PPK):</strong><br>
-  - Public key: stored in Okta or a key registry; used to wrap DEKs.<br>
-  - Private key: never leaves secure storage; used to unwrap DEKs.</li>
-<li><strong>Approval Flow:</strong> Okta push/email prompt ensures the subject consents when actor ≠ subject.</li>
-<li><strong>Audit Trail:</strong> Every decrypt event records actor, subject, purpose, and key version.</li>
-</ul>
+<p>The system relies on several core components to maintain its identity‑centric security model. The <strong>Data Encryption Key (DEK)</strong> is a short‑lived, random key used only for the initial encryption of data, remaining in memory only for as long as necessary. To protect these keys, we use a <strong>Public/Private Key Pair (PPK)</strong>; the public key is used for wrapping DEKs, while the private key is kept securely within a KMS to unwrap them when needed. The <strong>Approval Flow</strong> is a critical security layer that uses Okta push or email prompts to ensure consent is granted whenever someone other than the data owner requests access. Finally, the <strong>Audit Trail</strong> ensures that every decryption event is logged with full context, including the actor, subject, purpose, and key version.</p>
 <hr>
-<h2 id="one-liner-summaries">
-  One-Liner Summaries
-  <a class="heading-link" href="#one-liner-summaries">
+<h2 id="summary-of-operations">
+  Summary of Operations
+  <a class="heading-link" href="#summary-of-operations">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<ul>
-<li>
-<p><strong>Encrypt:</strong><br>
-<code>(user_sub, data → [generate DEK → encrypt data → wrap DEK with user’s public key])</code></p>
-</li>
-<li>
-<p><strong>Decrypt:</strong><br>
-<code>(JWT + Okta approval → unwrap DEK with user’s private key → decrypt ciphertext → return plaintext)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="your-shorthand-mnemonics">
-  Your Shorthand Mnemonics
-  <a class="heading-link" href="#your-shorthand-mnemonics">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<ul>
-<li>
-<p><strong>Encrypt:</strong><br>
-[user_sub, data (PPK &gt; DEK &raquo; data)]</p>
-</li>
-<li>
-<p><strong>Decrypt:</strong><br>
-JWT (approval flow via Okta [user/supportuser]) → DEK unwrap → decrypt key → decrypt(enc_text)</p>
-</li>
-</ul>
+<p>In summary, the encryption process takes a subject ID and their data to generate a per‑record DEK, which is then used to encrypt the data before being wrapped by the user’s public key. The corresponding decryption process requires a valid JWT and any necessary Okta approvals to unwrap that DEK using the private key, ultimately revealing the original plaintext after a successful audit event.</p>
 <hr>
 <h2 id="identity-provider-as-the-front-door">
   Identity Provider as the Front Door
@@ -332,63 +260,36 @@ JWT (approval flow via Okta [user/supportuser]) → DEK unwrap → decrypt key �
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>In this model, the <strong>Identity Provider (Okta)</strong> is not just authenticating users but also acting as the <strong>policy
-gatekeeper</strong> for decryption:</p>
-<ul>
-<li>
-<p><strong>Identity Provider (IdP) role:</strong><br>
-  - Issues JWTs binding actor identity (<code>actor_sub</code>) and subject identity (<code>user_sub</code>).<br>
-  - Enforces approval workflows (push/email consent).<br>
-  - Provides claims that the KMS/decrypt service uses to decide whether to unwrap the DEK.</p>
-</li>
-<li>
-<p><strong>Key Management role:</strong><br>
-  - Holds private/master keys.<br>
-  - Only unwraps DEKs if IdP-backed claims say “yes.”<br>
-  - Logs every unwrap with actor/subject context.</p>
-</li>
-<li>
-<p><strong>Application role:</strong><br>
-  - Stores ciphertext + wrapped DEK.<br>
-  - Calls out to IdP + KMS when a decrypt is requested.<br>
-  - Returns plaintext only after both identity and approval checks pass.</p>
-</li>
-</ul>
-<p><strong>Key takeaway:</strong> Okta becomes the <strong>front door for decryption</strong> — the arbiter of whether a decrypt request is
-legitimate. This shifts the model from being purely key-centric to being <strong>identity-centric</strong>, with consent and
-auditability built in.</p>
+<p>In this model, the <strong>Identity Provider (Okta)</strong> serves as both the authentication mechanism and the primary policy gatekeeper for all decryption activities. The IdP issues JWTs that bind actor and subject identities, enforces necessary approval workflows such as push or email consent, and provides the claims that the Key Management Service (KMS) uses to decide whether to unwrap a DEK.</p>
+<p>The Key Management Service holds the essential private keys and only performs unwrapping operations when the IdP‑backed claims confirm authorization. Each such operation is then logged with full context. On the application side, the system stores the ciphertext and wrapped DEKs and orchestrates calls to both the IdP and KMS when a decrypt is requested. Plaintext is only returned to the user after both identity and approval checks have successfully passed.</p>
+<p><strong>Key takeaway:</strong> By making Okta the front door for decryption, the model moves from a traditional key‑centric system to an <strong>identity‑centric</strong> one, where every access request is audited and governed by explicit user consent.</p>
 <hr>
-<h2 id="skills">
-  Skills
-  <a class="heading-link" href="#skills">
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Languages &amp; Frameworks</strong><br>
-Python | Go | Rust | Markdown Documentation | Okta SDKs</p>
-<p><strong>Security &amp; Identity</strong><br>
-JWT | Okta Approval Flows | Consent‑Driven Access | Audit Logging</p>
-<p><strong>Encryption &amp; Key Management</strong><br>
-Envelope Encryption | Per‑Record DEKs | AES‑GCM | KMS/HSM Integration | Public/Private Key Wrapping</p>
-<p><strong>Architecture &amp; Design</strong><br>
-Identity‑Centric Security | Modular Microservices | Consent‑First Workflows | Regulatory Defensibility</p>
-<p><strong>Documentation &amp; Communication</strong><br>
-Narrative‑Driven Markdown | Business‑Friendly Summaries | Shorthand Mnemonics | Example‑Rich Use Cases</p>
+<ul>
+<li><strong>Identity &amp; Access Management</strong>: Okta SDKs, JWT, Okta Approval Flows, Identity-Centric Security.</li>
+<li><strong>Languages</strong>: Python, Go, Rust.</li>
+<li><strong>Cryptography</strong>: Envelope Encryption, AES-GCM, Per-record DEKs, Public/Private Key Wrapping, KMS/HSM Integration.</li>
+<li><strong>Architecture</strong>: Modular Microservices, Consent-Driven Access, Regulatory Defensibility.</li>
+<li><strong>Documentation</strong>: Narrative-driven Markdown, Technical and Business-friendly Documentation.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -397,14 +298,13 @@ Narrative‑Driven Markdown | Business‑Friendly Summaries | Shorthand Mnemonic
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

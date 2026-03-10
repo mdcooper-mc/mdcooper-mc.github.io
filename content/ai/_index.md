@@ -18,7 +18,7 @@ focusing on architectural clarity, mathematical precision, and engineering at sc
   A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and
   high-performance engineering of modern AI.
 
-- **[Language Modelling](/ai/language-modelling/)**
+- **[Language Modelling](/ai/language-modelling/)**  
   A journey through the architectural milestones of NLP. Tracing the path from frequentist Bigram models and Multi-Layer
   Perceptrons to hierarchical WaveNet architectures that capture deep temporal dependencies.
 

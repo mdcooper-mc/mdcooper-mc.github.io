@@ -102,14 +102,9 @@ code generation and review.
 
 ## The Persona Workflow
 
-The analyser is designed to be used alongside a three-persona AI workflow. Each persona runs in a new chat session
-with the appropriate model tier, and the instruction files below are loaded at the start of every session to ensure
-consistent engineering standards regardless of which model is running.
+The analyser is designed to work in tandem with a three‑persona AI workflow, where each persona operates within a fresh chat session using the most appropriate model tier. To maintain consistent engineering standards, specific instruction files are loaded at the beginning of every session.
 
-- **Reviewer** — premium model; reads all source, tests, and docs; writes a prioritised `issues.md` report; strictly
-  read-only.
-- **Planner** — premium model; reads issues and change-log; writes a deterministic `plan.md`; never touches code.
-- **Coder** — free or standard model; executes the plan exactly; updates the change-log after every subtask.
+The **Reviewer** persona uses a premium model to perform a comprehensive, read‑only analysis of all source code, tests, and documentation, resulting in a prioritised `issues.md` report. The **Planner**, also a premium model, consumes these issues and the existing change‑log to produce a deterministic `plan.md` without ever modifying the code itself. Finally, the **Coder** persona — which can run on a free or standard model — executes the plan exactly as written, updating the change‑log after each successfully completed subtask.
 
 ### Reviewer Prompt
 
@@ -172,23 +167,10 @@ compression for token optimisation, and a `pip`-publishable distribution workflo
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Languages & Tools**
-Python | AST Parsing | argparse | JSON Schema Validation | Pytest
-
-**Architecture & Design**
-Strategy Pattern | Capability Registry | Interface-Driven Design | Domain-Driven Packages | Fail-Fast Configuration
-
-**AI Workflow**
-Persona-Driven Development | Premium vs Free Model Routing | Context Window Optimisation | Token-Efficient Metadata
-
-**Code Quality**
-Pure Functions | Zero Side Effects | Typed Exception Hierarchy | Structured Logging | Deterministic Output
-
-**Testing**
-AAA Pattern | Fast-Failing Tests | Mirrored Test Structure | One Test per Use Case | Domain-Grouped Test Classes
-
-**Process**
-Interfaces-First Planning | Change-Log Discipline | Issues-Driven Iteration | Three-Persona Review Cycle
+- **Python Development**: AST Parsing, JSON Schema Validation, Pytest (AAA pattern), Typed Exception Hierarchies.
+- **AI Strategy**: Persona-driven Development, Premium Model Routing, Token-efficient Metadata, Context Window Optimization.
+- **Architecture & Patterns**: Strategy Pattern, Capability Registry, Interface-driven Design, Domain-driven Packages.
+- **Software Engineering**: Pure Functions, Fail-fast Configuration, Structured Logging, Deterministic Output.
 

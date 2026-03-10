@@ -1,0 +1,15 @@
+<div class="social">
+  <ul>
+    {{ range .Site.Params.social }}
+    <li>
+      <a href="{{ .url }}" aria-label="{{ .name }}">
+        {{ if .icon }}
+        <i class="{{ .icon }}" aria-hidden="true"></i>
+        {{ else }}
+        {{ .name }}
+        {{ end }}
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</div>

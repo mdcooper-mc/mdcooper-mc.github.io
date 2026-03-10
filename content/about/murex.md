@@ -110,21 +110,9 @@ strategic reuse — so teams train with the same rigour and transparency they de
 
 ## Skill Set
 
-**Murex Domains**  
-Pre‑Trade | Post‑Trade | Risk | Collateral | Treasury | Datamart | MxMLExchange
-
-**Trade Lifecycle & Operations**  
-Trade Capture | Trade Processing | Reconciliation | Compression | VaR | P&L Attribution | Regulatory Reporting
-
-**Messaging & Standards**  
-FIX | FpML | SWIFT MT/MX | ISO 20022 | Murex Workflows | Murex SPIs
-
-**Integration & Platforms**  
-Oracle | PostgreSQL | Groovy | Java | Spring Boot | Docker | Kubernetes | Git | Jenkins | Helm | Terraform
-
-**Security & Authentication**  
-LDAP | Kerberos | RSA MFA | OAuth2 | HMAC | Federated Identity | SWIFT LAU Signing
-
-**Architecture & Practices**  
-CI/CD Automation | Environment Refresh | Runtime Introspection | Auditability | Observability | Strategic Reuse |
-Domain‑Driven Design  
+- **Murex Domains**: Pre-Trade, Post-Trade, Risk, Collateral, Treasury, Datamart, MxMLExchange.
+- **Trade Lifecycle & Operations**: Trade Capture, Trade Processing, Reconciliation, Compression, VaR, P&L Attribution, Regulatory Reporting.
+- **Messaging & Standards**: FIX, FpML, SWIFT MT/MX, ISO 20022, Murex Workflows, Murex SPIs.
+- **Integration & Platforms**: Oracle, PostgreSQL, Groovy, Java, Spring Boot, Docker, Kubernetes, Git, Jenkins, Helm, Terraform.
+- **Security & Authentication**: LDAP, Kerberos, RSA MFA, OAuth2, HMAC, Federated Identity, SWIFT LAU Signing.
+- **Architecture & Practices**: CI/CD Automation, Environment Refresh, Runtime Introspection, Auditability, Observability, Strategic Reuse, Domain-Driven Design (DDD).

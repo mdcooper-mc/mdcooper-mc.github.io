@@ -13,7 +13,7 @@
 
 
 <meta name="author" content="Mark Cooper">
-<meta name="description" content="📥 browse this repository
+<meta name="description" content="browse this repository
 
   Service Framework
   
@@ -21,34 +21,21 @@
     Link to heading
   
 
-The Service Framework enables the development of event-based services to orchestrate BAU workflows. It provides a
-declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions — all within
-a Spring Boot environment.
-
-
-  Configuration Overview
-  
-    
-    Link to heading
-  
-
-To activate default components like RestTemplate and ObjectMapper, launch your application with:">
+The Service Framework enables the development of event-based services to orchestrate BAU workflows. It provides a declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions—all within a Spring Boot environment. By abstracting the complexities of event handling and service discovery, it allows developers to focus on core business logic while maintaining a highly decoupled architecture.">
 <meta name="keywords" content="">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Service Framework">
-  <meta name="twitter:description" content="📥 browse this repository
-Service Framework Link to heading The Service Framework enables the development of event-based services to orchestrate BAU workflows. It provides a declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions — all within a Spring Boot environment.
-Configuration Overview Link to heading To activate default components like RestTemplate and ObjectMapper, launch your application with:">
+  <meta name="twitter:description" content="browse this repository
+Service Framework Link to heading The Service Framework enables the development of event-based services to orchestrate BAU workflows. It provides a declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions—all within a Spring Boot environment. By abstracting the complexities of event handling and service discovery, it allows developers to focus on core business logic while maintaining a highly decoupled architecture.">
 
 <meta property="og:url" content="https://mdcooper-mc.github.io/projects/service-framework/">
   <meta property="og:site_name" content="Mark Cooper">
   <meta property="og:title" content="Service Framework">
-  <meta property="og:description" content="📥 browse this repository
-Service Framework Link to heading The Service Framework enables the development of event-based services to orchestrate BAU workflows. It provides a declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions — all within a Spring Boot environment.
-Configuration Overview Link to heading To activate default components like RestTemplate and ObjectMapper, launch your application with:">
+  <meta property="og:description" content="browse this repository
+Service Framework Link to heading The Service Framework enables the development of event-based services to orchestrate BAU workflows. It provides a declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions—all within a Spring Boot environment. By abstracting the complexities of event handling and service discovery, it allows developers to focus on core business logic while maintaining a highly decoupled architecture.">
   <meta property="og:locale" content="en_uk">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -77,6 +64,12 @@ Configuration Overview Link to heading To activate default components like RestT
 
 
 
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
 
 
 
@@ -108,7 +101,9 @@ Configuration Overview Link to heading To activate default components like RestT
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -131,13 +126,13 @@ Configuration Overview Link to heading To activate default components like RestT
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -169,7 +164,7 @@ Configuration Overview Link to heading To activate default components like RestT
       </h1>
     </header>
 
-    <p><a href="https://dev.azure.com/mdcoopermc/_git/services-framework"  class="external-link" target="_blank" rel="noopener">📥 browse this repository</a></p>
+    <p><a href="https://dev.azure.com/mdcoopermc/_git/services-framework"  class="external-link" target="_blank" rel="noopener">browse this repository</a></p>
 <h2 id="service-framework">
   Service Framework
   <a class="heading-link" href="#service-framework">
@@ -177,137 +172,216 @@ Configuration Overview Link to heading To activate default components like RestT
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>The Service Framework enables the development of <strong>event-based services</strong> to orchestrate BAU workflows. It provides a
-declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions — all within
-a Spring Boot environment.</p>
+<p>The Service Framework enables the development of <strong>event-based services</strong> to orchestrate BAU workflows. It provides a declarative, annotation-driven model for defining service behavior, routing logic, and execution conditions—all within a Spring Boot environment. By abstracting the complexities of event handling and service discovery, it allows developers to focus on core business logic while maintaining a highly decoupled architecture.</p>
 <hr>
-<h3 id="configuration-overview">
-  Configuration Overview
-  <a class="heading-link" href="#configuration-overview">
+<h3 id="architectural-design-and-aop-integration">
+  Architectural Design and AOP Integration
+  <a class="heading-link" href="#architectural-design-and-aop-integration">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>To activate default components like <code>RestTemplate</code> and <code>ObjectMapper</code>, launch your application with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--spring.profiles.active<span style="color:#f92672">=</span>defaults-enabled
-</span></span></code></pre></div><p>All services must consume or return an instance of <code>ServiceModel</code>. A fluent builder is provided to construct this
-object.</p>
-<p>To declare active services at runtime, use:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-Devent.profiles.active<span style="color:#f92672">=</span>jms-service,process-service,save-service,error-service
-</span></span></code></pre></div><hr>
-<h3 id="core-annotations">
-  Core Annotations
-  <a class="heading-link" href="#core-annotations">
+<p>The framework&rsquo;s architecture is centered around <strong>Aspect-Oriented Programming (AOP)</strong> using AspectJ. This design choice allows for the clean separation of cross-cutting concerns, such as event publishing, exception handling, and metadata injection.</p>
+<p>By utilizing <code>@Around</code> advice on methods annotated with <code>@PhysicalEventSource</code>, the <code>ServiceEventManagerAspect</code> intercepts execution to automate the event lifecycle. This interception provides a high-performance <strong>O(1)</strong> overhead, while enabling complex <strong>O(N)</strong> service chaining where $N$ is the number of processors in a given workflow. The aspect uses the <code>ProceedingJoinPoint</code> to execute the business logic, then enriches the resulting <code>ServiceModel</code> with high-precision timestamps and the source name before publishing it to the broader event-driven system.</p>
+<h4 id="implementation-of-the-event-aspect">
+  Implementation of the Event Aspect
+  <a class="heading-link" href="#implementation-of-the-event-aspect">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
-</h3>
-<p>Each service must include:</p>
-<ul>
-<li><code>@EventProfile</code> — Required for all services. Without this, the service will be ignored.</li>
-<li><code>@PhysicalEventSource</code> — Marks an inbound event source.</li>
-<li><code>@EventProcessor</code> — Defines a transformation step.</li>
-<li><code>@PhysicalEventDestination</code> — Marks an outbound destination.</li>
-</ul>
-<p>Services are only executed if:</p>
-<ul>
-<li>The <strong>SpEL condition</strong> matches the event object.</li>
-<li>The <strong>payload type</strong> matches the expected input.</li>
-</ul>
-<hr>
-<h3 id="debugging-entry-points">
-  Debugging Entry Points
-  <a class="heading-link" href="#debugging-entry-points">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>To trace service execution and event flow, use:</p>
-<ul>
-<li><code>ServiceEventManagerAspect.evaluatePhysicalSource(...)</code></li>
-<li><code>ServiceEventManagerController.consumeEvent(...)</code></li>
-<li><code>ServiceEventManagerController.execute(...)</code></li>
-</ul>
-<hr>
-<h3 id="example-service-chain">
-  Example Service Chain
-  <a class="heading-link" href="#example-service-chain">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoServices</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@EventProfile</span>(<span style="color:#e6db74">&#34;jms-service&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PhysicalEventSource</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MySource&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@JmsListener</span>(destination <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${mq.inbound}&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">source</span>(<span style="color:#a6e22e">@Payload</span> <span style="color:#66d9ef">final</span> String message,
-</span></span><span style="display:flex;"><span>                                       <span style="color:#a6e22e">@Headers</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> headers) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> serviceModel()
-</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">withEvent</span>(<span style="color:#e6db74">&#34;JMS_RECEIVED&#34;</span>)
-</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">withPayload</span>(message)
-</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">build</span>();
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@EventProfile</span>(<span style="color:#e6db74">&#34;process-service&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@EventProcessor</span>(condition <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;event == &#39;JMS_RECEIVED&#39;&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">processor</span>(<span style="color:#66d9ef">final</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> serviceModel) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> serviceModel(serviceModel)
-</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">withEvent</span>(<span style="color:#e6db74">&#34;I_PROCESSED_THE_MESSAGE&#34;</span>).<span style="color:#a6e22e">build</span>();
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@EventProfile</span>(<span style="color:#e6db74">&#34;save-service&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PhysicalEventDestination</span>(condition <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;event == &#39;I_PROCESSED_THE_MESSAGE&#39;&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span>(<span style="color:#66d9ef">final</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> serviceModel) <span style="color:#66d9ef">throws</span> IOException {
-</span></span><span style="display:flex;"><span>        Files.<span style="color:#a6e22e">write</span>(Paths.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;file.txt&#34;</span>), serviceModel.<span style="color:#a6e22e">getPayload</span>().<span style="color:#a6e22e">getBytes</span>());
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@EventProfile</span>(<span style="color:#e6db74">&#34;error-service&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PhysicalEventDestination</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">error</span>(<span style="color:#66d9ef">final</span> ServiceModel<span style="color:#f92672">&lt;</span>HashMap<span style="color:#f92672">&gt;</span> serviceModel) {
-</span></span><span style="display:flex;"><span>        log.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Balls... &#34;</span> <span style="color:#f92672">+</span> serviceModel);
+</h4>
+<p>The following snippet demonstrates how the <code>ServiceEventManagerAspect</code> captures the method return value and handles potential exceptions, ensuring that even failures are propagated through the event system for audit and recovery.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Aspect</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableAspectJAutoProxy</span>(proxyTargetClass <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceEventManagerAspect</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Around</span>(<span style="color:#e6db74">&#34;@annotation(com.cooper.framework.api.PhysicalEventSource)&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">evaluatePhysicalSource</span>(<span style="color:#66d9ef">final</span> ProceedingJoinPoint pjp) <span style="color:#66d9ef">throws</span> Throwable {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Proceed with the original method execution</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> ServiceModel newEvent <span style="color:#f92672">=</span> (ServiceModel) pjp.<span style="color:#a6e22e">proceed</span>();
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (nonNull(newEvent)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Enrich and publish the successful event</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">eventPublisher</span>.<span style="color:#a6e22e">publishEvent</span>(
+</span></span><span style="display:flex;"><span>                        serviceModel(newEvent)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">withConsumedOn</span>(LocalDateTime.<span style="color:#a6e22e">now</span>())
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">withSource</span>(getSourceName(pjp))
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">build</span>()
+</span></span><span style="display:flex;"><span>                );
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Throwable t) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Automate exception publishing for system resilience</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">eventPublisher</span>.<span style="color:#a6e22e">publishException</span>(
+</span></span><span style="display:flex;"><span>                serviceModel().<span style="color:#a6e22e">withConsumedOn</span>(LocalDateTime.<span style="color:#a6e22e">now</span>()).<span style="color:#a6e22e">build</span>(), 
+</span></span><span style="display:flex;"><span>                of(<span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;Event Source Failure&#34;</span>, t))
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> t;
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
-<h3 id="status">
-  Status
-  <a class="heading-link" href="#status">
+<h3 id="annotation-driven-function-processing">
+  Annotation-Driven Function Processing
+  <a class="heading-link" href="#annotation-driven-function-processing">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
+<p>The framework provides a declarative model for defining service behavior through custom annotations, which significantly reduces boilerplate and improves architectural consistency.</p>
 <ul>
-<li>✅ Modular annotation system in place</li>
-<li>✅ Runtime orchestration verified</li>
-<li>✅ Error handling and conditional routing supported</li>
-<li>🚀 Ready for integration into larger orchestration pipelines</li>
+<li><strong><code>@PhysicalEventSource</code></strong>: Acts as the primary entry point for event generation. Methods marked with this annotation automatically participate in the managed event lifecycle, ensuring that all output is captured, logged, and propagated without manual orchestration.</li>
+<li><strong><code>@EventProcessor</code></strong>: Defines the processing logic for consuming services. It supports <strong>Spring Expression Language (SpEL)</strong>, enabling conditional routing and execution based on the event&rsquo;s payload or metadata. This allows for dynamic business rules that are evaluated at runtime.</li>
+<li><strong><code>@EventProfile</code></strong>: Controls the activation of services based on the environment or use case. This allows a single codebase to support multiple deployment configurations.</li>
+</ul>
+<h4 id="declarative-service-example">
+  Declarative Service Example
+  <a class="heading-link" href="#declarative-service-example">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Developers can define complex event pipelines simply by annotating their methods. The framework handles the underlying messaging and orchestration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoServices</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Scheduled</span>(fixedDelay <span style="color:#f92672">=</span> 5000)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PhysicalEventSource</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ExternalFeed&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">source</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> serviceModel()
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">withEvent</span>(<span style="color:#e6db74">&#34;RECEIVE&#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">withPayload</span>(<span style="color:#e6db74">&#34;Financial Market Data Update&#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@EventProcessor</span>(condition <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;event == &#39;RECEIVE&#39;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">processor</span>(<span style="color:#66d9ef">final</span> ServiceModel<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> model) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Logic to process the received event</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> serviceModel(model)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">withEvent</span>(<span style="color:#e6db74">&#34;PROCESSED&#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This annotation-driven approach, combined with Spring&rsquo;s <code>@Lookup</code> for dynamic prototype-scoped bean retrieval, ensures that each service execution is isolated and correctly configured with its own infrastructure components.</p>
+<hr>
+<h3 id="data-modeling-with-fluent-api">
+  Data Modeling with Fluent API
+  <a class="heading-link" href="#data-modeling-with-fluent-api">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The framework utilizes a immutable <code>ServiceModel</code> to transport data between services. This model is constructed using a <strong>Builder Pattern</strong> that provides a fluent API, making the creation and transformation of events intuitive and readable.</p>
+<ul>
+<li><strong>Immutability</strong>: Once built, a <code>ServiceModel</code> cannot be modified, ensuring thread safety and preventing side effects as the object moves through different processing stages.</li>
+<li><strong>Generic Payloads</strong>: The model supports generic payloads, allowing it to carry any data type while maintaining type safety during processor execution.</li>
+<li><strong>Fluent Construction</strong>: Developers can easily chain properties such as <code>withSource()</code>, <code>withEvent()</code>, and <code>addMeta()</code>, which significantly improves code maintainability compared to traditional setters.</li>
 </ul>
 <hr>
-<h3 id="contact">
-  Contact
-  <a class="heading-link" href="#contact">
+<h3 id="dynamic-orchestration-and-dispatching">
+  Dynamic Orchestration and Dispatching
+  <a class="heading-link" href="#dynamic-orchestration-and-dispatching">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Mark Cooper<br>
-Senior Technology &amp; Risk Leader<br>
-<a href="https://www.linkedin.com/in/m-d-cooper"  class="external-link" target="_blank" rel="noopener">LinkedIn</a><br>
-<a href="https://github.com/mdcooper-mc"  class="external-link" target="_blank" rel="noopener">GitHub</a></p>
+<p>The <code>ServiceEventManagerController</code> acts as the framework&rsquo;s central orchestration engine. It provides a REST-based gateway that accepts incoming events and dynamically routes them to the appropriate business functions.</p>
+<ul>
+<li><strong>Type-Safe Payload Conversion</strong>: The controller automatically converts generic event payloads into the specific Java types expected by the target method using a high-performance <code>ObjectMapper</code> configuration. This allows developers to work with strongly-typed objects while the framework handles the underlying JSON serialization.</li>
+<li><strong>SpEL-Based Routing</strong>: Before execution, the framework evaluates the <code>@EventProcessor</code>&rsquo;s <code>condition</code> using Spring Expression Language (SpEL) against the incoming payload. This enables sophisticated, data-driven routing logic that can be updated without changing the service&rsquo;s core implementation.</li>
+<li><strong>Runtime Observability</strong>: A built-in <code>/service-index</code> endpoint provides a real-time view of all active event sources and processors, including their associated SpEL conditions and active profiles. This transparency is critical for debugging complex orchestration pipelines in distributed environments.</li>
+</ul>
+<hr>
+<h3 id="startup-validation-and-statelessness">
+  Startup Validation and Statelessness
+  <a class="heading-link" href="#startup-validation-and-statelessness">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To ensure architectural integrity and prevent common pitfalls in distributed systems, the framework includes a <code>ServiceWiringValidation</code> component that performs comprehensive reflection-based scanning at startup.</p>
+<ul>
+<li><strong>Statelessness Enforcement</strong>: The framework warns if service classes contain fields that could hold state. In an event-driven architecture, services should be inherently stateless to allow for independent scaling and failure recovery.</li>
+<li><strong>Contract Verification</strong>: At startup, every method annotated with <code>@PhysicalEventSource</code> or <code>@EventProcessor</code> is validated to ensure it follows the required method signatures (e.g., returning a <code>ServiceModel</code> and having exactly one argument for processors).</li>
+<li><strong>Payload Integrity</strong>: The validator checks that all payload classes have default constructors, which is a prerequisite for successful JSON deserialization during the event propagation lifecycle.</li>
+</ul>
+<hr>
+<h3 id="advanced-serialization-and-error-propagation">
+  Advanced Serialization and Error Propagation
+  <a class="heading-link" href="#advanced-serialization-and-error-propagation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To maintain a robust audit trail and support effective troubleshooting, the framework includes custom Jackson modules for handling complex data types and exceptions.</p>
+<ul>
+<li><strong>Exception Preservation</strong>: The <code>ExceptionModule</code> provides specialized serialization for <code>Throwable</code> objects, ensuring that full stack traces and causal chains are preserved as events move across the system. This allows for detailed post-mortem analysis even when errors occur in remote service instances.</li>
+<li><strong>Temporal Consistency</strong>: The <code>DateTimeModule</code> ensures that <code>LocalDate</code> and <code>LocalDateTime</code> objects are serialized using a standardized ISO-8601 format with microsecond precision, preventing data loss or interpretation errors during cross-service communication.</li>
+</ul>
+<hr>
+<h3 id="resilience-and-recovery-mechanisms">
+  Resilience and Recovery Mechanisms
+  <a class="heading-link" href="#resilience-and-recovery-mechanisms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Observability and reliability are core pillars of the Service Framework. To handle failures in distributed environments, the framework includes a <code>ResilienceStore</code> layer integrated directly into the orchestration lifecycle.</p>
+<ul>
+<li><strong>Automated Persistence and Recovery</strong>: The <code>ServiceEventManagerController</code> automatically persists every incoming event to the <code>ResilienceStore</code> before attempting to process it. Upon application restart, the <code>ServiceApplicationStarter</code> retrieves all persisted events and re-submits them to the orchestration engine, ensuring that no data is lost during system downtime. Once processing is successfully completed, the event is removed from the store.</li>
+<li><strong>Thumbprinting</strong>: The framework generates unique SHA-512 thumbprints for events to identify duplicates and track processing history.</li>
+<li><strong>Persistent Storage</strong>: Through the <code>FileResilienceStore</code>, events can be persisted to disk, allowing for recovery and re-processing in the event of a system crash or downstream service unavailability.</li>
+<li><strong>Dynamic Bean Lookup</strong>: Using Spring&rsquo;s <code>@Lookup</code> annotation, the framework can dynamically retrieve prototype-scoped beans (like <code>RestTemplate</code>) at runtime, ensuring that each service execution has its own isolated and correctly configured infrastructure components.</li>
+</ul>
+<hr>
+<h3 id="configuration-and-runtime-orchestration">
+  Configuration and Runtime Orchestration
+  <a class="heading-link" href="#configuration-and-runtime-orchestration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Service Framework is designed to be plug-and-play, leveraging Spring&rsquo;s auto-configuration capabilities. To enable the default components—such as <code>RestTemplate</code> for HTTP communication and a pre-configured <code>ObjectMapper</code> for JSON processing—applications should be launched with the <code>defaults-enabled</code> Spring profile.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--spring.profiles.active<span style="color:#f92672">=</span>defaults-enabled
+</span></span></code></pre></div><p>At runtime, individual services are activated using event profiles. This allows for a single codebase to support multiple deployment configurations, where only specific handlers are loaded based on the environment or use case:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-Devent.profiles.active<span style="color:#f92672">=</span>jms-service,process-service,save-service,error-service
+</span></span></code></pre></div><hr>
+<h3 id="debugging-and-observability">
+  Debugging and Observability
+  <a class="heading-link" href="#debugging-and-observability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To trace service execution and diagnose routing issues, the framework exposes several key entry points. The <code>ServiceEventManagerAspect.evaluatePhysicalSource(...)</code> method is the primary location for monitoring how inbound events are initially evaluated. For services exposed via web hooks, <code>ServiceEventManagerController.consumeEvent(...)</code> provides visibility into manual trigger points. Monitoring these methods allows developers to verify that SpEL (Spring Expression Language) conditions are being met and that events are flowing through the orchestration pipeline as expected.</p>
+<hr>
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Core Technologies</strong>: Java, Spring Boot, SpEL (Spring Expression Language), AOP (AspectJ).</li>
+<li><strong>Messaging &amp; Communication</strong>: JMS (MQ), REST (RestTemplate), JSON (ObjectMapper).</li>
+<li><strong>Architecture</strong>: Event-Driven Design, Annotation-Based Configuration, Declarative Service Modeling, Fluent Builders.</li>
+<li><strong>Resilience &amp; Security</strong>: SHA-512 Thumbprinting, Resilience Stores, Persistence, SHA-512 Hashing.</li>
+<li><strong>Workflow &amp; Orchestration</strong>: BAU Workflow Orchestration, Conditional Routing, Custom Profiles.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -316,14 +390,13 @@ Senior Technology &amp; Risk Leader<br>
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

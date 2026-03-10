@@ -171,20 +171,10 @@ different chart versions against the same cluster without conflict.
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Release Engineering**
-Synthetic Versioning | Semantic Version Calculation | Multi-Repository Tag Coordination | Automated Release Notes
-
-**CI/CD & Automation**
-Jenkins | Bamboo | PowerShell | Bash | Helm | Artifactory | Git Tag Management | Idempotent Release Scripts
-
-**Infrastructure as Code**
-YAML-Driven Platform Configuration | SSM Parameter Store | Environment Parity | Single-Manifest Promotion
-
-**Architecture**
-Distributed Release Coordination | Independent Service Deployment | Platform Snapshot Pattern | Rollback Strategy
-
-**Kubernetes**
-Helm Chart Composition | Per-Service Image Tagging | Namespace Isolation | Versioned Chart Publication
+- **Versioning & Release**: Synthetic Versioning, Semantic Versioning (SemVer), Multi-repository Tag Coordination, Automated Release Notes.
+- **CI/CD & Automation**: Jenkins, Bamboo, Artifactory, PowerShell, Bash, Git Tag Management, Idempotent Release Scripts.
+- **Architecture**: Distributed Release Coordination, Platform Snapshot Pattern, Single-manifest Promotion & Rollback.
+- **Kubernetes & Cloud**: Helm (Chart Composition), Image Tagging, Namespace Isolation, Environment Parity, Versioned Chart Publication.
 

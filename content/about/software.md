@@ -7,7 +7,7 @@ I specialise in designing and delivering modular, high-performance systems acros
 two decades of experience in capital markets, I’ve built platforms that span trading, risk, and regulatory domains —
 engineered for resilience, observability, and strategic reuse.
 
-My core development expertise includes **Java (8–21)**, **Spring Boot**, **Python**, **GoLang**, and **Groovy** —
+My core development expertise includes **Java (8–21)**, **Spring Boot**, **.NET / C#**, **Python**, **GoLang**, and **Groovy** —
 applied across microservices, event-driven systems, and secure API ecosystems. I’ve led the design of scalable backend
 services, containerised deployments, and orchestration frameworks that support real-time trade processing and analytics.
 
@@ -24,77 +24,36 @@ architecture as a strategic asset — designed to scale, adapt, and endure.
 
 ---
 
-### ☕ Java
+### Java
 
-I’ve built enterprise-grade systems using **Java 8–21**, with deep expertise in **Spring Boot**, **Spring Cloud**, and *
-*Spring Security**. My Java platforms support:
-
-- Provider-driven reconciliation engines
-- Secure REST APIs with OAuth2 and JWT
-- JPA-based persistence with runtime introspection
-- Modular service composition using AOP, IoC, and MVC
-- CI-integrated test suites with TDD and BDD patterns
-
-These systems are designed for runtime clarity, strategic reuse, and operational transparency — deployed across
-containerised and serverless environments.
+I’ve built enterprise‑grade systems using **Java 8–21**, with deep expertise in **Spring Boot**, **Spring Cloud**, and **Spring Security**. My Java platforms support a wide range of functionalities, from provider‑driven reconciliation engines and secure REST APIs using OAuth2 and JWT to JPA‑based persistence with runtime introspection. These systems are designed for modular service composition using AOP, IoC, and MVC patterns, all while incorporating CI‑integrated test suites that follow TDD and BDD disciplines for maximum reliability in containerised and serverless environments.
 
 ---
 
-### 🐍 Python
+### .NET / C#
 
-I use **Python** for orchestration, analytics, and AI integration — including:
-
-- Flask and FastAPI services for lightweight APIs
-- CLI tools and data pipelines using Poetry and virtualenv
-- Integration with MLflow, Hugging Face, and OpenCV
-- Feature engineering and time-series analysis for behavioural signal extraction
-- Infrastructure scripting and Hugo-based documentation automation
-
-My Python workflows are modular, reproducible, and embedded directly into CI/CD pipelines and training-as-code
-platforms.
+I’ve built production‑ready libraries and pricing engines using **C#** and the **.NET** framework, with a strong focus on domain‑driven design and immutable data models. My implementations often feature idiomatic COM interop for wrapping legacy pricing engines, alongside type‑state fluent builders that ensure safe, deterministic API transitions. To maintain high performance and reliability, I develop layered validation frameworks for enforcing market conventions and implement thread‑safe session management, ensuring that complex financial logic remains isolated and testable.
 
 ---
 
-### 🦫 GoLang
+### Python
 
-I’ve delivered high-performance tools and controllers in **GoLang**, including:
+I utilize **Python** as a primary tool for orchestration, analytics, and AI integration. My work includes developing lightweight APIs with Flask and FastAPI, as well as creating robust CLI tools and data pipelines using Poetry and virtualenv. I’ve integrated Python into diverse workflows, including MLflow and Hugging Face for machine learning, OpenCV for image processing, and feature engineering for behavioral signal extraction. These modular workflows are embedded directly into CI/CD pipelines and Hugo‑based documentation automation to ensure reproducibility and scale.
 
-- Cobra-based CLI utilities for developer tooling
-- Admission controllers and policy enforcers for Kubernetes
-- gRPC and Protobuf interfaces for low-latency service communication
-- Secure runtime delivery with Vault, pod identity, and RBAC
-- Optimised Helm charts and Skaffold workflows for reproducible deployment
+---
 
-GoLang is my language of choice for infrastructure tooling, runtime control, and container-native service composition.
+### GoLang
+
+GoLang is my language of choice for high‑performance infrastructure tooling and container‑native service composition. I’ve delivered a variety of Cobra‑based CLI utilities, admission controllers, and policy enforcers for Kubernetes, as well as low‑latency gRPC and Protobuf interfaces for service communication. My Go implementations focus on secure runtime delivery through Vault integration, pod identity, and RBAC, all while optimizing Helm charts and Skaffold workflows to ensure highly reproducible deployments across the platform.
 
 ---
 
 ## Skill Set
 
-**Languages**  
-Java | GoLang | Python | Groovy | Bash | SQL
-
-**Frameworks & Libraries**  
-Spring Boot | Spring Cloud | Spring Security | JPA | AOP | IoC | MVC | Flask | FastAPI | Cobra CLI
-
-**Build & Dependency Management**  
-Maven | Gradle | pip | Poetry | virtualenv | setuptools
-
-**CI/CD & DevOps**  
-Git | GitHub Actions | GitLab CI | Jenkins | TeamCity | SonarQube | Nexus | Artifactory
-
-**Infrastructure & Orchestration**  
-Docker | Kubernetes | Helm | Terraform | Ansible | Skaffold | ArgoCD
-
-**Security & Identity**  
-OAuth2 | JWT | OpenID | LDAP | Kerberos | Vault
-
-**Observability & Monitoring**  
-Prometheus | Splunk | Jaeger | ELK Stack | OpenTelemetry
-
-**Interfaces & APIs**  
-REST APIs | GraphQL | OpenAPI | gRPC | Protobuf
-
-**Architecture & Practices**  
-Microservices | Event-Driven Architecture | Serverless | Infrastructure as Code | Domain-Driven Design | TDD | BDD |
-CI/CD | Agile | Scrum
+- **Programming Languages**: Java (8–21), C# (.NET), Python, GoLang, Groovy, SQL, Bash/PowerShell.
+- **Frameworks & Libraries**: Spring Boot, Spring Cloud, Spring Security, Flask, FastAPI, Cobra (Go), GORM, Hibernate.
+- **Development Tools**: Maven, Gradle, Poetry, Virtualenv, NuGet, Artifactory, Nexus.
+- **CI/CD & DevOps**: GitHub Actions, Jenkins, TeamCity, GitLab CI, Docker, Kubernetes, Helm, Terraform.
+- **Security & Identity**: HashiCorp Vault, OAuth2, JWT, Okta, RBAC, Pod Identity.
+- **Architecture & Methodology**: Domain-Driven Design (DDD), Microservices, Event-Driven Architecture, TDD/BDD, Agile/Scrum.
+- **Observability**: Prometheus, Grafana, Splunk, Jaeger.

@@ -13,36 +13,29 @@
 
 
 <meta name="author" content="Mark Cooper">
-<meta name="description" content="
+<meta name="description" content="browse this repository
+
   Reconciliation Framework
   
     
     Link to heading
   
 
-The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with
-precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine
-allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible
-orchestration of reconciliation workflows without requiring changes to the core application.
-At its heart, the engine accepts a reconciliation name as a command-line argument and uses a
-Provider&lt;String, ReconcileEngine&gt; to locate the appropriate implementation. This approach decouples the execution
-logic from the entry point, allowing new reconciliation types to be added simply by registering them in the Spring
-context. Additional arguments passed at runtime can be used to inject system properties, making the engine highly
-configurable and environment-aware.">
+The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible orchestration of reconciliation workflows without requiring changes to the core application.">
 <meta name="keywords" content="">
 
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Reconciliation Engine">
-  <meta name="twitter:description" content="Reconciliation Framework Link to heading The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible orchestration of reconciliation workflows without requiring changes to the core application.
-At its heart, the engine accepts a reconciliation name as a command-line argument and uses a Provider&lt;String, ReconcileEngine&gt; to locate the appropriate implementation. This approach decouples the execution logic from the entry point, allowing new reconciliation types to be added simply by registering them in the Spring context. Additional arguments passed at runtime can be used to inject system properties, making the engine highly configurable and environment-aware.">
+  <meta name="twitter:description" content="browse this repository
+Reconciliation Framework Link to heading The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible orchestration of reconciliation workflows without requiring changes to the core application.">
 
 <meta property="og:url" content="https://mdcooper-mc.github.io/projects/reconciliation-framework/">
   <meta property="og:site_name" content="Mark Cooper">
   <meta property="og:title" content="Reconciliation Engine">
-  <meta property="og:description" content="Reconciliation Framework Link to heading The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible orchestration of reconciliation workflows without requiring changes to the core application.
-At its heart, the engine accepts a reconciliation name as a command-line argument and uses a Provider&lt;String, ReconcileEngine&gt; to locate the appropriate implementation. This approach decouples the execution logic from the entry point, allowing new reconciliation types to be added simply by registering them in the Spring context. Additional arguments passed at runtime can be used to inject system properties, making the engine highly configurable and environment-aware.">
+  <meta property="og:description" content="browse this repository
+Reconciliation Framework Link to heading The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible orchestration of reconciliation workflows without requiring changes to the core application.">
   <meta property="og:locale" content="en_uk">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -72,6 +65,12 @@ At its heart, the engine accepts a reconciliation name as a command-line argumen
 
 
 
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
 
 
 
@@ -103,7 +102,9 @@ At its heart, the engine accepts a reconciliation name as a command-line argumen
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -126,13 +127,13 @@ At its heart, the engine accepts a reconciliation name as a command-line argumen
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -164,46 +165,85 @@ At its heart, the engine accepts a reconciliation name as a command-line argumen
       </h1>
     </header>
 
-    <h2 id="reconciliation-framework">
+    <p><a href="https://dev.azure.com/mdcoopermc/_git/reconciliation-framework"  class="external-link" target="_blank" rel="noopener">browse this repository</a></p>
+<h2 id="reconciliation-framework">
   Reconciliation Framework
   <a class="heading-link" href="#reconciliation-framework">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with
-precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine
-allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible
-orchestration of reconciliation workflows without requiring changes to the core application.</p>
-<p>At its heart, the engine accepts a reconciliation name as a command-line argument and uses a
-<code>Provider&lt;String, ReconcileEngine&gt;</code> to locate the appropriate implementation. This approach decouples the execution
-logic from the entry point, allowing new reconciliation types to be added simply by registering them in the Spring
-context. Additional arguments passed at runtime can be used to inject system properties, making the engine highly
-configurable and environment-aware.</p>
-<p>Execution begins by parsing the input arguments and loading the Spring context from a <code>spring.xml</code> configuration file.
-Once the appropriate reconciliation engine is resolved, the framework sets any additional parameters and begins
-processing. The engine logs the start time, executes the reconciliation logic, and reports the elapsed time using
-Joda-Time’s <code>PeriodFormatter</code>. This provides clear visibility into runtime performance and operational duration.</p>
-<p>The engine is designed for automation and integration into larger batch or CI/CD pipelines. It returns an exit code of
-<code>0</code> when no differences are found, and <code>-1</code> when discrepancies are detected. This binary signaling allows external
-systems to respond appropriately, whether triggering alerts, halting downstream processes, or logging audit events.</p>
-<p>This project demonstrates a clean separation of concerns, runtime flexibility, and production-grade logging. It’s
-well-suited for financial systems, regulatory reporting, or any domain where reconciliation logic must be modular,
-traceable, and easy to extend.</p>
+<p>The Reconciliation Engine is a modular batch-processing framework designed to execute named reconciliation routines with precision and operational clarity. Built in Java and powered by Spring’s XML-based context configuration, the engine allows for dynamic resolution of reconciliation logic at runtime using a provider pattern. This design enables flexible orchestration of reconciliation workflows without requiring changes to the core application.</p>
+<hr>
+<h3 id="algorithmic-design-and-complexity">
+  Algorithmic Design and Complexity
+  <a class="heading-link" href="#algorithmic-design-and-complexity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>At the core of the engine is a high-performance merge comparison algorithm, which achieves an optimal <strong>O(N)</strong> time complexity for pre-sorted datasets. This approach is particularly efficient for large-scale financial reconciliations, as it avoids the <strong>O(N²)</strong> overhead of nested-loop comparisons. By pulling records from two sorted streams (the &ldquo;left&rdquo; and &ldquo;right&rdquo; sets), the engine can identify matches, missing records on either side, or data discrepancies in a single linear pass.</p>
+<p>The space complexity is maintained at <strong>O(1)</strong> (relative to the total dataset size) through a streaming producer-consumer model. By utilizing <code>BlockingQueue</code> implementations with a restricted capacity, the engine ensures that only a minimal number of records are held in memory at any given time. This design prevents <code>OutOfMemoryError</code> exceptions when processing multi-million record files, making the framework suitable for high-throughput environments.</p>
+<hr>
+<h3 id="concurrent-data-loading">
+  Concurrent Data Loading
+  <a class="heading-link" href="#concurrent-data-loading">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To maximize throughput, the framework employs an <code>ExecutorCompletionService</code> to load the &ldquo;left&rdquo; and &ldquo;right&rdquo; <code>DifferenceSet</code> objects in parallel. This concurrent approach decouples the I/O-bound task of data retrieval (e.g., reading from a database or a flat file) from the CPU-bound task of comparison. By using daemon threads and a fixed thread pool, the engine ensures that data loading does not block the main execution flow, significantly reducing the overall wall-clock time for batch jobs.</p>
+<hr>
+<h3 id="decoupling-via-design-patterns">
+  Decoupling via Design Patterns
+  <a class="heading-link" href="#decoupling-via-design-patterns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The architecture heavily relies on several key design patterns to ensure maintainability and extensibility:</p>
+<ul>
+<li><strong>Provider Pattern</strong>: Used to resolve the specific <code>ReconcileEngine</code> implementation at runtime based on CLI arguments. This allows new reconciliation scenarios to be &ldquo;plugged in&rdquo; via Spring configuration without modifying the bootstrapper.</li>
+<li><strong>Observer Pattern</strong>: The engine notifies observers of the reconciliation progress (e.g., <code>START</code>, <code>MATCH</code>, <code>DIFFERENCE</code>, <code>FINISHED</code>) through a <code>Notification</code> object. This enables flexible reporting, such as real-time UI updates or audit logging, without coupling the comparison logic to the reporting mechanism.</li>
+<li><strong>Strategy Pattern</strong>: Different data sources (SQL, CSV, XML) can be represented by specialized <code>DifferenceSet</code> implementations, while comparison logic can be customized via the <code>Comparator</code> interface.</li>
+</ul>
+<hr>
+<h3 id="operational-integration">
+  Operational Integration
+  <a class="heading-link" href="#operational-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The engine is designed for automation and integration into larger batch or CI/CD pipelines. It returns an exit code of <code>0</code> when no differences are found, and <code>-1</code> when discrepancies are detected. This binary signaling allows external systems to respond appropriately, whether triggering alerts, halting downstream processes, or logging audit events.</p>
+<p>Execution performance is tracked using Joda-Time’s <code>PeriodFormatter</code>, providing clear visibility into the runtime duration of each job. This operational transparency is critical for meeting Service Level Agreements (SLAs) in production financial systems.</p>
+<hr>
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Core Development</strong>: Java, Spring (XML-based Context), Design Patterns (Provider, Observer, Strategy).</li>
+<li><strong>Concurrent Programming</strong>: Multithreading, <code>ExecutorCompletionService</code>, <code>BlockingQueue</code>, Producer-Consumer Model.</li>
+<li><strong>Algorithmic Efficiency</strong>: O(N) Merge Comparison, Streaming Data Processing, Space-Complexity Optimization.</li>
+<li><strong>Batch Processing</strong>: CLI Execution, Joda-Time, Exit-Code Signaling, Performance Monitoring.</li>
+<li><strong>Architecture</strong>: Modular Framework Design, Separation of Concerns, Runtime Service Resolution.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -212,14 +252,13 @@ traceable, and easy to extend.</p>
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

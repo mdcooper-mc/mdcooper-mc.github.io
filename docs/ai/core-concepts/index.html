@@ -2,1015 +2,793 @@
 <html lang="en">
 
 <head>
-    <title>
-        AI Engineering: Core Concepts &amp; Technical Deep Dive · Mark Cooper
-    </title>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="light dark" name="color-scheme">
+  <title>
+  AI Engineering: Core Concepts &amp; Technical Deep Dive · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
 
-    <meta content="Mark Cooper" name="author">
-    <meta content="A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and high-performance engineering of modern AI."
-          name="description">
-    <meta content="" name="keywords">
 
 
-    <meta content="summary" name="twitter:card">
-    <meta content="AI Engineering: Core Concepts & Technical Deep Dive" name="twitter:title">
-    <meta content="A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and high-performance engineering of modern AI."
-          name="twitter:description">
-
-    <meta content="https://mdcooper-mc.github.io/ai/core-concepts/" property="og:url">
-    <meta content="Mark Cooper" property="og:site_name">
-    <meta content="AI Engineering: Core Concepts & Technical Deep Dive" property="og:title">
-    <meta content="A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and high-performance engineering of modern AI."
-          property="og:description">
-    <meta content="en_uk" property="og:locale">
-    <meta content="article" property="og:type">
-    <meta content="ai" property="article:section">
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and high-performance engineering of modern AI.">
+<meta name="keywords" content="">
 
 
-    <link href="https://mdcooper-mc.github.io/ai/core-concepts/" rel="canonical">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI Engineering: Core Concepts & Technical Deep Dive">
+  <meta name="twitter:description" content="A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and high-performance engineering of modern AI.">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/ai/core-concepts/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="AI Engineering: Core Concepts & Technical Deep Dive">
+  <meta property="og:description" content="A comprehensive multi-chapter narrative covering the mathematical foundations, architectural evolution, and high-performance engineering of modern AI.">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai">
 
 
-    <link as="font" crossorigin href="/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2">
-    <link as="font" crossorigin href="/fonts/fa-regular-400.woff2" rel="preload" type="font/woff2">
-    <link as="font" crossorigin href="/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2">
 
 
-    <link crossorigin="anonymous" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css"
-          integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" media="screen" rel="stylesheet"/>
+<link rel="canonical" href="https://mdcooper-mc.github.io/ai/core-concepts/">
 
 
-    <link href="/images/favicon.svg" rel="icon" sizes="any" type="image/svg+xml">
-    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
-    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 
-    <link href="/site.webmanifest" rel="manifest">
-    <link color="#5bbad5" href="/images/safari-pinned-tab.svg" rel="mask-icon">
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
 
 
 </head>
 
 
-<body class="preload-transitions colorscheme-light">
 
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
 <div class="float-container">
-    <a class="colorscheme-toggle" id="dark-mode-toggle">
-        <i aria-hidden="true" class="fa-solid fa-adjust fa-fw"></i>
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
 
-<main class="wrapper">
+  <main class="wrapper">
     <nav class="navigation">
-        <section class="container">
-
-            <a class="navigation-title" href="https://mdcooper-mc.github.io/">
-                Mark Cooper
-            </a>
-
-
-            <input id="menu-toggle" type="checkbox"/>
-            <label class="menu-button float-right" for="menu-toggle">
-                <i aria-hidden="true" class="fa-solid fa-bars fa-fw"></i>
-            </label>
-            <ul class="navigation-list">
-
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/ai/">AI</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/projects/">Projects</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/platforms/">Platforms</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/about/">About</a>
-                </li>
-
-
-            </ul>
-
-        </section>
-    </nav>
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ai/">AI</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
 
 
     <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/ai/core-concepts/">
+          AI Engineering: Core Concepts &amp; Technical Deep Dive
+        </a>
+      </h1>
+    </header>
 
-        <section class="container page">
-            <article>
-                <header>
-                    <h1 class="title">
-                        <a class="title-link" href="https://mdcooper-mc.github.io/ai/core-concepts/">
-                            AI Engineering: Core Concepts &amp; Technical Deep Dive
-                        </a>
-                    </h1>
-                </header>
-
-                <p>This page provides a technical consolidation of the core principles encountered across the AI
-                    engineering landscape.
-                    Rather than a simple collection of definitions, this guide serves as a narrative reference for the
-                    essential components
-                    of modern deep learning, tracing the path from fundamental calculus and statistical bigrams to the
-                    distributed
-                    orchestration of large-scale transformer models.</p>
-                <p>The driving insight is that sophisticated AI behaviour is built on a foundation of &ldquo;first
-                    principles&rdquo; engineering. By
-                    understanding the local derivative, we unlock the global gradient; by mastering initialisation and
-                    normalisation, we
-                    stabilise the signal; and by engineering for hardware efficiency, we scale these principles to the
-                    level of human
-                    language.</p>
-                <hr>
-                <h2 id="the-foundation-manual-gradient-descent--backpropagation">
-                    The Foundation: Manual Gradient Descent &amp; Backpropagation
-                    <a class="heading-link" href="#the-foundation-manual-gradient-descent--backpropagation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>At the heart of every neural network lies the <strong>Backpropagation</strong> algorithm. It is the
-                    process by which a system &quot;
-                    learns&quot; by calculating the gradient of a loss function ($L$) with respect to every weight ($w$)
-                    in the network. This is
-                    not magic; it is the recursive application of the <strong>Chain Rule</strong> from calculus.</p>
-                <h3 id="the-intuitive-leap-the-speed-of-cars-bikes-and-people">
-                    The Intuitive Leap: The speed of Cars, Bikes, and People
-                    <a class="heading-link" href="#the-intuitive-leap-the-speed-of-cars-bikes-and-people">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>To understand the Chain Rule intuitively, consider an example involving three moving objects: a car,
-                    a bicycle, and a
-                    person. This analogy helps us visualise how a change in one part of a system cascades through to the
-                    final output.
-                    Suppose a <strong>car</strong> ($y$) travels twice as fast as a <strong>bicycle</strong> ($u$),
-                    which is expressed mathematically
-                    as $\frac{dy}{du} = 2$. Furthermore, suppose the <strong>bicycle</strong> ($u$ ) travels four times
-                    as fast as a <strong>person</strong> ($x$),
-                    meaning $\frac{du}{dx} = 4$.</p>
-                <p>If we want to know how much faster the car travels than the person ($\frac{dy}{dx}$), we simply
-                    multiply the relative
-                    rates of change. This multiplication is the essence of the chain rule.</p>
-                <p>$$
-                    \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = 2 \cdot 4 = 8
-                    $$</p>
-                <p>In a neural network, this becomes the &ldquo;Calculus of Influence.&rdquo; If $x$ is a weight, $u$ is
-                    a hidden neuron, and $y$ is
-                    the Loss, we consider three distinct components. First, we calculate the <strong>Local Gradient
-                        1</strong>, which represents how much
-                    the neuron changes when the weight moves ($\frac{\partial u}{\partial x}$). Second, we find the
-                    <strong>Local Gradient 2</strong>,
-                    indicating how much the final Loss changes when the neuron itself moves ($\frac{\partial y}{\partial
-                    u}$). Finally, the
-                    <strong>Global Gradient</strong> is the product of these two values, telling us exactly how much a
-                    specific weight influences the
-                    final Loss.</p>
-                <h3 id="the-micrograd-implementation-value-and-_backward">
-                    The Micrograd Implementation: <code>Value</code> and <code>_backward</code>
-                    <a class="heading-link" href="#the-micrograd-implementation-value-and-_backward">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>In a custom autograd engine, we implement this recursion by storing a <code>_backward</code> function
-                    on every node. This function
-                    encapsulates the logic for computing the local derivative and propagating the global gradient
-                    backwards through the
-                    graph.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#66d9ef">class</span> <span style="color:#a6e22e">Value</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, data, _children<span
-                        style="color:#f92672">=</span>(), _op<span style="color:#f92672">=</span><span
-                        style="color:#e6db74">&#39;&#39;</span>, label<span style="color:#f92672">=</span><span
-                        style="color:#e6db74">&#39;&#39;</span>):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>data <span
-                        style="color:#f92672">=</span> data
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>  <span
-                        style="color:#75715e"># Represents dLoss/dValue</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_backward <span
-                        style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span>: <span
-                        style="color:#66d9ef">None</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_prev <span
-                        style="color:#f92672">=</span> set(_children)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_op <span
-                        style="color:#f92672">=</span> _op
+    <p>This page provides a technical consolidation of the core principles encountered across the AI engineering landscape.
+Rather than a simple collection of definitions, this guide serves as a narrative reference for the essential components
+of modern deep learning, tracing the path from fundamental calculus and statistical bigrams to the distributed
+orchestration of large-scale transformer models.</p>
+<p>The driving insight is that sophisticated AI behaviour is built on a foundation of &ldquo;first principles&rdquo; engineering. By
+understanding the local derivative, we unlock the global gradient; by mastering initialisation and normalisation, we
+stabilise the signal; and by engineering for hardware efficiency, we scale these principles to the level of human
+language.</p>
+<hr>
+<h2 id="the-foundation-manual-gradient-descent--backpropagation">
+  The Foundation: Manual Gradient Descent &amp; Backpropagation
+  <a class="heading-link" href="#the-foundation-manual-gradient-descent--backpropagation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>At the heart of every neural network lies the <strong>Backpropagation</strong> algorithm. It is the process by which a system &quot;
+learns&quot; by calculating the gradient of a loss function ($L$) with respect to every weight ($w$) in the network. This is
+not magic; it is the recursive application of the <strong>Chain Rule</strong> from calculus.</p>
+<h3 id="the-intuitive-leap-the-speed-of-cars-bikes-and-people">
+  The Intuitive Leap: The speed of Cars, Bikes, and People
+  <a class="heading-link" href="#the-intuitive-leap-the-speed-of-cars-bikes-and-people">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To understand the Chain Rule intuitively, consider an example involving three moving objects: a car, a bicycle, and a
+person. This analogy helps us visualise how a change in one part of a system cascades through to the final output.
+Suppose a <strong>car</strong> ($y$) travels twice as fast as a <strong>bicycle</strong> ($u$), which is expressed mathematically
+as $\frac{dy}{du} = 2$. Furthermore, suppose the <strong>bicycle</strong> ($u$ ) travels four times as fast as a <strong>person</strong> ($x$),
+meaning $\frac{du}{dx} = 4$.</p>
+<p>If we want to know how much faster the car travels than the person ($\frac{dy}{dx}$), we simply multiply the relative
+rates of change. This multiplication is the essence of the chain rule.</p>
+<p>$$
+\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = 2 \cdot 4 = 8
+$$</p>
+<p>In a neural network, this becomes the &ldquo;Calculus of Influence.&rdquo; If $x$ is a weight, $u$ is a hidden neuron, and $y$ is
+the Loss, we consider three distinct components. First, we calculate the <strong>Local Gradient 1</strong>, which represents how much
+the neuron changes when the weight moves ($\frac{\partial u}{\partial x}$). Second, we find the <strong>Local Gradient 2</strong>,
+indicating how much the final Loss changes when the neuron itself moves ($\frac{\partial y}{\partial u}$). Finally, the
+<strong>Global Gradient</strong> is the product of these two values, telling us exactly how much a specific weight influences the
+final Loss.</p>
+<h3 id="the-micrograd-implementation-value-and-_backward">
+  The Micrograd Implementation: <code>Value</code> and <code>_backward</code>
+  <a class="heading-link" href="#the-micrograd-implementation-value-and-_backward">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In a custom autograd engine, we implement this recursion by storing a <code>_backward</code> function on every node. This function
+encapsulates the logic for computing the local derivative and propagating the global gradient backwards through the
+graph.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Value</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, data, _children<span style="color:#f92672">=</span>(), _op<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grad <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>  <span style="color:#75715e"># Represents dLoss/dValue</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_backward <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span>: <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_prev <span style="color:#f92672">=</span> set(_children)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_op <span style="color:#f92672">=</span> _op
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__add__</span>(self, other):
-</span></span><span style="display:flex;"><span>        other <span style="color:#f92672">=</span> other <span
-                        style="color:#66d9ef">if</span> isinstance(other, Value) <span style="color:#66d9ef">else</span> Value(other)
-</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(self<span
-                        style="color:#f92672">.</span>data <span style="color:#f92672">+</span> other<span
-                        style="color:#f92672">.</span>data, (self, other), <span
-                        style="color:#e6db74">&#39;+&#39;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
-                        style="color:#a6e22e">_backward</span>():
+</span></span><span style="display:flex;"><span>        other <span style="color:#f92672">=</span> other <span style="color:#66d9ef">if</span> isinstance(other, Value) <span style="color:#66d9ef">else</span> Value(other)
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(self<span style="color:#f92672">.</span>data <span style="color:#f92672">+</span> other<span style="color:#f92672">.</span>data, (self, other), <span style="color:#e6db74">&#39;+&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_backward</span>():
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># The derivative of addition is always 1.0.</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Local Gradient: d(a+b)/da = 1, d(a+b)/db = 1</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># We multiply the incoming gradient (out.grad) by the local gradient (1.0)</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span> <span
-                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
-</span></span><span style="display:flex;"><span>            other<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span> <span
-                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
-</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span
-                        style="color:#f92672">=</span> _backward
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>            other<span style="color:#f92672">.</span>grad <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span style="color:#f92672">=</span> _backward
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__mul__</span>(self, other):
-</span></span><span style="display:flex;"><span>        other <span style="color:#f92672">=</span> other <span
-                        style="color:#66d9ef">if</span> isinstance(other, Value) <span style="color:#66d9ef">else</span> Value(other)
-</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(self<span
-                        style="color:#f92672">.</span>data <span style="color:#f92672">*</span> other<span
-                        style="color:#f92672">.</span>data, (self, other), <span
-                        style="color:#e6db74">&#39;*&#39;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
-                        style="color:#a6e22e">_backward</span>():
+</span></span><span style="display:flex;"><span>        other <span style="color:#f92672">=</span> other <span style="color:#66d9ef">if</span> isinstance(other, Value) <span style="color:#66d9ef">else</span> Value(other)
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(self<span style="color:#f92672">.</span>data <span style="color:#f92672">*</span> other<span style="color:#f92672">.</span>data, (self, other), <span style="color:#e6db74">&#39;*&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_backward</span>():
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># The derivative of multiplication: d(a*b)/da = b, d(a*b)/db = a</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Here, &#39;other.data&#39; is the local gradient for &#39;self&#39;.</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">+=</span> other<span style="color:#f92672">.</span>data <span
-                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
-</span></span><span style="display:flex;"><span>            other<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>data <span
-                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
-</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span
-                        style="color:#f92672">=</span> _backward
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span style="color:#f92672">+=</span> other<span style="color:#f92672">.</span>data <span style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>            other<span style="color:#f92672">.</span>grad <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>data <span style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span style="color:#f92672">=</span> _backward
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out
-</span></span></code></pre>
-                </div>
-                <h3 id="why-accumulation-matters-">
-                    Why Accumulation Matters ($+=$)
-                    <a class="heading-link" href="#why-accumulation-matters-">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>One of the most subtle but critical aspects of the implementation is the use of <code>+=</code> when
-                    updating <code>self.grad</code>. In a
-                    complex neural network, a single weight or neuron might be used multiple times in different parts of
-                    the calculation. If
-                    we simply assigned the gradient (<code>self.grad = ...</code>), we would overwrite the influence
-                    from other branches. By *
-                    <em>accumulating</em>* the gradients, we correctly sum the total influence that a variable has on
-                    the final output, satisfying
-                    the multivariate chain rule.</p>
-                <hr>
-                <h2 id="the-directed-acyclic-graph-dag--topological-sorting">
-                    The Directed Acyclic Graph (DAG) &amp; Topological Sorting
-                    <a class="heading-link" href="#the-directed-acyclic-graph-dag--topological-sorting">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Backpropagation cannot be performed in just any order. Because the gradient of a node depends on the
-                    gradients of its
-                    children, we must process the network from the output backwards to the inputs. To do this
-                    systematically, we treat the
-                    neural network as a <strong>Directed Acyclic Graph (DAG)</strong>.</p>
-                <h3 id="ordering-the-computation">
-                    Ordering the Computation
-                    <a class="heading-link" href="#ordering-the-computation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>Before we can call <code>_backward()</code>, we must ensure every node is processed <em>after</em>
-                    the nodes that depend on it. This is
-                    achieved through a <strong>Topological Sort</strong>. We start from the Loss node and perform a
-                    depth-first search to build a list
-                    where every node appears only after all its dependencies.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span>    <span
-                        style="color:#66d9ef">def</span> <span style="color:#a6e22e">backward</span>(self):
+</span></span></code></pre></div><h3 id="why-accumulation-matters-">
+  Why Accumulation Matters ($+=$)
+  <a class="heading-link" href="#why-accumulation-matters-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of the most subtle but critical aspects of the implementation is the use of <code>+=</code> when updating <code>self.grad</code>. In a
+complex neural network, a single weight or neuron might be used multiple times in different parts of the calculation. If
+we simply assigned the gradient (<code>self.grad = ...</code>), we would overwrite the influence from other branches. By *
+<em>accumulating</em>* the gradients, we correctly sum the total influence that a variable has on the final output, satisfying
+the multivariate chain rule.</p>
+<hr>
+<h2 id="the-directed-acyclic-graph-dag--topological-sorting">
+  The Directed Acyclic Graph (DAG) &amp; Topological Sorting
+  <a class="heading-link" href="#the-directed-acyclic-graph-dag--topological-sorting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Backpropagation cannot be performed in just any order. Because the gradient of a node depends on the gradients of its
+children, we must process the network from the output backwards to the inputs. To do this systematically, we treat the
+neural network as a <strong>Directed Acyclic Graph (DAG)</strong>.</p>
+<h3 id="ordering-the-computation">
+  Ordering the Computation
+  <a class="heading-link" href="#ordering-the-computation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Before we can call <code>_backward()</code>, we must ensure every node is processed <em>after</em> the nodes that depend on it. This is
+achieved through a <strong>Topological Sort</strong>. We start from the Loss node and perform a depth-first search to build a list
+where every node appears only after all its dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backward</span>(self):
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Build the topological order starting from &#39;self&#39; (the output)</span>
 </span></span><span style="display:flex;"><span>        topo <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>        visited <span style="color:#f92672">=</span> set()
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
-                        style="color:#a6e22e">build_topo</span>(v):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> v <span
-                        style="color:#f92672">not</span> <span style="color:#f92672">in</span> visited:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_topo</span>(v):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> v <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> visited:
 </span></span><span style="display:flex;"><span>                visited<span style="color:#f92672">.</span>add(v)
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> child <span
-                        style="color:#f92672">in</span> v<span style="color:#f92672">.</span>_prev:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> child <span style="color:#f92672">in</span> v<span style="color:#f92672">.</span>_prev:
 </span></span><span style="display:flex;"><span>                    build_topo(child)
 </span></span><span style="display:flex;"><span>                topo<span style="color:#f92672">.</span>append(v)
 </span></span><span style="display:flex;"><span>        build_topo(self)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Go through the list in reverse and trigger the backward functions</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>  <span
-                        style="color:#75715e"># Base case: dLoss/dLoss = 1.0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> node <span
-                        style="color:#f92672">in</span> reversed(topo):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grad <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>  <span style="color:#75715e"># Base case: dLoss/dLoss = 1.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> node <span style="color:#f92672">in</span> reversed(topo):
 </span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>_backward()
-</span></span></code></pre>
-                </div>
-                <p>This ensures that by the time we reach a weight at the beginning of the network, all the &ldquo;influence&rdquo;
-                    from the loss has
-                    been correctly scaled and propagated through every intermediate layer.</p>
-                <hr>
-                <h2 id="activation-functions-breaking-the-linear-prison">
-                    Activation Functions: Breaking the Linear Prison
-                    <a class="heading-link" href="#activation-functions-breaking-the-linear-prison">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Activation functions are the &ldquo;logic gates&rdquo; of neural networks. Without them, a neural
-                    network is just a sequence of
-                    matrix multiplications, which mathematically collapses into a single linear
-                    transformation ($W_2(W_1x) = W_{combined}x$). A purely linear model is fundamentally limited; it can
-                    only draw straight
-                    lines or planes. It cannot solve XOR, classify concentric rings, or understand the nested
-                    hierarchies of human language.</p>
-                <h3 id="tanh-hyperbolic-tangent">
-                    Tanh (Hyperbolic Tangent)
-                    <a class="heading-link" href="#tanh-hyperbolic-tangent">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>The <code>tanh</code> function squashes input values between -1 and 1. It is a popular choice because
-                    it is zero-centred, which
-                    helps keep the gradients stable during the early stages of training. Its derivative is particularly
-                    elegant and
-                    computationally efficient:</p>
-                <p>$$
-                    \text{tanh}(x) = \frac{e^{2x} - 1}{e^{2x} + 1}
-                    $$
-                    $$
-                    \frac{d}{dx}\text{tanh}(x) = 1 - \text{tanh}^2(x)
-                    $$</p>
-                <p>This derivation is a masterclass in efficiency: if we already know the output of the activation ($t =
-                    \text{tanh}(x)$),
-                    we can compute the gradient ($1-t^2$) using only a simple multiplication and subtraction, completely
-                    avoiding expensive
-                    exponentiations during the backward pass.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span>    <span
-                        style="color:#66d9ef">def</span> <span style="color:#a6e22e">tanh</span>(self):
-</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span
-                        style="color:#f92672">.</span>data
-</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> (math<span
-                        style="color:#f92672">.</span>exp(<span style="color:#ae81ff">2</span><span
-                        style="color:#f92672">*</span>x) <span style="color:#f92672">-</span> <span
-                        style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> (math<span
-                        style="color:#f92672">.</span>exp(<span style="color:#ae81ff">2</span><span
-                        style="color:#f92672">*</span>x) <span style="color:#f92672">+</span> <span
-                        style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(t, (self,), <span
-                        style="color:#e6db74">&#39;tanh&#39;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
-                        style="color:#a6e22e">_backward</span>():
+</span></span></code></pre></div><p>This ensures that by the time we reach a weight at the beginning of the network, all the &ldquo;influence&rdquo; from the loss has
+been correctly scaled and propagated through every intermediate layer.</p>
+<hr>
+<h2 id="activation-functions-breaking-the-linear-prison">
+  Activation Functions: Breaking the Linear Prison
+  <a class="heading-link" href="#activation-functions-breaking-the-linear-prison">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Activation functions are the &ldquo;logic gates&rdquo; of neural networks. Without them, a neural network is just a sequence of
+matrix multiplications, which mathematically collapses into a single linear
+transformation ($W_2(W_1x) = W_{combined}x$). A purely linear model is fundamentally limited; it can only draw straight
+lines or planes. It cannot solve XOR, classify concentric rings, or understand the nested hierarchies of human language.</p>
+<h3 id="tanh-hyperbolic-tangent">
+  Tanh (Hyperbolic Tangent)
+  <a class="heading-link" href="#tanh-hyperbolic-tangent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The <code>tanh</code> function squashes input values between -1 and 1. It is a popular choice because it is zero-centred, which
+helps keep the gradients stable during the early stages of training. Its derivative is particularly elegant and
+computationally efficient:</p>
+<p>$$
+\text{tanh}(x) = \frac{e^{2x} - 1}{e^{2x} + 1}
+$$
+$$
+\frac{d}{dx}\text{tanh}(x) = 1 - \text{tanh}^2(x)
+$$</p>
+<p>This derivation is a masterclass in efficiency: if we already know the output of the activation ($t = \text{tanh}(x)$),
+we can compute the gradient ($1-t^2$) using only a simple multiplication and subtraction, completely avoiding expensive
+exponentiations during the backward pass.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tanh</span>(self):
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>data
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> (math<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> (math<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(t, (self,), <span style="color:#e6db74">&#39;tanh&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_backward</span>():
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># The gradient is (1 - output^2) * incoming_gradient</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span
-                        style="color:#f92672">+=</span> (<span style="color:#ae81ff">1</span> <span
-                        style="color:#f92672">-</span> t<span style="color:#f92672">**</span><span
-                        style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> out<span
-                        style="color:#f92672">.</span>grad
-</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span
-                        style="color:#f92672">=</span> _backward
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span style="color:#f92672">+=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> t<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span style="color:#f92672">=</span> _backward
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out
-</span></span></code></pre>
-                </div>
-                <h3 id="relu-and-the-problem-of-dead-neurons">
-                    ReLU and the Problem of &ldquo;Dead Neurons&rdquo;
-                    <a class="heading-link" href="#relu-and-the-problem-of-dead-neurons">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>While <code>tanh</code> is smooth, modern deep learning often favours <strong>ReLU</strong>
-                    (Rectified Linear Unit): $f(x) = \max(0, x)$. ReLU
-                    is even faster to compute and helps mitigate the vanishing gradient problem in very deep networks.
-                    However, it
-                    introduces the &ldquo;Dead ReLU&rdquo; problem—if a neuron&rsquo;s weights are updated such that it
-                    always outputs 0, its gradient becomes
-                    0, and it can never &ldquo;wake up&rdquo; or learn again. This is why careful initialisation and
-                    normalisation are so critical when
-                    using ReLU-like activations.</p>
-                <hr>
-                <h2 id="loss-functions-measuring-the-wrongness">
-                    Loss Functions: Measuring the &ldquo;Wrongness&rdquo;
-                    <a class="heading-link" href="#loss-functions-measuring-the-wrongness">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>A neural network is essentially an optimisation machine. To optimise, it needs a signal that tells it
-                    how far its
-                    predictions are from the truth. This signal is the <strong>Loss Function</strong>.</p>
-                <h3 id="mean-squared-error-mse-vs-binary-cross-entropy-bce">
-                    Mean Squared Error (MSE) vs. Binary Cross Entropy (BCE)
-                    <a class="heading-link" href="#mean-squared-error-mse-vs-binary-cross-entropy-bce">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>For regression tasks (predicting a continuous number), we often use <strong>MSE</strong>:
-                    $$
-                    \text{MSE} = \frac{1}{N} \sum (y_{true} - y_{pred})^2
-                    $$
-                    However, for classification (predicting a category), MSE is often insufficient because it doesn&rsquo;t
-                    penalise &ldquo;confident
-                    wrongness&rdquo; heavily enough. Instead, we use <strong>Binary Cross Entropy (BCE)</strong>, which
-                    is rooted in information theory:
-                    $$
-                    \text{BCE} = -\frac{1}{N} \sum [y \cdot \log(\hat{y}) + (1-y) \cdot \log(1-\hat{y})]
-                    $$</p>
-                <p>BCE measures the distance between two probability distributions. If the model is 99% sure an image is
-                    a &ldquo;car&rdquo; but it is
-                    actually a &ldquo;bike,&rdquo; BCE will produce a massive loss signal, forcing the model to make a
-                    significant correction. This
-                    makes the loss landscape much steeper and easier to navigate for classification tasks.</p>
-                <h3 id="the-log-sum-exp-trick-for-softmax-stability">
-                    The Log-Sum-Exp Trick for Softmax Stability
-                    <a class="heading-link" href="#the-log-sum-exp-trick-for-softmax-stability">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>When calculating the loss for a language model (predicting one word out of 50,000), we use <strong>Cross-Entropy</strong>.
-                    Behind the
-                    scenes, this involves the <strong>Softmax</strong> function:
-                    $$
-                    P(x_i) = \frac{e^{z_i}}{\sum e^{z_j}}
-                    $$
-                    In practice, $e^{z_i}$ can become astronomically large, leading to numerical overflow
-                    (<code>inf</code>). To prevent this, we use
-                    the <strong>Log-Sum-Exp trick</strong>: we subtract the maximum logit value from all logits before
-                    exponentiation.
-                    $$
-                    P(x_i) = \frac{e^{z_i - \max(z)}}{\sum e^{z_j - \max(z)}}
-                    $$
-                    This shifts the values into a stable range without changing the resulting probability distribution,
-                    allowing the
-                    training to continue without crashing.</p>
-                <hr>
-                <h2 id="from-statistical-counts-to-neural-probabilities-the-bigram-evolution">
-                    From Statistical Counts to Neural Probabilities: The Bigram Evolution
-                    <a class="heading-link"
-                       href="#from-statistical-counts-to-neural-probabilities-the-bigram-evolution">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>The journey of language modelling begins with the <strong>Bigram Model</strong>. In its simplest
-                    form, a bigram model predicts the
-                    next character by simply looking at the counts of character pairs in a dataset.</p>
-                <h3 id="the-limitations-of-counting">
-                    The Limitations of Counting
-                    <a class="heading-link" href="#the-limitations-of-counting">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>If we see &lsquo;A&rsquo; followed by &lsquo;B&rsquo; 100 times and &lsquo;A&rsquo; followed by
-                    &lsquo;C&rsquo; 50 times, the probability of &lsquo;B&rsquo; following &lsquo;A&rsquo;
-                    is $100 / 150 \approx 0.66$. While this works for tiny vocabularies, it fails as context grows. To
-                    predict the next
-                    character based on the previous 10, we would need a table with $27^{10}$ entries—more than the
-                    number of atoms in the
-                    universe. This is the <strong>Curse of Dimensionality</strong>.</p>
-                <h3 id="transitioning-to-neural-networks">
-                    Transitioning to Neural Networks
-                    <a class="heading-link" href="#transitioning-to-neural-networks">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>Instead of a giant lookup table, we use a single matrix of weights $W$. To feed a character into the
-                    network, we use *
-                    <em>One-Hot Encoding</em>*: a vector of all zeros with a one at the index of the character.
-                    $$
-                    x \cdot W = \text{logits}
-                    $$
-                    This multiplication &ldquo;plucks out&rdquo; a row from $W$, which represents the model&rsquo;s
-                    &ldquo;beliefs&rdquo; about what comes next. By
-                    optimising $W$ via gradient descent, we allow the model to learn these probabilities from the data,
-                    even if it has never
-                    seen a specific 10-character combination before.</p>
-                <hr>
-                <h2 id="continuous-embeddings-mapping-meaning-to-space">
-                    Continuous Embeddings: Mapping Meaning to Space
-                    <a class="heading-link" href="#continuous-embeddings-mapping-meaning-to-space">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>To solve the Curse of Dimensionality, we use <strong>Embeddings</strong>. Instead of treating every
-                    character or word as a distinct,
-                    isolated category, we map them into a low-dimensional vector space (e.g., 32 or 768 dimensions).</p>
-                <h3 id="vector-space-generalisation">
-                    Vector Space Generalisation
-                    <a class="heading-link" href="#vector-space-generalisation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>In this space, similar tokens naturally cluster together. If &ldquo;cat&rdquo; and &ldquo;dog&rdquo;
-                    are both near each other in the vector
-                    space, the model can share what it learns about &ldquo;cats&rdquo; with &ldquo;dogs.&rdquo; This
-                    <strong>generalisation</strong> is the secret sauce of
-                    modern AI. It allows the model to make intelligent predictions about scenarios it has never
-                    explicitly encountered in
-                    the training data.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#75715e"># Embedding table implementation</span>
+</span></span></code></pre></div><h3 id="relu-and-the-problem-of-dead-neurons">
+  ReLU and the Problem of &ldquo;Dead Neurons&rdquo;
+  <a class="heading-link" href="#relu-and-the-problem-of-dead-neurons">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While <code>tanh</code> is smooth, modern deep learning often favours <strong>ReLU</strong> (Rectified Linear Unit): $f(x) = \max(0, x)$. ReLU
+is even faster to compute and helps mitigate the vanishing gradient problem in very deep networks. However, it
+introduces the &ldquo;Dead ReLU&rdquo; problem—if a neuron&rsquo;s weights are updated such that it always outputs 0, its gradient becomes
+0, and it can never &ldquo;wake up&rdquo; or learn again. This is why careful initialisation and normalisation are so critical when
+using ReLU-like activations.</p>
+<hr>
+<h2 id="loss-functions-measuring-the-wrongness">
+  Loss Functions: Measuring the &ldquo;Wrongness&rdquo;
+  <a class="heading-link" href="#loss-functions-measuring-the-wrongness">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>A neural network is essentially an optimisation machine. To optimise, it needs a signal that tells it how far its
+predictions are from the truth. This signal is the <strong>Loss Function</strong>.</p>
+<h3 id="mean-squared-error-mse-vs-binary-cross-entropy-bce">
+  Mean Squared Error (MSE) vs. Binary Cross Entropy (BCE)
+  <a class="heading-link" href="#mean-squared-error-mse-vs-binary-cross-entropy-bce">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>For regression tasks (predicting a continuous number), we often use <strong>MSE</strong>:
+$$
+\text{MSE} = \frac{1}{N} \sum (y_{true} - y_{pred})^2
+$$
+However, for classification (predicting a category), MSE is often insufficient because it doesn&rsquo;t penalise &ldquo;confident
+wrongness&rdquo; heavily enough. Instead, we use <strong>Binary Cross Entropy (BCE)</strong>, which is rooted in information theory:
+$$
+\text{BCE} = -\frac{1}{N} \sum [y \cdot \log(\hat{y}) + (1-y) \cdot \log(1-\hat{y})]
+$$</p>
+<p>BCE measures the distance between two probability distributions. If the model is 99% sure an image is a &ldquo;car&rdquo; but it is
+actually a &ldquo;bike,&rdquo; BCE will produce a massive loss signal, forcing the model to make a significant correction. This
+makes the loss landscape much steeper and easier to navigate for classification tasks.</p>
+<h3 id="the-log-sum-exp-trick-for-softmax-stability">
+  The Log-Sum-Exp Trick for Softmax Stability
+  <a class="heading-link" href="#the-log-sum-exp-trick-for-softmax-stability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When calculating the loss for a language model (predicting one word out of 50,000), we use <strong>Cross-Entropy</strong>. Behind the
+scenes, this involves the <strong>Softmax</strong> function:
+$$
+P(x_i) = \frac{e^{z_i}}{\sum e^{z_j}}
+$$
+In practice, $e^{z_i}$ can become astronomically large, leading to numerical overflow (<code>inf</code>). To prevent this, we use
+the <strong>Log-Sum-Exp trick</strong>: we subtract the maximum logit value from all logits before exponentiation.
+$$
+P(x_i) = \frac{e^{z_i - \max(z)}}{\sum e^{z_j - \max(z)}}
+$$
+This shifts the values into a stable range without changing the resulting probability distribution, allowing the
+training to continue without crashing.</p>
+<hr>
+<h2 id="from-statistical-counts-to-neural-probabilities-the-bigram-evolution">
+  From Statistical Counts to Neural Probabilities: The Bigram Evolution
+  <a class="heading-link" href="#from-statistical-counts-to-neural-probabilities-the-bigram-evolution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The journey of language modelling begins with the <strong>Bigram Model</strong>. In its simplest form, a bigram model predicts the
+next character by simply looking at the counts of character pairs in a dataset.</p>
+<h3 id="the-limitations-of-counting">
+  The Limitations of Counting
+  <a class="heading-link" href="#the-limitations-of-counting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If we see &lsquo;A&rsquo; followed by &lsquo;B&rsquo; 100 times and &lsquo;A&rsquo; followed by &lsquo;C&rsquo; 50 times, the probability of &lsquo;B&rsquo; following &lsquo;A&rsquo;
+is $100 / 150 \approx 0.66$. While this works for tiny vocabularies, it fails as context grows. To predict the next
+character based on the previous 10, we would need a table with $27^{10}$ entries—more than the number of atoms in the
+universe. This is the <strong>Curse of Dimensionality</strong>.</p>
+<h3 id="transitioning-to-neural-networks">
+  Transitioning to Neural Networks
+  <a class="heading-link" href="#transitioning-to-neural-networks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Instead of a giant lookup table, we use a single matrix of weights $W$. To feed a character into the network, we use *
+<em>One-Hot Encoding</em>*: a vector of all zeros with a one at the index of the character.
+$$
+x \cdot W = \text{logits}
+$$
+This multiplication &ldquo;plucks out&rdquo; a row from $W$, which represents the model&rsquo;s &ldquo;beliefs&rdquo; about what comes next. By
+optimising $W$ via gradient descent, we allow the model to learn these probabilities from the data, even if it has never
+seen a specific 10-character combination before.</p>
+<hr>
+<h2 id="continuous-embeddings-mapping-meaning-to-space">
+  Continuous Embeddings: Mapping Meaning to Space
+  <a class="heading-link" href="#continuous-embeddings-mapping-meaning-to-space">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To solve the Curse of Dimensionality, we use <strong>Embeddings</strong>. Instead of treating every character or word as a distinct,
+isolated category, we map them into a low-dimensional vector space (e.g., 32 or 768 dimensions).</p>
+<h3 id="vector-space-generalisation">
+  Vector Space Generalisation
+  <a class="heading-link" href="#vector-space-generalisation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In this space, similar tokens naturally cluster together. If &ldquo;cat&rdquo; and &ldquo;dog&rdquo; are both near each other in the vector
+space, the model can share what it learns about &ldquo;cats&rdquo; with &ldquo;dogs.&rdquo; This <strong>generalisation</strong> is the secret sauce of
+modern AI. It allows the model to make intelligent predictions about scenarios it has never explicitly encountered in
+the training data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Embedding table implementation</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># C is a lookup table of n_vocab characters, each mapped to n_embd dimensions</span>
 </span></span><span style="display:flex;"><span>C <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn((vocab_size, n_embd))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># To get the embedding for a batch of tokens:</span>
-</span></span><span style="display:flex;"><span>emb <span style="color:#f92672">=</span> C[idx] <span
-                        style="color:#75715e"># shape (B, T, n_embd)</span>
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="deep-learning-dynamics-the-battle-against-gradient-decay">
-                    Deep Learning Dynamics: The Battle Against Gradient Decay
-                    <a class="heading-link" href="#deep-learning-dynamics-the-battle-against-gradient-decay">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>As networks grow deeper, they face a fundamental physical challenge: the signal from the loss
-                    function must travel
-                    through dozens of layers to reach the first weights. If the signal is multiplied by a small number
-                    at every layer, it
-                    vanishes. If it&rsquo;s multiplied by a large number, it explodes.</p>
-                <h3 id="kaiming-initialisation-balancing-the-variance">
-                    Kaiming Initialisation: Balancing the Variance
-                    <a class="heading-link" href="#kaiming-initialisation-balancing-the-variance">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>To keep the signal alive, we cannot initialise weights to arbitrary values. <strong>Kaiming
-                    Initialisation</strong> provides a
-                    mathematical solution by scaling the initial weights based on the number of inputs to the neuron (&ldquo;fan-in&rdquo;):
-                </p>
-                <p>$$
-                    W \sim \mathcal{N}(0, \frac{\text{gain}}{\sqrt{\text{fan_in}}})
-                    $$</p>
-                <p>For a <code>tanh</code> activation, the ideal gain is approximately $5/3$. This ensures that if the
-                    input to a layer has a variance
-                    of 1.0, the output will also have a variance of roughly 1.0. This preservation of variance allows
-                    the signal to
-                    propagate through hundreds of layers without decaying into noise or exploding into infinity.</p>
-                <h3 id="batch-normalisation-the-great-stabiliser">
-                    Batch Normalisation: The Great Stabiliser
-                    <a class="heading-link" href="#batch-normalisation-the-great-stabiliser">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>Even with perfect initialisation, the distribution of activations can drift during training as
-                    weights change. <strong>Batch
-                        Normalisation</strong> solves this by forcibly re-centring and re-scaling the activations within
-                    each batch:</p>
-                <p>$$
-                    \hat{x} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}
-                    $$</p>
-                <p>By ensuring that every layer receives &ldquo;standardised&rdquo; data (zero mean, unit variance),
-                    Batch Norm smooths out the loss
-                    landscape. It makes the mountain less jagged and more like a gentle basin, allowing for much higher
-                    learning rates and
-                    significantly faster convergence.</p>
-                <hr>
-                <h2 id="hierarchical-architectures-the-wavenet-pattern">
-                    Hierarchical Architectures: The WaveNet Pattern
-                    <a class="heading-link" href="#hierarchical-architectures-the-wavenet-pattern">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>To handle longer context windows (e.g., 8 tokens) without the computational explosion of a giant flat
-                    MLP, we use *
-                    <em>Hierarchical Temporal Flattening</em>*. Inspired by the <strong>WaveNet</strong> architecture,
-                    we process the sequence in a tree-like
-                    structure. Instead of looking at all 8 tokens at once, we look at them in pairs. In the first layer,
-                    8 tokens are
-                    reduced to 4 hidden states by processing adjacent pairs. The second layer then takes these 4 states
-                    and reduces them to
-                    2, and the final layer collapses those 2 states into a single representation. This hierarchy allows
-                    the model to learn
-                    patterns at different scales—first learning how letters form syllables, then how syllables form
-                    words, and finally how
-                    words form phrases—while keeping the number of parameters manageable.</p>
-                <hr>
-                <h2 id="the-transformer-revolutionising-context-through-attention">
-                    The Transformer: Revolutionising Context through Attention
-                    <a class="heading-link" href="#the-transformer-revolutionising-context-through-attention">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>The <strong>Transformer</strong> architecture shifted AI away from sequential processing (like RNNs)
-                    toward a parallelised mechanism
-                    called <strong>Self-Attention</strong>. This allows every word in a sentence to &ldquo;look at&rdquo;
-                    every other word simultaneously to
-                    determine which ones are most relevant to its meaning.</p>
-                <h3 id="the-kqv-mechanism-query-key-and-value">
-                    The KQV Mechanism: Query, Key, and Value
-                    <a class="heading-link" href="#the-kqv-mechanism-query-key-and-value">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>The attention mechanism works like a dynamic retrieval system where the &ldquo;database&rdquo; is the
-                    sequence of tokens itself.
-                    Crucially, $Q$, $K$, and $V$ are not the tokens themselves, but <strong>learned linear
-                        projections</strong> of the input
-                    embedding $x$. These projections allow the model to transform the raw input into a specialised space
-                    optimised for
-                    information retrieval. For every token, we compute three distinct vectors. The <strong>Query
-                        ($Q$)</strong> represents what
-                    information the current token is looking for. The <strong>Key ($K$)</strong> describes what kind of
-                    information a token in the
-                    sequence can provide. Finally, the <strong>Value ($V$)</strong> contains the actual information to
-                    be offered if that token is found
-                    to be relevant to the query.</p>
-                <p>These vectors are computed by multiplying the input $x$ by weight matrices ($W_Q, W_K, W_V$):
-                    $$
-                    Q = x \cdot W_Q, \quad K = x \cdot W_K, \quad V = x \cdot W_V
-                    $$</p>
-                <p>The weights in these matrices are <strong>learned during training</strong>. This is fundamental: the
-                    model is not just looking for
-                    word overlaps; it is learning a complex, abstract map of what constitutes a &ldquo;query&rdquo; and
-                    what constitutes a matching &quot;
-                    key.&quot; By treating $K$ as a learned layer, the model can discover that a &ldquo;bank&rdquo;
-                    (financial) should have a high affinity
-                    with &ldquo;money,&rdquo; while a &ldquo;bank&rdquo; (geography) should match with &ldquo;river.&rdquo;
-                </p>
-                <p>The model calculates the &ldquo;affinity&rdquo; between the Query of one token and the Key of another
-                    using a dot
-                    product ($Q \cdot K^T$). This result represents how much attention the current token should pay to
-                    every other token in
-                    the sequence. This creates a set of weights that determine how much of each token&rsquo;s Value
-                    ($V$) should be pulled into
-                    the final representation of the current word.</p>
-                <h3 id="scaled-dot-product-attention-the-sqrtd_k-trick">
-                    Scaled Dot-Product Attention: The $\sqrt{d_k}$ Trick
-                    <a class="heading-link" href="#scaled-dot-product-attention-the-sqrtd_k-trick">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>One of the most critical engineering details in the Transformer is the scaling factor:
-                    $$
-                    \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-                    $$</p>
-                <p>As the dimensionality of the vectors ($d_k$) increases, the dot product $QK^T$ can grow very large in
-                    magnitude. This
-                    pushes the Softmax function into its &ldquo;flat&rdquo; regions where the gradients are nearly zero.
-                    By scaling by $\sqrt{d_k}$, we
-                    pull the values back into the &ldquo;active&rdquo; region of the Softmax, preserving healthy
-                    gradients.</p>
-                <h3 id="multi-head-attention">
-                    Multi-Head Attention
-                    <a class="heading-link" href="#multi-head-attention">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>In practice, a single attention mechanism might focus on only one type of relationship (e.g.,
-                    grammar). To capture
-                    multiple relationships simultaneously (e.g., grammar, tone, and logic), we use <strong>Multi-Head
-                        Attention</strong>. We split the
-                    embedding into multiple &ldquo;heads,&rdquo; each with its own $Q, K, V$ matrices. The results are
-                    then concatenated and projected
-                    back into the original space.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#66d9ef">class</span> <span style="color:#a6e22e">MultiHeadAttention</span>(nn<span
-                        style="color:#f92672">.</span>Module):
+</span></span><span style="display:flex;"><span>emb <span style="color:#f92672">=</span> C[idx] <span style="color:#75715e"># shape (B, T, n_embd)</span>
+</span></span></code></pre></div><hr>
+<h2 id="deep-learning-dynamics-the-battle-against-gradient-decay">
+  Deep Learning Dynamics: The Battle Against Gradient Decay
+  <a class="heading-link" href="#deep-learning-dynamics-the-battle-against-gradient-decay">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>As networks grow deeper, they face a fundamental physical challenge: the signal from the loss function must travel
+through dozens of layers to reach the first weights. If the signal is multiplied by a small number at every layer, it
+vanishes. If it&rsquo;s multiplied by a large number, it explodes.</p>
+<h3 id="kaiming-initialisation-balancing-the-variance">
+  Kaiming Initialisation: Balancing the Variance
+  <a class="heading-link" href="#kaiming-initialisation-balancing-the-variance">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To keep the signal alive, we cannot initialise weights to arbitrary values. <strong>Kaiming Initialisation</strong> provides a
+mathematical solution by scaling the initial weights based on the number of inputs to the neuron (&ldquo;fan-in&rdquo;):</p>
+<p>$$
+W \sim \mathcal{N}(0, \frac{\text{gain}}{\sqrt{\text{fan_in}}})
+$$</p>
+<p>For a <code>tanh</code> activation, the ideal gain is approximately $5/3$. This ensures that if the input to a layer has a variance
+of 1.0, the output will also have a variance of roughly 1.0. This preservation of variance allows the signal to
+propagate through hundreds of layers without decaying into noise or exploding into infinity.</p>
+<h3 id="batch-normalisation-the-great-stabiliser">
+  Batch Normalisation: The Great Stabiliser
+  <a class="heading-link" href="#batch-normalisation-the-great-stabiliser">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Even with perfect initialisation, the distribution of activations can drift during training as weights change. <strong>Batch
+Normalisation</strong> solves this by forcibly re-centring and re-scaling the activations within each batch:</p>
+<p>$$
+\hat{x} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}
+$$</p>
+<p>By ensuring that every layer receives &ldquo;standardised&rdquo; data (zero mean, unit variance), Batch Norm smooths out the loss
+landscape. It makes the mountain less jagged and more like a gentle basin, allowing for much higher learning rates and
+significantly faster convergence.</p>
+<hr>
+<h2 id="hierarchical-architectures-the-wavenet-pattern">
+  Hierarchical Architectures: The WaveNet Pattern
+  <a class="heading-link" href="#hierarchical-architectures-the-wavenet-pattern">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To handle longer context windows (e.g., 8 tokens) without the computational explosion of a giant flat MLP, we use *
+<em>Hierarchical Temporal Flattening</em>*. Inspired by the <strong>WaveNet</strong> architecture, we process the sequence in a tree-like
+structure. Instead of looking at all 8 tokens at once, we look at them in pairs. In the first layer, 8 tokens are
+reduced to 4 hidden states by processing adjacent pairs. The second layer then takes these 4 states and reduces them to
+2, and the final layer collapses those 2 states into a single representation. This hierarchy allows the model to learn
+patterns at different scales—first learning how letters form syllables, then how syllables form words, and finally how
+words form phrases—while keeping the number of parameters manageable.</p>
+<hr>
+<h2 id="the-transformer-revolutionising-context-through-attention">
+  The Transformer: Revolutionising Context through Attention
+  <a class="heading-link" href="#the-transformer-revolutionising-context-through-attention">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>Transformer</strong> architecture shifted AI away from sequential processing (like RNNs) toward a parallelised mechanism
+called <strong>Self-Attention</strong>. This allows every word in a sentence to &ldquo;look at&rdquo; every other word simultaneously to
+determine which ones are most relevant to its meaning.</p>
+<h3 id="the-kqv-mechanism-query-key-and-value">
+  The KQV Mechanism: Query, Key, and Value
+  <a class="heading-link" href="#the-kqv-mechanism-query-key-and-value">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The attention mechanism works like a dynamic retrieval system where the &ldquo;database&rdquo; is the sequence of tokens itself.
+Crucially, $Q$, $K$, and $V$ are not the tokens themselves, but <strong>learned linear projections</strong> of the input
+embedding $x$. These projections allow the model to transform the raw input into a specialised space optimised for
+information retrieval. For every token, we compute three distinct vectors. The <strong>Query ($Q$)</strong> represents what
+information the current token is looking for. The <strong>Key ($K$)</strong> describes what kind of information a token in the
+sequence can provide. Finally, the <strong>Value ($V$)</strong> contains the actual information to be offered if that token is found
+to be relevant to the query.</p>
+<p>These vectors are computed by multiplying the input $x$ by weight matrices ($W_Q, W_K, W_V$):
+$$
+Q = x \cdot W_Q, \quad K = x \cdot W_K, \quad V = x \cdot W_V
+$$</p>
+<p>The weights in these matrices are <strong>learned during training</strong>. This is fundamental: the model is not just looking for
+word overlaps; it is learning a complex, abstract map of what constitutes a &ldquo;query&rdquo; and what constitutes a matching &quot;
+key.&quot; By treating $K$ as a learned layer, the model can discover that a &ldquo;bank&rdquo; (financial) should have a high affinity
+with &ldquo;money,&rdquo; while a &ldquo;bank&rdquo; (geography) should match with &ldquo;river.&rdquo;</p>
+<p>The model calculates the &ldquo;affinity&rdquo; between the Query of one token and the Key of another using a dot
+product ($Q \cdot K^T$). This result represents how much attention the current token should pay to every other token in
+the sequence. This creates a set of weights that determine how much of each token&rsquo;s Value ($V$) should be pulled into
+the final representation of the current word.</p>
+<h3 id="scaled-dot-product-attention-the-sqrtd_k-trick">
+  Scaled Dot-Product Attention: The $\sqrt{d_k}$ Trick
+  <a class="heading-link" href="#scaled-dot-product-attention-the-sqrtd_k-trick">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of the most critical engineering details in the Transformer is the scaling factor:
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+$$</p>
+<p>As the dimensionality of the vectors ($d_k$) increases, the dot product $QK^T$ can grow very large in magnitude. This
+pushes the Softmax function into its &ldquo;flat&rdquo; regions where the gradients are nearly zero. By scaling by $\sqrt{d_k}$, we
+pull the values back into the &ldquo;active&rdquo; region of the Softmax, preserving healthy gradients.</p>
+<h3 id="multi-head-attention">
+  Multi-Head Attention
+  <a class="heading-link" href="#multi-head-attention">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In practice, a single attention mechanism might focus on only one type of relationship (e.g., grammar). To capture
+multiple relationships simultaneously (e.g., grammar, tone, and logic), we use <strong>Multi-Head Attention</strong>. We split the
+embedding into multiple &ldquo;heads,&rdquo; each with its own $Q, K, V$ matrices. The results are then concatenated and projected
+back into the original space.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MultiHeadAttention</span>(nn<span style="color:#f92672">.</span>Module):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, num_heads, head_size):
-</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span
-                        style="color:#a6e22e">__init__</span>()
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>()
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Every head performs its own attention in parallel</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>heads <span
-                        style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>ModuleList([Head(head_size) <span
-                        style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(num_heads)])
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>proj <span
-                        style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(n_embd, n_embd)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>dropout <span
-                        style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Dropout(dropout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>heads <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>ModuleList([Head(head_size) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(num_heads)])
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>proj <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(n_embd, n_embd)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>dropout <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Dropout(dropout)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, x):
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Combine the insights from all heads</span>
-</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> torch<span
-                        style="color:#f92672">.</span>cat([h(x) <span style="color:#66d9ef">for</span> h <span
-                        style="color:#f92672">in</span> self<span style="color:#f92672">.</span>heads], dim<span
-                        style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> self<span
-                        style="color:#f92672">.</span>dropout(self<span style="color:#f92672">.</span>proj(out))
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cat([h(x) <span style="color:#66d9ef">for</span> h <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>heads], dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>dropout(self<span style="color:#f92672">.</span>proj(out))
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="regularisation--stability-ensuring-robustness">
-                    Regularisation &amp; Stability: Ensuring Robustness
-                    <a class="heading-link" href="#regularisation--stability-ensuring-robustness">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Large models with millions of parameters are prone to <strong>Overfitting</strong>—memorising the
-                    training data instead of learning
-                    general patterns. We use several techniques to keep the model honest and stable.</p>
-                <h3 id="residual-connections-skip-connections">
-                    Residual Connections (Skip-Connections)
-                    <a class="heading-link" href="#residual-connections-skip-connections">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>In a deep network, we often add the input of a layer to its output: $x + f(x)$. This is a <strong>Residual
-                    Connection</strong>. It
-                    creates a &ldquo;highway&rdquo; for gradients to flow directly from the output to the input,
-                    bypassing the complex non-linearities
-                    of the layer. This allows us to train networks with hundreds of layers without the signal getting
-                    lost.</p>
-                <h3 id="dropout-forced-robustness">
-                    Dropout: Forced Robustness
-                    <a class="heading-link" href="#dropout-forced-robustness">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p><strong>Dropout</strong> randomly &ldquo;shuts off&rdquo; a fraction of neurons during each training
-                    step. This forces the model to develop
-                    redundant pathways and prevents it from becoming overly reliant on any single neuron. It’s like an
-                    athlete training with
-                    weights—when the weights are removed (during inference), the athlete is much stronger.</p>
-                <h3 id="weight-decay">
-                    Weight Decay
-                    <a class="heading-link" href="#weight-decay">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>We add a penalty to the loss function based on the size of the weights: $Loss_{total} = Loss_{data} +
-                    \lambda \sum w^2$.
-                    This <strong>Weight Decay</strong> encourages the model to keep its weights small and distributed,
-                    preventing any single weight from
-                    exerting too much influence and leading to simpler, more generalisable solutions.</p>
-                <hr>
-                <h2 id="advanced-optimisation-beyond-simple-sgd">
-                    Advanced Optimisation: Beyond Simple SGD
-                    <a class="heading-link" href="#advanced-optimisation-beyond-simple-sgd">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>While basic Gradient Descent works, it is often too slow for modern models. We use more sophisticated
-                    optimisers like *
-                    <em>AdamW</em>*, which keeps track of two statistics for every single weight. It maintains <strong>Momentum</strong>,
-                    representing the &quot;
-                    velocity&quot; of previous gradients, which allows the optimiser to &ldquo;roll&rdquo; over small
-                    bumps in the loss landscape.
-                    Simultaneously, it uses <strong>RMSProp</strong>, an adaptive learning rate that scales updates
-                    based on the historical magnitude of
-                    gradients to ensure that weights with large gradients don&rsquo;t explode while weights with small
-                    gradients don&rsquo;t vanish.
-                    AdamW further improves this by decoupling the Weight Decay from the gradient update, which leads to
-                    better
-                    generalisation in Transformer models.</p>
-                <h3 id="learning-rate-schedules-cosine-decay-with-warmup">
-                    Learning Rate Schedules: Cosine Decay with Warmup
-                    <a class="heading-link" href="#learning-rate-schedules-cosine-decay-with-warmup">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>We don&rsquo;t keep the learning rate constant. We use a <strong>Warmup</strong> phase to prevent the
-                    model from diverging early on,
-                    followed by <strong>Cosine Decay</strong>, which slowly reduces the LR as the model nears
-                    convergence.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_lr</span>(it):
+</span></span></code></pre></div><hr>
+<h2 id="regularisation--stability-ensuring-robustness">
+  Regularisation &amp; Stability: Ensuring Robustness
+  <a class="heading-link" href="#regularisation--stability-ensuring-robustness">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Large models with millions of parameters are prone to <strong>Overfitting</strong>—memorising the training data instead of learning
+general patterns. We use several techniques to keep the model honest and stable.</p>
+<h3 id="residual-connections-skip-connections">
+  Residual Connections (Skip-Connections)
+  <a class="heading-link" href="#residual-connections-skip-connections">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In a deep network, we often add the input of a layer to its output: $x + f(x)$. This is a <strong>Residual Connection</strong>. It
+creates a &ldquo;highway&rdquo; for gradients to flow directly from the output to the input, bypassing the complex non-linearities
+of the layer. This allows us to train networks with hundreds of layers without the signal getting lost.</p>
+<h3 id="dropout-forced-robustness">
+  Dropout: Forced Robustness
+  <a class="heading-link" href="#dropout-forced-robustness">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Dropout</strong> randomly &ldquo;shuts off&rdquo; a fraction of neurons during each training step. This forces the model to develop
+redundant pathways and prevents it from becoming overly reliant on any single neuron. It’s like an athlete training with
+weights—when the weights are removed (during inference), the athlete is much stronger.</p>
+<h3 id="weight-decay">
+  Weight Decay
+  <a class="heading-link" href="#weight-decay">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We add a penalty to the loss function based on the size of the weights: $Loss_{total} = Loss_{data} + \lambda \sum w^2$.
+This <strong>Weight Decay</strong> encourages the model to keep its weights small and distributed, preventing any single weight from
+exerting too much influence and leading to simpler, more generalisable solutions.</p>
+<hr>
+<h2 id="advanced-optimisation-beyond-simple-sgd">
+  Advanced Optimisation: Beyond Simple SGD
+  <a class="heading-link" href="#advanced-optimisation-beyond-simple-sgd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>While basic Gradient Descent works, it is often too slow for modern models. We use more sophisticated optimisers like *
+<em>AdamW</em>*, which keeps track of two statistics for every single weight. It maintains <strong>Momentum</strong>, representing the &quot;
+velocity&quot; of previous gradients, which allows the optimiser to &ldquo;roll&rdquo; over small bumps in the loss landscape.
+Simultaneously, it uses <strong>RMSProp</strong>, an adaptive learning rate that scales updates based on the historical magnitude of
+gradients to ensure that weights with large gradients don&rsquo;t explode while weights with small gradients don&rsquo;t vanish.
+AdamW further improves this by decoupling the Weight Decay from the gradient update, which leads to better
+generalisation in Transformer models.</p>
+<h3 id="learning-rate-schedules-cosine-decay-with-warmup">
+  Learning Rate Schedules: Cosine Decay with Warmup
+  <a class="heading-link" href="#learning-rate-schedules-cosine-decay-with-warmup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We don&rsquo;t keep the learning rate constant. We use a <strong>Warmup</strong> phase to prevent the model from diverging early on,
+followed by <strong>Cosine Decay</strong>, which slowly reduces the LR as the model nears convergence.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_lr</span>(it):
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 1) linear warmup for warmup_iters steps</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> it <span
-                        style="color:#f92672">&lt;</span> warmup_steps:
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> max_lr <span
-                        style="color:#f92672">*</span> (it <span style="color:#f92672">+</span> <span
-                        style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> warmup_steps
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> it <span style="color:#f92672">&lt;</span> warmup_steps:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> max_lr <span style="color:#f92672">*</span> (it <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> warmup_steps
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 2) if it &gt; lr_decay_iters, return min learning rate</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> it <span
-                        style="color:#f92672">&gt;</span> max_steps:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> it <span style="color:#f92672">&gt;</span> max_steps:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> min_lr
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 3) in between, use cosine decay down to min learning rate</span>
-</span></span><span style="display:flex;"><span>    decay_ratio <span style="color:#f92672">=</span> (it <span
-                        style="color:#f92672">-</span> warmup_steps) <span
-                        style="color:#f92672">/</span> (max_steps <span style="color:#f92672">-</span> warmup_steps)
-</span></span><span style="display:flex;"><span>    coeff <span style="color:#f92672">=</span> <span
-                        style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> (<span
-                        style="color:#ae81ff">1.0</span> <span style="color:#f92672">+</span> math<span
-                        style="color:#f92672">.</span>cos(math<span style="color:#f92672">.</span>pi <span
-                        style="color:#f92672">*</span> decay_ratio))
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> min_lr <span
-                        style="color:#f92672">+</span> coeff <span style="color:#f92672">*</span> (max_lr <span
-                        style="color:#f92672">-</span> min_lr)
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="high-performance-engineering-training-at-scale">
-                    High-Performance Engineering: Training at Scale
-                    <a class="heading-link" href="#high-performance-engineering-training-at-scale">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Building a model is only half the battle. Training a GPT-class model requires orchestrating billions
-                    of calculations
-                    across dozens of GPUs. This requires a transition from pure mathematics to performance
-                    engineering.</p>
-                <h3 id="torchcompile-and-kernel-fusion">
-                    torch.compile and Kernel Fusion
-                    <a class="heading-link" href="#torchcompile-and-kernel-fusion">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>Modern PyTorch features <code>torch.compile</code>, which uses a JIT (Just-In-Time) compiler called
-                    <strong>Inductor</strong> to analyse the
-                    model&rsquo;s computation graph. Instead of executing one operation at a time (Add, then Mul, then
-                    Tanh), <code>torch.compile</code>
-                    performs <strong>Kernel Fusion</strong>. It merges these operations into a single GPU kernel, which
-                    reduces the number of times the
-                    GPU has to read and write to its slow main memory. This can result in a 20-30% speedup with zero
-                    changes to the model
-                    architecture.</p>
-                <h3 id="distributed-data-parallel-ddp--gradient-accumulation">
-                    Distributed Data Parallel (DDP) &amp; Gradient Accumulation
-                    <a class="heading-link" href="#distributed-data-parallel-ddp--gradient-accumulation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>When a model is too large or the dataset is too massive for one GPU, we use <strong>Distributed Data
-                    Parallel (DDP)</strong>. This
-                    involves <strong>Data Sharding</strong>, where each GPU receives a unique shard of the training
-                    data. At the end of the backward
-                    pass, <strong>Gradient Averaging</strong> is performed via an <strong>All-Reduce</strong> operation,
-                    ensuring every GPU stays in sync. If a
-                    massive &ldquo;effective&rdquo; batch size is required (e.g., 0.5M tokens) but GPU memory is
-                    limited, we use **Gradient Accumulation
-                    **. This involves performing multiple &ldquo;micro-steps&rdquo; where we calculate and accumulate
-                    gradients for small batches before
-                    updating weights, allowing us to simulate the dynamics of a massive supercomputer on a single
-                    workstation.</p>
-                <h3 id="mixed-precision-tf32bf16">
-                    Mixed Precision (TF32/BF16)
-                    <a class="heading-link" href="#mixed-precision-tf32bf16">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>Finally, we exploit the fact that neural networks are robust to noise by using lower-precision
-                    numbers. Instead of
-                    standard 32-bit floats, we use <strong>BFloat16</strong> or <strong>TF32</strong>. These formats
-                    take up half the memory and can be processed up
-                    to 8x faster by the specialised <strong>Tensor Cores</strong> on NVIDIA GPUs, allowing us to train
-                    larger models in a fraction of the
-                    time.</p>
-                <hr>
-                <h2 id="evaluation--benchmarking-measuring-intelligence">
-                    Evaluation &amp; Benchmarking: Measuring Intelligence
-                    <a class="heading-link" href="#evaluation--benchmarking-measuring-intelligence">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>How do we know if our model is actually getting smarter? We use several metrics to track
-                    progress.</p>
-                <h3 id="perplexity-and-cross-entropy">
-                    Perplexity and Cross-Entropy
-                    <a class="heading-link" href="#perplexity-and-cross-entropy">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p><strong>Cross-Entropy</strong> measures how &ldquo;surprised&rdquo; the model is by the validation
-                    data. <strong>Perplexity</strong> is
-                    simply $e^{\text{Cross-Entropy}}$. A lower perplexity means the model is better at predicting the
-                    next token. A
-                    perplexity of 1.0 would mean the model perfectly predicts everything.</p>
-                <h3 id="hellaswag-testing-common-sense">
-                    HellaSwag: Testing Common Sense
-                    <a class="heading-link" href="#hellaswag-testing-common-sense">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>For advanced models, we use benchmarks like <strong>HellaSwag</strong>. HellaSwag presents the model
-                    with a scenario (e.g., &ldquo;A man is
-                    walking to a car&hellip;&rdquo;) and four possible endings. To score well, the model must understand
-                    the physical and social logic
-                    of the world, not just match word patterns.</p>
-                <hr>
-                <h2 id="physics-informed-neural-networks-pinns-learning-with-laws">
-                    Physics-Informed Neural Networks (PINNs): Learning with Laws
-                    <a class="heading-link" href="#physics-informed-neural-networks-pinns-learning-with-laws">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Modern AI isn&rsquo;t limited to predicting language or classifying images; it is increasingly used
-                    to simulate the physical
-                    world. Traditional &ldquo;black-box&rdquo; models, however, can often predict unphysical
-                    behaviour—like a ball moving through a wall
-                    or energy appearing out of nowhere. <strong>Physics-Informed Neural Networks (PINNs)</strong> solve
-                    this by embedding the laws of
-                    physics directly into the neural network&rsquo;s architecture.</p>
-                <h3 id="the-hybrid-loss-data--physics">
-                    The Hybrid Loss: Data + Physics
-                    <a class="heading-link" href="#the-hybrid-loss-data--physics">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>In a PINN, the training objective is no longer just to minimise the error on labelled data points.
-                    Instead, we minimise
-                    a hybrid loss function that penalises deviations from known physical equations (like the Heat
-                    Equation, Navier-Stokes,
-                    or simple kinematic laws).</p>
-                <p>$$
-                    L = L_{data} + \lambda \cdot L_{physics}
-                    $$</p>
-                <p>To calculate $L_{physics}$, we leverage <strong>Automatic Differentiation</strong>—the same
-                    technology that powers backpropagation.
-                    But instead of calculating the derivative of the Loss with respect to the Weights, we calculate the
-                    derivative of the
-                    Output with respect to the Input Coordinates (like time $t$ or space $x$).</p>
-                <p>For example, if we are modelling the motion of an object where we know the velocity should match the
-                    derivative of the
-                    position ($v = \frac{ds}{dt}$), we can define a &ldquo;physics residual&rdquo; $r$:</p>
-                <p>$$
-                    r = \frac{\partial \hat{s}}{\partial t} - v
-                    $$</p>
-                <p>If the residual $r$ is non-zero, it means the network&rsquo;s prediction violates the laws of
-                    physics. By minimising the
-                    square of this residual, we &ldquo;guide&rdquo; the model to find a solution that is not only
-                    statistically plausible but physically
-                    accurate.</p>
-                <hr>
-                <h2 id="skills">
-                    Skills
-                    <a class="heading-link" href="#skills">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p><strong>Mathematics &amp; Theory</strong><br>
-                    Backpropagation | Chain Rule | Topological Sort | Information Theory | Bellman Equations | PINNs</p>
-                <p><strong>Architectures</strong><br>
-                    Transformers (KQV) | Multi-Head Attention | MLPs | WaveNet | CNNs | Residual Networks</p>
-                <p><strong>Optimisation &amp; Training</strong><br>
-                    AdamW | Kaiming Initialisation | Batch/Layer Normalisation | Cosine Decay | Dropout | Weight Decay
-                </p>
-                <p><strong>Performance Engineering</strong><br>
-                    GPU Acceleration | DDP | Mixed Precision (BF16/TF32) | Kernel Fusion | torch.compile | Gradient
-                    Accumulation</p>
-                <p><strong>Evaluation &amp; Benchmarking</strong><br>
-                    Perplexity | Cross-Entropy | HellaSwag | Validation Visualisation</p>
+</span></span><span style="display:flex;"><span>    decay_ratio <span style="color:#f92672">=</span> (it <span style="color:#f92672">-</span> warmup_steps) <span style="color:#f92672">/</span> (max_steps <span style="color:#f92672">-</span> warmup_steps)
+</span></span><span style="display:flex;"><span>    coeff <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">+</span> math<span style="color:#f92672">.</span>cos(math<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> decay_ratio))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> min_lr <span style="color:#f92672">+</span> coeff <span style="color:#f92672">*</span> (max_lr <span style="color:#f92672">-</span> min_lr)
+</span></span></code></pre></div><hr>
+<h2 id="high-performance-engineering-training-at-scale">
+  High-Performance Engineering: Training at Scale
+  <a class="heading-link" href="#high-performance-engineering-training-at-scale">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Building a model is only half the battle. Training a GPT-class model requires orchestrating billions of calculations
+across dozens of GPUs. This requires a transition from pure mathematics to performance engineering.</p>
+<h3 id="torchcompile-and-kernel-fusion">
+  torch.compile and Kernel Fusion
+  <a class="heading-link" href="#torchcompile-and-kernel-fusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Modern PyTorch features <code>torch.compile</code>, which uses a JIT (Just-In-Time) compiler called <strong>Inductor</strong> to analyse the
+model&rsquo;s computation graph. Instead of executing one operation at a time (Add, then Mul, then Tanh), <code>torch.compile</code>
+performs <strong>Kernel Fusion</strong>. It merges these operations into a single GPU kernel, which reduces the number of times the
+GPU has to read and write to its slow main memory. This can result in a 20-30% speedup with zero changes to the model
+architecture.</p>
+<h3 id="distributed-data-parallel-ddp--gradient-accumulation">
+  Distributed Data Parallel (DDP) &amp; Gradient Accumulation
+  <a class="heading-link" href="#distributed-data-parallel-ddp--gradient-accumulation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When a model is too large or the dataset is too massive for one GPU, we use <strong>Distributed Data Parallel (DDP)</strong>. This
+involves <strong>Data Sharding</strong>, where each GPU receives a unique shard of the training data. At the end of the backward
+pass, <strong>Gradient Averaging</strong> is performed via an <strong>All-Reduce</strong> operation, ensuring every GPU stays in sync. If a
+massive &ldquo;effective&rdquo; batch size is required (e.g., 0.5M tokens) but GPU memory is limited, we use **Gradient Accumulation
+**. This involves performing multiple &ldquo;micro-steps&rdquo; where we calculate and accumulate gradients for small batches before
+updating weights, allowing us to simulate the dynamics of a massive supercomputer on a single workstation.</p>
+<h3 id="mixed-precision-tf32bf16">
+  Mixed Precision (TF32/BF16)
+  <a class="heading-link" href="#mixed-precision-tf32bf16">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Finally, we exploit the fact that neural networks are robust to noise by using lower-precision numbers. Instead of
+standard 32-bit floats, we use <strong>BFloat16</strong> or <strong>TF32</strong>. These formats take up half the memory and can be processed up
+to 8x faster by the specialised <strong>Tensor Cores</strong> on NVIDIA GPUs, allowing us to train larger models in a fraction of the
+time.</p>
+<hr>
+<h2 id="evaluation--benchmarking-measuring-intelligence">
+  Evaluation &amp; Benchmarking: Measuring Intelligence
+  <a class="heading-link" href="#evaluation--benchmarking-measuring-intelligence">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>How do we know if our model is actually getting smarter? We use several metrics to track progress.</p>
+<h3 id="perplexity-and-cross-entropy">
+  Perplexity and Cross-Entropy
+  <a class="heading-link" href="#perplexity-and-cross-entropy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Cross-Entropy</strong> measures how &ldquo;surprised&rdquo; the model is by the validation data. <strong>Perplexity</strong> is
+simply $e^{\text{Cross-Entropy}}$. A lower perplexity means the model is better at predicting the next token. A
+perplexity of 1.0 would mean the model perfectly predicts everything.</p>
+<h3 id="hellaswag-testing-common-sense">
+  HellaSwag: Testing Common Sense
+  <a class="heading-link" href="#hellaswag-testing-common-sense">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>For advanced models, we use benchmarks like <strong>HellaSwag</strong>. HellaSwag presents the model with a scenario (e.g., &ldquo;A man is
+walking to a car&hellip;&rdquo;) and four possible endings. To score well, the model must understand the physical and social logic
+of the world, not just match word patterns.</p>
+<hr>
+<h2 id="physics-informed-neural-networks-pinns-learning-with-laws">
+  Physics-Informed Neural Networks (PINNs): Learning with Laws
+  <a class="heading-link" href="#physics-informed-neural-networks-pinns-learning-with-laws">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Modern AI isn&rsquo;t limited to predicting language or classifying images; it is increasingly used to simulate the physical
+world. Traditional &ldquo;black-box&rdquo; models, however, can often predict unphysical behaviour—like a ball moving through a wall
+or energy appearing out of nowhere. <strong>Physics-Informed Neural Networks (PINNs)</strong> solve this by embedding the laws of
+physics directly into the neural network&rsquo;s architecture.</p>
+<h3 id="the-hybrid-loss-data--physics">
+  The Hybrid Loss: Data + Physics
+  <a class="heading-link" href="#the-hybrid-loss-data--physics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In a PINN, the training objective is no longer just to minimise the error on labelled data points. Instead, we minimise
+a hybrid loss function that penalises deviations from known physical equations (like the Heat Equation, Navier-Stokes,
+or simple kinematic laws).</p>
+<p>$$
+L = L_{data} + \lambda \cdot L_{physics}
+$$</p>
+<p>To calculate $L_{physics}$, we leverage <strong>Automatic Differentiation</strong>—the same technology that powers backpropagation.
+But instead of calculating the derivative of the Loss with respect to the Weights, we calculate the derivative of the
+Output with respect to the Input Coordinates (like time $t$ or space $x$).</p>
+<p>For example, if we are modelling the motion of an object where we know the velocity should match the derivative of the
+position ($v = \frac{ds}{dt}$), we can define a &ldquo;physics residual&rdquo; $r$:</p>
+<p>$$
+r = \frac{\partial \hat{s}}{\partial t} - v
+$$</p>
+<p>If the residual $r$ is non-zero, it means the network&rsquo;s prediction violates the laws of physics. By minimising the
+square of this residual, we &ldquo;guide&rdquo; the model to find a solution that is not only statistically plausible but physically
+accurate.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Mathematics &amp; Theory</strong>: Backpropagation, Chain Rule, Topological Sort, Information Theory, Bellman Equations, Physics-Informed Neural Networks (PINNs).</li>
+<li><strong>Model Architectures</strong>: Transformers (KQV), Multi-Head Attention, Multi-Layer Perceptrons (MLP), WaveNet, CNNs, Residual Networks.</li>
+<li><strong>Optimisation &amp; Training</strong>: AdamW, Kaiming Initialisation, Batch/Layer Normalisation, Cosine Decay with Warmup, Dropout, Weight Decay.</li>
+<li><strong>Performance Engineering</strong>: GPU Acceleration, Distributed Data Parallel (DDP), Mixed Precision (BF16/TF32), Kernel Fusion, torch.compile, Gradient Accumulation.</li>
+<li><strong>Evaluation &amp; Benchmarking</strong>: Perplexity, Cross-Entropy, HellaSwag, Validation Visualisation.</li>
+</ul>
 
-            </article>
-        </section>
+  </article>
+</section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -1019,24 +797,63 @@
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
-        <div>
-            <p>&copy; 2025 Mark Cooper - <a
-                    href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
-                CV</a></p>
-        </div>
-    </footer>
-</main>
+    <footer class="footer" style="text-align:center; font-size: 11px;">
+    <div>
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
+                href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+            CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
 
 
-<script integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="
-        src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js"></script>
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </body>
 </html>

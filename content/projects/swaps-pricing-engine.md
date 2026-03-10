@@ -1,7 +1,7 @@
 +++
 title = "Swaps Pricing Engine (MVP)"
-description = "A production-ready C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework."
-tags = ["Finance", "C#", "Architecture", "Derivatives"]
+description = "A production-ready .NET / C# library for pricing total return equity swaps, wrapping a COM-based pricing engine behind idiomatic .NET domain objects, a fluent builder API, and a layered validation framework."
+tags = ["Finance", "dotnet", "C#", "Architecture", "Derivatives"]
 +++
 
 The Swaps Pricing Engine is a production-ready C# library that prices total return equity swaps against a proprietary
@@ -11,7 +11,7 @@ swap contracts and positions. The result is a system that is easy to use correct
 enforcing market conventions through the type system, guiding consumers through a fluent API, and validating inputs
 through a layered rule framework before anything reaches the pricing engine.
 
-The MVP achieved an **81.6% pass rate across 500 live production positions**, covering same-currency and
+The MVP achieved an **81.6% pass rate across 25000 live production positions**, covering same-currency and
 cross-currency swaps, long and short positions, and a range of underlying equity types including stocks, ETFs, and
 indices.
 
@@ -32,7 +32,7 @@ long equity (receive equity returns, pay financing) and negative means short (pa
 Encoding direction into the notional itself violates both ISDA conventions and the pricing engine's database
 constraints, which enforce `Notional > 0` at the SQL schema level.
 
-The library solves both problems: it hides the COM complexity behind idiomatic .NET, and it enforces the correct
+The library solves both problems: it hides the COM complexity behind idiomatic .NET / C#, and it enforces the correct
 contract/position separation through its type model.
 
 ---
@@ -172,23 +172,11 @@ through JSON.NET metadata removal and GZIP compression without touching the obje
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Languages & Frameworks**
-C# | .NET | COM Interop | log4net | SQLite
-
-**Financial Domain**
-Equity Swaps | Total Return Swaps | ISDA Conventions | Derivative Pricing | Position Economics | Delta / Theta
-
-**Architecture & Design**
-Type-State Builder Pattern | Domain-Driven Design | Immutable Records | Interface Segregation | Fluent API Design
-
-**Validation**
-Rule-Based Validation Framework | Layered Validation | Fail-Fast Validation | Typed Exceptions
-
-**Concurrency & Safety**
-Thread-Safe Initialisation | Double-Checked Locking | Session-Scoped Identifiers | Concurrent Data Stores
-
-**Testing & Quality**
-25+ Validation Rules | 500-Position Test Suite | 81.6% Pass Rate | Deterministic Data Structures
+- **Programming & Frameworks**: C# (.NET), COM Interop, Fluent API, Type-state Builder Pattern.
+- **Financial Engineering**: Equity Swaps, Total Return Swaps (TRS), ISDA Conventions, Delta/Theta Calculations, Market Conventions.
+- **Architecture**: Domain-Driven Design (DDD), Immutable Records, Interface Segregation, Layered Validation Framework.
+- **Data & Operations**: SQLite, log4net, Thread-safe Initialization, Session-scoped Identifiers, Concurrent Pricing.
+- **Testing & Quality**: Rule-based Validation (25+ rules), Automated Test Suite (25,000+ positions), 81.6% Production Pass Rate.
 

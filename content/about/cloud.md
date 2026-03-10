@@ -13,93 +13,34 @@ tolerance, secure delivery, and operational transparency.
 
 ---
 
-### ☁️ AWS & Azure Architecture
+### AWS & Azure Architecture
 
-I’ve designed and delivered cloud-native platforms across both AWS and Azure, including:
-
-- **AWS**  
-  EC2 | S3 | RDS | Lambda | Step Functions | API Gateway | PrivateLink | VPC | Load Balancers | IAM | CloudFormation |
-  CDK | SAM CLI | EKS | SQS | SNS | Secrets Manager | Parameter Store
-
-- **Azure**  
-  AKS | ACR | VNet | Azure Functions | API Management | ARM Templates | Azure DevOps | Azure Monitor | Key Vault |
-  Private Endpoints | Application Gateway | Log Analytics
-
-These platforms support trading systems, reconciliation engines, and AI-enabled orchestration layers — built for runtime
-introspection, secure delivery, and multi-region resilience.
+I’ve designed and delivered robust, cloud‑native platforms across both AWS and Azure, supporting everything from high‑frequency trading systems and reconciliation engines to AI‑enabled orchestration layers. My AWS expertise spans a wide range of services, including compute with EC2 and Lambda, storage and databases via S3 and RDS, and advanced orchestration using Step Functions, API Gateway, and EKS. On the Azure side, I’ve implemented solutions using AKS, Azure Functions, and Key Vault, ensuring that all platforms are built for runtime introspection, secure delivery, and multi‑region resilience.
 
 ---
 
-### 🛠️ Infrastructure as Code
+### Infrastructure as Code
 
-I use infrastructure-as-code to ensure reproducibility, auditability, and developer autonomy. My tooling includes:
-
-- **Terraform**  
-  Modular stacks with environment overlays, remote state management, and secure variable injection
-
-- **CDK & SAM CLI**  
-  Programmatic infrastructure definitions for serverless workflows, event-driven pipelines, and API orchestration
-
-- **Helm & Kubernetes**  
-  Declarative service deployment with runtime configuration, pod identity, and observability baked in
-
-- **CI/CD Integration**  
-  GitHub Actions | GitLab CI | Jenkins | TeamCity — wired into Terraform plans, CDK synths, and Helm releases
+To ensure reproducibility, auditability, and developer autonomy, I treat all cloud infrastructure as programmable code. I primarily use Terraform to manage modular stacks with environment overlays and secure variable injection, alongside CDK and SAM CLI for programmatic definitions of serverless workflows and event‑driven pipelines. This declarative approach extends to container management with Helm and Kubernetes, where I bake runtime configuration, pod identity, and observability directly into the deployment process, all integrated seamlessly into CI/CD pipelines using GitHub Actions, Jenkins, or Azure DevOps.
 
 ---
 
-### 🐳 Docker & Kubernetes
+### Docker & Kubernetes
 
-I’ve built containerised microservices and orchestrated them using Kubernetes across both AWS (EKS) and Azure (AKS). My
-container workflows include:
-
-- **Docker**  
-  Multi-stage builds | Layer caching | Secure image publishing | Runtime configuration via environment injection
-
-- **Kubernetes**  
-  Helm charts | Pod identity | RBAC | Network policies | Horizontal pod autoscaling | Liveness/readiness probes |
-  StatefulSets | ConfigMaps | Secrets | Ingress controllers
-
-These systems are designed for runtime observability, secure multi-tenant deployment, and modular service composition —
-with full support for GitOps, policy enforcement, and zero-downtime rollout strategies.
+My experience with containerization involves building highly optimized microservices using multi‑stage Docker builds and secure image publishing. These services are orchestrated using Kubernetes on both EKS and AKS, where I implement sophisticated configurations including pod identity, RBAC, network policies, and horizontal pod autoscaling. By leveraging Helm charts, StatefulSets, and liveness/readiness probes, I ensure that these systems support zero‑downtime rollouts, GitOps workflows, and secure multi‑tenant deployments with full policy enforcement.
 
 ---
 
-### ⚙️ Build Automation & Delivery
+### Build Automation & Delivery
 
-My build pipelines support:
-
-- Multi-environment deployments with rollback safety
-- Secure artifact promotion across staging and production
-- Runtime configuration via secrets managers and parameter stores
-- Observability via Prometheus, Splunk, and Jaeger
-- Policy enforcement via OPA, Vault, and custom admission controllers
-- GitOps workflows with declarative infrastructure and automated reconciliation
-
-Whether deploying serverless agents, containerised microservices, or AI training pipelines, I treat cloud delivery as a
-strategic extension of architecture.
+I treat cloud delivery as a strategic extension of overall architecture, designing build pipelines that support multi‑environment deployments with guaranteed rollback safety. These pipelines manage secure artifact promotion across staging and production, utilizing secrets managers and parameter stores for runtime configuration. To maintain high operational standards, I incorporate comprehensive observability through tools like Prometheus and Splunk, alongside strict policy enforcement and governance using OPA and Vault, all supported by GitOps workflows for automated reconciliation.
 
 ---
 
 ## Skill Set
 
-**Cloud Platforms**  
-AWS | Azure | EC2 | S3 | RDS | Lambda | Step Functions | API Gateway | EKS | SQS | SNS | Secrets Manager | PrivateLink |
-IAM | CloudFormation | CDK | SAM CLI  
-AKS | ACR | VNet | Azure Functions | API Management | ARM Templates | Azure DevOps | Key Vault | Application Gateway |
-Log Analytics
-
-**Infrastructure as Code**  
-Terraform | CDK | SAM CLI | CloudFormation | ARM Templates | Helm | Kubernetes | GitOps | Declarative Infrastructure
-
-**Containerization & Orchestration**  
-Docker | Multi-Stage Builds | Secure Image Publishing | Kubernetes | Helm Charts | Pod Identity | RBAC | HPA |
-StatefulSets | Ingress | ConfigMaps | Secrets
-
-**CI/CD & Automation**  
-GitHub Actions | GitLab CI | Jenkins | TeamCity | Artifact Promotion | Rollback Safety | Secrets Management | Runtime
-Configuration
-
-**Observability & Governance**  
-Prometheus | Splunk | Jaeger | Vault | OPA | Auditability | Policy Enforcement | Runtime Introspection | Multi-Tenant
-Isolation
+- **Cloud Providers**: AWS (EC2, Lambda, S3, RDS, EKS, Step Functions), Azure (AKS, Functions, Key Vault, Azure DevOps).
+- **Infrastructure as Code**: Terraform (Modular Stacks), AWS CDK, AWS SAM, Helm, Kustomize.
+- **Containers & Orchestration**: Docker (Multi-stage Builds), Kubernetes (EKS/AKS), RBAC, Network Policies, Horizontal Pod Autoscaling (HPA).
+- **CI/CD & Delivery**: GitHub Actions, Jenkins, TeamCity, Azure DevOps, GitOps, Artifact Promotion, Rollback Safety.
+- **Observability & Governance**: Prometheus, Grafana, Splunk, HashiCorp Vault, OPA (Open Policy Agent), IAM.

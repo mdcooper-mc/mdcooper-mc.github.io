@@ -50,6 +50,12 @@
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
 
 
  
@@ -80,7 +86,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -103,13 +111,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -141,250 +149,127 @@
       </h1>
     </header>
 
-      <h2 id="the-foundation-four-principles-every-codebase-needs">
-          The Foundation: Four Principles Every Codebase Needs
-          <a class="heading-link" href="#the-foundation-four-principles-every-codebase-needs">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Good software starts with four principles that work together. The <strong>Single Responsibility Principle
-          (SRP)</strong> says that every module, class, and function should have exactly one reason to change. When a
-          unit handles multiple concerns, a change in one area risks breaking another, and tests become difficult to
-          reason about because behavior spans unrelated paths. Keeping things focused makes refactoring safe and
-          failures easy to isolate.</p>
-      <p><strong>Don&rsquo;t Repeat Yourself (DRY)</strong> means every piece of domain knowledge has one unambiguous
-          home in the codebase. Duplication is not just a code smell — it is a maintenance liability. When the same rule
-          exists in three places, they will eventually diverge. Consolidate logic into shared abstractions and your
-          system stays consistent as it grows.</p>
-      <p><strong>Keep It Simple</strong> is the hardest principle to follow under pressure. Complexity compounds faster
-          than most engineers expect. Every unnecessary abstraction, every premature optimization, and every clever
-          trick adds cognitive load for the next person. Prefer the simplest solution that solves the actual problem,
-          and resist the temptation to build for imagined futures.</p>
-      <p><strong>Interface-Driven Design</strong> ties the others together. All code should depend on abstractions, not
-          concrete implementations. Use interfaces as the type for variables, fields, parameters, and return values
-          everywhere. Concrete types belong only at composition roots — the places where the application is wired
-          together. This gives you loose coupling, easy substitution, clean mocking in tests, and enforced boundaries
-          between domains. It is not a suggestion; it is the foundation of a maintainable system.</p>
-      <hr>
-      <h2 id="design-patterns">
-          Design Patterns
-          <a class="heading-link" href="#design-patterns">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Patterns are vocabulary for solutions that recur across different problems. Knowing them means you can
-          communicate intent clearly and apply proven structures instead of reinventing them. They fall into three
-          classical groups.</p>
-      <p><strong>Creational patterns</strong> control how objects come into existence. The <strong>Factory
-          Method</strong> delegates the decision of which concrete type to create to a subclass or a strategy, keeping
-          the calling code unaware of the implementation. The <strong>Builder</strong> constructs complex objects step
-          by step, allowing different configurations without bloated constructors. The <strong>Abstract Factory</strong>
-          creates families of related objects and is useful when the entire set of implementations must be switched
-          together. <strong>Prototype</strong> clones existing objects when construction is expensive.
-          <strong>Singleton</strong> ensures a single instance exists globally, though it should be used sparingly as it
-          introduces hidden coupling.</p>
-      <p><strong>Structural patterns</strong> describe how components are assembled. The <strong>Adapter</strong> wraps
-          an incompatible interface so it fits where another is expected — invaluable when integrating third-party
-          libraries. The <strong>Decorator</strong> adds behavior to an object at runtime without subclassing, composing
-          capabilities cleanly. The <strong>Facade</strong> simplifies a complex subsystem behind a single, coherent
-          interface. The <strong>Composite</strong> lets trees of objects be treated uniformly, which is the right model
-          for hierarchical data. The <strong>Proxy</strong> controls access to another object, adding caching,
-          authorization, or lazy initialization. <strong>Bridge</strong> separates abstraction from implementation so
-          both can vary independently. <strong>Flyweight</strong> shares common state across many small objects to
-          reduce memory pressure.</p>
-      <p><strong>Behavioral patterns</strong> define how objects communicate. The <strong>Strategy</strong> pattern
-          encapsulates interchangeable algorithms behind a common interface, making runtime behavior changes clean and
-          testable. <strong>Observer</strong> notifies dependents automatically when state changes — the backbone of
-          event-driven systems. <strong>Command</strong> wraps an action as an object, enabling queuing, undo, and
-          logging. <strong>Chain of Responsibility</strong> passes a request along a chain of handlers until one
-          processes it, decoupling senders from receivers. <strong>State</strong> lets an object&rsquo;s behavior change
-          when its internal state changes without a mass of conditionals. <strong>Template Method</strong> defines an
-          algorithm&rsquo;s skeleton in a base class and lets subclasses fill in the steps. <strong>Visitor</strong>
-          separates an algorithm from the structure it operates on, letting you add operations without touching the
-          objects. <strong>Mediator</strong> centralises communication between objects, reducing direct dependencies.
-          <strong>Memento</strong> captures and restores state without exposing internals.</p>
-      <p>Beyond the Gang of Four, several architectural patterns are now standard. <strong>Event Sourcing</strong>
-          stores state as an immutable sequence of events rather than current values, giving you a full audit trail and
-          the ability to replay history. <strong>CQRS</strong> separates read and write models so each can be optimised
-          independently. The <strong>Repository</strong> pattern abstracts data access behind a domain-facing interface,
-          keeping storage details out of business logic. The <strong>Service Layer</strong> encapsulates business
-          operations as explicit, reusable services. The <strong>Saga</strong> pattern coordinates distributed
-          transactions across microservices using compensating actions rather than locks. <strong>Null Object</strong>
-          eliminates null checks by providing a do-nothing implementation that satisfies the interface contract.</p>
-      <hr>
-      <h2 id="functional-programming">
-          Functional Programming
-          <a class="heading-link" href="#functional-programming">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Functional programming is not an all-or-nothing paradigm — most of its value comes from applying its principles
-          selectively inside any language or architecture.</p>
-      <p>The core idea is <strong>immutability</strong>: data does not change once created. New values are produced from
-          old ones through transformation. This eliminates a wide class of bugs caused by shared mutable state, makes
-          functions easy to reason about in isolation, and simplifies concurrency because there is nothing to lock.</p>
-      <p><strong>Pure functions</strong> take inputs and return outputs with no side effects and no hidden dependencies
-          on external state. Given the same inputs, they always produce the same output. Pure functions are trivially
-          testable, safe to cache, and safe to run in parallel. They are the right tool for all data transformation
-          logic.</p>
-      <p><strong>Higher-order functions</strong> — functions that accept or return other functions — enable <strong>composition</strong>:
-          building complex behavior by chaining small, focused transformations. Map, filter, and reduce are the
-          workhorses. Pipelines built from these primitives are declarative, readable, and easy to extend by inserting a
-          new step.</p>
-      <p>For error handling, <strong>railway-oriented programming</strong> models success and failure as two tracks
-          flowing through a pipeline. An <code>Either</code> type (or equivalent) carries either a result or an error
-          forward without exception-based control flow. This makes error paths explicit, composable, and impossible to
-          accidentally ignore.</p>
-      <p>The <strong>Functional Core / Imperative Shell</strong> architecture applies these ideas at scale: keep all
-          business logic in pure functions, push side effects — database writes, HTTP calls, file I/O — to the outermost
-          shell. The core is fully testable without mocks. The shell is thin and straightforward.</p>
-      <hr>
-      <h2 id="object-oriented-design">
-          Object-Oriented Design
-          <a class="heading-link" href="#object-oriented-design">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Object-oriented design is most effective when it mirrors the domain. <strong>Entities</strong> have identity
-          that persists over time — a customer account is the same account regardless of how its attributes change.
-          <strong>Value Objects</strong> are defined entirely by their attributes and carry no identity — a monetary
-          amount, a date range, or a GPS coordinate. Treat value objects as immutable. <strong>Aggregates</strong>
-          cluster related entities and value objects into a consistency boundary; the aggregate root is the only entry
-          point for modifying anything inside it.</p>
-      <p>The most common misuse of inheritance is using it for code reuse rather than to express genuine is-a
-          relationships. <strong>Favour composition over inheritance</strong>: assemble behaviour by combining small,
-          focused interfaces rather than building deep class hierarchies. Hierarchies are rigid; composition is
-          flexible.</p>
-      <p>OOP and functional programming are not opposites. Use pure functions for deterministic data transformations and
-          use objects with interfaces for stateful or polymorphic behaviour. The two styles complement each other when
-          applied to the problems they are suited to.</p>
-      <hr>
-      <h2 id="testing-discipline">
-          Testing Discipline
-          <a class="heading-link" href="#testing-discipline">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Tests are not an afterthought — they are the primary mechanism for verifying that software does what it claims
-          to do, and for maintaining that guarantee as the system changes.</p>
-      <p>Every test must follow <strong>Arrange–Act–Assert</strong>. Arrange sets up the context: inputs, mocks, and
-          preconditions. Act executes exactly one behaviour. Assert verifies the outcome with specific, minimal
-          expectations. This structure makes the intent of each test immediately readable and prevents hidden setup or
-          assertion from obscuring failures.</p>
-      <p>Each test method should cover <strong>one use case only</strong>. No branching, no multiple scenarios, no
-          &ldquo;and also&rdquo; assertions. A test is a short story: it has a single premise and a single conclusion.
-          When a test fails, you should know immediately which behaviour broke without reading through a tangle of
-          conditionals.</p>
-      <p><strong>Fast-failing tests</strong> are a discipline, not just a performance concern. When the function under
-          test contains logic that is irrelevant to the scenario being verified, use a mock that throws a controlled
-          exception at the first opportunity. This avoids building deep mock chains for code paths that are not part of
-          the use case, keeps tests small, and makes failures precise.</p>
-      <p>Tests should be <strong>organised by domain</strong>, not by technical layer. A test class represents a domain
-          concept; its methods represent use cases within that concept. This mirrors the way real users think about
-          behaviour and makes gaps in coverage obvious. The test directory should mirror the source directory exactly —
-          one test file per source file, in the same relative path.</p>
-      <p>Aim for <strong>70–90% coverage</strong> on critical paths, edge cases, and error conditions. Do not write
-          tests for trivial getters or well-covered infrastructure code — that effort is better spent on logic that
-          actually makes decisions. Mock only external systems and expensive operations; avoid mocking internal logic,
-          as that leads to tests that verify the mock rather than the code.</p>
-      <hr>
-      <h2 id="code-size-and-complexity">
-          Code Size and Complexity
-          <a class="heading-link" href="#code-size-and-complexity">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Size limits are not arbitrary rules — they are indicators of structural problems. A file that grows beyond
-          200–500 lines usually contains mixed responsibilities. A class with more than ten methods is probably doing
-          too much. A function longer than twenty lines almost certainly has a simpler decomposition waiting to be
-          found.</p>
-      <p><strong>Cyclomatic complexity</strong> is the number of independent execution paths through a function. High
-          complexity means more test cases, more cognitive load, and higher bug probability. When complexity rises, it
-          signals the need for decomposition: extract a strategy, introduce a state machine, or split into smaller
-          functions.</p>
-      <p>Deep nesting is a form of complexity. More than two or three levels of indentation usually means the logic can
-          be restructured using early returns, extracted helper functions, or a more appropriate pattern. Flat is better
-          than nested.</p>
-      <hr>
-      <h2 id="package-and-module-structure">
-          Package and Module Structure
-          <a class="heading-link" href="#package-and-module-structure">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Organise code by <strong>domain</strong>, not by technical role. A folder called <code>services/</code> or
-          <code>controllers/</code> tells you nothing about what the code does; a folder called <code>payments/</code>
-          or <code>identity/</code> tells you everything. Each domain package should contain everything relevant to that
-          domain: its models, interfaces, implementations, factories, validators, and tests. This keeps related code
-          together and makes the codebase navigable without knowing the architecture in advance.</p>
-      <p>Expose only what needs to be public. Everything else should be private or internal to its package. A minimal
-          public surface area reduces coupling, makes refactoring safer, and makes the intended extension points
-          explicit.</p>
-      <p>File names should not repeat the package name. The directory path already provides that context. A file named
-          <code>payment_service.py</code> inside a <code>payments/</code> package repeats <code>payment</code>
-          unnecessarily — <code>service.py</code> is sufficient and cleaner.</p>
-      <p>Avoid circular imports. They indicate that two modules are too tightly coupled and one of them is probably
-          doing too much. Introduce a shared abstraction or invert the dependency.</p>
-      <hr>
-      <h2 id="architecture-and-reliability">
-          Architecture and Reliability
-          <a class="heading-link" href="#architecture-and-reliability">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Good architecture makes the system easy to change without breaking things. The key properties are <strong>low
-          coupling</strong> — components depend on abstractions, not on each other&rsquo;s internals — and <strong>high
-          cohesion</strong> — everything in a component genuinely belongs together.</p>
-      <p>Design for <strong>observability</strong> from the start. Structured logging, metrics, and distributed tracing
-          are not optional extras. When something goes wrong in production, they are the only tools available. Use
-          contextual log entries that capture what the system was doing, not just that an error occurred.</p>
-      <p><strong>Graceful degradation</strong> means the system continues to provide partial value when a dependency
-          fails, rather than failing entirely. Design every integration point with a fallback: cached data, a default
-          response, or a clear error to the caller. Fail fast on invalid input at the boundary; never let bad data
-          propagate deeper into the system.</p>
-      <p>Externalise configuration. Hard-coded values are the fastest path to environment-specific bugs and the slowest
-          path to fixing them. Use environment variables, configuration files, or a configuration service, and validate
-          configuration at startup so problems surface immediately rather than at the worst possible moment.</p>
-      <hr>
-      <h2 id="devops-and-delivery">
-          DevOps and Delivery
-          <a class="heading-link" href="#devops-and-delivery">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p><strong>Infrastructure as Code</strong> means environments are defined, versioned, and reproduced the same way
-          every time. Manual environment setup is a source of drift, inconsistency, and toil. If you cannot reproduce an
-          environment from a repository checkout, you do not have a reliable environment.</p>
-      <p><strong>Quality gates</strong> enforce standards before code reaches production. Linting, type checking, test
-          coverage thresholds, and security scanning belong in the CI pipeline — not in code review, where they slow
-          humans down with mechanical concerns that tools handle better.</p>
-      <p><strong>Blue-green and canary deployments</strong> shift traffic gradually to new versions, allowing real-world
-          validation before full rollout. Combined with <strong>post-incident reviews</strong> that focus on systemic
-          causes rather than individual blame, they build a culture where failure is a learning event rather than a
-          crisis.</p>
+    <h2 id="the-foundation-four-principles-every-codebase-needs">
+  The Foundation: Four Principles Every Codebase Needs
+  <a class="heading-link" href="#the-foundation-four-principles-every-codebase-needs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Good software starts with four principles that work together. The <strong>Single Responsibility Principle (SRP)</strong> says that every module, class, and function should have exactly one reason to change. When a unit handles multiple concerns, a change in one area risks breaking another, and tests become difficult to reason about because behavior spans unrelated paths. Keeping things focused makes refactoring safe and failures easy to isolate.</p>
+<p><strong>Don&rsquo;t Repeat Yourself (DRY)</strong> means every piece of domain knowledge has one unambiguous home in the codebase. Duplication is not just a code smell — it is a maintenance liability. When the same rule exists in three places, they will eventually diverge. Consolidate logic into shared abstractions and your system stays consistent as it grows.</p>
+<p><strong>Keep It Simple</strong> is the hardest principle to follow under pressure. Complexity compounds faster than most engineers expect. Every unnecessary abstraction, every premature optimization, and every clever trick adds cognitive load for the next person. Prefer the simplest solution that solves the actual problem, and resist the temptation to build for imagined futures.</p>
+<p><strong>Interface-Driven Design</strong> ties the others together. All code should depend on abstractions, not concrete implementations. Use interfaces as the type for variables, fields, parameters, and return values everywhere. Concrete types belong only at composition roots — the places where the application is wired together. This gives you loose coupling, easy substitution, clean mocking in tests, and enforced boundaries between domains. It is not a suggestion; it is the foundation of a maintainable system.</p>
+<hr>
+<h2 id="design-patterns">
+  Design Patterns
+  <a class="heading-link" href="#design-patterns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Patterns are vocabulary for solutions that recur across different problems. Knowing them means you can communicate intent clearly and apply proven structures instead of reinventing them. They fall into three classical groups.</p>
+<p><strong>Creational patterns</strong> control how objects come into existence. The <strong>Factory Method</strong> delegates the decision of which concrete type to create to a subclass or a strategy, keeping the calling code unaware of the implementation. The <strong>Builder</strong> constructs complex objects step by step, allowing different configurations without bloated constructors. The <strong>Abstract Factory</strong> creates families of related objects and is useful when the entire set of implementations must be switched together. <strong>Prototype</strong> clones existing objects when construction is expensive. <strong>Singleton</strong> ensures a single instance exists globally, though it should be used sparingly as it introduces hidden coupling.</p>
+<p><strong>Structural patterns</strong> describe how components are assembled. The <strong>Adapter</strong> wraps an incompatible interface so it fits where another is expected — invaluable when integrating third-party libraries. The <strong>Decorator</strong> adds behavior to an object at runtime without subclassing, composing capabilities cleanly. The <strong>Facade</strong> simplifies a complex subsystem behind a single, coherent interface. The <strong>Composite</strong> lets trees of objects be treated uniformly, which is the right model for hierarchical data. The <strong>Proxy</strong> controls access to another object, adding caching, authorization, or lazy initialization. <strong>Bridge</strong> separates abstraction from implementation so both can vary independently. <strong>Flyweight</strong> shares common state across many small objects to reduce memory pressure.</p>
+<p><strong>Behavioral patterns</strong> define how objects communicate. The <strong>Strategy</strong> pattern encapsulates interchangeable algorithms behind a common interface, making runtime behavior changes clean and testable. <strong>Observer</strong> notifies dependents automatically when state changes — the backbone of event-driven systems. <strong>Command</strong> wraps an action as an object, enabling queuing, undo, and logging. <strong>Chain of Responsibility</strong> passes a request along a chain of handlers until one processes it, decoupling senders from receivers. <strong>State</strong> lets an object&rsquo;s behavior change when its internal state changes without a mass of conditionals. <strong>Template Method</strong> defines an algorithm&rsquo;s skeleton in a base class and lets subclasses fill in the steps. <strong>Visitor</strong> separates an algorithm from the structure it operates on, letting you add operations without touching the objects. <strong>Mediator</strong> centralises communication between objects, reducing direct dependencies. <strong>Memento</strong> captures and restores state without exposing internals.</p>
+<p>Beyond the Gang of Four, several architectural patterns are now standard. <strong>Event Sourcing</strong> stores state as an immutable sequence of events rather than current values, giving you a full audit trail and the ability to replay history. <strong>CQRS</strong> separates read and write models so each can be optimised independently. The <strong>Repository</strong> pattern abstracts data access behind a domain-facing interface, keeping storage details out of business logic. The <strong>Service Layer</strong> encapsulates business operations as explicit, reusable services. The <strong>Saga</strong> pattern coordinates distributed transactions across microservices using compensating actions rather than locks. <strong>Null Object</strong> eliminates null checks by providing a do-nothing implementation that satisfies the interface contract.</p>
+<hr>
+<h2 id="functional-programming">
+  Functional Programming
+  <a class="heading-link" href="#functional-programming">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Functional programming is not an all-or-nothing paradigm — most of its value comes from applying its principles selectively inside any language or architecture.</p>
+<p>The core idea is <strong>immutability</strong>: data does not change once created. New values are produced from old ones through transformation. This eliminates a wide class of bugs caused by shared mutable state, makes functions easy to reason about in isolation, and simplifies concurrency because there is nothing to lock.</p>
+<p><strong>Pure functions</strong> take inputs and return outputs with no side effects and no hidden dependencies on external state. Given the same inputs, they always produce the same output. Pure functions are trivially testable, safe to cache, and safe to run in parallel. They are the right tool for all data transformation logic.</p>
+<p><strong>Higher-order functions</strong> — functions that accept or return other functions — enable <strong>composition</strong>: building complex behavior by chaining small, focused transformations. Map, filter, and reduce are the workhorses. Pipelines built from these primitives are declarative, readable, and easy to extend by inserting a new step.</p>
+<p>For error handling, <strong>railway-oriented programming</strong> models success and failure as two tracks flowing through a pipeline. An <code>Either</code> type (or equivalent) carries either a result or an error forward without exception-based control flow. This makes error paths explicit, composable, and impossible to accidentally ignore.</p>
+<p>The <strong>Functional Core / Imperative Shell</strong> architecture applies these ideas at scale: keep all business logic in pure functions, push side effects — database writes, HTTP calls, file I/O — to the outermost shell. The core is fully testable without mocks. The shell is thin and straightforward.</p>
+<hr>
+<h2 id="object-oriented-design">
+  Object-Oriented Design
+  <a class="heading-link" href="#object-oriented-design">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Object-oriented design is most effective when it mirrors the domain. <strong>Entities</strong> have identity that persists over time — a customer account is the same account regardless of how its attributes change. <strong>Value Objects</strong> are defined entirely by their attributes and carry no identity — a monetary amount, a date range, or a GPS coordinate. Treat value objects as immutable. <strong>Aggregates</strong> cluster related entities and value objects into a consistency boundary; the aggregate root is the only entry point for modifying anything inside it.</p>
+<p>The most common misuse of inheritance is using it for code reuse rather than to express genuine is-a relationships. <strong>Favour composition over inheritance</strong>: assemble behaviour by combining small, focused interfaces rather than building deep class hierarchies. Hierarchies are rigid; composition is flexible.</p>
+<p>OOP and functional programming are not opposites. Use pure functions for deterministic data transformations and use objects with interfaces for stateful or polymorphic behaviour. The two styles complement each other when applied to the problems they are suited to.</p>
+<hr>
+<h2 id="testing-discipline">
+  Testing Discipline
+  <a class="heading-link" href="#testing-discipline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Tests are not an afterthought — they are the primary mechanism for verifying that software does what it claims to do, and for maintaining that guarantee as the system changes.</p>
+<p>Every test must follow <strong>Arrange–Act–Assert</strong>. Arrange sets up the context: inputs, mocks, and preconditions. Act executes exactly one behaviour. Assert verifies the outcome with specific, minimal expectations. This structure makes the intent of each test immediately readable and prevents hidden setup or assertion from obscuring failures.</p>
+<p>Each test method should cover <strong>one use case only</strong>. No branching, no multiple scenarios, no &ldquo;and also&rdquo; assertions. A test is a short story: it has a single premise and a single conclusion. When a test fails, you should know immediately which behaviour broke without reading through a tangle of conditionals.</p>
+<p><strong>Fast-failing tests</strong> are a discipline, not just a performance concern. When the function under test contains logic that is irrelevant to the scenario being verified, use a mock that throws a controlled exception at the first opportunity. This avoids building deep mock chains for code paths that are not part of the use case, keeps tests small, and makes failures precise.</p>
+<p>Tests should be <strong>organised by domain</strong>, not by technical layer. A test class represents a domain concept; its methods represent use cases within that concept. This mirrors the way real users think about behaviour and makes gaps in coverage obvious. The test directory should mirror the source directory exactly — one test file per source file, in the same relative path.</p>
+<p>Aim for <strong>70–90% coverage</strong> on critical paths, edge cases, and error conditions. Do not write tests for trivial getters or well-covered infrastructure code — that effort is better spent on logic that actually makes decisions. Mock only external systems and expensive operations; avoid mocking internal logic, as that leads to tests that verify the mock rather than the code.</p>
+<hr>
+<h2 id="code-size-and-complexity">
+  Code Size and Complexity
+  <a class="heading-link" href="#code-size-and-complexity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Size limits are not arbitrary rules — they are indicators of structural problems. A file that grows beyond 200–500 lines usually contains mixed responsibilities. A class with more than ten methods is probably doing too much. A function longer than twenty lines almost certainly has a simpler decomposition waiting to be found.</p>
+<p><strong>Cyclomatic complexity</strong> is the number of independent execution paths through a function. High complexity means more test cases, more cognitive load, and higher bug probability. When complexity rises, it signals the need for decomposition: extract a strategy, introduce a state machine, or split into smaller functions.</p>
+<p>Deep nesting is a form of complexity. More than two or three levels of indentation usually means the logic can be restructured using early returns, extracted helper functions, or a more appropriate pattern. Flat is better than nested.</p>
+<hr>
+<h2 id="package-and-module-structure">
+  Package and Module Structure
+  <a class="heading-link" href="#package-and-module-structure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Organise code by <strong>domain</strong>, not by technical role. A folder called <code>services/</code> or <code>controllers/</code> tells you nothing about what the code does; a folder called <code>payments/</code> or <code>identity/</code> tells you everything. Each domain package should contain everything relevant to that domain: its models, interfaces, implementations, factories, validators, and tests. This keeps related code together and makes the codebase navigable without knowing the architecture in advance.</p>
+<p>Expose only what needs to be public. Everything else should be private or internal to its package. A minimal public surface area reduces coupling, makes refactoring safer, and makes the intended extension points explicit.</p>
+<p>File names should not repeat the package name. The directory path already provides that context. A file named <code>payment_service.py</code> inside a <code>payments/</code> package repeats <code>payment</code> unnecessarily — <code>service.py</code> is sufficient and cleaner.</p>
+<p>Avoid circular imports. They indicate that two modules are too tightly coupled and one of them is probably doing too much. Introduce a shared abstraction or invert the dependency.</p>
+<hr>
+<h2 id="architecture-and-reliability">
+  Architecture and Reliability
+  <a class="heading-link" href="#architecture-and-reliability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Good architecture makes the system easy to change without breaking things. The key properties are <strong>low coupling</strong> — components depend on abstractions, not on each other&rsquo;s internals — and <strong>high cohesion</strong> — everything in a component genuinely belongs together.</p>
+<p>Design for <strong>observability</strong> from the start. Structured logging, metrics, and distributed tracing are not optional extras. When something goes wrong in production, they are the only tools available. Use contextual log entries that capture what the system was doing, not just that an error occurred.</p>
+<p><strong>Graceful degradation</strong> means the system continues to provide partial value when a dependency fails, rather than failing entirely. Design every integration point with a fallback: cached data, a default response, or a clear error to the caller. Fail fast on invalid input at the boundary; never let bad data propagate deeper into the system.</p>
+<p>Externalise configuration. Hard-coded values are the fastest path to environment-specific bugs and the slowest path to fixing them. Use environment variables, configuration files, or a configuration service, and validate configuration at startup so problems surface immediately rather than at the worst possible moment.</p>
+<hr>
+<h2 id="devops-and-delivery">
+  DevOps and Delivery
+  <a class="heading-link" href="#devops-and-delivery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Infrastructure as Code</strong> means environments are defined, versioned, and reproduced the same way every time. Manual environment setup is a source of drift, inconsistency, and toil. If you cannot reproduce an environment from a repository checkout, you do not have a reliable environment.</p>
+<p><strong>Quality gates</strong> enforce standards before code reaches production. Linting, type checking, test coverage thresholds, and security scanning belong in the CI pipeline — not in code review, where they slow humans down with mechanical concerns that tools handle better.</p>
+<p><strong>Blue-green and canary deployments</strong> shift traffic gradually to new versions, allowing real-world validation before full rollout. Combined with <strong>post-incident reviews</strong> that focus on systemic causes rather than individual blame, they build a culture where failure is a learning event rather than a crisis.</p>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -393,14 +278,13 @@
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

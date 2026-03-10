@@ -1,6 +1,8 @@
 +++
 title = "Permissions Application Suite"
-description = "A unified solution combining the Permissions Admin application and Permissions Service for managing permissions, directory groups, and data partitioning, utilizing Angular, React design principles, and TypeScript."
+date = 2025-05-15
+categories = ["Security", "Web Development"]
+tags = ["Angular", "Go", "TypeScript", "Kubernetes", "PostgreSQL"]
 +++
 
 The **Permissions Application Suite** is a cutting-edge solution that enables efficient and scalable permission, directory group, and management group handling in modern enterprise systems. It consists of two complementary components, the **Permissions Admin** and the **Permissions Service**, combined with a focus on leveraging **Angular**, **React design principles**, and **TypeScript**. This suite provides an advanced framework for handling complex workflows, ensuring precise access control and improving developer efficiency.
@@ -61,24 +63,9 @@ The reliability TypeScript brings extends its benefits to collaborative developm
 
 ---
 
-## Skills & Technologies
+## Skills and Technologies
 
-### Frontend (Admin)
-The **Permissions Admin** frontend application relies on modern technologies and frameworks to deliver a scalable and responsive user experience:
-
-- **Frameworks**: Angular | RxJS | SCSS Styling | TypeScript.
-- **Features**: Modular UI components, Reactive Forms for dynamic interactions, and seamless REST API integration.
-
-### Backend (Service)
-The **Permissions Service** backend is designed with scalability and security in mind, incorporating advanced tools to ensure reliable data management and secure operations:
-
-- **Languages & Libraries**: Go | Gorilla Mux | PostgreSQL | GORM.
-- **Security**: JWT for authentication, SHA1 hashing, and Base64 encoding for data integrity.
-
----
-
-## Conclusion
-
-The Permissions Application Suite is a sophisticated system combining the **Permissions Admin** and **Permissions Service** to deliver enterprise-grade permission and access control. By leveraging **Angular**, **React-inspired principles**, and **TypeScript**, the suite achieves a high level of scalability, maintainability, and usability. Angular’s modular architecture powers the admin UI; React’s focus on dataflow and reusability ensures clarity and efficiency; and TypeScript reinforces the entire system with type-safe, error-free development.
-
-This blend of modern technologies creates a forward-thinking solution for enterprises, enabling them to manage permissions, directory groups, and resource partitions with unparalleled ease and precision. Whether managing small-scale teams or large organizations, the Permissions Application Suite provides a secure, reliable, and future-proof foundation.
+- **Frontend Development**: Angular, TypeScript, RxJS, SCSS, Reactive Forms, Modular UI Components.
+- **Backend Development**: Go (Golang), Gorilla Mux, GORM, PostgreSQL.
+- **Security & Identity**: JWT Authentication, SHA1 Hashing, Base64 Encoding.
+- **Architecture & Design**: Full-stack Permissions Management, Microservices, Responsive Design, Unidirectional Data Flow.

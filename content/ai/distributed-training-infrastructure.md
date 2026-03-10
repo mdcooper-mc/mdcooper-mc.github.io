@@ -122,14 +122,7 @@ fraction of the time required by a naive implementation.
 
 ## Skills
 
-**Distributed Systems**  
-Multi-GPU Synchronisation | Distributed Data Parallel (DDP) | torchrun | NCCL Backend | Data Sharding
-
-**High-Performance Computing**  
-Mixed Precision (BF16/TF32) | Tensor Cores | Kernel Fusion | torch.compile | JIT Compilation (Inductor)
-
-**Optimization Engineering**  
-Gradient Accumulation | Fused AdamW | Gradient Clipping | Cosine Learning Rate Decay
-
-**Data Engineering**  
-Byte Pair Encoding (BPE) | Large-Scale Dataset Sharding | FineWeb Processing | Benchmarking (HellaSwag)
+- **Distributed Systems**: Multi-GPU Synchronisation, Distributed Data Parallel (DDP), torchrun, NCCL Backend, Data Sharding.
+- **High-Performance Computing**: Mixed Precision (BF16/TF32), Tensor Cores, Kernel Fusion, torch.compile, JIT Compilation (Inductor).
+- **Optimization Engineering**: Gradient Accumulation, Fused AdamW, Gradient Clipping, Cosine Learning Rate Decay.
+- **Data Engineering**: Byte Pair Encoding (BPE), Large-Scale Dataset Sharding, FineWeb Processing, Benchmarking (HellaSwag).

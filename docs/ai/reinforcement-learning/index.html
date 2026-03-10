@@ -2,325 +2,299 @@
 <html lang="en">
 
 <head>
-    <title>
-        Reinforcement Learning &amp; Autonomous Agents · Mark Cooper
-    </title>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="light dark" name="color-scheme">
+  <title>
+  Reinforcement Learning &amp; Autonomous Agents · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
 
-    <meta content="Mark Cooper" name="author">
-    <meta content="Building goal-oriented autonomous systems using Deep Q-Networks (DQN) and Physics-Informed Neural Networks (PINNs)."
-          name="description">
-    <meta content="" name="keywords">
 
 
-    <meta content="summary" name="twitter:card">
-    <meta content="Reinforcement Learning & Autonomous Agents" name="twitter:title">
-    <meta content="Building goal-oriented autonomous systems using Deep Q-Networks (DQN) and Physics-Informed Neural Networks (PINNs)."
-          name="twitter:description">
-
-    <meta content="https://mdcooper-mc.github.io/ai/reinforcement-learning/" property="og:url">
-    <meta content="Mark Cooper" property="og:site_name">
-    <meta content="Reinforcement Learning & Autonomous Agents" property="og:title">
-    <meta content="Building goal-oriented autonomous systems using Deep Q-Networks (DQN) and Physics-Informed Neural Networks (PINNs)."
-          property="og:description">
-    <meta content="en_uk" property="og:locale">
-    <meta content="article" property="og:type">
-    <meta content="ai" property="article:section">
-    <meta content="2024-03-27T00:00:00+00:00" property="article:published_time">
-    <meta content="2024-03-27T00:00:00+00:00" property="article:modified_time">
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="Building goal-oriented autonomous systems using Deep Q-Networks (DQN) and Physics-Informed Neural Networks (PINNs).">
+<meta name="keywords" content="">
 
 
-    <link href="https://mdcooper-mc.github.io/ai/reinforcement-learning/" rel="canonical">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Reinforcement Learning & Autonomous Agents">
+  <meta name="twitter:description" content="Building goal-oriented autonomous systems using Deep Q-Networks (DQN) and Physics-Informed Neural Networks (PINNs).">
+
+<meta property="og:url" content="https://mdcooper-mc.github.io/ai/reinforcement-learning/">
+  <meta property="og:site_name" content="Mark Cooper">
+  <meta property="og:title" content="Reinforcement Learning & Autonomous Agents">
+  <meta property="og:description" content="Building goal-oriented autonomous systems using Deep Q-Networks (DQN) and Physics-Informed Neural Networks (PINNs).">
+  <meta property="og:locale" content="en_uk">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai">
+    <meta property="article:published_time" content="2024-03-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-27T00:00:00+00:00">
 
 
-    <link as="font" crossorigin href="/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2">
-    <link as="font" crossorigin href="/fonts/fa-regular-400.woff2" rel="preload" type="font/woff2">
-    <link as="font" crossorigin href="/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2">
 
 
-    <link crossorigin="anonymous" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css"
-          integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" media="screen" rel="stylesheet"/>
+<link rel="canonical" href="https://mdcooper-mc.github.io/ai/reinforcement-learning/">
 
 
-    <link href="/images/favicon.svg" rel="icon" sizes="any" type="image/svg+xml">
-    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
-    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 
-    <link href="/site.webmanifest" rel="manifest">
-    <link color="#5bbad5" href="/images/safari-pinned-tab.svg" rel="mask-icon">
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
 
 
 </head>
 
 
-<body class="preload-transitions colorscheme-light">
 
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
 <div class="float-container">
-    <a class="colorscheme-toggle" id="dark-mode-toggle">
-        <i aria-hidden="true" class="fa-solid fa-adjust fa-fw"></i>
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
 
-<main class="wrapper">
+  <main class="wrapper">
     <nav class="navigation">
-        <section class="container">
-
-            <a class="navigation-title" href="https://mdcooper-mc.github.io/">
-                Mark Cooper
-            </a>
-
-
-            <input id="menu-toggle" type="checkbox"/>
-            <label class="menu-button float-right" for="menu-toggle">
-                <i aria-hidden="true" class="fa-solid fa-bars fa-fw"></i>
-            </label>
-            <ul class="navigation-list">
-
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/ai/">AI</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/projects/">Projects</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/platforms/">Platforms</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a class="navigation-link " href="/about/">About</a>
-                </li>
-
-
-            </ul>
-
-        </section>
-    </nav>
+  <section class="container">
+    
+    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ai/">AI</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
 
 
     <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mdcooper-mc.github.io/ai/reinforcement-learning/">
+          Reinforcement Learning &amp; Autonomous Agents
+        </a>
+      </h1>
+    </header>
 
-        <section class="container page">
-            <article>
-                <header>
-                    <h1 class="title">
-                        <a class="title-link" href="https://mdcooper-mc.github.io/ai/reinforcement-learning/">
-                            Reinforcement Learning &amp; Autonomous Agents
-                        </a>
-                    </h1>
-                </header>
-
-                <p>Reinforcement Learning (RL) represents a fundamental shift in how machines learn. Unlike supervised
-                    learning, where a
-                    model is provided with a &ldquo;ground truth&rdquo; label for every input, an RL agent must discover
-                    which actions yield the highest
-                    reward by interacting with a dynamic environment.</p>
-                <p>I developed a set of autonomous agents capable of navigating complex, stochastic environments. This
-                    project explores the
-                    transition from traditional Q-learning to Deep Q-Networks (DQN) and the integration of physical laws
-                    into the learning
-                    process through Physics-Informed Reinforcement Learning (PIRL).</p>
-                <hr>
-                <h2 id="the-problem-the-sparse-reward--state-explosion">
-                    The Problem: The Sparse Reward &amp; State Explosion
-                    <a class="heading-link" href="#the-problem-the-sparse-reward--state-explosion">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>In a simple grid world, we can store the &ldquo;value&rdquo; of every possible action in every
-                    possible state in a lookup table (
-                    Q-Table). However, as the environment grows—or becomes continuous—this table becomes impossibly
-                    large. Furthermore,
-                    rewards in the real world are often <strong>sparse</strong>: an agent might take 100 actions before
-                    receiving a single &ldquo;success&rdquo;
-                    signal.</p>
-                <p>To build a robust agent, the system must solve:</p>
-                <ol>
-                    <li><strong>The Credit Assignment Problem</strong>: Which of the 100 actions actually led to the
-                        success?
-                    </li>
-                    <li><strong>Exploration vs. Exploitation</strong>: When should the agent try something new vs. doing
-                        what it knows works?
-                    </li>
-                    <li><strong>Generalization</strong>: How can an agent handle a state it has never seen before?</li>
-                </ol>
-                <hr>
-                <h2 id="architecture-deep-q-networks-dqn">
-                    Architecture: Deep Q-Networks (DQN)
-                    <a class="heading-link" href="#architecture-deep-q-networks-dqn">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>To handle high-dimensional state spaces, I implemented a <strong>Deep Q-Network</strong>. Instead of
-                    a table, a neural network acts
-                    as a function approximator, mapping a state vector to the expected &ldquo;Q-values&rdquo; for all
-                    possible actions.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#66d9ef">class</span> <span style="color:#a6e22e">DQN</span>(nn<span
-                        style="color:#f92672">.</span>Module):
+    <p>Reinforcement Learning (RL) represents a fundamental shift in how machines learn. Unlike supervised learning, where a
+model is provided with a &ldquo;ground truth&rdquo; label for every input, an RL agent must discover which actions yield the highest
+reward by interacting with a dynamic environment.</p>
+<p>I developed a set of autonomous agents capable of navigating complex, stochastic environments. This project explores the
+transition from traditional Q-learning to Deep Q-Networks (DQN) and the integration of physical laws into the learning
+process through Physics-Informed Reinforcement Learning (PIRL).</p>
+<hr>
+<h2 id="the-problem-the-sparse-reward--state-explosion">
+  The Problem: The Sparse Reward &amp; State Explosion
+  <a class="heading-link" href="#the-problem-the-sparse-reward--state-explosion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In a simple grid world, we can store the &ldquo;value&rdquo; of every possible action in every possible state in a lookup table (
+Q-Table). However, as the environment grows—or becomes continuous—this table becomes impossibly large. Furthermore,
+rewards in the real world are often <strong>sparse</strong>: an agent might take 100 actions before receiving a single &ldquo;success&rdquo;
+signal.</p>
+<p>To build a robust agent, the system must solve:</p>
+<ol>
+<li><strong>The Credit Assignment Problem</strong>: Which of the 100 actions actually led to the success?</li>
+<li><strong>Exploration vs. Exploitation</strong>: When should the agent try something new vs. doing what it knows works?</li>
+<li><strong>Generalization</strong>: How can an agent handle a state it has never seen before?</li>
+</ol>
+<hr>
+<h2 id="architecture-deep-q-networks-dqn">
+  Architecture: Deep Q-Networks (DQN)
+  <a class="heading-link" href="#architecture-deep-q-networks-dqn">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To handle high-dimensional state spaces, I implemented a <strong>Deep Q-Network</strong>. Instead of a table, a neural network acts
+as a function approximator, mapping a state vector to the expected &ldquo;Q-values&rdquo; for all possible actions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DQN</span>(nn<span style="color:#f92672">.</span>Module):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, in_states, out_actions):
-</span></span><span style="display:flex;"><span>        super(DQN, self)<span style="color:#f92672">.</span><span
-                        style="color:#a6e22e">__init__</span>()
+</span></span><span style="display:flex;"><span>        super(DQN, self)<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>()
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Multi-layer architecture to capture spatial relationships</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>fc1 <span
-                        style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(in_states, <span
-                        style="color:#ae81ff">64</span>)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>fc2 <span
-                        style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span
-                        style="color:#ae81ff">64</span>, <span style="color:#ae81ff">128</span>)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>out <span
-                        style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span
-                        style="color:#ae81ff">128</span>, out_actions)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>fc1 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(in_states, <span style="color:#ae81ff">64</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>fc2 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">128</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>out <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span style="color:#ae81ff">128</span>, out_actions)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, x):
-</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span
-                        style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>fc1(x))
-</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span
-                        style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>fc2(x))
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span
-                        style="color:#f92672">.</span>out(x)
-</span></span></code></pre>
-                </div>
-                <h3 id="the-bellman-equation">
-                    The Bellman Equation
-                    <a class="heading-link" href="#the-bellman-equation">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>The network is trained using the <strong>Bellman Equation</strong>, which recursively defines the
-                    value of a state-action pair based
-                    on the immediate reward and the discounted value of the next state.</p>
-                <p>$$
-                    Q(s, a) \approx r + \gamma \max_{a&rsquo;} Q(s&rsquo;, a&rsquo;)
-                    $$</p>
-                <hr>
-                <h2 id="stability-engineering-experience-replay">
-                    Stability Engineering: Experience Replay
-                    <a class="heading-link" href="#stability-engineering-experience-replay">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Training a neural network on sequential data is notoriously unstable because consecutive samples are
-                    highly correlated (
-                    the state at time $T+1$ is very similar to the state at time $T$). This violates the i.i.d.
-                    assumption required for
-                    stable gradient descent.</p>
-                <p>I implemented <strong>Experience Replay</strong> to break these correlations. The agent&rsquo;s
-                    experiences—$(s, a, r, s&rsquo;, done)$—are
-                    stored in a circular buffer, and the network is trained on random mini-batches sampled from this
-                    history.</p>
-                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
-                                            tabindex="0"><code
-                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
-                        style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplayMemory</span>:
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>fc1(x))
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>fc2(x))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>out(x)
+</span></span></code></pre></div><h3 id="the-bellman-equation">
+  The Bellman Equation
+  <a class="heading-link" href="#the-bellman-equation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The network is trained using the <strong>Bellman Equation</strong>, which recursively defines the value of a state-action pair based
+on the immediate reward and the discounted value of the next state.</p>
+<p>$$
+Q(s, a) \approx r + \gamma \max_{a&rsquo;} Q(s&rsquo;, a&rsquo;)
+$$</p>
+<hr>
+<h2 id="stability-engineering-experience-replay">
+  Stability Engineering: Experience Replay
+  <a class="heading-link" href="#stability-engineering-experience-replay">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Training a neural network on sequential data is notoriously unstable because consecutive samples are highly correlated (
+the state at time $T+1$ is very similar to the state at time $T$). This violates the i.i.d. assumption required for
+stable gradient descent.</p>
+<p>I implemented <strong>Experience Replay</strong> to break these correlations. The agent&rsquo;s experiences—$(s, a, r, s&rsquo;, done)$—are
+stored in a circular buffer, and the network is trained on random mini-batches sampled from this history.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplayMemory</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, capacity):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>memory <span
-                        style="color:#f92672">=</span> deque(maxlen<span style="color:#f92672">=</span>capacity)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>memory <span style="color:#f92672">=</span> deque(maxlen<span style="color:#f92672">=</span>capacity)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">push</span>(self, transition):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>memory<span
-                        style="color:#f92672">.</span>append(transition)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>memory<span style="color:#f92672">.</span>append(transition)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sample</span>(self, batch_size):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> random<span
-                        style="color:#f92672">.</span>sample(self<span style="color:#f92672">.</span>memory, batch_size)
-</span></span></code></pre>
-                </div>
-                <hr>
-                <h2 id="physics-informed-reinforcement-learning-pirl">
-                    Physics-Informed Reinforcement Learning (PIRL)
-                    <a class="heading-link" href="#physics-informed-reinforcement-learning-pirl">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>While standard RL agents are &ldquo;black boxes,&rdquo; many real-world applications (robotics,
-                    drones) are governed by the laws of
-                    physics. I explored <strong>Physics-Informed Reinforcement Learning</strong> to ensure agents act
-                    not only optimally but also
-                    physically accurately.</p>
-                <h3 id="the-physics-residual-loss">
-                    The Physics Residual Loss
-                    <a class="heading-link" href="#the-physics-residual-loss">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h3>
-                <p>Using <strong>Physics-Informed Neural Networks (PINNs)</strong>, I augmented the standard RL loss
-                    with a &ldquo;physics residual.&rdquo; By
-                    calculating the temporal derivative of the agent&rsquo;s state using automatic differentiation, I
-                    can penalize actions that
-                    violate kinematic or conservation laws.</p>
-                <p>$$
-                    L_{total} = L_{RL} + \lambda \cdot |\frac{\partial \hat{s}}{\partial t} - f(s, u)|^2
-                    $$</p>
-                <p>This ensures the agent &ldquo;imagines&rdquo; future trajectories that are physically plausible,
-                    leading to safer deployment and
-                    higher data efficiency.</p>
-                <hr>
-                <h2 id="impact">
-                    Impact
-                    <a class="heading-link" href="#impact">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p>Using the <strong>Gymnasium</strong> framework, I successfully trained agents to navigate the
-                    stochastic &ldquo;8x8 FrozenLake&rdquo;
-                    environment. By combining DQN with Experience Replay and Temperature-based Softmax exploration, the
-                    agents developed
-                    robust navigation policies that outperformed simple heuristic methods. The integration of PINNs
-                    further demonstrated how
-                    domain knowledge can be used to constrain and accelerate the learning process.</p>
-                <hr>
-                <h2 id="skills">
-                    Skills
-                    <a class="heading-link" href="#skills">
-                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-                        <span class="sr-only">Link to heading</span>
-                    </a>
-                </h2>
-                <p><strong>Autonomous Agents</strong><br>
-                    Deep Q-Networks (DQN) | Policy Gradient | Exploration-Exploitation | Temperature Annealing |
-                    Experience Replay</p>
-                <p><strong>Environments &amp; Physics</strong><br>
-                    Gymnasium (OpenAI Gym) | Physics-Informed Neural Networks (PINNs) | Kinematic Constraints | Reward
-                    Shaping</p>
-                <p><strong>Optimisation &amp; Theory</strong><br>
-                    Bellman Optimality | Temporal Difference (TD) Learning | Markov Decision Processes (MDP) | Discount
-                    Factors</p>
-                <p><strong>Mathematical Foundations</strong><br>
-                    Stochastic Environments | Automatic Differentiation | Partial Differential Equations | Vectorised
-                    State Handling</p>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> random<span style="color:#f92672">.</span>sample(self<span style="color:#f92672">.</span>memory, batch_size)
+</span></span></code></pre></div><hr>
+<h2 id="physics-informed-reinforcement-learning-pirl">
+  Physics-Informed Reinforcement Learning (PIRL)
+  <a class="heading-link" href="#physics-informed-reinforcement-learning-pirl">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>While standard RL agents are &ldquo;black boxes,&rdquo; many real-world applications (robotics, drones) are governed by the laws of
+physics. I explored <strong>Physics-Informed Reinforcement Learning</strong> to ensure agents act not only optimally but also
+physically accurately.</p>
+<h3 id="the-physics-residual-loss">
+  The Physics Residual Loss
+  <a class="heading-link" href="#the-physics-residual-loss">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Using <strong>Physics-Informed Neural Networks (PINNs)</strong>, I augmented the standard RL loss with a &ldquo;physics residual.&rdquo; By
+calculating the temporal derivative of the agent&rsquo;s state using automatic differentiation, I can penalize actions that
+violate kinematic or conservation laws.</p>
+<p>$$
+L_{total} = L_{RL} + \lambda \cdot |\frac{\partial \hat{s}}{\partial t} - f(s, u)|^2
+$$</p>
+<p>This ensures the agent &ldquo;imagines&rdquo; future trajectories that are physically plausible, leading to safer deployment and
+higher data efficiency.</p>
+<hr>
+<h2 id="impact">
+  Impact
+  <a class="heading-link" href="#impact">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Using the <strong>Gymnasium</strong> framework, I successfully trained agents to navigate the stochastic &ldquo;8x8 FrozenLake&rdquo;
+environment. By combining DQN with Experience Replay and Temperature-based Softmax exploration, the agents developed
+robust navigation policies that outperformed simple heuristic methods. The integration of PINNs further demonstrated how
+domain knowledge can be used to constrain and accelerate the learning process.</p>
+<hr>
+<h2 id="skills">
+  Skills
+  <a class="heading-link" href="#skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Autonomous Agents</strong>: Deep Q-Networks (DQN), Policy Gradient, Exploration-Exploitation, Temperature Annealing, Experience Replay.</li>
+<li><strong>Environments &amp; Physics</strong>: Gymnasium (OpenAI Gym), Physics-Informed Neural Networks (PINNs), Kinematic Constraints, Reward Shaping.</li>
+<li><strong>Optimisation &amp; Theory</strong>: Bellman Optimality, Temporal Difference (TD) Learning, Markov Decision Processes (MDP), Discount Factors.</li>
+<li><strong>Mathematical Foundations</strong>: Stochastic Environments, Automatic Differentiation, Partial Differential Equations, Vectorised State Handling.</li>
+</ul>
 
-            </article>
-        </section>
+  </article>
+</section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -329,24 +303,63 @@
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
-        <div>
-            <p>&copy; 2025 Mark Cooper - <a
-                    href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
-                CV</a></p>
-        </div>
-    </footer>
-</main>
+    <footer class="footer" style="text-align:center; font-size: 11px;">
+    <div>
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
+                href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+            CV</a></p>
+    </div>
+</footer>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
 
 
-<script integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="
-        src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js"></script>
+  
 
+  
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </body>
 </html>

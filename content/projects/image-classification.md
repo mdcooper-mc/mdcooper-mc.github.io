@@ -268,25 +268,10 @@ exploration tools.
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Languages & Frameworks**  
-Python | PyTorch | Transformers | OpenCV | Pandas | NumPy | NLTK | JavaScript (ES6+) | HTML5 | CSS3
-
-**AI & Machine Learning**  
-Face Recognition | Image Labelling | Scene Captioning | Content Classification | Embedding Similarity | Vocabulary Expansion
-
-**Image & Video Processing**  
-Thumbnail Generation & Caching | Metadata Extraction | Face Detection & Bounding Boxes | Video Frame Capture
-
-**Data Architecture**  
-Repository Pattern | Interface Segregation | Domain‑Driven Design | Cache‑First Design | JSON & SQL Datastores
-
-**Web & Visualisation**  
-Interactive 3D Visualisation | WebGL Rendering | Event‑Driven UI | Responsive Layout | Toast Notifications
-
-**Architecture & Design**  
-Modular Processing | Strategy Pattern | Dependency Injection | Separation of Concerns | Automated Progress Saving
-
-**Performance & Optimisation**  
-GPU Acceleration | Batch Processing | Sequential Memory Management | Efficient I/O Handling
+- **AI & Machine Learning**: PyTorch, Transformers, Face Recognition, CLIP (Semantic Labelling), Scene Captioning, Embedding Similarity.
+- **Languages & Web**: Python, JavaScript (ES6+), HTML5, CSS3 (Grid/Flexbox), Plotly WebGL.
+- **Data & Image Processing**: OpenCV, NumPy, Pandas, PIL, Face Detection, Metadata Extraction.
+- **Architecture & Patterns**: Repository Pattern, Interface Segregation, Domain-Driven Design (DDD), Clean Architecture.
+- **Infrastructure & Performance**: GPU Acceleration (CUDA), Batch Processing, Caching, Memory Management.

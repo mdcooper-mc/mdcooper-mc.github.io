@@ -50,6 +50,12 @@
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
 
 
  
@@ -80,7 +86,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -103,13 +111,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -426,41 +434,32 @@ design ensures the codebase remains maintainable as requirements evolve. The res
 chaos, turning a folder of mixed media into an organised, searchable library with rich metadata and intuitive
 exploration tools.</p>
 <hr>
-<h2 id="skills">
-  Skills
-  <a class="heading-link" href="#skills">
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Languages &amp; Frameworks</strong><br>
-Python | PyTorch | Transformers | OpenCV | Pandas | NumPy | NLTK | JavaScript (ES6+) | HTML5 | CSS3</p>
-<p><strong>AI &amp; Machine Learning</strong><br>
-Face Recognition | Image Labelling | Scene Captioning | Content Classification | Embedding Similarity | Vocabulary Expansion</p>
-<p><strong>Image &amp; Video Processing</strong><br>
-Thumbnail Generation &amp; Caching | Metadata Extraction | Face Detection &amp; Bounding Boxes | Video Frame Capture</p>
-<p><strong>Data Architecture</strong><br>
-Repository Pattern | Interface Segregation | Domain‑Driven Design | Cache‑First Design | JSON &amp; SQL Datastores</p>
-<p><strong>Web &amp; Visualisation</strong><br>
-Interactive 3D Visualisation | WebGL Rendering | Event‑Driven UI | Responsive Layout | Toast Notifications</p>
-<p><strong>Architecture &amp; Design</strong><br>
-Modular Processing | Strategy Pattern | Dependency Injection | Separation of Concerns | Automated Progress Saving</p>
-<p><strong>Performance &amp; Optimisation</strong><br>
-GPU Acceleration | Batch Processing | Sequential Memory Management | Efficient I/O Handling</p>
+<ul>
+<li><strong>AI &amp; Machine Learning</strong>: PyTorch, Transformers, Face Recognition, CLIP (Semantic Labelling), Scene Captioning, Embedding Similarity.</li>
+<li><strong>Languages &amp; Web</strong>: Python, JavaScript (ES6+), HTML5, CSS3 (Grid/Flexbox), Plotly WebGL.</li>
+<li><strong>Data &amp; Image Processing</strong>: OpenCV, NumPy, Pandas, PIL, Face Detection, Metadata Extraction.</li>
+<li><strong>Architecture &amp; Patterns</strong>: Repository Pattern, Interface Segregation, Domain-Driven Design (DDD), Clean Architecture.</li>
+<li><strong>Infrastructure &amp; Performance</strong>: GPU Acceleration (CUDA), Batch Processing, Caching, Memory Management.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -469,14 +468,13 @@ GPU Acceleration | Batch Processing | Sequential Memory Management | Efficient I
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

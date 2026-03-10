@@ -4,8 +4,8 @@ description = "Cloud-native architecture, AI orchestration, and capital markets 
 +++
 
 I build resilient, deterministic frameworks for **Cloud-Native Finance** and **AI Orchestration**. My work focuses on
-separating high-level reasoning from mechanical execution, ensuring that complex systems -- whether they are processing
-equity derivatives or training large language models -- remain observable, reproducible, and strategically impactful.
+separating high-level reasoning from mechanical execution, ensuring that complex systems &mdash; whether they are processing
+equity derivatives or training large language models &mdash; remain observable, reproducible, and strategically impactful.
 
 ---
 

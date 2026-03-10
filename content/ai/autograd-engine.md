@@ -159,13 +159,6 @@ This first-principles approach provided several key insights that are often obsc
 
 ## Skills
 
-**Mathematics & Theory**  
-Multivariable Calculus | Chain Rule | Gradient Descent | Topological Sort | Directed Acyclic Graphs (DAG)
-
-**AI Engineering**  
-Automatic Differentiation | Backpropagation | Multi-Layer Perceptron (MLP) | Loss Functions (MSE) | Non-Linear
-Activations (Tanh/ReLU)
-
-**Software Engineering**  
-Object-Oriented Design | Custom Computational Engines | Modular API Design | Recursive Function Calls | Graph
-Visualisation
+- **Mathematics & Theory**: Multivariable Calculus, Chain Rule, Gradient Descent, Topological Sort, Directed Acyclic Graphs (DAG).
+- **AI Engineering**: Automatic Differentiation, Backpropagation, Multi-Layer Perceptron (MLP), Loss Functions (MSE), Non-Linear Activations (Tanh/ReLU).
+- **Software Engineering**: Object-Oriented Design, Custom Computational Engines, Modular API Design, Recursive Function Calls, Graph Visualisation.

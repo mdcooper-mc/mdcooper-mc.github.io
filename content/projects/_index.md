@@ -4,8 +4,8 @@ description = "Technical projects and architectural frameworks by Mark Cooper"
 +++
 
 Welcome to my portfolio of projects. This section highlights a selection of systems I've designed and delivered across
-cloud-native architecture, AI orchestration, financial risk platforms and capital markets. Each project reflects a
-strategic approach to modularity, resilience, and operational clarity — whether it's orchestrating BAU workflows,
+cloud-native architecture, AI orchestration, financial risk platforms, and capital markets. Each project reflects a
+strategic approach to modularity, resilience, and operational clarity -- whether it's orchestrating BAU workflows,
 extracting behavioural signals from market data, or embedding governance into model-driven pipelines.
 
 The portfolio is built around frameworks that are difficult to replicate and easy to extend. I focus on separating
@@ -40,38 +40,23 @@ mechanical complexity from human intent, allowing systems to remain composable, 
 
 - **[Synthetic Platform Versioning](/projects/synthetic-platform-versioning/)**  
   A YAML-driven release coordination system that cuts synchronised git tags across every component repository multiple
-  times a week — creating a single, auditable platform release from independently versioned services without monorepo
+  times a week -- creating a single, auditable platform release from independently versioned services without monorepo
   coupling.
 
-- **[AI-Enabled Delivery Pipelines](/platforms/real-time-orchestration/)**  
-  Embedding governance, resilience, and reproducibility into model-driven workflows for regulated environments. Supports
-  auditability and runtime introspection.
-
-- **[MPC Project Analyser](/projects/optimising-ai-credits/)**  
-  A deterministic Python analysis engine that generates compact AST metadata, file trees, and documentation maps so
-  AI agents can plan software changes without consuming raw source code. Pairs with a three-persona workflow — Reviewer,
-  Planner, and Coder — to keep premium model usage focused on reasoning and architecture.
+- **[MPC Project Analyser](/projects/optimising-ai-credits/)**
+  A deterministic Python analysis engine that generates compact AST metadata, file trees, and documentation maps so AI agents can plan software changes without consuming raw source code. Pairs with a three-persona workflow -- Reviewer, Planner, and Coder -- to keep premium model usage focused on reasoning and architecture.
 
 
 - **[AI-Based Image Classification & Face Recognition](/projects/image-classification/)**  
-  A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails,
-  assigns CLIP‑based semantic labels, detects people and animals, and applies a hybrid AI/heuristic model to flag junk
-  content — all in a modular, reproducible pipeline.
+  A GPU-accelerated, CSV-driven framework for enriching large image and video datasets. Generates cached thumbnails,
+  assigns CLIP-based semantic labels, detects people and animals, and applies a hybrid AI/heuristic model to flag junk
+  content -- all in a modular, reproducible pipeline.
 
-- **[First-Principles AI Engineering](/ai/)**  
-  A technical portfolio of core AI development:
-  - **[Language Modelling](/ai/language-modelling/)**: Scaling from bigrams to WaveNets.
-  - **[Scalar Autograd Engines](/ai/autograd-engine/)**: Building backpropagation from scratch.
-  - **[Transformers & GPT-2](/ai/transformer-architecture/)**: Causal self-attention and KQV retrieval.
-  - **[Distributed Training](/ai/distributed-training-infrastructure/)**: Orchestrating DDP and mixed-precision on GPU
-    clusters.
-  - **[AI Core Concepts](/ai/core-concepts/)**: A deep dive into the mathematical foundations of modern AI.
-
-- **[Murex On‑Demand](/about/murex/)**  
-  A containerised, CI/CD‑driven Murex platform enabling rapid, reproducible environment provisioning for development,
-  testing, and training. Built on orchestration and configuration‑as‑code principles, it integrates with Datamart
+- **[Murex On-Demand](/about/murex/)**  
+  A containerized, CI/CD-driven Murex platform enabling rapid, reproducible environment provisioning for development,
+  testing, and training. Built on orchestration and configuration-as-code principles, it integrates with Datamart
   pipelines, secure messaging flows, and managed task extensions to deliver full environments in minutes instead of
   days.
 
-Each project page includes architecture notes, runtime behaviour, and design rationale — with more to come as the
+Each project page includes architecture notes, runtime behaviour, and design rationale -- with more to come as the
 portfolio expands.

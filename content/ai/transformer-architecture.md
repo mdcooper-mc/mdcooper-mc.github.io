@@ -114,14 +114,7 @@ data using only a set of attention heads and residual connections.
 
 ## Skills
 
-**Architectures**  
-Transformer Decoder | Causal Self-Attention | Multi-Head Attention (MHA) | Residual Networks | Feed-Forward Networks
-
-**AI Engineering**  
-Queries, Keys, and Values (KQV) | Scaled Dot-Product Attention | Causal Masking | Layer Normalization (Pre-LayerNorm)
-
-**Mathematical Foundations**  
-Matrix Calculus | $O(T^2)$ Complexity Analysis | Softmax Stability | Variance Scaling
-
-**Software Engineering**  
-PyTorch Module Design | Modular Architecture Patterns | GPU Memory Optimization | Sequence Modelling
+- **Neural Architectures**: Transformer Decoder, Causal Self-Attention, Multi-Head Attention (MHA), Residual Networks, Feed-Forward Networks.
+- **AI Engineering**: Queries, Keys, and Values (KQV), Scaled Dot-Product Attention, Causal Masking, Layer Normalization (Pre-LayerNorm).
+- **Mathematical Foundations**: Matrix Calculus, $O(T^2)$ Complexity Analysis, Softmax Stability, Variance Scaling.
+- **Software Engineering**: PyTorch Module Design, Modular Architecture Patterns, GPU Memory Optimization, Sequence Modelling.

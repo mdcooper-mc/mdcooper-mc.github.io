@@ -1,7 +1,8 @@
 +++
 title = "Cloud Cost Optimisation & Platform Engineering"
-description = "£2M+ annual savings delivered through Kubernetes tuning, compute right-sizing, architectural refactoring, and a versioned CI/CD platform that cut deployment overhead across multiple teams."
-tags = ["AWS", "Kubernetes", "DevOps", "Architecture", "CI/CD"]
+date = 2025-04-15
+categories = ["Cloud Infrastructure", "FinOps"]
+tags = ["AWS", "Kubernetes", "DevOps", "CI/CD", "EKS"]
 +++
 
 Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings
@@ -117,20 +118,11 @@ infrastructure investment.
 
 ---
 
-## Skills
+## Skills and Technologies
 
-**Cloud & Infrastructure**
-AWS EKS | AWS MWAA | AWS API Gateway | AWS DynamoDB | AWS S3 | SSM Parameter Store | VPC Endpoints | IAM Least-Privilege
-
-**Kubernetes & Containers**
-Helm | Skaffold | Docker | Resource Right-Sizing | Spot Instance Strategy | Node Group Configuration
-
-**CI/CD & Automation**
-Jenkins | Bamboo | Artifactory | PowerShell Automation | Versioned Build System | Rollback Strategy | Multi-Environment Promotion
-
-**Architecture**
-Platform Engineering | Multi-Tier AWS Design | Environment Parity | Configuration Externalisation | AWS Architecture Review
-
-**Operational Excellence**
-Cost Optimisation | Infrastructure as Code | Standardised Developer Environments | Cross-Team Framework Adoption
+- **Cloud Infrastructure (AWS)**: EKS, MWAA, API Gateway, DynamoDB, S3, SSM Parameter Store, VPC endpoints, IAM (least-privilege).
+- **Kubernetes & Containers**: Helm, Skaffold, resource right‑sizing, spot instance policies, node group configuration.
+- **CI/CD & Automation**: Jenkins, Bamboo, Artifactory, PowerShell automation framework, versioned build system, multi‑environment promotion, rollback.
+- **Architecture & Engineering**: Platform engineering, multi-tier AWS design, environment parity, infrastructure as code (IaC).
+- **Operations & Optimization**: Cost optimization, standardized developer environments (VDI), framework adoption.
 

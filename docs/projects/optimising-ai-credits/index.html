@@ -53,6 +53,12 @@
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
 
 
  
@@ -83,7 +89,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -106,13 +114,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -226,26 +234,25 @@ class: its name, base classes, decorators, and a list of methods with their sign
 and return types. Functions defined at module level are captured with the same detail. This is sufficient for a
 premium model to assess architecture, identify violations, and plan interfaces-first changes without ambiguity.</p>
 <hr>
-      <h2 id="ai-strategies--instruction-frameworks">
-          AI Strategies &amp; Instruction Frameworks
-          <a class="heading-link" href="#ai-strategies--instruction-frameworks">
-              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
-              <span class="sr-only">Link to heading</span>
-          </a>
-      </h2>
-      <p>Beyond model training, I have developed specialised instruction frameworks to ensure high-quality,
-          architectural-aware
-          code generation and review.</p>
-      <p><strong><a href="/projects/ai/best-practice/">AI Best Practices</a></strong>
-          |
-          <strong><a href="/projects/ai/coder-instructions/">Coder Instructions</a></strong>
-          |
-          <strong><a href="/projects/ai/copilot-instructions/">Copilot Instructions</a></strong>
-          |
-          <strong><a href="/projects/ai/planner-instructions/">Planner Instructions</a></strong>
-          |
-          <strong><a href="/projects/ai/reviewer-instructions/">Reviewer Instructions</a></strong></p>
-      <hr>
+<h2 id="ai-strategies--instruction-frameworks">
+  AI Strategies &amp; Instruction Frameworks
+  <a class="heading-link" href="#ai-strategies--instruction-frameworks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Beyond model training, I have developed specialised instruction frameworks to ensure high-quality, architectural-aware
+code generation and review.</p>
+<p><strong><a href="/projects/ai/best-practice/" >AI Best Practices</a></strong>
+|
+<strong><a href="/projects/ai/coder-instructions/" >Coder Instructions</a></strong>
+|
+<strong><a href="/projects/ai/copilot-instructions/" >Copilot Instructions</a></strong>
+|
+<strong><a href="/projects/ai/planner-instructions/" >Planner Instructions</a></strong>
+|
+<strong><a href="/projects/ai/reviewer-instructions/" >Reviewer Instructions</a></strong></p>
+<hr>
 <h2 id="the-persona-workflow">
   The Persona Workflow
   <a class="heading-link" href="#the-persona-workflow">
@@ -253,21 +260,8 @@ premium model to assess architecture, identify violations, and plan interfaces-f
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>The analyser is designed to be used alongside a three-persona AI workflow. Each persona runs in a new chat session
-with the appropriate model tier, and the instruction files below are loaded at the start of every session to ensure
-consistent engineering standards regardless of which model is running.</p>
-<ul>
-    <li><strong>Reviewer</strong> — premium model; reads all source, tests, and docs; writes a prioritised <code>issues.md</code>
-        report; strictly
-        read-only.
-    </li>
-    <li><strong>Planner</strong> — premium model; reads issues and change-log; writes a deterministic
-        <code>plan.md</code>; never touches code.
-    </li>
-    <li><strong>Coder</strong> — free or standard model; executes the plan exactly; updates the change-log after every
-        subtask.
-    </li>
-</ul>
+<p>The analyser is designed to work in tandem with a three‑persona AI workflow, where each persona operates within a fresh chat session using the most appropriate model tier. To maintain consistent engineering standards, specific instruction files are loaded at the beginning of every session.</p>
+<p>The <strong>Reviewer</strong> persona uses a premium model to perform a comprehensive, read‑only analysis of all source code, tests, and documentation, resulting in a prioritised <code>issues.md</code> report. The <strong>Planner</strong>, also a premium model, consumes these issues and the existing change‑log to produce a deterministic <code>plan.md</code> without ever modifying the code itself. Finally, the <strong>Coder</strong> persona — which can run on a free or standard model — executes the plan exactly as written, updating the change‑log after each successfully completed subtask.</p>
 <h3 id="reviewer-prompt">
   Reviewer Prompt
   <a class="heading-link" href="#reviewer-prompt">
@@ -338,39 +332,31 @@ decoupling the CLI from concrete implementations. Planned extensions include mul
 (TypeScript, Java, C#), a Markdown heading analyser for documentation structure extraction, further JSON
 compression for token optimisation, and a <code>pip</code>-publishable distribution workflow.</p>
 <hr>
-<h2 id="skills">
-  Skills
-  <a class="heading-link" href="#skills">
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Languages &amp; Tools</strong>
-Python | AST Parsing | argparse | JSON Schema Validation | Pytest</p>
-<p><strong>Architecture &amp; Design</strong>
-Strategy Pattern | Capability Registry | Interface-Driven Design | Domain-Driven Packages | Fail-Fast Configuration</p>
-<p><strong>AI Workflow</strong>
-Persona-Driven Development | Premium vs Free Model Routing | Context Window Optimisation | Token-Efficient Metadata</p>
-<p><strong>Code Quality</strong>
-Pure Functions | Zero Side Effects | Typed Exception Hierarchy | Structured Logging | Deterministic Output</p>
-<p><strong>Testing</strong>
-AAA Pattern | Fast-Failing Tests | Mirrored Test Structure | One Test per Use Case | Domain-Grouped Test Classes</p>
-<p><strong>Process</strong>
-Interfaces-First Planning | Change-Log Discipline | Issues-Driven Iteration | Three-Persona Review Cycle</p>
+<ul>
+<li><strong>Python Development</strong>: AST Parsing, JSON Schema Validation, Pytest (AAA pattern), Typed Exception Hierarchies.</li>
+<li><strong>AI Strategy</strong>: Persona-driven Development, Premium Model Routing, Token-efficient Metadata, Context Window Optimization.</li>
+<li><strong>Architecture &amp; Patterns</strong>: Strategy Pattern, Capability Registry, Interface-driven Design, Domain-driven Packages.</li>
+<li><strong>Software Engineering</strong>: Pure Functions, Fail-fast Configuration, Structured Logging, Deterministic Output.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -379,14 +365,13 @@ Interfaces-First Planning | Change-Log Discipline | Issues-Driven Iteration | Th
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

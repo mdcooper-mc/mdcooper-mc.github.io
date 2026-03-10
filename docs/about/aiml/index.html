@@ -50,6 +50,12 @@
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
 
 
  
@@ -80,7 +86,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -103,13 +111,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -141,106 +149,71 @@
       </h1>
     </header>
 
-    <p>This page documents my work in <strong>AI architecture</strong>, <strong>deep learning</strong>, and <strong>reinforcement learning</strong> — with a focus on
-<strong>reproducibility</strong>, <strong>behavioural signal extraction</strong>, and <strong>agentic orchestration</strong>.</p>
-<p>I build systems that treat AI as a composable extension of infrastructure — not just a model, but a runtime framework
-for <strong>insight</strong>, <strong>control</strong>, and <strong>strategic reuse</strong>. My platforms span <strong>character-level neural networks</strong>, *
-<em>transformer-based pipelines</em>*, and <strong>OpenAI Gym–driven agents</strong> — engineered for <strong>clarity</strong>, <strong>modularity</strong>, and *
-<em>embedded governance</em>*.</p>
-<hr>
-<h3 id="-neural-engineering">
-  🧠 Neural Engineering
-  <a class="heading-link" href="#-neural-engineering">
+    <p>This section explores my work in AI architecture, deep learning, and reinforcement learning &ndash; with a focus on
+first-principles engineering, behavioral signal extraction, and agentic orchestration. My approach treats AI as a
+composable extension of core infrastructure, engineered for reproducibility, clarity, and strategic reuse.</p>
+<h3 id="neural-engineering--first-principles">
+  Neural Engineering &amp; First Principles
+  <a class="heading-link" href="#neural-engineering--first-principles">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>I’ve built foundational models from scratch using <strong>PyTorch</strong> — including <strong>manual backpropagation</strong>, <strong>custom layer
-stacks</strong>, and <strong>hierarchical embedding pipelines</strong>. These systems include:</p>
-<ul>
-<li>Context-based token prediction using <strong>MLPs</strong></li>
-<li><strong>Batch normalization</strong> and <strong>learning rate scheduling</strong></li>
-<li><strong>Embedding visualization</strong> and <strong>loss curve tracking</strong></li>
-<li>Training loops with <strong>manual gradient updates</strong> and <strong>architectural introspection</strong></li>
-</ul>
-<p>These models are designed for <strong>transparency</strong> and <strong>experimentation</strong> — enabling full control over <strong>data flow</strong>, *
-<em>gradient propagation</em>*, and <strong>architectural composition</strong>.</p>
-<hr>
-<h3 id="-reinforcement-learning">
-  🔁 Reinforcement Learning
-  <a class="heading-link" href="#-reinforcement-learning">
+<p>I develop foundational models from scratch using PyTorch, moving beyond black-box implementations to master the mechanics
+of backpropagation, custom layer normalization, and hierarchical embedding pipelines. This includes building
+context-based token predictors using MLPs, implementing stable training loops with manual gradient updates, and
+visualizing latent spaces to track how models represent information. These projects are designed for architectural
+transparency, allowing for full introspection into data flow and gradient propagation.</p>
+<h3 id="reinforcement-learning--autonomous-agents">
+  Reinforcement Learning &amp; Autonomous Agents
+  <a class="heading-link" href="#reinforcement-learning--autonomous-agents">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>I’ve developed agent-based systems using <strong>OpenAI Gym</strong> and <strong>PIRL</strong> — designed to simulate <strong>market behaviour</strong>,
-optimise <strong>decision policies</strong>, and extract <strong>strategic signals</strong> from synthetic environments. These agents include:</p>
-<ul>
-<li><strong>Policy-gradient optimization</strong> with configurable <strong>reward shaping</strong></li>
-<li>Environment design for <strong>scenario replay</strong> and <strong>behavioural simulation</strong></li>
-<li>Modular training loops with <strong>runtime introspection</strong> and <strong>evaluation dashboards</strong></li>
-</ul>
-<p>My RL platforms are built for <strong>reproducibility</strong>, <strong>runtime control</strong>, and strategic alignment with <strong>enterprise
-workflows</strong>.</p>
-<hr>
-<h3 id="-orchestration--deployment">
-  ⚙️ Orchestration &amp; Deployment
-  <a class="heading-link" href="#-orchestration--deployment">
+<p>Beyond static models, I build agentic systems that learn through interaction. Using OpenAI Gym and Physics-Informed
+Neural Networks (PINNs), I design environments for simulating complex market behaviors and optimizing decision policies.
+These agents leverage policy-gradient optimization and reward shaping to extract strategic signals from synthetic
+environments. My RL platforms are built for scenario replay and runtime control, ensuring that autonomous decision-making
+remains observable and aligned with enterprise requirements.</p>
+<h3 id="distributed-infrastructure--engineering-workflows">
+  Distributed Infrastructure &amp; Engineering Workflows
+  <a class="heading-link" href="#distributed-infrastructure--engineering-workflows">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>I’ve built <strong>training-as-code platforms</strong> that integrate with <strong>Hugo-based documentation</strong>, <strong>CI/CD pipelines</strong>, and *
-<em>containerised environments</em>*. These systems support:</p>
-<ul>
-<li><strong>Distributed training</strong> using <code>torchrun</code> and <strong>DDP</strong></li>
-<li><strong>Gradient accumulation</strong>, <strong>mixed precision</strong>, and <strong>checkpointing</strong></li>
-<li><strong>Autoregressive sampling</strong> and benchmark evaluation (e.g. <strong>HellaSwag</strong>)</li>
-<li>Secure deployment with <strong>runtime configuration</strong> and <strong>audit trails</strong></li>
-</ul>
-<p>Whether training <strong>GPT-style models</strong> or deploying agents in <strong>AWS</strong>, I treat orchestration as a <strong>first-class
-architectural concern</strong>.</p>
-<hr>
-<h3 id="-gpu--performance-optimisations">
-  🚀 GPU &amp; Performance Optimisations
-  <a class="heading-link" href="#-gpu--performance-optimisations">
+<p>Scaling AI requires more than just algorithmic knowledge; it requires professional engineering infrastructure. I build
+training-as-code platforms that orchestrate distributed training across GPU clusters using <code>torchrun</code> and DDP. My
+pipelines are optimized for throughput and reliability, incorporating mixed-precision training (bfloat16), gradient
+accumulation, and robust checkpointing. Whether I&rsquo;m scaling Transformers from bigrams to WaveNets or deploying agents
+in AWS, I treat the training loop as a first-class architectural concern, ensuring reproducibility from the first token
+to the final inference.</p>
+<h3 id="performance--scalability">
+  Performance &amp; Scalability
+  <a class="heading-link" href="#performance--scalability">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>My training pipelines are engineered for <strong>throughput</strong>, <strong>reproducibility</strong>, and <strong>runtime efficiency</strong>. I’ve
-implemented:</p>
+<p>My training pipelines are engineered for throughput and runtime efficiency. Key implementations include:</p>
 <ul>
-<li><strong>CUDA-Aware Device Management</strong></li>
-<li><strong>Mixed Precision Training</strong> with <code>torch.autocast</code> and <strong>bfloat16</strong></li>
-<li><strong>Gradient Accumulation</strong> for large effective batch sizes</li>
-<li><strong>Cosine Learning Rate Decay</strong> with warmup scheduling</li>
-<li><strong>Checkpointing &amp; Resume Logic</strong> with optimizer state and RNG seeds</li>
-<li><strong>Token-Level Throughput Analysis</strong></li>
-<li><strong>Layer Confidence Scaling</strong></li>
-<li><strong>BatchNorm Buffers</strong> for stable inference</li>
+<li><strong>Hardware-Specific Tuning</strong>: CUDA-aware device management and mixed-precision training with <code>torch.autocast</code>.</li>
+<li><strong>Optimization Patterns</strong>: Cosine learning rate decay with warmup scheduling and layer confidence scaling.</li>
+<li><strong>Resilience</strong>: Robust checkpointing and resume logic that preserves optimizer state and RNG seeds.</li>
+<li><strong>Analytics</strong>: Real-time throughput analysis and validation loss tracking to ensure stable convergence.</li>
 </ul>
-<p>These optimisations are embedded directly into my <strong>training loops</strong> and <strong>model stacks</strong> — enabling scalable
-experimentation and <strong>production-grade deployment</strong>.</p>
-<hr>
-<h3 id="-domains--applications">
-  📊 Domains &amp; Applications
-  <a class="heading-link" href="#-domains--applications">
+<p>These optimizations enable scalable experimentation and provide the foundation for production-grade model deployment.</p>
+<h3 id="applications--strategy">
+  Applications &amp; Strategy
+  <a class="heading-link" href="#applications--strategy">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<ul>
-<li><strong>Behavioural Signal Extraction</strong></li>
-<li><strong>Time-Series Forecasting</strong></li>
-<li><strong>Prompt-to-UI Generation</strong></li>
-<li><strong>Strategic Curve Modelling</strong></li>
-<li><strong>Scenario Replay</strong></li>
-<li><strong>NLP &amp; Computer Vision</strong></li>
-<li><strong>Embedding Visualization</strong></li>
-<li><strong>Agentic Workflows</strong></li>
-</ul>
-<hr>
+<p>My work in AI/ML is applied across several domains, including behavioral signal extraction, time-series forecasting,
+and agentic workflows. By separating high-level reasoning from mechanical execution, I ensure that these systems remain
+reproducible and strategically impactful.</p>
 <h2 id="skill-set">
   Skill Set
   <a class="heading-link" href="#skill-set">
@@ -248,36 +221,27 @@ experimentation and <strong>production-grade deployment</strong>.</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Frameworks &amp; Libraries</strong><br>
-PyTorch | TensorFlow | Keras | Hugging Face | LangChain | MLflow | Scikit-learn | OpenCV | NumPy | Pandas | tiktoken</p>
-<p><strong>Model Architectures</strong><br>
-MLPs | Transformers | GPT | RNNs | CNNs | Character-Level Models | Autoregressive Sampling</p>
-<p><strong>Reinforcement Learning</strong><br>
-OpenAI Gym | PIRL | Policy Gradients | Reward Shaping | Environment Design | Scenario Replay</p>
-<p><strong>Training &amp; Orchestration</strong><br>
-DDP | torchrun | Gradient Accumulation | Mixed Precision | Cosine LR Decay | Checkpointing | Training-as-Code | CI/CD
-for ML | Runtime Configuration | Audit Trails</p>
-<p><strong>Data &amp; Evaluation</strong><br>
-Feature Engineering | Bias Detection | ISO 25000 | Synthetic Data Generation | Validation Loss Tracking | Benchmarking (
-HellaSwag)</p>
-<p><strong>Deployment &amp; Infrastructure</strong><br>
-Containerised Models | AWS Lambda | Serverless Agents | GPU Scheduling | Secure Runtime Delivery | Hugo Integration</p>
-<p><strong>Observability &amp; Governance</strong><br>
-Model Lineage | Runtime Introspection | Ethical AI | Policy Enforcement | Reproducibility | Modular Design</p>
+<ul>
+<li><strong>Frameworks &amp; Libraries</strong>: PyTorch, TensorFlow, Keras, Hugging Face, LangChain, MLflow, Scikit-learn, OpenCV, NumPy, Pandas, tiktoken.</li>
+<li><strong>Model Architectures</strong>: MLPs, Transformers, GPT, RNNs, CNNs, Character-Level Models, Autoregressive Sampling.</li>
+<li><strong>Reinforcement Learning</strong>: OpenAI Gym, PIRL, Policy Gradients, Reward Shaping, Environment Design, Scenario Replay.</li>
+<li><strong>Training &amp; Orchestration</strong>: DDP, torchrun, Gradient Accumulation, Mixed Precision, Cosine LR Decay, Checkpointing, Training-as-Code, CI/CD for ML, Runtime Configuration, Audit Trails.</li>
+<li><strong>Data &amp; Evaluation</strong>: Feature Engineering, Bias Detection, ISO 25000, Synthetic Data Generation, Validation Loss Tracking, Benchmarking (HellaSwag).</li>
+<li><strong>Deployment &amp; Infrastructure</strong>: Containerised Models, AWS Lambda, Serverless Agents, GPU Scheduling, Secure Runtime Delivery, Hugo Integration.</li>
+<li><strong>Observability &amp; Governance</strong>: Model Lineage, Runtime Introspection, Ethical AI, Policy Enforcement, Reproducibility, Modular Design.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -286,14 +250,13 @@ Model Lineage | Runtime Introspection | Ethical AI | Policy Enforcement | Reprod
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>

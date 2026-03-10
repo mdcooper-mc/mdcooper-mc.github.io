@@ -50,6 +50,12 @@
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
 
 
  
@@ -80,7 +86,9 @@
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-dark">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -103,13 +111,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-
-
-          <li class="navigation-item">
+        
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/ai/">AI</a>
-          </li>
-
-          <li class="navigation-item">
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -310,15 +318,7 @@ building directly on the backend services and APIs.</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>Three targeted initiatives delivered measurable cost savings while improving performance:</p>
-<ul>
-<li><strong>Caching &amp; Storage Efficiencies</strong> — Reduced repeated data retrieval and optimised storage tiers, lowering I/O
-costs and improving throughput.</li>
-<li><strong>Dynamic EC2 Provisioning</strong> — Implemented on‑demand scaling of compute resources, ensuring capacity matched
-workload demand without over‑provisioning.</li>
-<li><strong>EKS Optimisation</strong> — Tuned Kubernetes cluster configurations for workload patterns, reducing idle resource
-consumption and improving pod scheduling efficiency.</li>
-</ul>
+<p>The platform achieved significant cost savings through three targeted initiatives. First, we implemented advanced caching and storage efficiencies to reduce repeated data retrieval, which lowered I/O costs and improved overall throughput. Second, we introduced dynamic EC2 provisioning to ensure that compute resources scale on‑demand, matching capacity to workload without the expense of over‑provisioning. Finally, we optimized the EKS cluster configurations specifically for our workload patterns, significantly reducing idle resource consumption and improving pod scheduling efficiency.</p>
 <hr>
 <h2 id="deployment-environments">
   Deployment Environments
@@ -332,43 +332,33 @@ Each environment is defined entirely by its SSM parameter prefix and versions ma
 environment-specific code branches. This design makes environment parity a property of the system rather than a
 discipline to be enforced manually.</p>
 <hr>
-<h2 id="skills">
-  Skills
-  <a class="heading-link" href="#skills">
+<h2 id="skills-and-technologies">
+  Skills and Technologies
+  <a class="heading-link" href="#skills-and-technologies">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p><strong>Languages &amp; Frameworks</strong><br>
-Python | PowerShell | YAML | OpenAPI 3.0 | Dockerfile | Bash</p>
-<p><strong>AWS</strong><br>
-MWAA (Managed Airflow) | DynamoDB | S3 | API Gateway | VPC Endpoints | SSM Parameter Store | EKS</p>
-<p><strong>Orchestration &amp; Workflow</strong><br>
-Apache Airflow | DAG Design | Task Groups | XCom | Branching | Dynamic Task Generation | AI‑Driven Automation</p>
-<p><strong>Architecture &amp; Design</strong><br>
-Microservices | Plugin-Based Calculator Registry | HATEOAS API Pattern | Status Lifecycle State Machine | Domain-Driven Package Structure | Modular Service Design | Reusable Frameworks</p>
-<p><strong>CI/CD &amp; DevOps</strong><br>
-Jenkins | Bamboo | Artifactory | Versioned Builds | Helm | Kubernetes | Docker | Skaffold | PowerShell Automation | Infrastructure as Code</p>
-<p><strong>Observability</strong><br>
-DynamoDB Audit Trail | Correlation IDs | Structured Logging | Payload Callbacks | Per-Stage Status Tracking | CloudWatch</p>
-<p><strong>Performance &amp; Optimisation</strong><br>
-Dynamic Scaling | Caching Strategies | Cost‑Efficient Resource Allocation | Parallel Processing | Efficient I/O Handling</p>
-<p><strong>Testing &amp; Quality</strong><br>
-pytest | Coverage Reporting | Complexity Badges | Isolated Unit Tests | Integration Test Fixtures</p>
+<ul>
+<li><strong>Cloud &amp; Infrastructure (AWS)</strong>: MWAA (Airflow), EKS (Kubernetes), DynamoDB, S3, API Gateway, SSM Parameter Store, VPC Endpoints, EC2.</li>
+<li><strong>Languages &amp; Frameworks</strong>: Python, PowerShell, .NET 6, Bash, YAML, OpenAPI 3.0.</li>
+<li><strong>Orchestration &amp; Workflow</strong>: Apache Airflow, DAG Design, HATEOAS API Patterns, Plugin-based Registry, Parallel Processing.</li>
+<li><strong>CI/CD &amp; DevOps</strong>: Jenkins, Bamboo, Artifactory, Helm, Docker, Synthetic Versioning, Idempotent Deployment.</li>
+<li><strong>Observability &amp; Quality</strong>: DynamoDB Audit Trail, Correlation IDs, Structured Logging, Pytest, Lifecycle State Machines.</li>
+<li><strong>Performance &amp; Optimization</strong>: Dynamic Scaling, Caching, Resource Right-sizing, Fail-fast Validation.</li>
+</ul>
 
   </article>
 </section>
 
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-              rel="stylesheet">
-
-        <script crossorigin="anonymous" defer
-                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-        <script crossorigin="anonymous" defer
-                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-                onload="renderMathInElement(document.body,
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
@@ -377,14 +367,13 @@ pytest | Coverage Reporting | Complexity Badges | Isolated Unit Tests | Integrat
           {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );"
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    );"></script>
 
     </div>
 
-    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+    <footer class="footer" style="text-align:center; font-size: 11px;">
     <div>
-        <p>&copy; 2025 Mark Cooper - <a
+        <p style="color: var(--color-text, #dadada);">&copy; 2025 Mark Cooper - <a
                 href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
             CV</a></p>
     </div>
