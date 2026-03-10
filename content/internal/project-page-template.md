@@ -48,27 +48,27 @@ tags = ["Technology1", "Pattern1", "Domain1"]
 
 ## 3. Core Content Sections
 
-### 3.1 Repository Access
+### 3.1 Repository Access (Optional)
 If the project has a public or internal repository, include a direct link at the very top of the page (below the front matter but above the main title).
 Format: `[browse this repository](URL)`
 
 ### 3.2 Introduction and High-Level Design
 Describe the project's purpose, the problem it solves, and its high-level architecture. Focus on the "why" behind the design choices.
 
-### 3.3 Technical Depth and Architectural Patterns
-This is the core of the page. You must explicitly discuss:
+### 3.3 Technical Depth and Architectural Patterns (Recommended)
+Discuss the technical engineering behind the project. Where applicable, include:
 - **Design Patterns**: Identify and explain the implementation of patterns (e.g., Observer, Strategy, Provider, Builder, Singleton, Factory, Adapter, AOP).
 - **Algorithmic Complexity**: Discuss O-Notation for critical paths (e.g., "$O(N)$ time complexity for event dispatching", "$O(1)$ space complexity via streaming").
 - **State Management**: Discuss whether the system is stateless or how it manages state/persistence.
 - **Concurrency**: Describe how the system handles parallel processing or thread safety.
 
-### 3.4 Code Snippets
-Include 1-2 high-impact code snippets that demonstrate a key architectural feature. Snippets must be:
+### 3.4 Code Snippets (Optional)
+Where relevant, include 1-2 high-impact code snippets that demonstrate a key architectural feature. Snippets must be:
 - **Focused**: Show only the relevant logic.
 - **Explained**: Precede or follow the snippet with a paragraph explaining why this code is significant.
 - **Syntactically Correct**: Use the appropriate language identifier for Markdown code blocks.
 
-### 3.5 Resilience and Recovery
+### 3.5 Resilience and Recovery (Optional)
 Detail how the system handles failures. Mention specific mechanisms like:
 - **Persistence**: How data is saved and recovered (e.g., `ResilienceStore`).
 - **Validation**: Startup checks, type-safety, and contract enforcement.
@@ -81,9 +81,9 @@ The navigation header and the standard footer are global components and must not
 
 ## 4. Skills and Technologies (ATS Optimization)
 
-The final section of every page must be a "Skills and Technologies" list. This section is specifically designed for ATS (Applicant Tracking Systems) and quick professional review. It should be a series of bullet points grouped by context.
+The final section of every page must be a "Skills and Technologies" list. This section is specifically designed for ATS (Applicant Tracking Systems) and quick professional review. It should be a series of bullet points.
 
-**Format Example:**
+**Format Recommendation:**
 
 ```markdown
 ## Skills and Technologies
@@ -102,8 +102,8 @@ Before submitting a new page, verify the following:
 1. [ ] Is the front matter complete and accurate?
 2. [ ] Is the content primarily narrative paragraphs?
 3. [ ] Are there ZERO emojis or decorative icons?
-4. [ ] Have I discussed Design Patterns and O-Notation?
-5. [ ] Is there at least one relevant code snippet?
-6. [ ] Is the "Skills and Technologies" section at the end and correctly formatted?
+4. [ ] Have I considered Design Patterns and O-Notation?
+5. [ ] If applicable, is there at least one relevant code snippet?
+6. [ ] Is the "Skills and Technologies" section at the end?
 7. [ ] Does the page follow the standard Markdown hierarchy?
 8. [ ] If a repo link was provided, is it included at the top?
