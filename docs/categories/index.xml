@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Mark Cooper</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://mdcooper-mc.github.io/categories/</link>
     <description>Recent content in Categories on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mdcooper-mc.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Guides</title>
-      <link>http://localhost:1313/categories/guides/</link>
+      <link>https://mdcooper-mc.github.io/categories/guides/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/guides/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/guides/</guid>
       <description></description>
     </item>
     <item>
       <title>Internal</title>
-      <link>http://localhost:1313/categories/internal/</link>
+      <link>https://mdcooper-mc.github.io/categories/internal/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/internal/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/internal/</guid>
       <description></description>
     </item>
     <item>
       <title>Architecture</title>
-      <link>http://localhost:1313/categories/architecture/</link>
+      <link>https://mdcooper-mc.github.io/categories/architecture/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/architecture/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>http://localhost:1313/categories/java/</link>
+      <link>https://mdcooper-mc.github.io/categories/java/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/java/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring</title>
-      <link>http://localhost:1313/categories/spring/</link>
+      <link>https://mdcooper-mc.github.io/categories/spring/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/spring/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/spring/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring Boot</title>
-      <link>http://localhost:1313/categories/spring-boot/</link>
+      <link>https://mdcooper-mc.github.io/categories/spring-boot/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/spring-boot/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/spring-boot/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>http://localhost:1313/categories/security/</link>
+      <link>https://mdcooper-mc.github.io/categories/security/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/security/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/security/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
-      <link>http://localhost:1313/categories/web-development/</link>
+      <link>https://mdcooper-mc.github.io/categories/web-development/</link>
       <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/web-development/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud Infrastructure</title>
-      <link>http://localhost:1313/categories/cloud-infrastructure/</link>
+      <link>https://mdcooper-mc.github.io/categories/cloud-infrastructure/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/cloud-infrastructure/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/cloud-infrastructure/</guid>
       <description></description>
     </item>
     <item>
       <title>FinOps</title>
-      <link>http://localhost:1313/categories/finops/</link>
+      <link>https://mdcooper-mc.github.io/categories/finops/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/finops/</guid>
+      <guid>https://mdcooper-mc.github.io/categories/finops/</guid>
       <description></description>
     </item>
   </channel>

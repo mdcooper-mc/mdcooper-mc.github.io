@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Envelope Encryption on Mark Cooper</title>
-    <link>http://localhost:1313/tags/envelope-encryption/</link>
+    <link>https://mdcooper-mc.github.io/tags/envelope-encryption/</link>
     <description>Recent content in Envelope Encryption on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/envelope-encryption/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mdcooper-mc.github.io/tags/envelope-encryption/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Identity‑Anchored Encryption</title>
-      <link>http://localhost:1313/projects/identity-centric-encryption-with-user-consent/</link>
+      <link>https://mdcooper-mc.github.io/projects/identity-centric-encryption-with-user-consent/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/identity-centric-encryption-with-user-consent/</guid>
+      <guid>https://mdcooper-mc.github.io/projects/identity-centric-encryption-with-user-consent/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;identity-centric-security-model&#34;&gt;&#xA;  Identity-Centric Security Model&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#identity-centric-security-model&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;This project demonstrates how encryption can be made &lt;strong&gt;identity‑centric&lt;/strong&gt; — shifting control from purely key‑based&#xA;systems to ones anchored in user identity and consent. Each record is encrypted with its own random key, which is then&#xA;wrapped with the user’s public key. Even if one key is compromised, only that single record is exposed.&lt;/p&gt;&#xA;&lt;p&gt;Decryption is never an automatic process. Instead, it is governed by a multi‑step verification sequence that begins with a valid identity token (JWT) issued by Okta. If the actor requesting access is not the original data owner, the system triggers an explicit user approval workflow. Only after identity is verified and consent is granted does the Key Management Service attempt to unwrap the record’s unique encryption key.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,220 +2,220 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Mark Cooper</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://mdcooper-mc.github.io/tags/</link>
     <description>Recent content in Tags on Mark Cooper</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mdcooper-mc.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI-Instructions</title>
-      <link>http://localhost:1313/tags/ai-instructions/</link>
+      <link>https://mdcooper-mc.github.io/tags/ai-instructions/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ai-instructions/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/ai-instructions/</guid>
       <description></description>
     </item>
     <item>
       <title>Template</title>
-      <link>http://localhost:1313/tags/template/</link>
+      <link>https://mdcooper-mc.github.io/tags/template/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/template/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/template/</guid>
       <description></description>
     </item>
     <item>
       <title>Annotation-Based</title>
-      <link>http://localhost:1313/tags/annotation-based/</link>
+      <link>https://mdcooper-mc.github.io/tags/annotation-based/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/annotation-based/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/annotation-based/</guid>
       <description></description>
     </item>
     <item>
       <title>Batch Processing</title>
-      <link>http://localhost:1313/tags/batch-processing/</link>
+      <link>https://mdcooper-mc.github.io/tags/batch-processing/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/batch-processing/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/batch-processing/</guid>
       <description></description>
     </item>
     <item>
       <title>BAU Workflows</title>
-      <link>http://localhost:1313/tags/bau-workflows/</link>
+      <link>https://mdcooper-mc.github.io/tags/bau-workflows/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/bau-workflows/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/bau-workflows/</guid>
       <description></description>
     </item>
     <item>
       <title>Event-Driven</title>
-      <link>http://localhost:1313/tags/event-driven/</link>
+      <link>https://mdcooper-mc.github.io/tags/event-driven/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/event-driven/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/event-driven/</guid>
       <description></description>
     </item>
     <item>
       <title>Joda-Time</title>
-      <link>http://localhost:1313/tags/joda-time/</link>
+      <link>https://mdcooper-mc.github.io/tags/joda-time/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/joda-time/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/joda-time/</guid>
       <description></description>
     </item>
     <item>
       <title>Provider Pattern</title>
-      <link>http://localhost:1313/tags/provider-pattern/</link>
+      <link>https://mdcooper-mc.github.io/tags/provider-pattern/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/provider-pattern/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/provider-pattern/</guid>
       <description></description>
     </item>
     <item>
       <title>Reconciliation</title>
-      <link>http://localhost:1313/tags/reconciliation/</link>
+      <link>https://mdcooper-mc.github.io/tags/reconciliation/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/reconciliation/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/reconciliation/</guid>
       <description></description>
     </item>
     <item>
       <title>AES-GCM</title>
-      <link>http://localhost:1313/tags/aes-gcm/</link>
+      <link>https://mdcooper-mc.github.io/tags/aes-gcm/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/aes-gcm/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/aes-gcm/</guid>
       <description></description>
     </item>
     <item>
       <title>Envelope Encryption</title>
-      <link>http://localhost:1313/tags/envelope-encryption/</link>
+      <link>https://mdcooper-mc.github.io/tags/envelope-encryption/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/envelope-encryption/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/envelope-encryption/</guid>
       <description></description>
     </item>
     <item>
       <title>Go</title>
-      <link>http://localhost:1313/tags/go/</link>
+      <link>https://mdcooper-mc.github.io/tags/go/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/go/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/go/</guid>
       <description></description>
     </item>
     <item>
       <title>JWT</title>
-      <link>http://localhost:1313/tags/jwt/</link>
+      <link>https://mdcooper-mc.github.io/tags/jwt/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/jwt/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/jwt/</guid>
       <description></description>
     </item>
     <item>
       <title>Okta</title>
-      <link>http://localhost:1313/tags/okta/</link>
+      <link>https://mdcooper-mc.github.io/tags/okta/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/okta/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/okta/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://mdcooper-mc.github.io/tags/python/</link>
       <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Angular</title>
-      <link>http://localhost:1313/tags/angular/</link>
+      <link>https://mdcooper-mc.github.io/tags/angular/</link>
       <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/angular/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/angular/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
-      <link>http://localhost:1313/tags/kubernetes/</link>
+      <link>https://mdcooper-mc.github.io/tags/kubernetes/</link>
       <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/kubernetes/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>PostgreSQL</title>
-      <link>http://localhost:1313/tags/postgresql/</link>
+      <link>https://mdcooper-mc.github.io/tags/postgresql/</link>
       <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/postgresql/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/postgresql/</guid>
       <description></description>
     </item>
     <item>
       <title>TypeScript</title>
-      <link>http://localhost:1313/tags/typescript/</link>
+      <link>https://mdcooper-mc.github.io/tags/typescript/</link>
       <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/typescript/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/typescript/</guid>
       <description></description>
     </item>
     <item>
       <title>AWS</title>
-      <link>http://localhost:1313/tags/aws/</link>
+      <link>https://mdcooper-mc.github.io/tags/aws/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/aws/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/aws/</guid>
       <description></description>
     </item>
     <item>
       <title>CI/CD</title>
-      <link>http://localhost:1313/tags/ci/cd/</link>
+      <link>https://mdcooper-mc.github.io/tags/ci/cd/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ci/cd/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/ci/cd/</guid>
       <description></description>
     </item>
     <item>
       <title>DevOps</title>
-      <link>http://localhost:1313/tags/devops/</link>
+      <link>https://mdcooper-mc.github.io/tags/devops/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/devops/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>EKS</title>
-      <link>http://localhost:1313/tags/eks/</link>
+      <link>https://mdcooper-mc.github.io/tags/eks/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/eks/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/eks/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/tags/ai/</link>
+      <link>https://mdcooper-mc.github.io/tags/ai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ai/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Architecture</title>
-      <link>http://localhost:1313/tags/architecture/</link>
+      <link>https://mdcooper-mc.github.io/tags/architecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/architecture/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>C#</title>
-      <link>http://localhost:1313/tags/c%23/</link>
+      <link>https://mdcooper-mc.github.io/tags/c%23/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/c%23/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/c%23/</guid>
       <description></description>
     </item>
     <item>
       <title>Derivatives</title>
-      <link>http://localhost:1313/tags/derivatives/</link>
+      <link>https://mdcooper-mc.github.io/tags/derivatives/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/derivatives/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/derivatives/</guid>
       <description></description>
     </item>
     <item>
       <title>Dotnet</title>
-      <link>http://localhost:1313/tags/dotnet/</link>
+      <link>https://mdcooper-mc.github.io/tags/dotnet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/dotnet/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/dotnet/</guid>
       <description></description>
     </item>
     <item>
       <title>Finance</title>
-      <link>http://localhost:1313/tags/finance/</link>
+      <link>https://mdcooper-mc.github.io/tags/finance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/finance/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/finance/</guid>
       <description></description>
     </item>
     <item>
       <title>PowerShell</title>
-      <link>http://localhost:1313/tags/powershell/</link>
+      <link>https://mdcooper-mc.github.io/tags/powershell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/powershell/</guid>
+      <guid>https://mdcooper-mc.github.io/tags/powershell/</guid>
       <description></description>
     </item>
   </channel>
