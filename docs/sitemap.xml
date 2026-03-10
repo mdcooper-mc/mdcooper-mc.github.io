@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+>
   <url>
     <loc>https://mdcooper-mc.github.io/tags/annotation-based/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
@@ -53,11 +53,42 @@
     <loc>https://mdcooper-mc.github.io/tags/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
+  <loc>https://mdcooper-mc.github.io/ai/</loc>
+  <lastmod>2024-03-27T00:00:00+00:00</lastmod>
+</url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/reinforcement-learning/</loc>
+    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/distributed-training-infrastructure/</loc>
+    <lastmod>2024-03-26T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/transformer-architecture/</loc>
+    <lastmod>2024-03-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/pytorch-engineering-workflow/</loc>
+    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/language-modelling/</loc>
+    <lastmod>2024-03-21T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/autograd-engine/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://mdcooper-mc.github.io/about/</loc>
   </url><url>
     <loc>https://mdcooper-mc.github.io/tags/ai/</loc>
   </url><url>
     <loc>https://mdcooper-mc.github.io/about/aiml/</loc>
+</url>
+  <url>
+    <loc>https://mdcooper-mc.github.io/ai/core-concepts/</loc>
   </url><url>
     <loc>https://mdcooper-mc.github.io/tags/architecture/</loc>
   </url><url>

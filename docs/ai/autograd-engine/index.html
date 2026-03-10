@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Building a Scalar-Valued Autograd Engine from First Principles · Mark Cooper
+    </title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="light dark" name="color-scheme">
+
+
+    <meta content="Mark Cooper" name="author">
+    <meta content="A first-principles implementation of a DAG-based automatic differentiation engine in Python, supporting backpropagation and training simple neural networks."
+          name="description">
+    <meta content="" name="keywords">
+
+
+    <meta content="summary" name="twitter:card">
+    <meta content="Building a Scalar-Valued Autograd Engine from First Principles" name="twitter:title">
+    <meta content="A first-principles implementation of a DAG-based automatic differentiation engine in Python, supporting backpropagation and training simple neural networks."
+          name="twitter:description">
+
+    <meta content="https://mdcooper-mc.github.io/ai/autograd-engine/" property="og:url">
+    <meta content="Mark Cooper" property="og:site_name">
+    <meta content="Building a Scalar-Valued Autograd Engine from First Principles" property="og:title">
+    <meta content="A first-principles implementation of a DAG-based automatic differentiation engine in Python, supporting backpropagation and training simple neural networks."
+          property="og:description">
+    <meta content="en_uk" property="og:locale">
+    <meta content="article" property="og:type">
+    <meta content="ai" property="article:section">
+    <meta content="2024-03-20T00:00:00+00:00" property="article:published_time">
+    <meta content="2024-03-20T00:00:00+00:00" property="article:modified_time">
+
+
+    <link href="https://mdcooper-mc.github.io/ai/autograd-engine/" rel="canonical">
+
+
+    <link as="font" crossorigin href="/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin href="/fonts/fa-regular-400.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin href="/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2">
+
+
+    <link crossorigin="anonymous" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css"
+          integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" media="screen" rel="stylesheet"/>
+
+
+    <link href="/images/favicon.svg" rel="icon" sizes="any" type="image/svg+xml">
+    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+
+    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+
+    <link href="/site.webmanifest" rel="manifest">
+    <link color="#5bbad5" href="/images/safari-pinned-tab.svg" rel="mask-icon">
+
+
+</head>
+
+
+<body class="preload-transitions colorscheme-light">
+
+<div class="float-container">
+    <a class="colorscheme-toggle" id="dark-mode-toggle">
+        <i aria-hidden="true" class="fa-solid fa-adjust fa-fw"></i>
+    </a>
+</div>
+
+
+<main class="wrapper">
+    <nav class="navigation">
+        <section class="container">
+
+            <a class="navigation-title" href="https://mdcooper-mc.github.io/">
+                Mark Cooper
+            </a>
+
+
+            <input id="menu-toggle" type="checkbox"/>
+            <label class="menu-button float-right" for="menu-toggle">
+                <i aria-hidden="true" class="fa-solid fa-bars fa-fw"></i>
+            </label>
+            <ul class="navigation-list">
+
+
+                <li class="navigation-item">
+                    <a class="navigation-link " href="/ai/">AI</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a class="navigation-link " href="/projects/">Projects</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a class="navigation-link " href="/platforms/">Platforms</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a class="navigation-link " href="/about/">About</a>
+                </li>
+
+
+            </ul>
+
+        </section>
+    </nav>
+
+
+    <div class="content">
+
+        <section class="container page">
+            <article>
+                <header>
+                    <h1 class="title">
+                        <a class="title-link" href="https://mdcooper-mc.github.io/ai/autograd-engine/">
+                            Building a Scalar-Valued Autograd Engine from First Principles
+                        </a>
+                    </h1>
+                </header>
+
+                <p>Modern deep learning frameworks like PyTorch and TensorFlow abstract away the complex calculus
+                    involved in model
+                    training. While efficient, this abstraction can lead to a &ldquo;black box&rdquo; understanding of
+                    how models actually learn. To
+                    bridge this gap, I built a fully functional, scalar-valued automatic differentiation engine from
+                    scratch.</p>
+                <p>This engine, which I&rsquo;ve termed my &ldquo;Value Engine,&rdquo; implements backpropagation over a
+                    Directed Acyclic Graph (DAG) and
+                    supports the training of multi-layer perceptrons (MLP) using only basic Python and scalar math.</p>
+                <hr>
+                <h2 id="the-problem">
+                    The Problem
+                    <a class="heading-link" href="#the-problem">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h2>
+                <p>Understanding backpropagation is one thing; implementing it correctly in a way that handles arbitrary
+                    computational
+                    graphs is another. Standard floating-point numbers in Python have no &ldquo;memory&rdquo; of where
+                    they came from or how they were
+                    calculated. To perform automatic differentiation, we need a data structure that not only stores a
+                    value but also tracks
+                    its &ldquo;ancestry&rdquo; (the operations and inputs that created it) and its &ldquo;influence&rdquo;
+                    (its gradient with respect to a final
+                    output).</p>
+                <p>The challenge was to create a system that could:</p>
+                <ol>
+                    <li>Construct a computational graph in real-time as operations are performed.</li>
+                    <li>Automatically apply the chain rule of calculus to propagate gradients.</li>
+                    <li>Handle complex branching paths where a single variable influences multiple downstream outputs
+                        without over-counting
+                        or under-counting its total influence.
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="architecture-the-value-engine">
+                    Architecture: The Value Engine
+                    <a class="heading-link" href="#architecture-the-value-engine">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h2>
+                <p>At the core of the project is the <code>Value</code> class. Each <code>Value</code> object acts as a
+                    node in a computational graph, storing:</p>
+                <ul>
+                    <li><code>data</code>: The actual numerical value (scalar).</li>
+                    <li><code>grad</code>: The derivative of the final output (typically the Loss) with respect to this
+                        value.
+                    </li>
+                    <li><code>_backward</code>: A function that defines how to propagate the gradient from this node to
+                        its immediate children.
+                    </li>
+                    <li><code>_prev</code>: A set of parent nodes in the graph.</li>
+                </ul>
+                <h3 id="implementing-atomic-operations">
+                    Implementing Atomic Operations
+                    <a class="heading-link" href="#implementing-atomic-operations">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h3>
+                <p>Every mathematical operation (addition, multiplication, exponentiation, etc.) is overloaded to
+                    produce a new <code>Value</code>
+                    object while simultaneously defining its own gradient logic.</p>
+                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
+                                            tabindex="0"><code
+                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
+                        style="color:#66d9ef">class</span> <span style="color:#a6e22e">Value</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, data, _children<span
+                        style="color:#f92672">=</span>(), _op<span style="color:#f92672">=</span><span
+                        style="color:#e6db74">&#39;&#39;</span>, label<span style="color:#f92672">=</span><span
+                        style="color:#e6db74">&#39;&#39;</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>data <span
+                        style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_backward <span
+                        style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span>: <span
+                        style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_prev <span
+                        style="color:#f92672">=</span> set(_children)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_op <span
+                        style="color:#f92672">=</span> _op
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__add__</span>(self, other):
+</span></span><span style="display:flex;"><span>        other <span style="color:#f92672">=</span> other <span
+                        style="color:#66d9ef">if</span> isinstance(other, Value) <span style="color:#66d9ef">else</span> Value(other)
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(self<span
+                        style="color:#f92672">.</span>data <span style="color:#f92672">+</span> other<span
+                        style="color:#f92672">.</span>data, (self, other), <span
+                        style="color:#e6db74">&#39;+&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
+                        style="color:#a6e22e">_backward</span>():
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># The derivative of a sum (a + b) with respect to each input is 1.0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># We use += to accumulate gradients from multiple paths (Multivariate Chain Rule)</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span> <span
+                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>            other<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span> <span
+                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span
+                        style="color:#f92672">=</span> _backward
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__mul__</span>(self, other):
+</span></span><span style="display:flex;"><span>        other <span style="color:#f92672">=</span> other <span
+                        style="color:#66d9ef">if</span> isinstance(other, Value) <span style="color:#66d9ef">else</span> Value(other)
+</span></span><span style="display:flex;"><span>        out <span style="color:#f92672">=</span> Value(self<span
+                        style="color:#f92672">.</span>data <span style="color:#f92672">*</span> other<span
+                        style="color:#f92672">.</span>data, (self, other), <span
+                        style="color:#e6db74">&#39;*&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
+                        style="color:#a6e22e">_backward</span>():
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Product rule: d(a*b)/da = b and d(a*b)/db = a</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">+=</span> other<span style="color:#f92672">.</span>data <span
+                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>            other<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>data <span
+                        style="color:#f92672">*</span> out<span style="color:#f92672">.</span>grad
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span>_backward <span
+                        style="color:#f92672">=</span> _backward
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out
+</span></span></code></pre>
+                </div>
+                <p>By using <code>+=</code> for gradient updates, the engine correctly handles the <strong>Multivariate
+                    Chain Rule</strong>. If a variable is used
+                    twice in a calculation, its total gradient is the sum of the gradients from both paths.</p>
+                <hr>
+                <h2 id="gradient-propagation-topological-sorting">
+                    Gradient Propagation: Topological Sorting
+                    <a class="heading-link" href="#gradient-propagation-topological-sorting">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h2>
+                <p>Backpropagation must be performed in a specific order: from the output back to the inputs. In a
+                    graph, this requires a *
+                    <em>Topological Sort</em>*. The engine performs a depth-first search starting from the final output
+                    (the Loss) to ensure that
+                    every node is processed only after all the nodes it influences have had their gradients calculated.
+                </p>
+                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
+                                            tabindex="0"><code
+                        class="language-python" data-lang="python"><span style="display:flex;"><span>    <span
+                        style="color:#66d9ef">def</span> <span style="color:#a6e22e">backward</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Build topological order</span>
+</span></span><span style="display:flex;"><span>        topo <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        visited <span style="color:#f92672">=</span> set()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span
+                        style="color:#a6e22e">build_topo</span>(v):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> v <span
+                        style="color:#f92672">not</span> <span style="color:#f92672">in</span> visited:
+</span></span><span style="display:flex;"><span>                visited<span style="color:#f92672">.</span>add(v)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> child <span
+                        style="color:#f92672">in</span> v<span style="color:#f92672">.</span>_prev:
+</span></span><span style="display:flex;"><span>                    build_topo(child)
+</span></span><span style="display:flex;"><span>                topo<span style="color:#f92672">.</span>append(v)
+</span></span><span style="display:flex;"><span>        build_topo(self)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span
+                        style="color:#75715e"># Base case: dLoss/dLoss = 1.0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> node <span
+                        style="color:#f92672">in</span> reversed(topo):
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>_backward()
+</span></span></code></pre>
+                </div>
+                <hr>
+                <h2 id="building-a-neural-network">
+                    Building a Neural Network
+                    <a class="heading-link" href="#building-a-neural-network">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h2>
+                <p>With the scalar engine complete, I constructed a modular neural network library on top of it,
+                    consisting of:</p>
+                <ul>
+                    <li><strong>Neuron</strong>: Manages weights and a bias, performs a weighted sum, and applies a
+                        non-linear activation (e.g., <code>tanh</code> or
+                        <code>ReLU</code>).
+                    </li>
+                    <li><strong>Layer</strong>: A collection of neurons operating in parallel.</li>
+                    <li><strong>MLP</strong>: A sequence of layers forming a deep network.</li>
+                </ul>
+                <p>Because every parameter (weight and bias) in the network is a <code>Value</code> object, the entire
+                    network is &ldquo;differentiable by
+                    design.&rdquo;</p>
+                <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"
+                                            tabindex="0"><code
+                        class="language-python" data-lang="python"><span style="display:flex;"><span><span
+                        style="color:#75715e"># Training loop snippet</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k <span
+                        style="color:#f92672">in</span> range(<span style="color:#ae81ff">20</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Forward pass: predict and calculate loss</span>
+</span></span><span style="display:flex;"><span>    ypred <span style="color:#f92672">=</span> [model(x) <span
+                        style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> xs]
+</span></span><span style="display:flex;"><span>    loss <span style="color:#f92672">=</span> sum((yout <span
+                        style="color:#f92672">-</span> ygt)<span style="color:#f92672">**</span><span
+                        style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> ygt, yout <span
+                        style="color:#f92672">in</span> zip(ys, ypred))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Backward pass: zero gradients and propagate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> p <span
+                        style="color:#f92672">in</span> model<span style="color:#f92672">.</span>parameters():
+</span></span><span style="display:flex;"><span>        p<span style="color:#f92672">.</span>grad <span
+                        style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    loss<span style="color:#f92672">.</span>backward()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Update weights (SGD)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> p <span
+                        style="color:#f92672">in</span> model<span style="color:#f92672">.</span>parameters():
+</span></span><span style="display:flex;"><span>        p<span style="color:#f92672">.</span>data <span
+                        style="color:#f92672">+=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.01</span> <span
+                        style="color:#f92672">*</span> p<span style="color:#f92672">.</span>grad
+</span></span></code></pre>
+                </div>
+                <hr>
+                <h2 id="impact--insights">
+                    Impact &amp; Insights
+                    <a class="heading-link" href="#impact--insights">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h2>
+                <p>This first-principles approach provided several key insights that are often obscured by high-level
+                    frameworks:</p>
+                <ol>
+                    <li><strong>The Criticality of Initialisation</strong>: I observed how poor initial weight values
+                        could lead to &ldquo;exploding&rdquo; or &quot;
+                        vanishing&quot; gradients even in tiny networks.
+                    </li>
+                    <li><strong>Computational Efficiency</strong>: While scalar-level differentiation is conceptually
+                        clear, it is computationally
+                        expensive in Python. This underscored the necessity of the vectorized (Tensor-based) operations
+                        used in production
+                        frameworks.
+                    </li>
+                    <li><strong>Debugging the Gradient</strong>: By visualizing the computational graph using Graphviz,
+                        I could see exactly how the loss
+                        signal flowed back through individual neurons, making the learning process entirely transparent.
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="skills">
+                    Skills
+                    <a class="heading-link" href="#skills">
+                        <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+                        <span class="sr-only">Link to heading</span>
+                    </a>
+                </h2>
+                <p><strong>Mathematics &amp; Theory</strong><br>
+                    Multivariable Calculus | Chain Rule | Gradient Descent | Topological Sort | Directed Acyclic Graphs
+                    (DAG)</p>
+                <p><strong>AI Engineering</strong><br>
+                    Automatic Differentiation | Backpropagation | Multi-Layer Perceptron (MLP) | Loss Functions (MSE) |
+                    Non-Linear
+                    Activations (Tanh/ReLU)</p>
+                <p><strong>Software Engineering</strong><br>
+                    Object-Oriented Design | Custom Computational Engines | Modular API Design | Recursive Function
+                    Calls | Graph
+                    Visualisation</p>
+
+            </article>
+        </section>
+
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
+              rel="stylesheet">
+
+        <script crossorigin="anonymous" defer
+                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+        <script crossorigin="anonymous" defer
+                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+                onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+
+    </div>
+
+    <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
+        <div>
+            <p>&copy; 2025 Mark Cooper - <a
+                    href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+                CV</a></p>
+        </div>
+    </footer>
+</main>
+
+
+<script integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="
+        src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js"></script>
+
+
+</body>
+</html>

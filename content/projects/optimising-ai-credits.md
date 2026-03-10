@@ -83,20 +83,33 @@ premium model to assess architecture, identify violations, and plan interfaces-f
 
 ---
 
+## AI Strategies & Instruction Frameworks
+
+Beyond model training, I have developed specialised instruction frameworks to ensure high-quality, architectural-aware
+code generation and review.
+
+**[AI Best Practices](/projects/ai/best-practice/)**
+|
+**[Coder Instructions](/projects/ai/coder-instructions/)**
+|
+**[Copilot Instructions](/projects/ai/copilot-instructions/)**
+|
+**[Planner Instructions](/projects/ai/planner-instructions/)**
+|
+**[Reviewer Instructions](/projects/ai/reviewer-instructions/)**
+
+---
+
 ## The Persona Workflow
 
 The analyser is designed to be used alongside a three-persona AI workflow. Each persona runs in a new chat session
 with the appropriate model tier, and the instruction files below are loaded at the start of every session to ensure
 consistent engineering standards regardless of which model is running.
 
-- **[Reviewer](/projects/ai/reviewer-instructions/)** — premium model; reads all source, tests, and docs; writes a prioritised `issues.md` report; strictly read-only.
-- **[Planner](/projects/ai/planner-instructions/)** — premium model; reads issues and change-log; writes a deterministic `plan.md`; never touches code.
-- **[Coder](/projects/ai/coder-instructions/)** — free or standard model; executes the plan exactly; updates the change-log after every subtask.
-
-The supporting reference files that every persona reads:
-
-- **[copilot-instructions](/projects/ai/copilot-instructions/)** — universal coding standards applied across all sessions.
-- **[best-practice](/projects/ai/best-practice/)** — the engineering handbook covering patterns, testing, architecture, and package structure.
+- **Reviewer** — premium model; reads all source, tests, and docs; writes a prioritised `issues.md` report; strictly
+  read-only.
+- **Planner** — premium model; reads issues and change-log; writes a deterministic `plan.md`; never touches code.
+- **Coder** — free or standard model; executes the plan exactly; updates the change-log after every subtask.
 
 ### Reviewer Prompt
 

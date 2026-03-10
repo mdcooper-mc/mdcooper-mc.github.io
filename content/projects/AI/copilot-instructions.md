@@ -3,7 +3,6 @@ title = "Copilot Instructions"
 description = "Universal coding standards, naming, structure, and tooling rules applied by all AI personas."
 +++
 
-```markdown
 - Select the single best option; research before responding and use the internet when needed for correctness.
 - Never run scripts or commands without explicit permission; provide PowerShell commands as code blocks only when
   permitted.
@@ -67,6 +66,5 @@ description = "Universal coding standards, naming, structure, and tooling rules 
 - Some tools are restricted; do not try to use them: `run_in_terminal`, `get_errors`.
 - Do not do workarounds or ignore tests or filter content; fix the code, ask to delete files and provide the commands,
   or ask to update the plan if it is wrong; do not try to bypass the plan or the tests.
-```
 
 

@@ -43,7 +43,7 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   times a week — creating a single, auditable platform release from independently versioned services without monorepo
   coupling.
 
-- **AI-Enabled Delivery Pipelines**  
+- **[AI-Enabled Delivery Pipelines](/platforms/real-time-orchestration/)**  
   Embedding governance, resilience, and reproducibility into model-driven workflows for regulated environments. Supports
   auditability and runtime introspection.
 
@@ -57,6 +57,15 @@ mechanical complexity from human intent, allowing systems to remain composable, 
   A GPU‑accelerated, CSV‑driven framework for enriching large image and video datasets. Generates cached thumbnails,
   assigns CLIP‑based semantic labels, detects people and animals, and applies a hybrid AI/heuristic model to flag junk
   content — all in a modular, reproducible pipeline.
+
+- **[First-Principles AI Engineering](/ai/)**  
+  A technical portfolio of core AI development:
+  - **[Language Modelling](/ai/language-modelling/)**: Scaling from bigrams to WaveNets.
+  - **[Scalar Autograd Engines](/ai/autograd-engine/)**: Building backpropagation from scratch.
+  - **[Transformers & GPT-2](/ai/transformer-architecture/)**: Causal self-attention and KQV retrieval.
+  - **[Distributed Training](/ai/distributed-training-infrastructure/)**: Orchestrating DDP and mixed-precision on GPU
+    clusters.
+  - **[AI Core Concepts](/ai/core-concepts/)**: A deep dive into the mathematical foundations of modern AI.
 
 - **[Murex On‑Demand](/about/murex/)**  
   A containerised, CI/CD‑driven Murex platform enabling rapid, reproducible environment provisioning for development,

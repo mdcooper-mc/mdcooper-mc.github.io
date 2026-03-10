@@ -11,6 +11,7 @@ info = "Cloud-Native Finance & AI Engineer"
 avatarURL = "images/me-toon.png"
 avatarLink = "/about"
 titleLink = "/about"
+math = true
 
 # -------------------
 #[module]
@@ -40,9 +41,14 @@ weight = 6
 
 [menu]
 [[menu.main]]
+name = "AI"
+url = "/ai/"
+weight = 100
+
+[[menu.main]]
 name = "Projects"
 url = "/projects/"
-weight = 1
+weight = 200
 
 [[menu.main]]
 name = "Platforms"

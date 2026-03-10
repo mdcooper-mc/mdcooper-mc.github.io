@@ -106,9 +106,13 @@
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
+
+
+          <li class="navigation-item">
+              <a class="navigation-link " href="/ai/">AI</a>
+          </li>
+
+          <li class="navigation-item">
               <a class="navigation-link " href="/projects/">Projects</a>
             </li>
           
@@ -222,6 +226,26 @@ class: its name, base classes, decorators, and a list of methods with their sign
 and return types. Functions defined at module level are captured with the same detail. This is sufficient for a
 premium model to assess architecture, identify violations, and plan interfaces-first changes without ambiguity.</p>
 <hr>
+      <h2 id="ai-strategies--instruction-frameworks">
+          AI Strategies &amp; Instruction Frameworks
+          <a class="heading-link" href="#ai-strategies--instruction-frameworks">
+              <i aria-hidden="true" class="fa-solid fa-link" title="Link to heading"></i>
+              <span class="sr-only">Link to heading</span>
+          </a>
+      </h2>
+      <p>Beyond model training, I have developed specialised instruction frameworks to ensure high-quality,
+          architectural-aware
+          code generation and review.</p>
+      <p><strong><a href="/projects/ai/best-practice/">AI Best Practices</a></strong>
+          |
+          <strong><a href="/projects/ai/coder-instructions/">Coder Instructions</a></strong>
+          |
+          <strong><a href="/projects/ai/copilot-instructions/">Copilot Instructions</a></strong>
+          |
+          <strong><a href="/projects/ai/planner-instructions/">Planner Instructions</a></strong>
+          |
+          <strong><a href="/projects/ai/reviewer-instructions/">Reviewer Instructions</a></strong></p>
+      <hr>
 <h2 id="the-persona-workflow">
   The Persona Workflow
   <a class="heading-link" href="#the-persona-workflow">
@@ -233,14 +257,16 @@ premium model to assess architecture, identify violations, and plan interfaces-f
 with the appropriate model tier, and the instruction files below are loaded at the start of every session to ensure
 consistent engineering standards regardless of which model is running.</p>
 <ul>
-<li><strong><a href="/projects/ai/reviewer-instructions/" >Reviewer</a></strong> — premium model; reads all source, tests, and docs; writes a prioritised <code>issues.md</code> report; strictly read-only.</li>
-<li><strong><a href="/projects/ai/planner-instructions/" >Planner</a></strong> — premium model; reads issues and change-log; writes a deterministic <code>plan.md</code>; never touches code.</li>
-<li><strong><a href="/projects/ai/coder-instructions/" >Coder</a></strong> — free or standard model; executes the plan exactly; updates the change-log after every subtask.</li>
-</ul>
-<p>The supporting reference files that every persona reads:</p>
-<ul>
-<li><strong><a href="/projects/ai/copilot-instructions/" >copilot-instructions</a></strong> — universal coding standards applied across all sessions.</li>
-<li><strong><a href="/projects/ai/best-practice/" >best-practice</a></strong> — the engineering handbook covering patterns, testing, architecture, and package structure.</li>
+    <li><strong>Reviewer</strong> — premium model; reads all source, tests, and docs; writes a prioritised <code>issues.md</code>
+        report; strictly
+        read-only.
+    </li>
+    <li><strong>Planner</strong> — premium model; reads issues and change-log; writes a deterministic
+        <code>plan.md</code>; never touches code.
+    </li>
+    <li><strong>Coder</strong> — free or standard model; executes the plan exactly; updates the change-log after every
+        subtask.
+    </li>
 </ul>
 <h3 id="reviewer-prompt">
   Reviewer Prompt
@@ -335,13 +361,34 @@ Interfaces-First Planning | Change-Log Discipline | Issues-Driven Iteration | Th
   </article>
 </section>
 
-  
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
+              rel="stylesheet">
+
+        <script crossorigin="anonymous" defer
+                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+        <script crossorigin="anonymous" defer
+                integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+                onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
 
     </div>
 
     <footer style="text-align:center; font-size: 11px; color: rgb(0, 0, 0);">
     <div>
-        <p>© 2025 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a CV</a></p>
+        <p>&copy; 2025 Mark Cooper - <a
+                href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+            CV</a></p>
     </div>
 </footer>
   </main>
