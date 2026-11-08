@@ -3,7 +3,7 @@ title = "Murex Engineering"
 description = "Strategic delivery across Murex platforms"
 +++
 
-I’ve led **Murex Trading engineering** across Société Générale, Rabobank, Daiwa, LSEG, and the London Stock Exchange —
+I’ve led **Murex Trading engineering** across global tier-1 investment banks, multinational financial institutions, and regulated exchange venues —
 modernising trade feeds, upgrading environments, and embedding secure authentication and reporting into high‑volume
 trading infrastructure. My work spans FX/MM, derivatives, and fixed income workflows, with deep integration across
 pre‑trade, post‑trade, and risk domains. Whether orchestrating FIX, SWIFT, and FpML flows into MxMLExchange or

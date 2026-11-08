@@ -34,13 +34,35 @@
     {{ partial "footer.html" . }}
   </main>
 
-  {{ if .HasShortcode "mermaid" }}
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
-    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
-    mermaid.initialize({ startOnLoad: true });
+    (function() {
+      function renderMermaid() {
+        var blocks = document.querySelectorAll("pre code.language-mermaid, pre.mermaid, div.mermaid");
+        if (blocks.length === 0) return;
+        var isDark = document.body.classList.contains("colorscheme-dark") ||
+          (document.body.classList.contains("colorscheme-auto") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: isDark ? "dark" : "default",
+          securityLevel: "loose"
+        });
+        blocks.forEach(function(code) {
+          var pre = code.tagName.toLowerCase() === "code" ? code.parentElement : code;
+          var container = document.createElement("div");
+          container.className = "mermaid";
+          container.textContent = code.textContent;
+          pre.parentNode.replaceChild(container, pre);
+        });
+        mermaid.run();
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", renderMermaid);
+      } else {
+        renderMermaid();
+      }
+    })();
   </script>
-  {{ end }}
 
   {{ if .Site.Params.disableDefaultJsScripts }}
   {{ if not .Site.Params.hideColorSchemeToggle }}
@@ -142,5 +164,6 @@
   {{ end }}
 
   {{- partial "body/extensions" . -}}
+  {{ partial "tour.html" . }}
 </body>
 </html>

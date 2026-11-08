@@ -5,6 +5,8 @@
       <a href="{{ .url }}" aria-label="{{ .name }}">
         {{ if .icon }}
         <i class="{{ .icon }}" aria-hidden="true"></i>
+        {{ else if .image }}
+        <img src="{{ .image | relURL }}" alt="{{ .name }}" style="height: 1.2em; vertical-align: middle;" />
         {{ else }}
         {{ .name }}
         {{ end }}

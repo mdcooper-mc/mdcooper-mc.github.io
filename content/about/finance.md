@@ -27,8 +27,8 @@ strategic asset — engineered to extract insight, enforce governance, and adapt
 
 ## Strategic Execution
 
-I’ve delivered architecture and engineering solutions for firms including Jefferies, Citi, BlackRock, and Société
-Générale — focusing on real-time trade processing, exposure tracking, and margining. My platforms are engineered for
+I’ve delivered architecture and engineering solutions across global tier-1 investment banks, market makers, and asset
+managers — focusing on real-time trade processing, exposure tracking, and margining. My platforms are engineered for
 reproducibility and strategic reuse, ensuring that complex financial workflows remain observable, auditable, and
 strategically impactful.
 

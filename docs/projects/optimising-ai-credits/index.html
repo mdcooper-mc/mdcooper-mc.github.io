@@ -1,452 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>
-  MPC Project Analyser · Mark Cooper
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="Mark Cooper">
-<meta name="description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively.">
-<meta name="keywords" content="">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="MPC Project Analyser">
-  <meta name="twitter:description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively.">
-
-<meta property="og:url" content="https://mdcooper-mc.github.io/projects/optimising-ai-credits/">
-  <meta property="og:site_name" content="Mark Cooper">
-  <meta property="og:title" content="MPC Project Analyser">
-  <meta property="og:description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively.">
-  <meta property="og:locale" content="en_uk">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="projects">
-    <meta property="article:tag" content="AI">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Architecture">
-
-
-
-
-<link rel="canonical" href="https://mdcooper-mc.github.io/projects/optimising-ai-credits/">
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css" integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  <script>
-    (function() {
-      var theme = localStorage.getItem("colorscheme");
-      if (theme) {
-        document.body.classList.remove('colorscheme-light', 'colorscheme-dark', 'colorscheme-auto');
-        document.body.classList.add('colorscheme-' + theme);
-      }
-    })();
-  </script>
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="https://mdcooper-mc.github.io/">
-      Mark Cooper
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/ai/">AI</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/platforms/">Platforms</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/about/">About</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-  <section class="container page">
-  <article>
-    <header>
-      <h1 class="title">
-        <a class="title-link" href="https://mdcooper-mc.github.io/projects/optimising-ai-credits/">
-          MPC Project Analyser
-        </a>
-      </h1>
-    </header>
-
-    <h2 id="mpc-project-analyser">
-  MPC Project Analyser
-  <a class="heading-link" href="#mpc-project-analyser">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The <strong>MPC Project Analyser</strong> is a deterministic, batch-based analysis engine written in Python. It bridges the gap
+<!doctype html><html lang=en><head><title>MPC Project Analyser · Mark Cooper</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Mark Cooper"><meta name=description content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively."><meta name=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="MPC Project Analyser"><meta name=twitter:description content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively."><meta property="og:url" content="https://mdcooper-mc.github.io/projects/optimising-ai-credits/"><meta property="og:site_name" content="Mark Cooper"><meta property="og:title" content="MPC Project Analyser"><meta property="og:description" content="A deterministic, batch-based Python analysis engine that generates compact structural metadata to enable AI agents to plan software changes safely and cost-effectively."><meta property="og:locale" content="en_gb"><meta property="og:type" content="article"><meta property="article:section" content="projects"><meta property="article:tag" content="AI"><meta property="article:tag" content="Python"><meta property="article:tag" content="Architecture"><link rel=canonical href=https://mdcooper-mc.github.io/projects/optimising-ai-credits/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css integrity="sha256-rUj0didZdIhb3APVJR482+FnjFSmP/dyN2sO0q3EaN0=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><script>(function(){var e=localStorage.getItem("colorscheme");e&&(document.body.classList.remove("colorscheme-light","colorscheme-dark","colorscheme-auto"),document.body.classList.add("colorscheme-"+e))})()</script><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://mdcooper-mc.github.io/>Mark Cooper
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/ai/>AI</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/projects/coopers-way/>Cooper's Way</a></li><li class=navigation-item><a class=navigation-link href=/platforms/>Platforms</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1 class=title><a class=title-link href=https://mdcooper-mc.github.io/projects/optimising-ai-credits/>MPC Project Analyser</a></h1></header><h2 id=mpc-project-analyser>MPC Project Analyser
+<a class=heading-link href=#mpc-project-analyser><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The <strong>MPC Project Analyser</strong> is a deterministic, batch-based analysis engine written in Python. It bridges the gap
 between expensive, high-reasoning AI models and cost-effective execution models. Rather than feeding raw source code
 to every AI agent, the analyser generates compact structural metadata — AST signatures, file trees, documentation
-maps — that enables agents to plan software changes safely and efficiently without consuming unnecessary context.</p>
-<p>The driving insight is that most AI credits are wasted when a single premium model does everything: deep reasoning,
+maps — that enables agents to plan software changes safely and efficiently without consuming unnecessary context.</p><p>The driving insight is that most AI credits are wasted when a single premium model does everything: deep reasoning,
 mechanical coding, test generation, and repetitive fixes. By assigning distinct <strong>personas</strong> to different model tiers
 and switching between them deliberately, the same quality of output is achievable at a fraction of the cost. Premium
 models think — they review completed work and produce architectural plans. Free or standard models build — they
 execute the plan, write code, and update logs. Each phase runs in its own <strong>new chat session</strong> so context stays
-clean and no premium credits are spent on deterministic work a free model can handle.</p>
-<hr>
-<h2 id="engineering-principles">
-  Engineering Principles
-  <a class="heading-link" href="#engineering-principles">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The analyser is built on principles that make its output reliable enough for AI consumption.</p>
-<p><strong>Structure-first</strong> means the system analyses the <em>shape</em> of code — classes, functions, namespaces, call signatures
+clean and no premium credits are spent on deterministic work a free model can handle.</p><hr><h2 id=engineering-principles>Engineering Principles
+<a class=heading-link href=#engineering-principles><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The analyser is built on principles that make its output reliable enough for AI consumption.</p><p><strong>Structure-first</strong> means the system analyses the <em>shape</em> of code — classes, functions, namespaces, call signatures
 — rather than its raw text. This produces compact, token-efficient output that communicates intent without noise.
 <strong>Deterministic output</strong> ensures that given the same input the analyser produces bit-exact output every time, which
 is a prerequisite for AI agents that need to compare runs or detect drift. <strong>Interface-driven design</strong> means all
 dependencies are injected via <code>Protocol</code> abstractions; the core never references concrete classes directly.
 <strong>Single Responsibility</strong> is enforced at the package level: <code>capabilities</code>, <code>configuration</code>, and <code>output</code> are
 separate domains. <strong>Zero side effects</strong> means the analyser reads code but never modifies it; data goes to <code>stdout</code>
-and logs go to <code>stderr</code>.</p>
-<hr>
-<h2 id="architecture">
-  Architecture
-  <a class="heading-link" href="#architecture">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The system is partitioned into five domains that build on each other cleanly.</p>
-<p>The <strong>error and logging infrastructure</strong> was established first. A typed exception hierarchy —
+and logs go to <code>stderr</code>.</p><hr><h2 id=architecture>Architecture
+<a class=heading-link href=#architecture><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The system is partitioned into five domains that build on each other cleanly.</p><p>The <strong>error and logging infrastructure</strong> was established first. A typed exception hierarchy —
 <code>ContentAnalyserError</code>, <code>ConfigurationError</code>, <code>FileSystemError</code> — ensures failures are granular and catchable.
-Logging is centralised and idempotent, writing exclusively to <code>stderr</code> so <code>stdout</code> remains clean for JSON output.</p>
-<p>The <strong>configuration system</strong> treats configuration as a domain model rather than a dictionary. <code>AnalysisConfig</code> and
+Logging is centralised and idempotent, writing exclusively to <code>stderr</code> so <code>stdout</code> remains clean for JSON output.</p><p>The <strong>configuration system</strong> treats configuration as a domain model rather than a dictionary. <code>AnalysisConfig</code> and
 <code>OperationConfig</code> provide type-safe wrappers around user input. A validated JSON loader acts as the gateway,
-applying the fail-fast principle by rejecting invalid schemas at startup before any analysis begins.</p>
-<p>The <strong>capability engine</strong> is the core of the system and is built on the Strategy pattern. A registry of named
+applying the fail-fast principle by rejecting invalid schemas at startup before any analysis begins.</p><p>The <strong>capability engine</strong> is the core of the system and is built on the Strategy pattern. A registry of named
 capabilities allows the CLI to be open for extension without modification. <code>FileTree</code> generates nested directory
 maps to visualise project layout. <code>FileWalker</code> extracts metadata — line counts, file sizes, types — for resource
 estimation. <code>CodeTree</code> uses Python&rsquo;s <code>ast</code> module to parse source into high-level signatures (classes, methods,
 functions, parameters) while skipping implementation bodies entirely, minimising token usage for downstream AI
-consumers.</p>
-<p>The <strong>CLI and output layer</strong> is intentionally thin. A <code>main.py</code> orchestrator using <code>argparse</code> supports two modes:
+consumers.</p><p>The <strong>CLI and output layer</strong> is intentionally thin. A <code>main.py</code> orchestrator using <code>argparse</code> supports two modes:
 schema mode outputs the validator schema when called with no arguments; analysis mode executes the requested
 operations when passed a <code>--config</code> flag. A <code>JsonResultFormatter</code> ensures all data is serialised to strictly
-formatted, deterministic JSON.</p>
-<hr>
-<h2 id="ast-metadata">
-  AST Metadata
-  <a class="heading-link" href="#ast-metadata">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The Abstract Syntax Tree (AST) is a structured representation of source code produced by the language parser before
+formatted, deterministic JSON.</p><hr><h2 id=ast-metadata>AST Metadata
+<a class=heading-link href=#ast-metadata><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The Abstract Syntax Tree (AST) is a structured representation of source code produced by the language parser before
 compilation or execution. Rather than treating code as raw text, the AST exposes it as a tree of named nodes —
 modules, classes, functions, parameters, decorators, return types — each with precise location information. The
 analyser walks this tree and extracts only the structural signatures, discarding all implementation bodies. The
-result is a compact, token-efficient summary of what the code <em>does</em> without encoding how it does it.</p>
-<p>This matters for AI consumption because large language models have finite context windows. Sending raw source files
+result is a compact, token-efficient summary of what the code <em>does</em> without encoding how it does it.</p><p>This matters for AI consumption because large language models have finite context windows. Sending raw source files
 fills that window with implementation detail that is irrelevant to planning. An AST summary for a module with ten
 classes and fifty methods might consume a few hundred tokens where the original source would consume tens of
 thousands. The planner can reason about the entire codebase structure in a single context, identify what needs to
-change, and write precise subtasks — all without ever seeing a line of implementation.</p>
-<p>The metadata produced by <code>CodeTree</code> for each source file includes the module path, top-level imports, and for each
+change, and write precise subtasks — all without ever seeing a line of implementation.</p><p>The metadata produced by <code>CodeTree</code> for each source file includes the module path, top-level imports, and for each
 class: its name, base classes, decorators, and a list of methods with their signatures, parameter names, type hints,
 and return types. Functions defined at module level are captured with the same detail. This is sufficient for a
-premium model to assess architecture, identify violations, and plan interfaces-first changes without ambiguity.</p>
-<hr>
-<h2 id="ai-strategies--instruction-frameworks">
-  AI Strategies &amp; Instruction Frameworks
-  <a class="heading-link" href="#ai-strategies--instruction-frameworks">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>Beyond model training, I have developed specialised instruction frameworks to ensure high-quality, architectural-aware
-code generation and review.</p>
-<p><strong><a href="/projects/ai/best-practice/" >AI Best Practices</a></strong>
+premium model to assess architecture, identify violations, and plan interfaces-first changes without ambiguity.</p><hr><h2 id=ai-strategies--instruction-frameworks>AI Strategies & Instruction Frameworks
+<a class=heading-link href=#ai-strategies--instruction-frameworks><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Beyond model training, I have developed specialised instruction frameworks to ensure high-quality, architectural-aware
+code generation and review.</p><p><strong><a href=/projects/ai/best-practice/>AI Best Practices</a></strong>
 |
-<strong><a href="/projects/ai/coder-instructions/" >Coder Instructions</a></strong>
+<strong><a href=/projects/ai/coder-instructions/>Coder Instructions</a></strong>
 |
-<strong><a href="/projects/ai/copilot-instructions/" >Copilot Instructions</a></strong>
+<strong><a href=/projects/ai/copilot-instructions/>Copilot Instructions</a></strong>
 |
-<strong><a href="/projects/ai/planner-instructions/" >Planner Instructions</a></strong>
+<strong><a href=/projects/ai/planner-instructions/>Planner Instructions</a></strong>
 |
-<strong><a href="/projects/ai/reviewer-instructions/" >Reviewer Instructions</a></strong></p>
-<hr>
-<h2 id="the-persona-workflow">
-  The Persona Workflow
-  <a class="heading-link" href="#the-persona-workflow">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The analyser is designed to work in tandem with a three‑persona AI workflow, where each persona operates within a fresh chat session using the most appropriate model tier. To maintain consistent engineering standards, specific instruction files are loaded at the beginning of every session.</p>
-<p>The <strong>Reviewer</strong> persona uses a premium model to perform a comprehensive, read‑only analysis of all source code, tests, and documentation, resulting in a prioritised <code>issues.md</code> report. The <strong>Planner</strong>, also a premium model, consumes these issues and the existing change‑log to produce a deterministic <code>plan.md</code> without ever modifying the code itself. Finally, the <strong>Coder</strong> persona — which can run on a free or standard model — executes the plan exactly as written, updating the change‑log after each successfully completed subtask.</p>
-<h3 id="reviewer-prompt">
-  Reviewer Prompt
-  <a class="heading-link" href="#reviewer-prompt">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You are the Reviewer. Read the reviewer-instructions, copilot-instructions, and .github/best-practice.md first.
-</span></span><span style="display:flex;"><span>Then read all source, test, config, and documentation files including plan.md and change-log.md. Produce a
-</span></span><span style="display:flex;"><span>prioritised best-practice report in reference/documentation/planning/issues.md covering architectural violations,
-</span></span><span style="display:flex;"><span>design patterns, package structure, and quality issues — with severity, violated standard, impact, and next steps
-</span></span><span style="display:flex;"><span>for each. Your role is strictly read-only. Do not modify code, tests, plans, or create any file other than issues.md.
-</span></span></code></pre></div><h3 id="planner-prompt">
-  Planner Prompt
-  <a class="heading-link" href="#planner-prompt">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You are the Planner. Read the planner-instructions, copilot-instructions, and .github/best-practice.md first.
-</span></span><span style="display:flex;"><span>Then read reference/documentation/planning/issues.md, reference/documentation/change-log.md, and
-</span></span><span style="display:flex;"><span>reference/session-summary.md. Remove completed tasks from the existing plan and produce
-</span></span><span style="display:flex;"><span>reference/documentation/planning/plan.md with 3–10 milestone tasks and no more than 100 subtasks. Write every
-</span></span><span style="display:flex;"><span>subtask interfaces-first using the strict subtask format. Resolve all issues from issues.md before adding new
-</span></span><span style="display:flex;"><span>work. Do not modify any file except plan.md. Finish the plan with: &#34;Ready for Coder execution&#34;.
-</span></span></code></pre></div><h3 id="coder-prompt">
-  Coder Prompt
-  <a class="heading-link" href="#coder-prompt">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You are the Coder. Read the coder-instructions, copilot-instructions, and .github/best-practice.md first. Fix
-</span></span><span style="display:flex;"><span>all issues in reference/documentation/planning/issues.md, then execute every task in
-</span></span><span style="display:flex;"><span>reference/documentation/planning/plan.md exactly as written — interfaces before implementations, one task at a
-</span></span><span style="display:flex;"><span>time. Update reference/documentation/change-log.md with an ISO-8601 entry after each subtask. Do not modify
-</span></span><span style="display:flex;"><span>planning files, add unrequested features, or ask questions.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Before moving to the next task, verify your work against the coder-instructions: correct interfaces, no
-</span></span><span style="display:flex;"><span>placeholder comments, tests written and passing, change-log updated, and size limits respected. Summarise
-</span></span><span style="display:flex;"><span>completed subtasks and confirm before starting the next task.
-</span></span></code></pre></div><hr>
-<h2 id="developer-guidelines">
-  Developer Guidelines
-  <a class="heading-link" href="#developer-guidelines">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The project layout mirrors the domain structure. <code>src/content_analyser/</code> contains source code partitioned by
+<strong><a href=/projects/ai/reviewer-instructions/>Reviewer Instructions</a></strong></p><hr><h2 id=the-persona-workflow>The Persona Workflow
+<a class=heading-link href=#the-persona-workflow><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The analyser is designed to work in tandem with a three‑persona AI workflow, where each persona operates within a fresh chat session using the most appropriate model tier. To maintain consistent engineering standards, specific instruction files are loaded at the beginning of every session.</p><p>The <strong>Reviewer</strong> persona uses a premium model to perform a comprehensive, read‑only analysis of all source code, tests, and documentation, resulting in a prioritised <code>issues.md</code> report. The <strong>Planner</strong>, also a premium model, consumes these issues and the existing change‑log to produce a deterministic <code>plan.md</code> without ever modifying the code itself. Finally, the <strong>Coder</strong> persona — which can run on a free or standard model — executes the plan exactly as written, updating the change‑log after each successfully completed subtask.</p><h3 id=reviewer-prompt>Reviewer Prompt
+<a class=heading-link href=#reviewer-prompt><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>You are the Reviewer. Read .github/reviewer-instructions.md, .github/copilot-instructions.md, and
+</span></span><span style=display:flex><span>.github/best-practice/*.md first. Then read all source, test, config, and script files, plus
+</span></span><span style=display:flex><span>reference/documentation/planning/plan.md, reference/documentation/change-log.md,
+</span></span><span style=display:flex><span>reference/documentation/project-overview.md, and reference/documentation/machine-capabilities.md. Produce a
+</span></span><span style=display:flex><span>complete, prioritised best-practice report in reference/documentation/planning/issues.md with CRITICAL, HIGH,
+</span></span><span style=display:flex><span>MEDIUM, and LOW sections — each issue must include title, category, location, severity, problem, standard
+</span></span><span style=display:flex><span>violated, impact, and next steps. Your role is strictly read-only. Do not modify code, tests, plans, or create
+</span></span><span style=display:flex><span>any file other than issues.md. End the file with: &#34;Review complete — Ready for PLANNER mode to address issues&#34;.
+</span></span></code></pre></div><h3 id=planner-prompt>Planner Prompt
+<a class=heading-link href=#planner-prompt><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>You are the Planner. Read .github/planner-instructions.md, .github/copilot-instructions.md, and
+</span></span><span style=display:flex><span>.github/best-practice/*.md first. Then read reference/documentation/planning/issues.md,
+</span></span><span style=display:flex><span>reference/documentation/change-log.md, and reference/documentation/session-summary.md. Check the current plan
+</span></span><span style=display:flex><span>for items that are not [DONE] and carry them over. Remove completed tasks and produce
+</span></span><span style=display:flex><span>reference/documentation/planning/plan.md with 3–10 milestone tasks and no more than 100 subtasks. Write every
+</span></span><span style=display:flex><span>subtask interfaces-first using the strict subtask format. Resolve all issues from issues.md before adding new
+</span></span><span style=display:flex><span>work. Do not modify any file except plan.md. End the plan with: &#34;Ready for BASIC mode execution&#34;.
+</span></span></code></pre></div><h3 id=coder-prompt>Coder Prompt
+<a class=heading-link href=#coder-prompt><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>You are the Coder. Read .github/coder-instructions.md, .github/copilot-instructions.md, and
+</span></span><span style=display:flex><span>.github/best-practice/*.md first. Then read reference/documentation/planning/issues.md and
+</span></span><span style=display:flex><span>reference/documentation/planning/plan.md. Execute every task exactly as written — interfaces before
+</span></span><span style=display:flex><span>implementations, one task at a time. Update reference/documentation/change-log.md with an ISO-8601 entry after
+</span></span><span style=display:flex><span>each subtask. Do not modify planning files, add unrequested features, or ask questions. Mark completed items
+</span></span><span style=display:flex><span>as [DONE]. Before moving to the next task, verify: correct interfaces, no placeholder comments, tests written
+</span></span><span style=display:flex><span>and passing, change-log updated, and size limits respected. Summarise completed subtasks and confirm before
+</span></span><span style=display:flex><span>starting the next task. End with: &#34;Ready for PLANNER mode.&#34;
+</span></span></code></pre></div><hr><h2 id=developer-guidelines>Developer Guidelines
+<a class=heading-link href=#developer-guidelines><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The project layout mirrors the domain structure. <code>src/content_analyser/</code> contains source code partitioned by
 domain. <code>tests/</code> mirrors the source structure exactly — one test class per source class, in the same relative
-path. <code>reference/</code> holds documentation and planning artefacts.</p>
-<p>Tests follow AAA (Arrange, Act, Assert) with one test method per use case. Internal logic is never mocked; only
-external systems and expensive operations are isolated. Temporary test artefacts go to <code>out/tests/&lt;domain&gt;/</code> to
-keep the workspace clean.</p>
-<p>The contribution workflow is: check <code>issues.md</code> for prioritised tasks, follow <code>plan.md</code> strictly, update
-<code>change-log.md</code> with every significant change.</p>
-<hr>
-<h2 id="roadmap">
-  Roadmap
-  <a class="heading-link" href="#roadmap">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>The functional core is complete. Current focus is test hygiene, docstring coverage on public interfaces, and
+path. <code>reference/</code> holds documentation and planning artefacts.</p><p>Tests follow AAA (Arrange, Act, Assert) with one test method per use case. Internal logic is never mocked; only
+external systems and expensive operations are isolated. Temporary test artefacts go to <code>out/tests/&lt;domain>/</code> to
+keep the workspace clean.</p><p>The contribution workflow is: check <code>issues.md</code> for prioritised tasks, follow <code>plan.md</code> strictly, update
+<code>change-log.md</code> with every significant change.</p><hr><h2 id=roadmap>Roadmap
+<a class=heading-link href=#roadmap><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The functional core is complete. Current focus is test hygiene, docstring coverage on public interfaces, and
 decoupling the CLI from concrete implementations. Planned extensions include multi-language <code>CodeTree</code> support
 (TypeScript, Java, C#), a Markdown heading analyser for documentation structure extraction, further JSON
-compression for token optimisation, and a <code>pip</code>-publishable distribution workflow.</p>
-<hr>
-<h2 id="skills-and-technologies">
-  Skills and Technologies
-  <a class="heading-link" href="#skills-and-technologies">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<ul>
-<li><strong>Python Development</strong>: AST Parsing, JSON Schema Validation, Pytest (AAA pattern), Typed Exception Hierarchies.</li>
-<li><strong>AI Strategy</strong>: Persona-driven Development, Premium Model Routing, Token-efficient Metadata, Context Window Optimization.</li>
-<li><strong>Architecture &amp; Patterns</strong>: Strategy Pattern, Capability Registry, Interface-driven Design, Domain-driven Packages.</li>
-<li><strong>Software Engineering</strong>: Pure Functions, Fail-fast Configuration, Structured Logging, Deterministic Output.</li>
-</ul>
-
-  </article>
-</section>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
-  
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
-    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
-    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body,
-      {
-        delimiters: [
-          {left: '$$', right: '$$', display:true},
-          {left: '$', right: '$', display:false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ]
-      }
-    );"></script>
-
-    </div>
-
-    <style>
-  .footer {
-    color: #000;
-  }
-  .footer a {
-    color: #1565c0;
-    text-decoration: underline;
-  }
-  body.colorscheme-dark .footer {
-    color: #dadada !important;
-  }
-  body.colorscheme-dark .footer a {
-    color: #448aff !important;
-  }
-</style>
-<footer class="footer" style="text-align:center; font-size: 11px;">
-    <div>
-        <p>&copy; 2026 Mark Cooper - <a
-                href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
-            CV</a></p>
-    </div>
-</footer>
-
-  </main>
-
-  
-
-  
-  
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-</html>
+compression for token optimisation, and a <code>pip</code>-publishable distribution workflow.</p><hr><h2 id=skills-and-technologies>Skills and Technologies
+<a class=heading-link href=#skills-and-technologies><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><ul><li><strong>Python Development</strong>: AST Parsing, JSON Schema Validation, Pytest (AAA pattern), Typed Exception Hierarchies.</li><li><strong>AI Strategy</strong>: Persona-driven Development, Premium Model Routing, Token-efficient Metadata, Context Window Optimization.</li><li><strong>Architecture & Patterns</strong>: Strategy Pattern, Capability Registry, Interface-driven Design, Domain-driven Packages.</li><li><strong>Software Engineering</strong>: Pure Functions, Fail-fast Configuration, Structured Logging, Deterministic Output.</li></ul></article></section><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></div><style>.footer{color:#000}.footer a{color:#1565c0;text-decoration:underline}body.colorscheme-dark .footer{color:#dadada!important}body.colorscheme-dark .footer a{color:#448aff!important}</style><footer class=footer style=text-align:center;font-size:11px><div><p>&copy; 2026 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+CV</a></p></div></footer></main><script src=https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js></script><script>(function(){function e(){var t,e=document.querySelectorAll("pre code.language-mermaid, pre.mermaid, div.mermaid");if(e.length===0)return;t=document.body.classList.contains("colorscheme-dark")||document.body.classList.contains("colorscheme-auto")&&window.matchMedia("(prefers-color-scheme: dark)").matches,mermaid.initialize({startOnLoad:!1,theme:t?"dark":"default",securityLevel:"loose"}),e.forEach(function(e){var n=e.tagName.toLowerCase()==="code"?e.parentElement:e,t=document.createElement("div");t.className="mermaid",t.textContent=e.textContent,n.parentNode.replaceChild(t,n)}),mermaid.run()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e()})()</script><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><style>.tour-cta-wrapper{margin:64px auto 40px;text-align:center}.tour-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 24px;font-size:13px;font-weight:600;letter-spacing:.3px;border-radius:30px;cursor:pointer;text-decoration:none!important;transition:all .25s cubic-bezier(.16,1,.3,1);border:1px solid #1565c0;background:#1565c0;color:#fff!important;box-shadow:0 4px 14px rgba(21,101,192,.25)}.tour-cta-btn:hover{background:#0d47a1;transform:translateY(-2px);box-shadow:0 6px 20px rgba(21,101,192,.4)}body.colorscheme-dark .tour-cta-btn,body.colorscheme-auto .tour-cta-btn{background:#2563eb;border-color:#2563eb;color:#fff!important}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-cta-btn{background:#3b82f6;border-color:#3b82f6;color:#fff!important;box-shadow:0 4px 16px rgba(59,130,246,.35)}}body.colorscheme-dark .tour-cta-btn{background:#3b82f6;border-color:#3b82f6;color:#fff!important;box-shadow:0 4px 16px rgba(59,130,246,.35)}.guided-tour-dock{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 18px 12px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.12);border-radius:40px;box-shadow:0 14px 40px rgba(0,0,0,.18),0 2px 8px rgba(0,0,0,8%);font-family:inherit;color:#212121;max-width:92vw;box-sizing:border-box;animation:tourFadeIn .35s ease-out}body.colorscheme-dark .guided-tour-dock{background:rgba(26,29,36,.95);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}@media(prefers-color-scheme:dark){body.colorscheme-auto .guided-tour-dock{background:rgba(26,29,36,.95);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}}@keyframes tourFadeIn{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}.tour-dock-header{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#616161}body.colorscheme-dark .tour-dock-header{color:#b0b0b0}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dock-header{color:#b0b0b0}}.tour-step-badge{display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,5%);transition:all .2s;user-select:none}.tour-step-badge:hover{background:rgba(0,0,0,.1)}body.colorscheme-dark .tour-step-badge{background:rgba(255,255,255,8%)}body.colorscheme-dark .tour-step-badge:hover{background:rgba(255,255,255,.15)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-step-badge{background:rgba(255,255,255,8%)}body.colorscheme-auto .tour-step-badge:hover{background:rgba(255,255,255,.15)}}.tour-progress-bar-container{width:100%;height:3px;background:rgba(0,0,0,8%);border-radius:2px;overflow:hidden;margin-bottom:2px}body.colorscheme-dark .tour-progress-bar-container{background:rgba(255,255,255,.12)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-progress-bar-container{background:rgba(255,255,255,.12)}}.tour-progress-bar-fill{height:100%;background:#1565c0;border-radius:2px;transition:width .3s ease}body.colorscheme-dark .tour-progress-bar-fill{background:#3b82f6}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-progress-bar-fill{background:#3b82f6}}.tour-controls-row{display:flex;align-items:center;gap:10px}.tour-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 14px;font-size:12px;font-weight:600;border-radius:20px;cursor:pointer;text-decoration:none!important;transition:all .2s ease;border:1px solid rgba(0,0,0,.15);background:#f5f5f5;color:#212121!important;user-select:none}.tour-btn:hover:not(.disabled){background:#e0e0e0;transform:translateY(-1px)}body.colorscheme-dark .tour-btn{background:#2a2e39;border-color:rgba(255,255,255,.14);color:#f0f0f0!important}body.colorscheme-dark .tour-btn:hover:not(.disabled){background:#383e4d;transform:translateY(-1px)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-btn{background:#2a2e39;border-color:rgba(255,255,255,.14);color:#f0f0f0!important}body.colorscheme-auto .tour-btn:hover:not(.disabled){background:#383e4d;transform:translateY(-1px)}}.tour-btn.disabled{opacity:.35;cursor:not-allowed;pointer-events:none}.tour-btn-home{padding:6px 12px;background:0 0;border-color:transparent;color:#555!important;font-size:13px}.tour-btn-home:hover{background:rgba(0,0,0,8%);color:#000!important}body.colorscheme-dark .tour-btn-home{color:#aaa!important}body.colorscheme-dark .tour-btn-home:hover{background:rgba(255,255,255,.12);color:#fff!important}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-btn-home{color:#aaa!important}body.colorscheme-auto .tour-btn-home:hover{background:rgba(255,255,255,.12);color:#fff!important}}.tour-btn-next{background:#1565c0;border-color:#1565c0;color:#fff!important}.tour-btn-next:hover:not(.disabled){background:#0d47a1;box-shadow:0 4px 12px rgba(21,101,192,.3)}body.colorscheme-dark .tour-btn-next{background:#3b82f6;border-color:#3b82f6;color:#fff!important}body.colorscheme-dark .tour-btn-next:hover:not(.disabled){background:#2563eb;box-shadow:0 4px 14px rgba(59,130,246,.45)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-btn-next{background:#3b82f6;border-color:#3b82f6;color:#fff!important}body.colorscheme-auto .tour-btn-next:hover:not(.disabled){background:#2563eb;box-shadow:0 4px 14px rgba(59,130,246,.45)}}.tour-dropdown{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:14px;width:340px;max-height:420px;overflow-y:auto;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,.14);border-radius:18px;box-shadow:0 20px 48px rgba(0,0,0,.24);padding:8px 0;display:none;z-index:100000}body.colorscheme-dark .tour-dropdown{background:rgba(26,29,36,.98);border-color:rgba(255,255,255,.18);box-shadow:0 20px 48px rgba(0,0,0,.7)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown{background:rgba(26,29,36,.98);border-color:rgba(255,255,255,.18);box-shadow:0 20px 48px rgba(0,0,0,.7)}}.tour-dropdown.show{display:block}.tour-dropdown-section-header{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1565c0}body.colorscheme-dark .tour-dropdown-section-header{color:#60a5fa}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-section-header{color:#60a5fa}}.tour-dropdown-item{display:flex;align-items:center;gap:10px;padding:7px 16px;font-size:12px;color:#333!important;text-decoration:none!important;transition:background .15s;cursor:pointer}body.colorscheme-dark .tour-dropdown-item{color:#ddd!important}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item{color:#ddd!important}}.tour-dropdown-item:hover{background:rgba(21,101,192,8%)}body.colorscheme-dark .tour-dropdown-item:hover{background:rgba(59,130,246,.14)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item:hover{background:rgba(59,130,246,.14)}}.tour-dropdown-item.active{font-weight:700;color:#1565c0!important;background:rgba(21,101,192,.12)}body.colorscheme-dark .tour-dropdown-item.active{color:#60a5fa!important;background:rgba(59,130,246,.2)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item.active{color:#60a5fa!important;background:rgba(59,130,246,.2)}}.tour-step-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700;background:rgba(0,0,0,6%);flex-shrink:0}body.colorscheme-dark .tour-step-num{background:rgba(255,255,255,.1)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-step-num{background:rgba(255,255,255,.1)}}.tour-dropdown-item.active .tour-step-num{background:#1565c0;color:#fff}body.colorscheme-dark .tour-dropdown-item.active .tour-step-num{background:#3b82f6;color:#0e1117}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item.active .tour-step-num{background:#3b82f6;color:#0e1117}}.tour-summary-card{position:fixed;bottom:24px;left:24px;z-index:99998;width:340px;max-width:calc(100vw - 48px);background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.12);border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.16),0 2px 8px rgba(0,0,0,6%);padding:14px 16px;box-sizing:border-box;animation:tourCardSlideIn .35s ease-out;transition:all .25s ease;font-family:inherit;color:#212121}body.colorscheme-dark .tour-summary-card{background:rgba(26,29,36,.95);border-color:rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.65),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-card{background:rgba(26,29,36,.95);border-color:rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.65),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}}@keyframes tourCardSlideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.tour-summary-header{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;user-select:none}.tour-summary-badge-group{display:flex;align-items:center;gap:6px}.tour-summary-section-pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:2px 8px;border-radius:10px;background:#1565c0;color:#fff}body.colorscheme-dark .tour-summary-section-pill{background:#2563eb;color:#fff}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-section-pill{background:#2563eb;color:#fff}}.tour-summary-toggle-btn{background:0 0;border:none;cursor:pointer;padding:4px;font-size:11px;color:#757575;transition:transform .25s ease,color .2s ease;display:flex;align-items:center;justify-content:center}.tour-summary-toggle-btn:hover{color:#212121}body.colorscheme-dark .tour-summary-toggle-btn{color:#9e9e9e}body.colorscheme-dark .tour-summary-toggle-btn:hover{color:#fff}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-toggle-btn{color:#9e9e9e}body.colorscheme-auto .tour-summary-toggle-btn:hover{color:#fff}}.tour-summary-card.collapsed .tour-summary-toggle-btn{transform:rotate(180deg)}.tour-summary-card.collapsed .tour-summary-body{display:none}.tour-summary-body{margin-top:10px}.tour-summary-title{font-size:13px;font-weight:700;line-height:1.35;margin-bottom:6px;color:#111}body.colorscheme-dark .tour-summary-title{color:#f5f5f5}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-title{color:#f5f5f5}}.tour-summary-text{font-size:12px;line-height:1.5;color:#424242;margin:0}body.colorscheme-dark .tour-summary-text{color:#c4c4c4}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-text{color:#c4c4c4}}@media(max-width:860px){.tour-summary-card{bottom:84px;left:16px;right:16px;width:auto;max-width:none}}</style><div id=guided-tour-dock class=guided-tour-dock style=display:none><div id=tour-dropdown class=tour-dropdown></div><div class=tour-dock-header><span id=tour-step-badge class=tour-step-badge title="Click to view all tour stops"><i class="fa-solid fa-compass" aria-hidden=true></i>
+<span id=tour-step-label>Step 1 of 22</span>
+<i class="fa-solid fa-caret-up" style=font-size:9px;opacity:.6></i>
+</span><span id=tour-step-title style=white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px></span></div><div class=tour-progress-bar-container><div id=tour-progress-fill class=tour-progress-bar-fill style=width:0%></div></div><div class=tour-controls-row><a id=tour-prev-btn class=tour-btn href=javascript:void(0) aria-label="Previous Stop"><i class="fa-solid fa-chevron-left" aria-hidden=true></i> Prev
+</a><a id=tour-home-btn class="tour-btn tour-btn-home" href=javascript:void(0) title="Return to Home / Exit Tour" aria-label=Home><i class="fa-solid fa-house" aria-hidden=true></i> Home
+</a><a id=tour-next-btn class="tour-btn tour-btn-next" href=javascript:void(0) aria-label="Next Stop">Next <i class="fa-solid fa-chevron-right" aria-hidden=true></i></a></div></div><div id=tour-summary-card class=tour-summary-card style=display:none><div class=tour-summary-header id=tour-summary-header title="Click to collapse / expand summary"><div class=tour-summary-badge-group><span id=tour-summary-section-pill class=tour-summary-section-pill><i class="fa-solid fa-briefcase" style=font-size:9px></i>
+<span id=tour-summary-section>EXECUTIVE BRIEF</span></span></div><button class=tour-summary-toggle-btn id=tour-summary-toggle aria-label="Toggle Summary Window">
+<i class="fa-solid fa-chevron-down"></i></button></div><div class=tour-summary-body id=tour-summary-body><div id=tour-summary-title class=tour-summary-title></div><p id=tour-summary-text class=tour-summary-text></p></div></div><script>(function(){const e=[{section:"About Me",title:"Executive Track Record",url:"/about/",summary:"Senior enterprise architect and cloud-native engineer with 20+ years delivering mission-critical trading, risk, and regulatory platforms across global Tier-1 investment banks, premier asset managers, and electronic trading venues."},{section:"About Me",title:"Software Engineering & Architecture",url:"/about/software/",summary:"Core engineering stack across Java, Go, C# / .NET, TypeScript, Python, and Kubernetes. Specialises in deterministic state engines, reactive message fabrics, and lock-free concurrency patterns."},{section:"About Me",title:"Capital Markets & Quantitative Finance",url:"/about/finance/",summary:"Deep quantitative domain expertise across OTC equity derivatives, total return swaps, pricing models, Greek sensitivities, and multi-jurisdiction regulatory regimes (Basel III/IV, FRTB, MiFID II, Dodd-Frank)."},{section:"About Me",title:"Murex MX.3 Ecosystem Expertise",url:"/about/murex/",summary:"Specialized integration and automation of Murex MX.3 platforms: trade workflow lifecycles, real-time simulation engines, Datamart reporting pipelines, and enterprise bot orchestration."},{section:"About Me",title:"Cloud Architecture & FinOps",url:"/about/cloud/",summary:"AWS and Kubernetes infrastructure engineering with an emphasis on cost efficiency. Architected multi-region environments and delivered over £2M in audited annual compute savings."},{section:"About Me",title:"AI/ML & Quantitative Systems",url:"/about/aiml/",summary:"Hands-on engineering across deep learning infrastructure: scalar autograd engines from first principles, custom transformer architectures, multi-GPU clusters, and enterprise LLM proxies."},{section:"Architecture",title:"Cooper's Way Architectural Doctrine",url:"/projects/coopers-way/",summary:"The overarching engineering philosophy across all projects: domain decoupling, immutable task payloads, blocking priority queues, dynamic auto-scaling worker pools, and fail-fast resilience."},{section:"Projects",title:"Production Equity Swap Pricing Engine",url:"/projects/production-equity-swap-pricing-engine/",summary:"High-performance C# / .NET derivatives pricing library enforcing ISDA conventions via the Type-State Pattern. Validated with a 97.8% pass rate across 5,000 live production positions."},{section:"Projects",title:"Enterprise Chromium Extension Ecosystem",url:"/projects/chromium-extension-ecosystem/",summary:"Manifest V3 monorepo of five browser extensions backed by a concurrent kernel featuring blocking priority queues, dynamic auto-scaling worker pools, and 162 unit tests."},{section:"Projects",title:"High-Performance Go Data Pipelines",url:"/projects/high-performance-go-data-pipelines/",summary:"Zero-allocation Go streaming engines, sync.Pool buffer recycling, bounded concurrent IMAP harvesters, and a sub-millisecond Chromium Native Messaging host."},{section:"Projects",title:"Murex Capital Markets AI Agent & Proxy",url:"/projects/murex-capital-markets-ai-agent/",summary:"Enterprise Microsoft Teams bot integration with a low-latency Go LLM proxy, dynamic context window pruning, and strict domain persona constraints preventing hallucinations."},{section:"Projects",title:"Cloud Cost Optimisation (£2M+ Savings)",url:"/projects/cloud-cost-optimisation/",summary:"Architectural tuning of Kubernetes compute on AWS EKS, workload scheduling, and reusable CI/CD pipelines delivering over £2M in verified annual infrastructure savings."},{section:"Projects",title:"Identity-Centric Encryption with Consent",url:"/projects/identity-centric-encryption-with-user-consent/",summary:"Record-level envelope encryption requiring explicit cryptographic end-user approval and tamper-evident audit logging for sensitive financial transactions."},{section:"Projects",title:"Declarative Service Framework",url:"/projects/service-framework/",summary:"Annotation-driven workflow orchestration engine built on Spring Boot, enabling declarative event routing and modular business service composition for critical operations."},{section:"Projects",title:"High-Throughput Reconciliation Framework",url:"/projects/reconciliation-framework/",summary:"Multi-threaded trade and cashflow reconciliation engine matching millions of transaction legs with deterministic rule pipelines and automated discrepancy routing."},{section:"Platforms",title:"Platforms Architecture Overview",url:"/platforms/",summary:"Platform engineering philosophy emphasizing decoupled components, composable services, and cache-first architectures designed for continuous high-volume throughput."},{section:"Platforms",title:"Real-Time Orchestration Platform",url:"/platforms/real-time-orchestration/",summary:"Low-latency distributed orchestration engine coordinating trade lifecycle events and external market feeds with strict ordering guarantees and fault isolation."},{section:"AI / ML",title:"AI Hub & Engineering Survey",url:"/ai/",summary:"Comprehensive engineering exploration of neural network architectures, custom autograd engines, distributed training topologies, and LLM inference optimization."},{section:"AI / ML",title:"Scalar Autograd Engine from First Principles",url:"/ai/autograd-engine/",summary:"First-principles DAG-based reverse-mode automatic differentiation engine in Python without external tensor libraries, demonstrating foundational mastery of backpropagation."},{section:"AI / ML",title:"Transformer Architecture from Scratch",url:"/ai/transformer-architecture/",summary:"Complete implementation of multi-head scaled dot-product self-attention, positional encoding, and decoder blocks built from scratch in PyTorch."},{section:"AI / ML",title:"Distributed Training Infrastructure",url:"/ai/distributed-training-infrastructure/",summary:"Multi-GPU data-parallel and pipeline-parallel cluster architectures, Ring-AllReduce gradient synchronisation, mixed precision (FP16/BF16), and GPU cache efficiency."},{section:"AI / ML",title:"Multimodal Document & Text Extraction",url:"/ai/image-text-extraction-v2/",summary:"Production multimodal pipeline combining vision encoders, OCR layout analysis, and structured schema extraction for high-accuracy financial document ingestion."}];window.startGuidedTour=function(){sessionStorage.setItem("guidedTourActive","true"),window.location.href=e[0].url},window.exitGuidedTour=function(){sessionStorage.removeItem("guidedTourActive"),window.location.href="/"};function t(e){if(!e)return"/";var t=e.split("?")[0].split("#")[0];return t.endsWith("/")||(t+="/"),t}function n(){var n,s,o,i,a,r,c,l,d,u,h,m,f,p,g,v,b,j,y,_,w,O,x,C,E=new URLSearchParams(window.location.search);if(E.get("tour")==="true"&&sessionStorage.setItem("guidedTourActive","true"),x=sessionStorage.getItem("guidedTourActive")==="true",h=t(window.location.pathname),h==="/"||h==="/index.html")return;if(!x)return;if(d=document.getElementById("guided-tour-dock"),o=document.getElementById("tour-summary-card"),!d)return;for(n=-1,a=0;a<e.length;a++)if(t(e[a].url)===h){n=a;break}n===-1&&(n=0),c=e[n],_=n+1,l=e.length,O=Math.round(_/l*100),g=document.getElementById("tour-step-label"),v=document.getElementById("tour-step-title"),p=document.getElementById("tour-progress-fill"),r=document.getElementById("tour-prev-btn"),i=document.getElementById("tour-next-btn"),b=document.getElementById("tour-home-btn"),j=document.getElementById("tour-step-badge"),s=document.getElementById("tour-dropdown"),g&&(g.textContent="Step "+_+" of "+l),v&&(v.textContent=c.title),p&&(p.style.width=O+"%"),r&&(n>0?(r.classList.remove("disabled"),r.onclick=function(){window.location.href=e[n-1].url}):r.classList.add("disabled")),b&&(b.onclick=function(){window.exitGuidedTour()}),i&&(n<l-1?(i.innerHTML='Next <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>',i.onclick=function(){window.location.href=e[n+1].url}):(i.innerHTML='<i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Finish Tour',i.onclick=function(){window.exitGuidedTour()})),s&&(s.innerHTML="",u="",e.forEach(function(e,t){if(e.section!==u){u=e.section;var o,i=document.createElement("div");i.className="tour-dropdown-section-header",i.textContent=u,s.appendChild(i)}o=document.createElement("a"),o.className="tour-dropdown-item"+(t===n?" active":""),o.href=e.url,o.innerHTML='<span class="tour-step-num">'+(t+1)+"</span><span>"+e.title+"</span>",o.onclick=function(t){t.preventDefault(),window.location.href=e.url},s.appendChild(o)}),j&&(j.onclick=function(e){e.stopPropagation(),s.classList.toggle("show")}),document.addEventListener("click",function(e){d.contains(e.target)||s.classList.remove("show")})),o&&(m=document.getElementById("tour-summary-section"),f=document.getElementById("tour-summary-title"),w=document.getElementById("tour-summary-text"),y=document.getElementById("tour-summary-header"),m&&(m.textContent=c.section.toUpperCase()),f&&(f.textContent=c.title),w&&(w.textContent=c.summary),C=sessionStorage.getItem("tourSummaryCollapsed")==="true",C&&o.classList.add("collapsed"),y&&(y.onclick=function(){o.classList.toggle("collapsed");var e=o.classList.contains("collapsed");sessionStorage.setItem("tourSummaryCollapsed",e?"true":"false")}),o.style.display="block"),document.addEventListener("keydown",function(t){if(t.target&&(t.target.tagName==="INPUT"||t.target.tagName==="TEXTAREA"))return;t.key==="ArrowRight"&&n<l-1?window.location.href=e[n+1].url:t.key==="ArrowLeft"&&n>0?window.location.href=e[n-1].url:t.key==="Escape"&&window.exitGuidedTour()}),d.style.display="flex"}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n()})()</script></body></html>

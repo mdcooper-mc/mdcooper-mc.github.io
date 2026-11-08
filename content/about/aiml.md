@@ -23,6 +23,13 @@ These agents leverage policy-gradient optimization and reward shaping to extract
 environments. My RL platforms are built for scenario replay and runtime control, ensuring that autonomous decision-making
 remains observable and aligned with enterprise requirements.
 
+### Enterprise LLM Proxies & Domain Persona Calibration
+
+Deploying generative AI within regulated capital markets requires strict guardrails against hallucinations. I design
+custom, zero-dependency Go proxies that interface with models such as Google Gemini 1.5 Pro and Flash. These proxies
+implement dynamic context window pruning to control token consumption, enforce domain-specific persona grammars
+(such as Murex MX.3 trading platform syntaxes), and bridge to enterprise collaboration channels (such as Microsoft Teams) via secure JSON RPC.
+
 ### Distributed Infrastructure & Engineering Workflows
 
 Scaling AI requires more than just algorithmic knowledge; it requires professional engineering infrastructure. I build
@@ -53,6 +60,7 @@ reproducible and strategically impactful.
 
 - **Frameworks & Libraries**: PyTorch, TensorFlow, Keras, Hugging Face, LangChain, MLflow, Scikit-learn, OpenCV, NumPy, Pandas, tiktoken.
 - **Model Architectures**: MLPs, Transformers, GPT, RNNs, CNNs, Character-Level Models, Autoregressive Sampling.
+- **LLM Integration & Governance**: Google Gemini API, Dynamic Context Window Pruning, Domain Persona Calibration, Structured JSON RPC.
 - **Reinforcement Learning**: OpenAI Gym, PIRL, Policy Gradients, Reward Shaping, Environment Design, Scenario Replay.
 - **Training & Orchestration**: DDP, torchrun, Gradient Accumulation, Mixed Precision, Cosine LR Decay, Checkpointing, Training-as-Code, CI/CD for ML, Runtime Configuration, Audit Trails.
 - **Data & Evaluation**: Feature Engineering, Bias Detection, ISO 25000, Synthetic Data Generation, Validation Loss Tracking, Benchmarking (HellaSwag).

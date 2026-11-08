@@ -1,13 +1,9 @@
 +++
 title = "Project Page Template & Guide"
 date = 2026-03-10
-categories = ["Internal", "Guides"]
-tags = ["Template", "AI-Instructions"]
-# This page is internal and should not be linked in any public menus or lists.
-# To ensure it is not indexed or listed by Hugo, we use the following build settings:
 [build]
   list = "never"
-  render = "always"
+  render = "never"
 +++
 
 # Project Page Template & Guide

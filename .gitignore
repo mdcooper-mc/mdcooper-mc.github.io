@@ -1,13 +1,15 @@
-
 # IDE
-.idea
+.idea/
 *.iml
 
 # Hugo
 .hugo_build.lock
-resources
+resources/
 go.sum
 
-# Projects
+# Temporary & Working Files
+tmp/
+__tmp_project-docs_todo/
 
-azure
+# Projects
+azure/

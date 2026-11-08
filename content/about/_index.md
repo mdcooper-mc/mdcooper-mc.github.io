@@ -7,8 +7,8 @@ I’m Mark — a senior cloud-native developer, enterprise architect, and AI orc
 of experience designing resilient, cache-centric platforms for global financial institutions. My work spans trading
 systems, risk engines, and regulatory infrastructure, built for runtime clarity, composability, and strategic reuse.
 
-I’ve delivered architecture and engineering solutions for firms including Jefferies, Citi, BlackRock, Société Générale,
-Rabobank, Daiwa Capital Markets, and the London Stock Exchange. My contributions range from Spring-based reconciliation
+I’ve delivered architecture and engineering solutions across global tier-1 investment banks, premier asset managers,
+and electronic trading venues. My contributions range from Spring-based reconciliation
 frameworks and GPU-accelerated pricing engines to fault-tolerant AWS orchestration and AI-enabled delivery pipelines.
 I’ve worked across regulatory regimes including Basel III/IV, FRTB, MiFID II, EMIR, and Dodd-Frank — embedding
 governance, observability, and auditability into every layer of the stack.
@@ -18,8 +18,8 @@ behavioural signal extraction from market data. I’ve built systems that handle
 exposure tracking — with embedded controls for cost variance, earned value, and budget performance. Whether integrating
 FIX, FpML, or SWIFT flows, I focus on separating mechanical complexity from strategic insight.
 
-I’ve also led engineering programmes across the Murex Trading platform at Société Générale, Rabobank, and the London
-Stock Exchange — delivering real-time trade feeds, CI/CD-driven upgrades, and secure authentication flows. My work spans
+I’ve also led engineering programmes across the Murex Trading platform across major capital markets institutions
+and regulated exchange venues — delivering real-time trade feeds, CI/CD-driven upgrades, and secure authentication flows. My work spans
 FIX, SWIFT, and FpML orchestration, Datamart and VaR enhancements, and SWIFT LAU signing — treating Murex as a strategic
 substrate for clarity, compliance, and runtime control.
 
@@ -34,7 +34,10 @@ I approach behavioural signal extraction, model design, and runtime introspectio
 
 ---
 
-## Professional Stack
+## Professional Stack & Doctrine
+
+- [**Cooper's Way**](/projects/coopers-way/)  
+  Architectural doctrine and engineering standards — focusing on domain decoupling, immutable task scheduling, supervisory auto-scaling, and fail-fast resilience across every platform layer.
 
 - [**Software**](/about/software/)  
   Modular systems built with Java, .NET, Spring Boot, GoLang, and AWS — designed for runtime clarity, cache-centric
@@ -46,8 +49,7 @@ I approach behavioural signal extraction, model design, and runtime introspectio
 
 - [**Murex**](/about/murex/)  
   Strategic engineering across Murex platforms — including trade feed orchestration, CI/CD-driven upgrades, Datamart and
-  VaR enhancements, and secure authentication flows. Delivered across Société Générale, Rabobank, and the London Stock
-  Exchange.
+  VaR enhancements, and secure authentication flows across Tier-1 banks and global financial venues.
 
 - [**AI/ML**](/about/aiml/)  
   AI-enabled pipelines for behavioural signal extraction, model governance, and reproducible orchestration — engineered

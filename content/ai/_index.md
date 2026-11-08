@@ -12,6 +12,21 @@ focusing on architectural clarity, mathematical precision, and engineering at sc
 
 ---
 
+### Applied AI Systems
+
+- **[Image Text Extraction Pipeline](/ai/image-text-extraction/)**
+  A production pipeline turning hundreds of phone screenshots into court-ready PDFs.
+  Covers VLM image tiling, late-fusion decoding, KV soft-reset sliding window, layer streaming on a 6 GB
+  GPU (`n_batch=32`, SharedRAM avoidance), and a no-hallucination legal evidence constraint.
+  Full performance table: 28.5 h → 13.5 h across 1,589 images.
+
+- **[Image Text Extraction v2 — Event-Driven Architecture](/ai/image-text-extraction-v2/)**
+  Ground-up redesign of the v1 pipeline as a proper software system. Custom IoC container, publish/subscribe
+  event bus, AST-based toolkit library with zero mandatory dependencies, `@configure` injection from YAML,
+  curr+next VLM sliding window, and 171 unit tests with full interface isolation.
+
+---
+
 ### Core Engineering Projects
 
 - **[AI Core Concepts & Technical Deep Dive](/ai/core-concepts/)**  
