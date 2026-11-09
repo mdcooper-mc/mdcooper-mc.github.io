@@ -1,1 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Native Messaging on Mark Cooper</title><link>https://mdcooper-mc.github.io/tags/native-messaging/</link><description>Recent content in Native Messaging on Mark Cooper</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Wed, 20 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://mdcooper-mc.github.io/tags/native-messaging/index.xml" rel="self" type="application/rss+xml"/><item><title>High-Performance Go Systems &amp; Data Pipelines</title><link>https://mdcooper-mc.github.io/projects/high-performance-go-data-pipelines/</link><pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate><guid>https://mdcooper-mc.github.io/projects/high-performance-go-data-pipelines/</guid><description>&lt;h2 id="zero-allocation-stream-processing-and-data-ingestion"&gt;&#10; Zero-Allocation Stream Processing and Data Ingestion&#10; &lt;a class="heading-link" href="#zero-allocation-stream-processing-and-data-ingestion"&gt;&#10; &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;&#10; &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;&#10; &lt;/a&gt;&#10;&lt;/h2&gt;&#10;&lt;p&gt;Processing multi-gigabyte personal data archives and high-volume email mailboxes presents significant memory management and resilience challenges. In-memory object deserialization quickly leads to GC pauses, memory exhaustion, and unrecoverable failures when batch jobs crash midway through execution. This project encompasses a suite of high-throughput CLI utilities, concurrent stream parsers, and data ingestion microservices engineered in Go to achieve deterministic memory bounds, sub-millisecond inter-process communication, and resume-safe state execution.&lt;/p&gt;</description></item><item><title>Enterprise Chromium Extension Ecosystem</title><link>https://mdcooper-mc.github.io/projects/chromium-extension-ecosystem/</link><pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate><guid>https://mdcooper-mc.github.io/projects/chromium-extension-ecosystem/</guid><description>&lt;h2 id="high-throughput-concurrency-in-manifest-v3"&gt;&#10; High-Throughput Concurrency in Manifest V3&#10; &lt;a class="heading-link" href="#high-throughput-concurrency-in-manifest-v3"&gt;&#10; &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;&#10; &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;&#10; &lt;/a&gt;&#10;&lt;/h2&gt;&#10;&lt;p&gt;Modern browser extensions operating under the Chromium Manifest V3 specification face strict architectural constraints: ephemeral service worker lifecycles, background execution quotas, and the constant risk of saturating the browser main thread during heavy data processing. This project is a monorepo ecosystem of five standalone Chromium extensions powered by a shared core kernel that provides deterministic task scheduling, dynamic worker pool auto-scaling, and persistent state recovery.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Native Messaging on Mark Cooper</title>
+		<link>http://localhost:1313/tags/native-messaging/</link>
+		<description>Recent content in Native Messaging on Mark Cooper</description>
+		<generator>Hugo</generator>
+		<language>en-gb</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 20 May 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/native-messaging/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>High-Performance Go Systems &amp; Data Pipelines</title>
+				<link>http://localhost:1313/projects/high-performance-go-data-pipelines/</link>
+				<pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/projects/high-performance-go-data-pipelines/</guid>
+				<description>&lt;h2 id=&#34;zero-allocation-stream-processing-and-data-ingestion&#34;&gt;&#xA;  Zero-Allocation Stream Processing and Data Ingestion&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#zero-allocation-stream-processing-and-data-ingestion&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Processing multi-gigabyte personal data archives and high-volume email mailboxes presents significant memory management and resilience challenges. In-memory object deserialization quickly leads to GC pauses, memory exhaustion, and unrecoverable failures when batch jobs crash midway through execution. This project encompasses a suite of high-throughput CLI utilities, concurrent stream parsers, and data ingestion microservices engineered in Go to achieve deterministic memory bounds, sub-millisecond inter-process communication, and resume-safe state execution.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Enterprise Chromium Extension Ecosystem</title>
+				<link>http://localhost:1313/projects/chromium-extension-ecosystem/</link>
+				<pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/projects/chromium-extension-ecosystem/</guid>
+				<description>&lt;h2 id=&#34;high-throughput-concurrency-in-manifest-v3&#34;&gt;&#xA;  High-Throughput Concurrency in Manifest V3&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#high-throughput-concurrency-in-manifest-v3&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Modern browser extensions operating under the Chromium Manifest V3 specification face strict architectural constraints: ephemeral service worker lifecycles, background execution quotas, and the constant risk of saturating the browser main thread during heavy data processing. This project is a monorepo ecosystem of five standalone Chromium extensions powered by a shared core kernel that provides deterministic task scheduling, dynamic worker pool auto-scaling, and persistent state recovery.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

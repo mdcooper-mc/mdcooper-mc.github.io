@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Quantitative Finance on Mark Cooper</title><link>https://mdcooper-mc.github.io/tags/quantitative-finance/</link><description>Recent content in Quantitative Finance on Mark Cooper</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://mdcooper-mc.github.io/tags/quantitative-finance/index.xml" rel="self" type="application/rss+xml"/><item><title>Production Equity Swap Pricing Engine</title><link>https://mdcooper-mc.github.io/projects/production-equity-swap-pricing-engine/</link><pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate><guid>https://mdcooper-mc.github.io/projects/production-equity-swap-pricing-engine/</guid><description>&lt;h2 id="high-performance-equity-derivative-valuation-in-c"&gt;&#10; High-Performance Equity Derivative Valuation in C#&#10; &lt;a class="heading-link" href="#high-performance-equity-derivative-valuation-in-c"&gt;&#10; &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;&#10; &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;&#10; &lt;/a&gt;&#10;&lt;/h2&gt;&#10;&lt;p&gt;Valuing complex financial derivatives requires bridging two conflicting engineering paradigms: low-level, high-throughput quantitative calculation libraries and high-level, maintainable enterprise domain architectures. Many quantitative engines expose unmanaged, handle-based APIs that rely on manual memory marshaling, implicit ordering conventions, and untyped pointer structures. When exposed directly to application developers, these interfaces lead to memory leaks, invalid state combinations, and unrepeatable calculation runs.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Quantitative Finance on Mark Cooper</title>
+		<link>http://localhost:1313/tags/quantitative-finance/</link>
+		<description>Recent content in Quantitative Finance on Mark Cooper</description>
+		<generator>Hugo</generator>
+		<language>en-gb</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/quantitative-finance/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Production Equity Swap Pricing Engine</title>
+				<link>http://localhost:1313/projects/production-equity-swap-pricing-engine/</link>
+				<pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/projects/production-equity-swap-pricing-engine/</guid>
+				<description>&lt;h2 id=&#34;high-performance-equity-derivative-valuation-in-c&#34;&gt;&#xA;  High-Performance Equity Derivative Valuation in C#&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#high-performance-equity-derivative-valuation-in-c&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Valuing complex financial derivatives requires bridging two conflicting engineering paradigms: low-level, high-throughput quantitative calculation libraries and high-level, maintainable enterprise domain architectures. Many quantitative engines expose unmanaged, handle-based APIs that rely on manual memory marshaling, implicit ordering conventions, and untyped pointer structures. When exposed directly to application developers, these interfaces lead to memory leaks, invalid state combinations, and unrepeatable calculation runs.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

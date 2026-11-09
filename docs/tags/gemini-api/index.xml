@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gemini API on Mark Cooper</title><link>https://mdcooper-mc.github.io/tags/gemini-api/</link><description>Recent content in Gemini API on Mark Cooper</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://mdcooper-mc.github.io/tags/gemini-api/index.xml" rel="self" type="application/rss+xml"/><item><title>Murex Capital Markets AI Agent &amp; LLM Proxy</title><link>https://mdcooper-mc.github.io/projects/murex-capital-markets-ai-agent/</link><pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate><guid>https://mdcooper-mc.github.io/projects/murex-capital-markets-ai-agent/</guid><description>&lt;h2 id="domain-calibrated-enterprise-ai-for-capital-markets"&gt;&#10; Domain-Calibrated Enterprise AI for Capital Markets&#10; &lt;a class="heading-link" href="#domain-calibrated-enterprise-ai-for-capital-markets"&gt;&#10; &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;&#10; &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;&#10; &lt;/a&gt;&#10;&lt;/h2&gt;&#10;&lt;p&gt;Trading platforms such as Murex MX.3 form the core computational backbone of tier-one investment banks, governing trade booking, market risk, and post-trade lifecycle workflows. However, configuring, troubleshooting, and operating these platforms requires specialized institutional knowledge spanning financial mathematics, proprietary scripting syntaxes, and complex database schemas.&lt;/p&gt;&#10;&lt;p&gt;In institutional banking environments, operational workflows must comply with stringent communication and compliance policies. Commercial messaging tools are strictly prohibited for trade-related discussions; all communication must flow through monitored, bank-approved collaboration infrastructure.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Gemini API on Mark Cooper</title>
+		<link>http://localhost:1313/tags/gemini-api/</link>
+		<description>Recent content in Gemini API on Mark Cooper</description>
+		<generator>Hugo</generator>
+		<language>en-gb</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/gemini-api/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Murex Capital Markets AI Agent &amp; LLM Proxy</title>
+				<link>http://localhost:1313/projects/murex-capital-markets-ai-agent/</link>
+				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/projects/murex-capital-markets-ai-agent/</guid>
+				<description>&lt;h2 id=&#34;domain-calibrated-enterprise-ai-for-capital-markets&#34;&gt;&#xA;  Domain-Calibrated Enterprise AI for Capital Markets&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#domain-calibrated-enterprise-ai-for-capital-markets&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Trading platforms such as Murex MX.3 form the core computational backbone of tier-one investment banks, governing trade booking, market risk, and post-trade lifecycle workflows. However, configuring, troubleshooting, and operating these platforms requires specialized institutional knowledge spanning financial mathematics, proprietary scripting syntaxes, and complex database schemas.&lt;/p&gt;&#xA;&lt;p&gt;In institutional banking environments, operational workflows must comply with stringent communication and compliance policies. Commercial messaging tools are strictly prohibited for trade-related discussions; all communication must flow through monitored, bank-approved collaboration infrastructure.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

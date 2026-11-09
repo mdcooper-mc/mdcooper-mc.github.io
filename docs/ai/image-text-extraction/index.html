@@ -1,13 +1,185 @@
-<!doctype html><html lang=en><head><title>Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots · Mark Cooper</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Mark Cooper"><meta name=description content="A production pipeline turning hundreds of phone screenshots into court-ready PDFs — VLM tiling, sliding KV window, layer streaming on a 6 GB GPU, and a no-hallucination constraint for legal evidence."><meta name=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots"><meta name=twitter:description content="A production pipeline turning hundreds of phone screenshots into court-ready PDFs — VLM tiling, sliding KV window, layer streaming on a 6 GB GPU, and a no-hallucination constraint for legal evidence."><meta property="og:url" content="https://mdcooper-mc.github.io/ai/image-text-extraction/"><meta property="og:site_name" content="Mark Cooper"><meta property="og:title" content="Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots"><meta property="og:description" content="A production pipeline turning hundreds of phone screenshots into court-ready PDFs — VLM tiling, sliding KV window, layer streaming on a 6 GB GPU, and a no-hallucination constraint for legal evidence."><meta property="og:locale" content="en_gb"><meta property="og:type" content="article"><meta property="article:section" content="ai"><meta property="article:published_time" content="2026-07-23T00:00:00+00:00"><meta property="article:modified_time" content="2026-07-23T00:00:00+00:00"><link rel=canonical href=https://mdcooper-mc.github.io/ai/image-text-extraction/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css integrity="sha256-rUj0didZdIhb3APVJR482+FnjFSmP/dyN2sO0q3EaN0=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><script>(function(){var e=localStorage.getItem("colorscheme");e&&(document.body.classList.remove("colorscheme-light","colorscheme-dark","colorscheme-auto"),document.body.classList.add("colorscheme-"+e))})()</script><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://mdcooper-mc.github.io/>Mark Cooper
-</a><input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/ai/>AI</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/projects/coopers-way/>Cooper's Way</a></li><li class=navigation-item><a class=navigation-link href=/platforms/>Platforms</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1 class=title><a class=title-link href=https://mdcooper-mc.github.io/ai/image-text-extraction/>Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots</a></h1></header><p>Phone screenshots are not evidence in a useful form. They are unreadable at scale, unsearchable, easy to lose,
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots · Mark Cooper
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Cooper">
+<meta name="description" content="A production pipeline turning hundreds of phone screenshots into court-ready PDFs — VLM tiling, sliding KV window, layer streaming on a 6 GB GPU, and a no-hallucination constraint for legal evidence.">
+<meta name="keywords" content="">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots">
+	<meta name="twitter:description" content="A production pipeline turning hundreds of phone screenshots into court-ready PDFs — VLM tiling, sliding KV window, layer streaming on a 6 GB GPU, and a no-hallucination constraint for legal evidence.">
+
+<meta property="og:url" content="http://localhost:1313/ai/image-text-extraction/">
+	<meta property="og:site_name" content="Mark Cooper">
+	<meta property="og:title" content="Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots">
+	<meta property="og:description" content="A production pipeline turning hundreds of phone screenshots into court-ready PDFs — VLM tiling, sliding KV window, layer streaming on a 6 GB GPU, and a no-hallucination constraint for legal evidence.">
+	<meta property="og:locale" content="en_gb">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="ai">
+		<meta property="article:published_time" content="2026-07-23T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-07-23T00:00:00+00:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/ai/image-text-extraction/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  <script>
+    (function() {
+      var theme = localStorage.getItem("colorscheme");
+      if (theme) {
+        document.body.classList.remove('colorscheme-light', 'colorscheme-dark', 'colorscheme-auto');
+        document.body.classList.add('colorscheme-' + theme);
+      }
+    })();
+  </script>
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Mark Cooper
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ai/">AI</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/coopers-way/">Cooper&#39;s Way</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/platforms/">Platforms</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/ai/image-text-extraction/">
+          Image Text Extraction Pipeline: VLMs, KV Soft-Reset, and Legal Evidence from Phone Screenshots
+        </a>
+      </h1>
+    </header>
+
+    <p>Phone screenshots are not evidence in a useful form. They are unreadable at scale, unsearchable, easy to lose,
 and impossible to cross-reference precisely. This project builds a four-stage pipeline that turns hundreds of
 raw screenshots — HEIC photos of Teams chats, Outlook emails, Copilot sessions — into clean, structured,
-court-ready PDF documents.</p><p>The engineering challenges are interesting: the images are tall and narrow; the content scrolls, producing
+court-ready PDF documents.</p>
+<p>The engineering challenges are interesting: the images are tall and narrow; the content scrolls, producing
 overlapping captures; the model must never invent; and the entire pipeline runs on a consumer GPU with 6 GB
-of true VRAM and a CPU with 32 GB of DDR4.</p><hr><h2 id=pipeline-overview>Pipeline Overview
-<a class=heading-link href=#pipeline-overview><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><pre tabindex=0><code>source/*.heic / *.png / *.jpg
+of true VRAM and a CPU with 32 GB of DDR4.</p>
+<hr>
+<h2 id="pipeline-overview">
+  Pipeline Overview
+  <a class="heading-link" href="#pipeline-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<pre tabindex="0"><code>source/*.heic / *.png / *.jpg
        │
        ▼  Stage 1 — vision_extract.py
        │  Qwen2.5-VL-7B (GGUF, llama-cpp) — GPU: 6 GB VRAM, 45 tok/s
@@ -36,61 +208,116 @@ of true VRAM and a CPU with 32 GB of DDR4.</p><hr><h2 id=pipeline-overview>Pipel
           WeasyPrint primary / fpdf2 fallback
           Human-readable filename from first document heading
           → pdf/*.pdf  (court-ready output)
-</code></pre><hr><h2 id=stage-1--vlm-image-tiling>Stage 1 — VLM Image Tiling
-<a class=heading-link href=#stage-1--vlm-image-tiling><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><h3 id=the-pixel-budget-problem>The pixel budget problem
-<a class=heading-link href=#the-pixel-budget-problem><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>A phone screenshot is tall and narrow — a full-frame 1080×2340 HEIC renders at approximately 48% of native
+</code></pre><hr>
+<h2 id="stage-1--vlm-image-tiling">
+  Stage 1 — VLM Image Tiling
+  <a class="heading-link" href="#stage-1--vlm-image-tiling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-pixel-budget-problem">
+  The pixel budget problem
+  <a class="heading-link" href="#the-pixel-budget-problem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A phone screenshot is tall and narrow — a full-frame 1080×2340 HEIC renders at approximately 48% of native
 resolution inside the VLM&rsquo;s pixel budget (<code>max_pixels = 1280×28×28 = 1,003,520</code> tokens by default). At 48%
-scale, small-font text in Teams or Outlook becomes unreadable.</p><p>The solution is automatic tiling. Each image is split into overlapping horizontal strips, each strip sized to
+scale, small-font text in Teams or Outlook becomes unreadable.</p>
+<p>The solution is automatic tiling. Each image is split into overlapping horizontal strips, each strip sized to
 fill the pixel budget at maximum resolution. A 1080×2340 image tiled into 4 strips renders each strip at
-approximately 85% of native — a significant quality improvement for small-body-text recognition.</p><p>Strips overlap by 25% so no word is lost at a cut boundary. A message that straddles the cut appears in full
-at the bottom of one strip and the top of the next.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>compute_tiles</span>(image_height: int, image_width: int,
-</span></span><span style=display:flex><span>                  max_pixels: int <span style=color:#f92672>=</span> <span style=color:#ae81ff>1280</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>28</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>28</span>,
-</span></span><span style=display:flex><span>                  overlap: float <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.25</span>) <span style=color:#f92672>-&gt;</span> list[tuple[int, int]]:
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Return (top, bottom) pixel coordinates for each tile.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Each tile fills max_pixels at full width.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Adjacent tiles overlap by `overlap` fraction.
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
-</span></span><span style=display:flex><span>    tile_h <span style=color:#f92672>=</span> int(max_pixels <span style=color:#f92672>/</span> image_width)
-</span></span><span style=display:flex><span>    stride <span style=color:#f92672>=</span> int(tile_h <span style=color:#f92672>*</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>-</span> overlap))
-</span></span><span style=display:flex><span>    tiles <span style=color:#f92672>=</span> []
-</span></span><span style=display:flex><span>    top <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> top <span style=color:#f92672>&lt;</span> image_height:
-</span></span><span style=display:flex><span>        bottom <span style=color:#f92672>=</span> min(top <span style=color:#f92672>+</span> tile_h, image_height)
-</span></span><span style=display:flex><span>        tiles<span style=color:#f92672>.</span>append((top, bottom))
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> bottom <span style=color:#f92672>==</span> image_height:
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
-</span></span><span style=display:flex><span>        top <span style=color:#f92672>+=</span> stride
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> tiles
-</span></span></code></pre></div><h3 id=content-crop-removing-ui-chrome>Content crop: removing UI chrome
-<a class=heading-link href=#content-crop-removing-ui-chrome><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Before tiling, the pipeline removes phone UI chrome. The status bar (time, battery, signal) and navigation
+approximately 85% of native — a significant quality improvement for small-body-text recognition.</p>
+<p>Strips overlap by 25% so no word is lost at a cut boundary. A message that straddles the cut appears in full
+at the bottom of one strip and the top of the next.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_tiles</span>(image_height: int, image_width: int,
+</span></span><span style="display:flex;"><span>                  max_pixels: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">1280</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">28</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>                  overlap: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span>) <span style="color:#f92672">-&gt;</span> list[tuple[int, int]]:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Return (top, bottom) pixel coordinates for each tile.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Each tile fills max_pixels at full width.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Adjacent tiles overlap by `overlap` fraction.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    tile_h <span style="color:#f92672">=</span> int(max_pixels <span style="color:#f92672">/</span> image_width)
+</span></span><span style="display:flex;"><span>    stride <span style="color:#f92672">=</span> int(tile_h <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> overlap))
+</span></span><span style="display:flex;"><span>    tiles <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    top <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> top <span style="color:#f92672">&lt;</span> image_height:
+</span></span><span style="display:flex;"><span>        bottom <span style="color:#f92672">=</span> min(top <span style="color:#f92672">+</span> tile_h, image_height)
+</span></span><span style="display:flex;"><span>        tiles<span style="color:#f92672">.</span>append((top, bottom))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> bottom <span style="color:#f92672">==</span> image_height:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        top <span style="color:#f92672">+=</span> stride
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> tiles
+</span></span></code></pre></div><h3 id="content-crop-removing-ui-chrome">
+  Content crop: removing UI chrome
+  <a class="heading-link" href="#content-crop-removing-ui-chrome">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Before tiling, the pipeline removes phone UI chrome. The status bar (time, battery, signal) and navigation
 bar at the bottom are detected by pixel-density analysis and cropped. These regions are not content — they
 consume the pixel budget without contributing text, and including them can confuse the VLM&rsquo;s spatial
-reasoning about message boundaries.</p><h3 id=late-fusion-decoding>Late-fusion decoding
-<a class=heading-link href=#late-fusion-decoding><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Standard tiling produces two separate VLM calls per image — one per strip. Late-fusion instead shows both
-strips to the model simultaneously in a single generation call:</p><blockquote><p><em>&ldquo;Here are two consecutive strips from the same screenshot — transcribe them as one continuous document.&rdquo;</em></p></blockquote><p>Since the generation step takes approximately 71% of total per-image processing time, halving the number
-of generation calls produces significant throughput improvement. For 1,589 images:</p><pre tabindex=0><code>Standard:  1,589 images × 2 strips × 2 encode+generate = 6,356 calls
+reasoning about message boundaries.</p>
+<h3 id="late-fusion-decoding">
+  Late-fusion decoding
+  <a class="heading-link" href="#late-fusion-decoding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Standard tiling produces two separate VLM calls per image — one per strip. Late-fusion instead shows both
+strips to the model simultaneously in a single generation call:</p>
+<blockquote>
+<p><em>&ldquo;Here are two consecutive strips from the same screenshot — transcribe them as one continuous document.&rdquo;</em></p>
+</blockquote>
+<p>Since the generation step takes approximately 71% of total per-image processing time, halving the number
+of generation calls produces significant throughput improvement. For 1,589 images:</p>
+<pre tabindex="0"><code>Standard:  1,589 images × 2 strips × 2 encode+generate = 6,356 calls
 Late-fusion: 1,589 images × 1 encode(both) + 1 generate = 3,178 calls
-</code></pre><h3 id=speculative-decoding-optional>Speculative decoding (optional)
-<a class=heading-link href=#speculative-decoding-optional><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>For predictable, structured text like email headers and chat message formatting, speculative decoding adds
+</code></pre><h3 id="speculative-decoding-optional">
+  Speculative decoding (optional)
+  <a class="heading-link" href="#speculative-decoding-optional">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>For predictable, structured text like email headers and chat message formatting, speculative decoding adds
 a small draft VLM that proposes 4–8 tokens at once. The main model reviews the draft in a single parallel
-verification step and accepts correct tokens without generating them individually.</p><p>For structured OCR content, acceptance rate is approximately 70–75% — effectively 2.5× faster token output
+verification step and accepts correct tokens without generating them individually.</p>
+<p>For structured OCR content, acceptance rate is approximately 70–75% — effectively 2.5× faster token output
 with identical quality. The pipeline exposes this as an optional flag (<code>-DraftModel</code>) rather than a default,
-since the draft model must share vocabulary with the main model.</p><hr><h2 id=stage-2--scroll-deduplication-and-stitching>Stage 2 — Scroll Deduplication and Stitching
-<a class=heading-link href=#stage-2--scroll-deduplication-and-stitching><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><h3 id=the-overlap-problem>The overlap problem
-<a class=heading-link href=#the-overlap-problem><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Screenshots taken while scrolling produce consecutive images where the bottom ~30% of one image appears
+since the draft model must share vocabulary with the main model.</p>
+<hr>
+<h2 id="stage-2--scroll-deduplication-and-stitching">
+  Stage 2 — Scroll Deduplication and Stitching
+  <a class="heading-link" href="#stage-2--scroll-deduplication-and-stitching">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-overlap-problem">
+  The overlap problem
+  <a class="heading-link" href="#the-overlap-problem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Screenshots taken while scrolling produce consecutive images where the bottom ~30% of one image appears
 again at the top of the next. Simple concatenation produces a document where every paragraph appears 1.3
-times. The stitching stage must identify and remove overlapping content without losing any unique text.</p><h3 id=sliding-window-deduplication>Sliding window deduplication
-<a class=heading-link href=#sliding-window-deduplication><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>The pipeline maintains a 400-word sliding window — the &ldquo;short-term memory&rdquo; — representing the end of the
-document as built so far. For each new page of extracted text, the model receives:</p><pre tabindex=0><code>[SHORT-TERM MEMORY — last 400 words already written]:
+times. The stitching stage must identify and remove overlapping content without losing any unique text.</p>
+<h3 id="sliding-window-deduplication">
+  Sliding window deduplication
+  <a class="heading-link" href="#sliding-window-deduplication">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The pipeline maintains a 400-word sliding window — the &ldquo;short-term memory&rdquo; — representing the end of the
+document as built so far. For each new page of extracted text, the model receives:</p>
+<pre tabindex="0"><code>[SHORT-TERM MEMORY — last 400 words already written]:
 ... end of previous content ...
 
 [NEW PAGE]:
@@ -99,34 +326,67 @@ document as built so far. For each new page of extracted text, the model receive
 Task: What new content from [NEW PAGE] should be appended?
 Remove any overlap with [SHORT-TERM MEMORY].
 Never invent. Prefer the clearest reading of each disputed word.
-</code></pre><p>This processes the entire corpus with <code>O(1)</code> memory per page rather than <code>O(n)</code>.</p><h3 id=timestamp-gap-detection>Timestamp gap detection
-<a class=heading-link href=#timestamp-gap-detection><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Every screenshot filename encodes its capture timestamp: <code>20260702_103727.heic</code> = 10:37:27 on 2 July 2026.
-By comparing adjacent timestamps, the pipeline classifies each transition:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>classify_gap</span>(gap_seconds: int) <span style=color:#f92672>-&gt;</span> str:
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> gap_seconds <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>10</span>:   <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;continuous_scroll&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> gap_seconds <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>300</span>:  <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;short_pause&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> gap_seconds <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>3600</span>: <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;session_break&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;new_session&#34;</span>
+</code></pre><p>This processes the entire corpus with <code>O(1)</code> memory per page rather than <code>O(n)</code>.</p>
+<h3 id="timestamp-gap-detection">
+  Timestamp gap detection
+  <a class="heading-link" href="#timestamp-gap-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Every screenshot filename encodes its capture timestamp: <code>20260702_103727.heic</code> = 10:37:27 on 2 July 2026.
+By comparing adjacent timestamps, the pipeline classifies each transition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">classify_gap</span>(gap_seconds: int) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> gap_seconds <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>:   <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;continuous_scroll&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> gap_seconds <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">300</span>:  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;short_pause&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> gap_seconds <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3600</span>: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;session_break&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;new_session&#34;</span>
 </span></span></code></pre></div><p>At gaps above the configured threshold (default 300 seconds = 5 minutes), the pipeline starts a new document
 file. The model receives <code>[TIME GAP: 16 min — possible context switch]</code> as an inline annotation so it knows
-the next screenshot may be from a different conversation thread.</p><h3 id=the-reconstruction-principle>The reconstruction principle
-<a class=heading-link href=#the-reconstruction-principle><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>When the same text appears in two consecutive strips with different quality, the model picks the clearest
+the next screenshot may be from a different conversation thread.</p>
+<h3 id="the-reconstruction-principle">
+  The reconstruction principle
+  <a class="heading-link" href="#the-reconstruction-principle">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When the same text appears in two consecutive strips with different quality, the model picks the clearest
 reading of each word from whichever strip has it legible. If a word is unreadable in both strips, it is
 <strong>omitted entirely, never invented</strong>. This is the legal evidence constraint: every word in the output must
-have been visibly present in a source screenshot.</p><h3 id=system-prompt-kv-cache>System prompt KV cache
-<a class=heading-link href=#system-prompt-kv-cache><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>The system prompt — approximately 600 words of deduplication rules, reconstruction principles, and
+have been visibly present in a source screenshot.</p>
+<h3 id="system-prompt-kv-cache">
+  System prompt KV cache
+  <a class="heading-link" href="#system-prompt-kv-cache">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The system prompt — approximately 600 words of deduplication rules, reconstruction principles, and
 formatting constraints — is pre-computed once and cached as a compressed KV state before processing begins.
 This cached state is reused for every page call. Over 1,589 pages, re-reading 600 words each time would
-waste approximately 12 minutes of computation.</p><hr><h2 id=stage-3--kv-soft-reset-sliding-window>Stage 3 — KV Soft-Reset Sliding Window
-<a class=heading-link href=#stage-3--kv-soft-reset-sliding-window><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>This is the architectural core of the pipeline. The problem is that a complete stitched document may be
+waste approximately 12 minutes of computation.</p>
+<hr>
+<h2 id="stage-3--kv-soft-reset-sliding-window">
+  Stage 3 — KV Soft-Reset Sliding Window
+  <a class="heading-link" href="#stage-3--kv-soft-reset-sliding-window">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This is the architectural core of the pipeline. The problem is that a complete stitched document may be
 12,000–15,000 words — far larger than any reasonable context window. The naive solution resets the model
 between chunks, but full resets are expensive: the system prompt and previous output must be re-fed from
-scratch on every reset, consuming thousands of tokens of prefill compute.</p><h3 id=kv-window-progression>KV window progression
-<a class=heading-link href=#kv-window-progression><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>The pipeline maintains a continuous model session per document, tracking the KV cache state explicitly:</p><pre tabindex=0><code>Document start:
+scratch on every reset, consuming thousands of tokens of prefill compute.</p>
+<h3 id="kv-window-progression">
+  KV window progression
+  <a class="heading-link" href="#kv-window-progression">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The pipeline maintains a continuous model session per document, tracking the KV cache state explicitly:</p>
+<pre tabindex="0"><code>Document start:
   Load model. Feed system prompt (~320 tokens).
   Cache this state as prefix_snapshot.
   Cost: once per document.
@@ -152,17 +412,60 @@ Part 3  —  overflow detected:
 
   Cost: ~540 tokens prefill
   vs full reset: ~3,820 tokens prefill  →  7× cheaper
-</code></pre><h3 id=why-feed-the-models-own-output-not-the-raw-input>Why feed the model&rsquo;s own output, not the raw input?
-<a class=heading-link href=#why-feed-the-models-own-output-not-the-raw-input><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>After a soft-reset, the model receives its own clean structured output as context — not the raw OCR input.
+</code></pre><h3 id="why-feed-the-models-own-output-not-the-raw-input">
+  Why feed the model&rsquo;s own output, not the raw input?
+  <a class="heading-link" href="#why-feed-the-models-own-output-not-the-raw-input">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After a soft-reset, the model receives its own clean structured output as context — not the raw OCR input.
 The model knows exactly what it already wrote. It continues from its last sentence with no repeated content
 and no visible seam. A model that instead received raw OCR input after a reset would need to re-deduplicate
-and re-structure the same text, introducing inconsistency at every boundary.</p><h3 id=efficiency-gains>Efficiency gains
-<a class=heading-link href=#efficiency-gains><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><table><thead><tr><th>Approach</th><th>Prefill cost per reset</th><th>For 80-part document</th></tr></thead><tbody><tr><td>Full reset (re-feed everything)</td><td>~3,820 tokens</td><td>~305,600 tokens</td></tr><tr><td>Soft-reset (output tail only)</td><td>~540 tokens</td><td>~43,200 tokens</td></tr><tr><td>System prefix snapshot</td><td>0 tokens</td><td>always free</td></tr></tbody></table><p>Total saving across 80 parts processed: approximately 170,000 tokens of eliminated prefill — roughly
-34 hours of compute time at 1.4 tok/s.</p><h3 id=context-window-budget-n_ctx--8192>Context window budget (n_ctx = 8192)
-<a class=heading-link href=#context-window-budget-n_ctx--8192><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><pre tabindex=0><code>System prompt:           ~320 tokens   (snapshot cached — free on all resets)
+and re-structure the same text, introducing inconsistency at every boundary.</p>
+<h3 id="efficiency-gains">
+  Efficiency gains
+  <a class="heading-link" href="#efficiency-gains">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Approach</th>
+					<th>Prefill cost per reset</th>
+					<th>For 80-part document</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Full reset (re-feed everything)</td>
+					<td>~3,820 tokens</td>
+					<td>~305,600 tokens</td>
+			</tr>
+			<tr>
+					<td>Soft-reset (output tail only)</td>
+					<td>~540 tokens</td>
+					<td>~43,200 tokens</td>
+			</tr>
+			<tr>
+					<td>System prefix snapshot</td>
+					<td>0 tokens</td>
+					<td>always free</td>
+			</tr>
+	</tbody>
+</table>
+<p>Total saving across 80 parts processed: approximately 170,000 tokens of eliminated prefill — roughly
+34 hours of compute time at 1.4 tok/s.</p>
+<h3 id="context-window-budget-n_ctx--8192">
+  Context window budget (n_ctx = 8192)
+  <a class="heading-link" href="#context-window-budget-n_ctx--8192">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>System prompt:           ~320 tokens   (snapshot cached — free on all resets)
 Previous output tail:    ~540 tokens   (only on soft-reset)
 Current part input:    ~2,700 tokens   (2,000 words of stitched text)
 Message framing:          ~100 tokens
@@ -170,33 +473,63 @@ Message framing:          ~100 tokens
 Total prompt:           ~3,660 tokens
 Output budget:          ~4,500 tokens  (capped: max_new = min(estimate, remaining))
 Total:                  ~8,160 tokens  →  n_ctx = 8,192 — exactly fits with headroom
-</code></pre><h3 id=the-authoritative-source-constraint>The authoritative-source constraint
-<a class=heading-link href=#the-authoritative-source-constraint><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>The single most important feature of Stage 3 is that the model is never permitted to invent. Every call
+</code></pre><h3 id="the-authoritative-source-constraint">
+  The authoritative-source constraint
+  <a class="heading-link" href="#the-authoritative-source-constraint">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The single most important feature of Stage 3 is that the model is never permitted to invent. Every call
 includes the original source text labelled as <code>[AUTHORITATIVE SOURCE]</code>, and the system prompt explicitly
-states:</p><blockquote><p><em>&ldquo;Every word in your output MUST appear in the AUTHORITATIVE SOURCE. You may not supply any word, name,
+states:</p>
+<blockquote>
+<p><em>&ldquo;Every word in your output MUST appear in the AUTHORITATIVE SOURCE. You may not supply any word, name,
 date, or technical term that is not already present. If a word is unclear, reproduce the original unchanged.
-An artefact in an evidence record is preferable to an invented correction.&rdquo;</em></p></blockquote><p>This is the legal evidence equivalent of requiring a court reporter to correct a transcript by reference to
-the original recording — never by guessing.</p><h3 id=resumability>Resumability
-<a class=heading-link href=#resumability><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Every completed part is moved to <code>reviewed/processed/</code> after writing. On restart, completed parts are
+An artefact in an evidence record is preferable to an invented correction.&rdquo;</em></p>
+</blockquote>
+<p>This is the legal evidence equivalent of requiring a court reporter to correct a transcript by reference to
+the original recording — never by guessing.</p>
+<h3 id="resumability">
+  Resumability
+  <a class="heading-link" href="#resumability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Every completed part is moved to <code>reviewed/processed/</code> after writing. On restart, completed parts are
 detected by filename and skipped — not by index offset, which would be fragile to gaps from empty or
-skipped parts. A 47-hour interrupted run resumes cleanly.</p><hr><h2 id=running-on-constrained-hardware>Running on Constrained Hardware
-<a class=heading-link href=#running-on-constrained-hardware><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>The pipeline is designed to run on a consumer machine: RTX 2060 Max-Q, 6 GB GDDR6 VRAM, 32 GB DDR4.</p><h3 id=layer-streaming-fitting-a-32b-model-in-6-gb>Layer streaming: fitting a 32B model in 6 GB
-<a class=heading-link href=#layer-streaming-fitting-a-32b-model-in-6-gb><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>A 32B parameter model in Q5_K_M quantisation requires approximately 21.9 GB. The GPU has 6 GB.
+skipped parts. A 47-hour interrupted run resumes cleanly.</p>
+<hr>
+<h2 id="running-on-constrained-hardware">
+  Running on Constrained Hardware
+  <a class="heading-link" href="#running-on-constrained-hardware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The pipeline is designed to run on a consumer machine: RTX 2060 Max-Q, 6 GB GDDR6 VRAM, 32 GB DDR4.</p>
+<h3 id="layer-streaming-fitting-a-32b-model-in-6-gb">
+  Layer streaming: fitting a 32B model in 6 GB
+  <a class="heading-link" href="#layer-streaming-fitting-a-32b-model-in-6-gb">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A 32B parameter model in Q5_K_M quantisation requires approximately 21.9 GB. The GPU has 6 GB.
 <code>llama-cpp-python</code> solves this with layer streaming: as many transformer layers as will fit are loaded into
-true VRAM; the rest are streamed from CPU DDR4 at inference time.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>llm <span style=color:#f92672>=</span> Llama(
-</span></span><span style=display:flex><span>    model_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;models/Qwen2.5-32B-Instruct-Q5_K_M.gguf&#34;</span>,
-</span></span><span style=display:flex><span>    n_gpu_layers<span style=color:#f92672>=-</span><span style=color:#ae81ff>1</span>,   <span style=color:#75715e># -1 = auto: fill VRAM first, overflow to CPU DDR4</span>
-</span></span><span style=display:flex><span>    n_ctx<span style=color:#f92672>=</span><span style=color:#ae81ff>8192</span>,
-</span></span><span style=display:flex><span>    n_batch<span style=color:#f92672>=</span><span style=color:#ae81ff>32</span>,        <span style=color:#75715e># MUST be 32, not the default 512</span>
-</span></span><span style=display:flex><span>    type_k<span style=color:#f92672>=</span><span style=color:#ae81ff>8</span>,          <span style=color:#75715e># INT8 K-cache — works on sm_75</span>
-</span></span><span style=display:flex><span>    type_v<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,          <span style=color:#75715e># FP16 V-cache — INT8 requires Flash Attention (sm_80+)</span>
-</span></span><span style=display:flex><span>    verbose<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,
-</span></span><span style=display:flex><span>)
-</span></span></code></pre></div><p>On RTX 2060 Max-Q (sm_75, 6 GB GDDR6):</p><pre tabindex=0><code>32B model — 64 layers total:
+true VRAM; the rest are streamed from CPU DDR4 at inference time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>llm <span style="color:#f92672">=</span> Llama(
+</span></span><span style="display:flex;"><span>    model_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;models/Qwen2.5-32B-Instruct-Q5_K_M.gguf&#34;</span>,
+</span></span><span style="display:flex;"><span>    n_gpu_layers<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>,   <span style="color:#75715e"># -1 = auto: fill VRAM first, overflow to CPU DDR4</span>
+</span></span><span style="display:flex;"><span>    n_ctx<span style="color:#f92672">=</span><span style="color:#ae81ff">8192</span>,
+</span></span><span style="display:flex;"><span>    n_batch<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span>,        <span style="color:#75715e"># MUST be 32, not the default 512</span>
+</span></span><span style="display:flex;"><span>    type_k<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>,          <span style="color:#75715e"># INT8 K-cache — works on sm_75</span>
+</span></span><span style="display:flex;"><span>    type_v<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,          <span style="color:#75715e"># FP16 V-cache — INT8 requires Flash Attention (sm_80+)</span>
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>On RTX 2060 Max-Q (sm_75, 6 GB GDDR6):</p>
+<pre tabindex="0"><code>32B model — 64 layers total:
   ~12 layers  →  GPU VRAM (GDDR6, 192 GB/s)    ← fast path
   ~52 layers  →  CPU DDR4 (~25 GB/s)            ← ~7× slower but acceptable
        0      →  SharedRAM / PCIe (~6 GB/s)     ← NEVER — 4× slower than CPU
@@ -204,58 +537,1325 @@ true VRAM; the rest are streamed from CPU DDR4 at inference time.</p><div class=
 with batch size. At the default <code>n_batch=512</code>, this buffer requires approximately 10 GB — which immediately
 exceeds the GPU&rsquo;s 6 GB and forces the entire buffer into SharedRAM (the PCIe-backed system RAM pool that
 Windows exposes as GPU memory). The result is a model that appears to load but runs at 0.36 tok/s rather
-than 1.4 tok/s. Setting <code>n_batch=32</code> keeps the compute buffer to approximately 700 MB.</p><p><strong>Why <code>type_v=1</code>, not <code>type_v=8</code>:</strong> INT8 V-cache quantisation (<code>type_v=8</code>) requires Flash Attention, which
+than 1.4 tok/s. Setting <code>n_batch=32</code> keeps the compute buffer to approximately 700 MB.</p>
+<p><strong>Why <code>type_v=1</code>, not <code>type_v=8</code>:</strong> INT8 V-cache quantisation (<code>type_v=8</code>) requires Flash Attention, which
 requires compute capability sm_80 or higher. The RTX 2060 Max-Q is sm_75. Attempting <code>type_v=8</code> on sm_75
-causes a silent context creation failure — the model loads without error but produces garbage output.</p><p><strong>Measured speeds on this hardware:</strong></p><table><thead><tr><th>Configuration</th><th>Speed</th></tr></thead><tbody><tr><td>SharedRAM (<code>n_gpu_layers=60</code>, spills to PCIe)</td><td>0.36 tok/s</td></tr><tr><td>CPU only (<code>n_gpu_layers=0</code>)</td><td>1.13–1.25 tok/s</td></tr><tr><td>VRAM + CPU (<code>n_gpu_layers=-1</code>, ~12 in VRAM)</td><td>~1.4 tok/s</td></tr></tbody></table><p>The ~12 layers in VRAM operate at 192 GB/s vs 25 GB/s — a 7.7× bandwidth advantage per layer. Even with
+causes a silent context creation failure — the model loads without error but produces garbage output.</p>
+<p><strong>Measured speeds on this hardware:</strong></p>
+<table>
+	<thead>
+			<tr>
+					<th>Configuration</th>
+					<th>Speed</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>SharedRAM (<code>n_gpu_layers=60</code>, spills to PCIe)</td>
+					<td>0.36 tok/s</td>
+			</tr>
+			<tr>
+					<td>CPU only (<code>n_gpu_layers=0</code>)</td>
+					<td>1.13–1.25 tok/s</td>
+			</tr>
+			<tr>
+					<td>VRAM + CPU (<code>n_gpu_layers=-1</code>, ~12 in VRAM)</td>
+					<td>~1.4 tok/s</td>
+			</tr>
+	</tbody>
+</table>
+<p>The ~12 layers in VRAM operate at 192 GB/s vs 25 GB/s — a 7.7× bandwidth advantage per layer. Even with
 only ~19% of layers in VRAM, the memory bandwidth improvement produces a 12–25% throughput gain over
-CPU-only.</p><h3 id=sharedram-is-not-real-vram>SharedRAM is not real VRAM
-<a class=heading-link href=#sharedram-is-not-real-vram><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Windows WDDM driver exposes system RAM as a secondary GPU memory pool (shown as &ldquo;Shared GPU memory&rdquo; in Task
+CPU-only.</p>
+<h3 id="sharedram-is-not-real-vram">
+  SharedRAM is not real VRAM
+  <a class="heading-link" href="#sharedram-is-not-real-vram">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Windows WDDM driver exposes system RAM as a secondary GPU memory pool (shown as &ldquo;Shared GPU memory&rdquo; in Task
 Manager and as available VRAM in some APIs). This pool runs over PCIe at approximately 6 GB/s — four times
 slower than CPU DDR4. Setting <code>n_gpu_layers</code> to a value that spills into SharedRAM always produces worse
-performance than <code>n_gpu_layers=0</code> (CPU-only). The pipeline hard-blocks SharedRAM usage.</p><hr><h2 id=performance-summary>Performance Summary
-<a class=heading-link href=#performance-summary><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><table><thead><tr><th>Configuration</th><th>Stage 1</th><th>Stage 2</th><th>Stage 3</th><th>Stage 4</th><th>Total</th></tr></thead><tbody><tr><td>Baseline (no optimisations)</td><td>~21 h</td><td>~6 h</td><td>—</td><td>~1.5 h</td><td>~28.5 h</td></tr><tr><td>+ Late fusion</td><td>~17.5 h</td><td>~3 h</td><td>—</td><td>~1.5 h</td><td>~22 h</td></tr><tr><td>+ Compiled encoder</td><td>~16.5 h</td><td>~3 h</td><td>—</td><td>~1.5 h</td><td>~21 h</td></tr><tr><td>+ Speculative decoding</td><td>~9 h</td><td>~3 h</td><td>—</td><td>~1.5 h</td><td>~13.5 h</td></tr><tr><td>+ Classification structuring</td><td>~9 h</td><td>~3 h</td><td>—</td><td>~0.5 h</td><td>~12.5 h</td></tr><tr><td><strong>Full pipeline with Stage 3</strong></td><td><strong>~9 h</strong></td><td><strong>~3 h</strong></td><td><strong>~1 h</strong></td><td><strong>~0.5 h</strong></td><td><strong>~13.5 h</strong></td></tr></tbody></table><p>Total improvement: 28.5 h → 13.5 h — a 2.1× speedup while adding a 32B correction pass.</p><hr><h2 id=model-selection>Model Selection
-<a class=heading-link href=#model-selection><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><table><thead><tr><th>Stage</th><th>Model</th><th>Reason</th></tr></thead><tbody><tr><td>Stage 1 — image reading</td><td>Qwen2.5-VL-7B Q6_K (GGUF)</td><td>Specialist vision model; largest VLM that fits in 6 GB VRAM</td></tr><tr><td>Stage 2 — stitching</td><td>Qwen2.5-3B 4-bit NF4 (HF)</td><td>Fast; deduplication task needs minimal language understanding</td></tr><tr><td>Stage 3 — rebuild</td><td>Qwen2.5-32B Q5_K_M (GGUF)</td><td>32B significantly better at contextual correction; GGUF enables layer streaming</td></tr><tr><td>Stage 4 — PDF</td><td>WeasyPrint + fpdf2 fallback</td><td>Markdown → PDF with full Unicode; fpdf2 handles edge cases</td></tr></tbody></table><p><strong>Why not use the 32B model for everything?</strong> Stage 1 requires a vision model — vision capability in
+performance than <code>n_gpu_layers=0</code> (CPU-only). The pipeline hard-blocks SharedRAM usage.</p>
+<hr>
+<h2 id="performance-summary">
+  Performance Summary
+  <a class="heading-link" href="#performance-summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Configuration</th>
+					<th>Stage 1</th>
+					<th>Stage 2</th>
+					<th>Stage 3</th>
+					<th>Stage 4</th>
+					<th>Total</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Baseline (no optimisations)</td>
+					<td>~21 h</td>
+					<td>~6 h</td>
+					<td>—</td>
+					<td>~1.5 h</td>
+					<td>~28.5 h</td>
+			</tr>
+			<tr>
+					<td>+ Late fusion</td>
+					<td>~17.5 h</td>
+					<td>~3 h</td>
+					<td>—</td>
+					<td>~1.5 h</td>
+					<td>~22 h</td>
+			</tr>
+			<tr>
+					<td>+ Compiled encoder</td>
+					<td>~16.5 h</td>
+					<td>~3 h</td>
+					<td>—</td>
+					<td>~1.5 h</td>
+					<td>~21 h</td>
+			</tr>
+			<tr>
+					<td>+ Speculative decoding</td>
+					<td>~9 h</td>
+					<td>~3 h</td>
+					<td>—</td>
+					<td>~1.5 h</td>
+					<td>~13.5 h</td>
+			</tr>
+			<tr>
+					<td>+ Classification structuring</td>
+					<td>~9 h</td>
+					<td>~3 h</td>
+					<td>—</td>
+					<td>~0.5 h</td>
+					<td>~12.5 h</td>
+			</tr>
+			<tr>
+					<td><strong>Full pipeline with Stage 3</strong></td>
+					<td><strong>~9 h</strong></td>
+					<td><strong>~3 h</strong></td>
+					<td><strong>~1 h</strong></td>
+					<td><strong>~0.5 h</strong></td>
+					<td><strong>~13.5 h</strong></td>
+			</tr>
+	</tbody>
+</table>
+<p>Total improvement: 28.5 h → 13.5 h — a 2.1× speedup while adding a 32B correction pass.</p>
+<hr>
+<h2 id="model-selection">
+  Model Selection
+  <a class="heading-link" href="#model-selection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Stage</th>
+					<th>Model</th>
+					<th>Reason</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Stage 1 — image reading</td>
+					<td>Qwen2.5-VL-7B Q6_K (GGUF)</td>
+					<td>Specialist vision model; largest VLM that fits in 6 GB VRAM</td>
+			</tr>
+			<tr>
+					<td>Stage 2 — stitching</td>
+					<td>Qwen2.5-3B 4-bit NF4 (HF)</td>
+					<td>Fast; deduplication task needs minimal language understanding</td>
+			</tr>
+			<tr>
+					<td>Stage 3 — rebuild</td>
+					<td>Qwen2.5-32B Q5_K_M (GGUF)</td>
+					<td>32B significantly better at contextual correction; GGUF enables layer streaming</td>
+			</tr>
+			<tr>
+					<td>Stage 4 — PDF</td>
+					<td>WeasyPrint + fpdf2 fallback</td>
+					<td>Markdown → PDF with full Unicode; fpdf2 handles edge cases</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>Why not use the 32B model for everything?</strong> Stage 1 requires a vision model — vision capability in
 GGUF format exists only up to 7B at usable quality on this hardware. Stage 2 is a deduplication task
 where a 3B model is sufficient. Using a 32B model for Stage 2 would add ~3 hours for negligible
-quality improvement.</p><hr><h2 id=running-the-pipeline>Running the Pipeline
-<a class=heading-link href=#running-the-pipeline><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e># One-time setup</span>
-</span></span><span style=display:flex><span>py <span style=color:#ae81ff>-3.12</span> -m venv venv
-</span></span><span style=display:flex><span>.\venv\Scripts\Activate.ps1
-</span></span><span style=display:flex><span>pip install -r requirements.txt
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Build llama-cpp-python with CUDA (required for Stage 3)</span>
-</span></span><span style=display:flex><span>$env:CMAKE_ARGS = <span style=color:#e6db74>&#34;-DGGML_CUDA=on&#34;</span>
-</span></span><span style=display:flex><span>$env:FORCE_CMAKE = <span style=color:#e6db74>&#34;1&#34;</span>
-</span></span><span style=display:flex><span>pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Full pipeline run</span>
-</span></span><span style=display:flex><span>.\run_pipeline.ps1 -FreshRun
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Resume after interruption (auto-detects completed files)</span>
-</span></span><span style=display:flex><span>.\run_pipeline.ps1
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Re-run Stage 3 + 4 only (keep stitched output)</span>
-</span></span><span style=display:flex><span>.\run_pipeline.ps1 -RebuildOnly
+quality improvement.</p>
+<hr>
+<h2 id="running-the-pipeline">
+  Running the Pipeline
+  <a class="heading-link" href="#running-the-pipeline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># One-time setup</span>
+</span></span><span style="display:flex;"><span>py <span style="color:#ae81ff">-3.12</span> -m venv venv
+</span></span><span style="display:flex;"><span>.\venv\Scripts\Activate.ps1
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build llama-cpp-python with CUDA (required for Stage 3)</span>
+</span></span><span style="display:flex;"><span>$env:CMAKE_ARGS = <span style="color:#e6db74">&#34;-DGGML_CUDA=on&#34;</span>
+</span></span><span style="display:flex;"><span>$env:FORCE_CMAKE = <span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Full pipeline run</span>
+</span></span><span style="display:flex;"><span>.\run_pipeline.ps1 -FreshRun
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resume after interruption (auto-detects completed files)</span>
+</span></span><span style="display:flex;"><span>.\run_pipeline.ps1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Re-run Stage 3 + 4 only (keep stitched output)</span>
+</span></span><span style="display:flex;"><span>.\run_pipeline.ps1 -RebuildOnly
 </span></span></code></pre></div><p>Output appears in <code>pdf/</code> with human-readable filenames derived from document headings.
-Each stage is fully resumable — interrupted runs pick up from the last completed file.</p><hr><h2 id=what-this-produces>What This Produces
-<a class=heading-link href=#what-this-produces><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p><strong>Input:</strong> 1,589 phone screenshots spanning 5 documents across 23 work sessions.</p><p><strong>Output:</strong></p><pre tabindex=0><code>pdf/
+Each stage is fully resumable — interrupted runs pick up from the last completed file.</p>
+<hr>
+<h2 id="what-this-produces">
+  What This Produces
+  <a class="heading-link" href="#what-this-produces">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Input:</strong> 1,589 phone screenshots spanning 5 documents across 23 work sessions.</p>
+<p><strong>Output:</strong></p>
+<pre tabindex="0"><code>pdf/
   Communication_Load_and_Work_Management.pdf     (48 KB)
   Repository_Handover_and_Code_Understanding.pdf (52.7 KB)
   12_September_2025_15_32.pdf                    (305.5 KB)
   Performance_Goals_Review.pdf                   (7.5 KB)
   February_2026_Production_Validation.pdf        (2.4 KB)
 </code></pre><p>Clean Markdown → typeset PDF with verbatim quotes, timestamps, participant names, and
-a provenance header documenting the source screenshot timestamps and filenames.</p><p><strong><a href=/ai/image-text-extraction-v2/>→ v2 Redesign: Event-Driven Architecture</a></strong></p><hr><p><em>Source: <a href=https://github.com/mdcooper-mc class=external-link target=_blank rel=noopener>ImageTextExtraction on GitHub</a></em></p></article></section><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></div><style>.footer{color:#000}.footer a{color:#1565c0;text-decoration:underline}body.colorscheme-dark .footer{color:#dadada!important}body.colorscheme-dark .footer a{color:#448aff!important}</style><footer class=footer style=text-align:center;font-size:11px><div><p>&copy; 2026 Mark Cooper - <a href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
-CV</a></p></div></footer></main><script src=https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js></script><script>(function(){function e(){var t,e=document.querySelectorAll("pre code.language-mermaid, pre.mermaid, div.mermaid");if(e.length===0)return;t=document.body.classList.contains("colorscheme-dark")||document.body.classList.contains("colorscheme-auto")&&window.matchMedia("(prefers-color-scheme: dark)").matches,mermaid.initialize({startOnLoad:!1,theme:t?"dark":"default",securityLevel:"loose"}),e.forEach(function(e){var n=e.tagName.toLowerCase()==="code"?e.parentElement:e,t=document.createElement("div");t.className="mermaid",t.textContent=e.textContent,n.parentNode.replaceChild(t,n)}),mermaid.run()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e()})()</script><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><style>.tour-cta-wrapper{margin:64px auto 40px;text-align:center}.tour-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 24px;font-size:13px;font-weight:600;letter-spacing:.3px;border-radius:30px;cursor:pointer;text-decoration:none!important;transition:all .25s cubic-bezier(.16,1,.3,1);border:1px solid #1565c0;background:#1565c0;color:#fff!important;box-shadow:0 4px 14px rgba(21,101,192,.25)}.tour-cta-btn:hover{background:#0d47a1;transform:translateY(-2px);box-shadow:0 6px 20px rgba(21,101,192,.4)}body.colorscheme-dark .tour-cta-btn,body.colorscheme-auto .tour-cta-btn{background:#2563eb;border-color:#2563eb;color:#fff!important}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-cta-btn{background:#3b82f6;border-color:#3b82f6;color:#fff!important;box-shadow:0 4px 16px rgba(59,130,246,.35)}}body.colorscheme-dark .tour-cta-btn{background:#3b82f6;border-color:#3b82f6;color:#fff!important;box-shadow:0 4px 16px rgba(59,130,246,.35)}.guided-tour-dock{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 18px 12px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.12);border-radius:40px;box-shadow:0 14px 40px rgba(0,0,0,.18),0 2px 8px rgba(0,0,0,8%);font-family:inherit;color:#212121;max-width:92vw;box-sizing:border-box;animation:tourFadeIn .35s ease-out}body.colorscheme-dark .guided-tour-dock{background:rgba(26,29,36,.95);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}@media(prefers-color-scheme:dark){body.colorscheme-auto .guided-tour-dock{background:rgba(26,29,36,.95);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}}@keyframes tourFadeIn{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}.tour-dock-header{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:#616161}body.colorscheme-dark .tour-dock-header{color:#b0b0b0}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dock-header{color:#b0b0b0}}.tour-step-badge{display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,5%);transition:all .2s;user-select:none}.tour-step-badge:hover{background:rgba(0,0,0,.1)}body.colorscheme-dark .tour-step-badge{background:rgba(255,255,255,8%)}body.colorscheme-dark .tour-step-badge:hover{background:rgba(255,255,255,.15)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-step-badge{background:rgba(255,255,255,8%)}body.colorscheme-auto .tour-step-badge:hover{background:rgba(255,255,255,.15)}}.tour-progress-bar-container{width:100%;height:3px;background:rgba(0,0,0,8%);border-radius:2px;overflow:hidden;margin-bottom:2px}body.colorscheme-dark .tour-progress-bar-container{background:rgba(255,255,255,.12)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-progress-bar-container{background:rgba(255,255,255,.12)}}.tour-progress-bar-fill{height:100%;background:#1565c0;border-radius:2px;transition:width .3s ease}body.colorscheme-dark .tour-progress-bar-fill{background:#3b82f6}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-progress-bar-fill{background:#3b82f6}}.tour-controls-row{display:flex;align-items:center;gap:10px}.tour-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 14px;font-size:12px;font-weight:600;border-radius:20px;cursor:pointer;text-decoration:none!important;transition:all .2s ease;border:1px solid rgba(0,0,0,.15);background:#f5f5f5;color:#212121!important;user-select:none}.tour-btn:hover:not(.disabled){background:#e0e0e0;transform:translateY(-1px)}body.colorscheme-dark .tour-btn{background:#2a2e39;border-color:rgba(255,255,255,.14);color:#f0f0f0!important}body.colorscheme-dark .tour-btn:hover:not(.disabled){background:#383e4d;transform:translateY(-1px)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-btn{background:#2a2e39;border-color:rgba(255,255,255,.14);color:#f0f0f0!important}body.colorscheme-auto .tour-btn:hover:not(.disabled){background:#383e4d;transform:translateY(-1px)}}.tour-btn.disabled{opacity:.35;cursor:not-allowed;pointer-events:none}.tour-btn-home{padding:6px 12px;background:0 0;border-color:transparent;color:#555!important;font-size:13px}.tour-btn-home:hover{background:rgba(0,0,0,8%);color:#000!important}body.colorscheme-dark .tour-btn-home{color:#aaa!important}body.colorscheme-dark .tour-btn-home:hover{background:rgba(255,255,255,.12);color:#fff!important}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-btn-home{color:#aaa!important}body.colorscheme-auto .tour-btn-home:hover{background:rgba(255,255,255,.12);color:#fff!important}}.tour-btn-next{background:#1565c0;border-color:#1565c0;color:#fff!important}.tour-btn-next:hover:not(.disabled){background:#0d47a1;box-shadow:0 4px 12px rgba(21,101,192,.3)}body.colorscheme-dark .tour-btn-next{background:#3b82f6;border-color:#3b82f6;color:#fff!important}body.colorscheme-dark .tour-btn-next:hover:not(.disabled){background:#2563eb;box-shadow:0 4px 14px rgba(59,130,246,.45)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-btn-next{background:#3b82f6;border-color:#3b82f6;color:#fff!important}body.colorscheme-auto .tour-btn-next:hover:not(.disabled){background:#2563eb;box-shadow:0 4px 14px rgba(59,130,246,.45)}}.tour-dropdown{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:14px;width:340px;max-height:420px;overflow-y:auto;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,.14);border-radius:18px;box-shadow:0 20px 48px rgba(0,0,0,.24);padding:8px 0;display:none;z-index:100000}body.colorscheme-dark .tour-dropdown{background:rgba(26,29,36,.98);border-color:rgba(255,255,255,.18);box-shadow:0 20px 48px rgba(0,0,0,.7)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown{background:rgba(26,29,36,.98);border-color:rgba(255,255,255,.18);box-shadow:0 20px 48px rgba(0,0,0,.7)}}.tour-dropdown.show{display:block}.tour-dropdown-section-header{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1565c0}body.colorscheme-dark .tour-dropdown-section-header{color:#60a5fa}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-section-header{color:#60a5fa}}.tour-dropdown-item{display:flex;align-items:center;gap:10px;padding:7px 16px;font-size:12px;color:#333!important;text-decoration:none!important;transition:background .15s;cursor:pointer}body.colorscheme-dark .tour-dropdown-item{color:#ddd!important}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item{color:#ddd!important}}.tour-dropdown-item:hover{background:rgba(21,101,192,8%)}body.colorscheme-dark .tour-dropdown-item:hover{background:rgba(59,130,246,.14)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item:hover{background:rgba(59,130,246,.14)}}.tour-dropdown-item.active{font-weight:700;color:#1565c0!important;background:rgba(21,101,192,.12)}body.colorscheme-dark .tour-dropdown-item.active{color:#60a5fa!important;background:rgba(59,130,246,.2)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item.active{color:#60a5fa!important;background:rgba(59,130,246,.2)}}.tour-step-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700;background:rgba(0,0,0,6%);flex-shrink:0}body.colorscheme-dark .tour-step-num{background:rgba(255,255,255,.1)}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-step-num{background:rgba(255,255,255,.1)}}.tour-dropdown-item.active .tour-step-num{background:#1565c0;color:#fff}body.colorscheme-dark .tour-dropdown-item.active .tour-step-num{background:#3b82f6;color:#0e1117}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-dropdown-item.active .tour-step-num{background:#3b82f6;color:#0e1117}}.tour-summary-card{position:fixed;bottom:24px;left:24px;z-index:99998;width:340px;max-width:calc(100vw - 48px);background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.12);border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.16),0 2px 8px rgba(0,0,0,6%);padding:14px 16px;box-sizing:border-box;animation:tourCardSlideIn .35s ease-out;transition:all .25s ease;font-family:inherit;color:#212121}body.colorscheme-dark .tour-summary-card{background:rgba(26,29,36,.95);border-color:rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.65),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-card{background:rgba(26,29,36,.95);border-color:rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.65),0 2px 10px rgba(0,0,0,.4);color:#f0f0f0}}@keyframes tourCardSlideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.tour-summary-header{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;user-select:none}.tour-summary-badge-group{display:flex;align-items:center;gap:6px}.tour-summary-section-pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:2px 8px;border-radius:10px;background:#1565c0;color:#fff}body.colorscheme-dark .tour-summary-section-pill{background:#2563eb;color:#fff}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-section-pill{background:#2563eb;color:#fff}}.tour-summary-toggle-btn{background:0 0;border:none;cursor:pointer;padding:4px;font-size:11px;color:#757575;transition:transform .25s ease,color .2s ease;display:flex;align-items:center;justify-content:center}.tour-summary-toggle-btn:hover{color:#212121}body.colorscheme-dark .tour-summary-toggle-btn{color:#9e9e9e}body.colorscheme-dark .tour-summary-toggle-btn:hover{color:#fff}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-toggle-btn{color:#9e9e9e}body.colorscheme-auto .tour-summary-toggle-btn:hover{color:#fff}}.tour-summary-card.collapsed .tour-summary-toggle-btn{transform:rotate(180deg)}.tour-summary-card.collapsed .tour-summary-body{display:none}.tour-summary-body{margin-top:10px}.tour-summary-title{font-size:13px;font-weight:700;line-height:1.35;margin-bottom:6px;color:#111}body.colorscheme-dark .tour-summary-title{color:#f5f5f5}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-title{color:#f5f5f5}}.tour-summary-text{font-size:12px;line-height:1.5;color:#424242;margin:0}body.colorscheme-dark .tour-summary-text{color:#c4c4c4}@media(prefers-color-scheme:dark){body.colorscheme-auto .tour-summary-text{color:#c4c4c4}}@media(max-width:860px){.tour-summary-card{bottom:84px;left:16px;right:16px;width:auto;max-width:none}}</style><div id=guided-tour-dock class=guided-tour-dock style=display:none><div id=tour-dropdown class=tour-dropdown></div><div class=tour-dock-header><span id=tour-step-badge class=tour-step-badge title="Click to view all tour stops"><i class="fa-solid fa-compass" aria-hidden=true></i>
-<span id=tour-step-label>Step 1 of 22</span>
-<i class="fa-solid fa-caret-up" style=font-size:9px;opacity:.6></i>
-</span><span id=tour-step-title style=white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px></span></div><div class=tour-progress-bar-container><div id=tour-progress-fill class=tour-progress-bar-fill style=width:0%></div></div><div class=tour-controls-row><a id=tour-prev-btn class=tour-btn href=javascript:void(0) aria-label="Previous Stop"><i class="fa-solid fa-chevron-left" aria-hidden=true></i> Prev
-</a><a id=tour-home-btn class="tour-btn tour-btn-home" href=javascript:void(0) title="Return to Home / Exit Tour" aria-label=Home><i class="fa-solid fa-house" aria-hidden=true></i> Home
-</a><a id=tour-next-btn class="tour-btn tour-btn-next" href=javascript:void(0) aria-label="Next Stop">Next <i class="fa-solid fa-chevron-right" aria-hidden=true></i></a></div></div><div id=tour-summary-card class=tour-summary-card style=display:none><div class=tour-summary-header id=tour-summary-header title="Click to collapse / expand summary"><div class=tour-summary-badge-group><span id=tour-summary-section-pill class=tour-summary-section-pill><i class="fa-solid fa-briefcase" style=font-size:9px></i>
-<span id=tour-summary-section>EXECUTIVE BRIEF</span></span></div><button class=tour-summary-toggle-btn id=tour-summary-toggle aria-label="Toggle Summary Window">
-<i class="fa-solid fa-chevron-down"></i></button></div><div class=tour-summary-body id=tour-summary-body><div id=tour-summary-title class=tour-summary-title></div><p id=tour-summary-text class=tour-summary-text></p></div></div><script>(function(){const e=[{section:"About Me",title:"Executive Track Record",url:"/about/",summary:"Senior enterprise architect and cloud-native engineer with 20+ years delivering mission-critical trading, risk, and regulatory platforms across global Tier-1 investment banks, premier asset managers, and electronic trading venues."},{section:"About Me",title:"Software Engineering & Architecture",url:"/about/software/",summary:"Core engineering stack across Java, Go, C# / .NET, TypeScript, Python, and Kubernetes. Specialises in deterministic state engines, reactive message fabrics, and lock-free concurrency patterns."},{section:"About Me",title:"Capital Markets & Quantitative Finance",url:"/about/finance/",summary:"Deep quantitative domain expertise across OTC equity derivatives, total return swaps, pricing models, Greek sensitivities, and multi-jurisdiction regulatory regimes (Basel III/IV, FRTB, MiFID II, Dodd-Frank)."},{section:"About Me",title:"Murex MX.3 Ecosystem Expertise",url:"/about/murex/",summary:"Specialized integration and automation of Murex MX.3 platforms: trade workflow lifecycles, real-time simulation engines, Datamart reporting pipelines, and enterprise bot orchestration."},{section:"About Me",title:"Cloud Architecture & FinOps",url:"/about/cloud/",summary:"AWS and Kubernetes infrastructure engineering with an emphasis on cost efficiency. Architected multi-region environments and delivered over £2M in audited annual compute savings."},{section:"About Me",title:"AI/ML & Quantitative Systems",url:"/about/aiml/",summary:"Hands-on engineering across deep learning infrastructure: scalar autograd engines from first principles, custom transformer architectures, multi-GPU clusters, and enterprise LLM proxies."},{section:"Architecture",title:"Cooper's Way Architectural Doctrine",url:"/projects/coopers-way/",summary:"The overarching engineering philosophy across all projects: domain decoupling, immutable task payloads, blocking priority queues, dynamic auto-scaling worker pools, and fail-fast resilience."},{section:"Projects",title:"Production Equity Swap Pricing Engine",url:"/projects/production-equity-swap-pricing-engine/",summary:"High-performance C# / .NET derivatives pricing library enforcing ISDA conventions via the Type-State Pattern. Validated with a 97.8% pass rate across 5,000 live production positions."},{section:"Projects",title:"Enterprise Chromium Extension Ecosystem",url:"/projects/chromium-extension-ecosystem/",summary:"Manifest V3 monorepo of five browser extensions backed by a concurrent kernel featuring blocking priority queues, dynamic auto-scaling worker pools, and 162 unit tests."},{section:"Projects",title:"High-Performance Go Data Pipelines",url:"/projects/high-performance-go-data-pipelines/",summary:"Zero-allocation Go streaming engines, sync.Pool buffer recycling, bounded concurrent IMAP harvesters, and a sub-millisecond Chromium Native Messaging host."},{section:"Projects",title:"Murex Capital Markets AI Agent & Proxy",url:"/projects/murex-capital-markets-ai-agent/",summary:"Enterprise Microsoft Teams bot integration with a low-latency Go LLM proxy, dynamic context window pruning, and strict domain persona constraints preventing hallucinations."},{section:"Projects",title:"Cloud Cost Optimisation (£2M+ Savings)",url:"/projects/cloud-cost-optimisation/",summary:"Architectural tuning of Kubernetes compute on AWS EKS, workload scheduling, and reusable CI/CD pipelines delivering over £2M in verified annual infrastructure savings."},{section:"Projects",title:"Identity-Centric Encryption with Consent",url:"/projects/identity-centric-encryption-with-user-consent/",summary:"Record-level envelope encryption requiring explicit cryptographic end-user approval and tamper-evident audit logging for sensitive financial transactions."},{section:"Projects",title:"Declarative Service Framework",url:"/projects/service-framework/",summary:"Annotation-driven workflow orchestration engine built on Spring Boot, enabling declarative event routing and modular business service composition for critical operations."},{section:"Projects",title:"High-Throughput Reconciliation Framework",url:"/projects/reconciliation-framework/",summary:"Multi-threaded trade and cashflow reconciliation engine matching millions of transaction legs with deterministic rule pipelines and automated discrepancy routing."},{section:"Platforms",title:"Platforms Architecture Overview",url:"/platforms/",summary:"Platform engineering philosophy emphasizing decoupled components, composable services, and cache-first architectures designed for continuous high-volume throughput."},{section:"Platforms",title:"Real-Time Orchestration Platform",url:"/platforms/real-time-orchestration/",summary:"Low-latency distributed orchestration engine coordinating trade lifecycle events and external market feeds with strict ordering guarantees and fault isolation."},{section:"AI / ML",title:"AI Hub & Engineering Survey",url:"/ai/",summary:"Comprehensive engineering exploration of neural network architectures, custom autograd engines, distributed training topologies, and LLM inference optimization."},{section:"AI / ML",title:"Scalar Autograd Engine from First Principles",url:"/ai/autograd-engine/",summary:"First-principles DAG-based reverse-mode automatic differentiation engine in Python without external tensor libraries, demonstrating foundational mastery of backpropagation."},{section:"AI / ML",title:"Transformer Architecture from Scratch",url:"/ai/transformer-architecture/",summary:"Complete implementation of multi-head scaled dot-product self-attention, positional encoding, and decoder blocks built from scratch in PyTorch."},{section:"AI / ML",title:"Distributed Training Infrastructure",url:"/ai/distributed-training-infrastructure/",summary:"Multi-GPU data-parallel and pipeline-parallel cluster architectures, Ring-AllReduce gradient synchronisation, mixed precision (FP16/BF16), and GPU cache efficiency."},{section:"AI / ML",title:"Multimodal Document & Text Extraction",url:"/ai/image-text-extraction-v2/",summary:"Production multimodal pipeline combining vision encoders, OCR layout analysis, and structured schema extraction for high-accuracy financial document ingestion."}];window.startGuidedTour=function(){sessionStorage.setItem("guidedTourActive","true"),window.location.href=e[0].url},window.exitGuidedTour=function(){sessionStorage.removeItem("guidedTourActive"),window.location.href="/"};function t(e){if(!e)return"/";var t=e.split("?")[0].split("#")[0];return t.endsWith("/")||(t+="/"),t}function n(){var n,s,o,i,a,r,c,l,d,u,h,m,f,p,g,v,b,j,y,_,w,O,x,C,E=new URLSearchParams(window.location.search);if(E.get("tour")==="true"&&sessionStorage.setItem("guidedTourActive","true"),x=sessionStorage.getItem("guidedTourActive")==="true",h=t(window.location.pathname),h==="/"||h==="/index.html")return;if(!x)return;if(d=document.getElementById("guided-tour-dock"),o=document.getElementById("tour-summary-card"),!d)return;for(n=-1,a=0;a<e.length;a++)if(t(e[a].url)===h){n=a;break}n===-1&&(n=0),c=e[n],_=n+1,l=e.length,O=Math.round(_/l*100),g=document.getElementById("tour-step-label"),v=document.getElementById("tour-step-title"),p=document.getElementById("tour-progress-fill"),r=document.getElementById("tour-prev-btn"),i=document.getElementById("tour-next-btn"),b=document.getElementById("tour-home-btn"),j=document.getElementById("tour-step-badge"),s=document.getElementById("tour-dropdown"),g&&(g.textContent="Step "+_+" of "+l),v&&(v.textContent=c.title),p&&(p.style.width=O+"%"),r&&(n>0?(r.classList.remove("disabled"),r.onclick=function(){window.location.href=e[n-1].url}):r.classList.add("disabled")),b&&(b.onclick=function(){window.exitGuidedTour()}),i&&(n<l-1?(i.innerHTML='Next <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>',i.onclick=function(){window.location.href=e[n+1].url}):(i.innerHTML='<i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Finish Tour',i.onclick=function(){window.exitGuidedTour()})),s&&(s.innerHTML="",u="",e.forEach(function(e,t){if(e.section!==u){u=e.section;var o,i=document.createElement("div");i.className="tour-dropdown-section-header",i.textContent=u,s.appendChild(i)}o=document.createElement("a"),o.className="tour-dropdown-item"+(t===n?" active":""),o.href=e.url,o.innerHTML='<span class="tour-step-num">'+(t+1)+"</span><span>"+e.title+"</span>",o.onclick=function(t){t.preventDefault(),window.location.href=e.url},s.appendChild(o)}),j&&(j.onclick=function(e){e.stopPropagation(),s.classList.toggle("show")}),document.addEventListener("click",function(e){d.contains(e.target)||s.classList.remove("show")})),o&&(m=document.getElementById("tour-summary-section"),f=document.getElementById("tour-summary-title"),w=document.getElementById("tour-summary-text"),y=document.getElementById("tour-summary-header"),m&&(m.textContent=c.section.toUpperCase()),f&&(f.textContent=c.title),w&&(w.textContent=c.summary),C=sessionStorage.getItem("tourSummaryCollapsed")==="true",C&&o.classList.add("collapsed"),y&&(y.onclick=function(){o.classList.toggle("collapsed");var e=o.classList.contains("collapsed");sessionStorage.setItem("tourSummaryCollapsed",e?"true":"false")}),o.style.display="block"),document.addEventListener("keydown",function(t){if(t.target&&(t.target.tagName==="INPUT"||t.target.tagName==="TEXTAREA"))return;t.key==="ArrowRight"&&n<l-1?window.location.href=e[n+1].url:t.key==="ArrowLeft"&&n>0?window.location.href=e[n-1].url:t.key==="Escape"&&window.exitGuidedTour()}),d.style.display="flex"}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n()})()</script></body></html>
+a provenance header documenting the source screenshot timestamps and filenames.</p>
+<p><strong><a href="/ai/image-text-extraction-v2/" >→ v2 Redesign: Event-Driven Architecture</a></strong></p>
+<hr>
+<p><em>Source: <a href="https://github.com/mdcooper-mc"  class="external-link" target="_blank" rel="noopener">ImageTextExtraction on GitHub</a></em></p>
+
+  </article>
+</section>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+
+    </div>
+
+    <style>
+  .footer {
+    color: #000;
+  }
+  .footer a {
+    color: #1565c0;
+    text-decoration: underline;
+  }
+  body.colorscheme-dark .footer {
+    color: #dadada !important;
+  }
+  body.colorscheme-dark .footer a {
+    color: #448aff !important;
+  }
+</style>
+<footer class="footer" style="text-align:center; font-size: 11px;">
+    <div>
+        <p>&copy; 2026 Mark Cooper - <a
+                href="mailto:mdcooper.mc@gmail.com?subject=Please%20send%20me%20a%20copy%20of%20your%20CV">Request a
+            CV</a></p>
+    </div>
+</footer>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    (function() {
+      function renderMermaid() {
+        var blocks = document.querySelectorAll("pre code.language-mermaid, pre.mermaid, div.mermaid");
+        if (blocks.length === 0) return;
+        var isDark = document.body.classList.contains("colorscheme-dark") ||
+          (document.body.classList.contains("colorscheme-auto") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: isDark ? "dark" : "default",
+          securityLevel: "loose"
+        });
+        blocks.forEach(function(code) {
+          var pre = code.tagName.toLowerCase() === "code" ? code.parentElement : code;
+          var container = document.createElement("div");
+          container.className = "mermaid";
+          container.textContent = code.textContent;
+          pre.parentNode.replaceChild(container, pre);
+        });
+        mermaid.run();
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", renderMermaid);
+      } else {
+        renderMermaid();
+      }
+    })();
+  </script>
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<style>
+ 
+.tour-cta-wrapper {
+  margin: 64px auto 40px auto;
+  text-align: center;
+}
+.tour-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #1565c0;
+  background: #1565c0;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.25);
+}
+.tour-cta-btn:hover {
+  background: #0d47a1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4);
+}
+body.colorscheme-dark .tour-cta-btn,
+body.colorscheme-auto .tour-cta-btn {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff !important;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-cta-btn {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+  }
+}
+body.colorscheme-dark .tour-cta-btn {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+}
+
+ 
+.guided-tour-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px 12px 18px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 40px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: inherit;
+  color: #212121;
+  max-width: 92vw;
+  box-sizing: border-box;
+  animation: tourFadeIn 0.35s ease-out;
+}
+
+body.colorscheme-dark .guided-tour-dock {
+  background: rgba(26, 29, 36, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
+  color: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .guided-tour-dock {
+    background: rgba(26, 29, 36, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
+    color: #f0f0f0;
+  }
+}
+
+@keyframes tourFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+ 
+.tour-dock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #616161;
+}
+
+body.colorscheme-dark .tour-dock-header {
+  color: #b0b0b0;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dock-header {
+    color: #b0b0b0;
+  }
+}
+
+.tour-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  user-select: none;
+}
+.tour-step-badge:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+body.colorscheme-dark .tour-step-badge {
+  background: rgba(255, 255, 255, 0.08);
+}
+body.colorscheme-dark .tour-step-badge:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-step-badge {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  body.colorscheme-auto .tour-step-badge:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.tour-progress-bar-container {
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+body.colorscheme-dark .tour-progress-bar-container {
+  background: rgba(255, 255, 255, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-progress-bar-container {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.tour-progress-bar-fill {
+  height: 100%;
+  background: #1565c0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+body.colorscheme-dark .tour-progress-bar-fill {
+  background: #3b82f6;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-progress-bar-fill {
+    background: #3b82f6;
+  }
+}
+
+ 
+.tour-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tour-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #f5f5f5;
+  color: #212121 !important;
+  user-select: none;
+}
+.tour-btn:hover:not(.disabled) {
+  background: #e0e0e0;
+  transform: translateY(-1px);
+}
+body.colorscheme-dark .tour-btn {
+  background: #2a2e39;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f0f0f0 !important;
+}
+body.colorscheme-dark .tour-btn:hover:not(.disabled) {
+  background: #383e4d;
+  transform: translateY(-1px);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-btn {
+    background: #2a2e39;
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #f0f0f0 !important;
+  }
+  body.colorscheme-auto .tour-btn:hover:not(.disabled) {
+    background: #383e4d;
+    transform: translateY(-1px);
+  }
+}
+
+.tour-btn.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.tour-btn-home {
+  padding: 6px 12px;
+  background: transparent;
+  border-color: transparent;
+  color: #555 !important;
+  font-size: 13px;
+}
+.tour-btn-home:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #000 !important;
+}
+body.colorscheme-dark .tour-btn-home {
+  color: #aaa !important;
+}
+body.colorscheme-dark .tour-btn-home:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff !important;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-btn-home {
+    color: #aaa !important;
+  }
+  body.colorscheme-auto .tour-btn-home:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff !important;
+  }
+}
+
+.tour-btn-next {
+  background: #1565c0;
+  border-color: #1565c0;
+  color: #ffffff !important;
+}
+.tour-btn-next:hover:not(.disabled) {
+  background: #0d47a1;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+}
+body.colorscheme-dark .tour-btn-next {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff !important;
+}
+body.colorscheme-dark .tour-btn-next:hover:not(.disabled) {
+  background: #2563eb;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.45);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-btn-next {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff !important;
+  }
+  body.colorscheme-auto .tour-btn-next:hover:not(.disabled) {
+    background: #2563eb;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.45);
+  }
+}
+
+ 
+.tour-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 14px;
+  width: 340px;
+  max-height: 420px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24);
+  padding: 8px 0;
+  display: none;
+  z-index: 100000;
+}
+body.colorscheme-dark .tour-dropdown {
+  background: rgba(26, 29, 36, 0.98);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dropdown {
+    background: rgba(26, 29, 36, 0.98);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.tour-dropdown.show {
+  display: block;
+}
+
+.tour-dropdown-section-header {
+  padding: 8px 16px 4px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #1565c0;
+}
+body.colorscheme-dark .tour-dropdown-section-header {
+  color: #60a5fa;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dropdown-section-header {
+    color: #60a5fa;
+  }
+}
+
+.tour-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px;
+  font-size: 12px;
+  color: #333 !important;
+  text-decoration: none !important;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+body.colorscheme-dark .tour-dropdown-item {
+  color: #ddd !important;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dropdown-item {
+    color: #ddd !important;
+  }
+}
+.tour-dropdown-item:hover {
+  background: rgba(21, 101, 192, 0.08);
+}
+body.colorscheme-dark .tour-dropdown-item:hover {
+  background: rgba(59, 130, 246, 0.14);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dropdown-item:hover {
+    background: rgba(59, 130, 246, 0.14);
+  }
+}
+.tour-dropdown-item.active {
+  font-weight: 700;
+  color: #1565c0 !important;
+  background: rgba(21, 101, 192, 0.12);
+}
+body.colorscheme-dark .tour-dropdown-item.active {
+  color: #60a5fa !important;
+  background: rgba(59, 130, 246, 0.2);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dropdown-item.active {
+    color: #60a5fa !important;
+    background: rgba(59, 130, 246, 0.2);
+  }
+}
+.tour-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+body.colorscheme-dark .tour-step-num {
+  background: rgba(255, 255, 255, 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-step-num {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+.tour-dropdown-item.active .tour-step-num {
+  background: #1565c0;
+  color: #fff;
+}
+body.colorscheme-dark .tour-dropdown-item.active .tour-step-num {
+  background: #3b82f6;
+  color: #0e1117;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-dropdown-item.active .tour-step-num {
+    background: #3b82f6;
+    color: #0e1117;
+  }
+}
+
+ 
+ 
+ 
+.tour-summary-card {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 99998;
+  width: 340px;
+  max-width: calc(100vw - 48px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 14px 16px;
+  box-sizing: border-box;
+  animation: tourCardSlideIn 0.35s ease-out;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  color: #212121;
+}
+
+body.colorscheme-dark .tour-summary-card {
+  background: rgba(26, 29, 36, 0.95);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 2px 10px rgba(0, 0, 0, 0.4);
+  color: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-summary-card {
+    background: rgba(26, 29, 36, 0.95);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 2px 10px rgba(0, 0, 0, 0.4);
+    color: #f0f0f0;
+  }
+}
+
+@keyframes tourCardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tour-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tour-summary-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tour-summary-section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #1565c0;
+  color: #ffffff;
+}
+body.colorscheme-dark .tour-summary-section-pill {
+  background: #2563eb;
+  color: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-summary-section-pill {
+    background: #2563eb;
+    color: #ffffff;
+  }
+}
+
+.tour-summary-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 11px;
+  color: #757575;
+  transition: transform 0.25s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tour-summary-toggle-btn:hover {
+  color: #212121;
+}
+body.colorscheme-dark .tour-summary-toggle-btn {
+  color: #9e9e9e;
+}
+body.colorscheme-dark .tour-summary-toggle-btn:hover {
+  color: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-summary-toggle-btn {
+    color: #9e9e9e;
+  }
+  body.colorscheme-auto .tour-summary-toggle-btn:hover {
+    color: #ffffff;
+  }
+}
+
+.tour-summary-card.collapsed .tour-summary-toggle-btn {
+  transform: rotate(180deg);
+}
+
+.tour-summary-card.collapsed .tour-summary-body {
+  display: none;
+}
+
+.tour-summary-body {
+  margin-top: 10px;
+}
+
+.tour-summary-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 6px;
+  color: #111;
+}
+body.colorscheme-dark .tour-summary-title {
+  color: #f5f5f5;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-summary-title {
+    color: #f5f5f5;
+  }
+}
+
+.tour-summary-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #424242;
+  margin: 0;
+}
+body.colorscheme-dark .tour-summary-text {
+  color: #c4c4c4;
+}
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto .tour-summary-text {
+    color: #c4c4c4;
+  }
+}
+
+ 
+@media (max-width: 860px) {
+  .tour-summary-card {
+    bottom: 84px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+  }
+}
+</style>
+
+
+<div id="guided-tour-dock" class="guided-tour-dock" style="display: none;">
+  
+  <div id="tour-dropdown" class="tour-dropdown"></div>
+
+  <div class="tour-dock-header">
+    <span id="tour-step-badge" class="tour-step-badge" title="Click to view all tour stops">
+      <i class="fa-solid fa-compass" aria-hidden="true"></i>
+      <span id="tour-step-label">Step 1 of 22</span>
+      <i class="fa-solid fa-caret-up" style="font-size: 9px; opacity: 0.6;"></i>
+    </span>
+    <span id="tour-step-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px;"></span>
+  </div>
+
+  <div class="tour-progress-bar-container">
+    <div id="tour-progress-fill" class="tour-progress-bar-fill" style="width: 0%;"></div>
+  </div>
+
+  <div class="tour-controls-row">
+    <a id="tour-prev-btn" class="tour-btn" href="javascript:void(0)" aria-label="Previous Stop">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i> Prev
+    </a>
+    <a id="tour-home-btn" class="tour-btn tour-btn-home" href="javascript:void(0)" title="Return to Home / Exit Tour" aria-label="Home">
+      <i class="fa-solid fa-house" aria-hidden="true"></i> Home
+    </a>
+    <a id="tour-next-btn" class="tour-btn tour-btn-next" href="javascript:void(0)" aria-label="Next Stop">
+      Next <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+
+
+<div id="tour-summary-card" class="tour-summary-card" style="display: none;">
+  <div class="tour-summary-header" id="tour-summary-header" title="Click to collapse / expand summary">
+    <div class="tour-summary-badge-group">
+      <span id="tour-summary-section-pill" class="tour-summary-section-pill">
+        <i class="fa-solid fa-briefcase" style="font-size: 9px;"></i>
+        <span id="tour-summary-section">EXECUTIVE BRIEF</span>
+      </span>
+    </div>
+    <button class="tour-summary-toggle-btn" id="tour-summary-toggle" aria-label="Toggle Summary Window">
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="tour-summary-body" id="tour-summary-body">
+    <div id="tour-summary-title" class="tour-summary-title"></div>
+    <p id="tour-summary-text" class="tour-summary-text"></p>
+  </div>
+</div>
+
+<script>
+(function() {
+  const tourSteps = [
+    
+    {
+      section: "About Me",
+      title: "Executive Track Record",
+      url: "/about/",
+      summary: "Senior enterprise architect and cloud-native engineer with 20+ years delivering mission-critical trading, risk, and regulatory platforms across global Tier-1 investment banks, premier asset managers, and electronic trading venues."
+    },
+    {
+      section: "About Me",
+      title: "Software Engineering & Architecture",
+      url: "/about/software/",
+      summary: "Core engineering stack across Java, Go, C# / .NET, TypeScript, Python, and Kubernetes. Specialises in deterministic state engines, reactive message fabrics, and lock-free concurrency patterns."
+    },
+    {
+      section: "About Me",
+      title: "Capital Markets & Quantitative Finance",
+      url: "/about/finance/",
+      summary: "Deep quantitative domain expertise across OTC equity derivatives, total return swaps, pricing models, Greek sensitivities, and multi-jurisdiction regulatory regimes (Basel III/IV, FRTB, MiFID II, Dodd-Frank)."
+    },
+    {
+      section: "About Me",
+      title: "Murex MX.3 Ecosystem Expertise",
+      url: "/about/murex/",
+      summary: "Specialized integration and automation of Murex MX.3 platforms: trade workflow lifecycles, real-time simulation engines, Datamart reporting pipelines, and enterprise bot orchestration."
+    },
+    {
+      section: "About Me",
+      title: "Cloud Architecture & FinOps",
+      url: "/about/cloud/",
+      summary: "AWS and Kubernetes infrastructure engineering with an emphasis on cost efficiency. Architected multi-region environments and delivered over £2M in audited annual compute savings."
+    },
+    {
+      section: "About Me",
+      title: "AI/ML & Quantitative Systems",
+      url: "/about/aiml/",
+      summary: "Hands-on engineering across deep learning infrastructure: scalar autograd engines from first principles, custom transformer architectures, multi-GPU clusters, and enterprise LLM proxies."
+    },
+
+    
+    {
+      section: "Architecture",
+      title: "Cooper's Way Architectural Doctrine",
+      url: "/projects/coopers-way/",
+      summary: "The overarching engineering philosophy across all projects: domain decoupling, immutable task payloads, blocking priority queues, dynamic auto-scaling worker pools, and fail-fast resilience."
+    },
+
+    
+    {
+      section: "Projects",
+      title: "Production Equity Swap Pricing Engine",
+      url: "/projects/production-equity-swap-pricing-engine/",
+      summary: "High-performance C# / .NET derivatives pricing library enforcing ISDA conventions via the Type-State Pattern. Validated with a 97.8% pass rate across 5,000 live production positions."
+    },
+    {
+      section: "Projects",
+      title: "Enterprise Chromium Extension Ecosystem",
+      url: "/projects/chromium-extension-ecosystem/",
+      summary: "Manifest V3 monorepo of five browser extensions backed by a concurrent kernel featuring blocking priority queues, dynamic auto-scaling worker pools, and 162 unit tests."
+    },
+    {
+      section: "Projects",
+      title: "High-Performance Go Data Pipelines",
+      url: "/projects/high-performance-go-data-pipelines/",
+      summary: "Zero-allocation Go streaming engines, sync.Pool buffer recycling, bounded concurrent IMAP harvesters, and a sub-millisecond Chromium Native Messaging host."
+    },
+    {
+      section: "Projects",
+      title: "Murex Capital Markets AI Agent & Proxy",
+      url: "/projects/murex-capital-markets-ai-agent/",
+      summary: "Enterprise Microsoft Teams bot integration with a low-latency Go LLM proxy, dynamic context window pruning, and strict domain persona constraints preventing hallucinations."
+    },
+    {
+      section: "Projects",
+      title: "Cloud Cost Optimisation (£2M+ Savings)",
+      url: "/projects/cloud-cost-optimisation/",
+      summary: "Architectural tuning of Kubernetes compute on AWS EKS, workload scheduling, and reusable CI/CD pipelines delivering over £2M in verified annual infrastructure savings."
+    },
+    {
+      section: "Projects",
+      title: "Identity-Centric Encryption with Consent",
+      url: "/projects/identity-centric-encryption-with-user-consent/",
+      summary: "Record-level envelope encryption requiring explicit cryptographic end-user approval and tamper-evident audit logging for sensitive financial transactions."
+    },
+    {
+      section: "Projects",
+      title: "Declarative Service Framework",
+      url: "/projects/service-framework/",
+      summary: "Annotation-driven workflow orchestration engine built on Spring Boot, enabling declarative event routing and modular business service composition for critical operations."
+    },
+    {
+      section: "Projects",
+      title: "High-Throughput Reconciliation Framework",
+      url: "/projects/reconciliation-framework/",
+      summary: "Multi-threaded trade and cashflow reconciliation engine matching millions of transaction legs with deterministic rule pipelines and automated discrepancy routing."
+    },
+
+    
+    {
+      section: "Platforms",
+      title: "Platforms Architecture Overview",
+      url: "/platforms/",
+      summary: "Platform engineering philosophy emphasizing decoupled components, composable services, and cache-first architectures designed for continuous high-volume throughput."
+    },
+    {
+      section: "Platforms",
+      title: "Real-Time Orchestration Platform",
+      url: "/platforms/real-time-orchestration/",
+      summary: "Low-latency distributed orchestration engine coordinating trade lifecycle events and external market feeds with strict ordering guarantees and fault isolation."
+    },
+
+    
+    {
+      section: "AI / ML",
+      title: "AI Hub & Engineering Survey",
+      url: "/ai/",
+      summary: "Comprehensive engineering exploration of neural network architectures, custom autograd engines, distributed training topologies, and LLM inference optimization."
+    },
+    {
+      section: "AI / ML",
+      title: "Scalar Autograd Engine from First Principles",
+      url: "/ai/autograd-engine/",
+      summary: "First-principles DAG-based reverse-mode automatic differentiation engine in Python without external tensor libraries, demonstrating foundational mastery of backpropagation."
+    },
+    {
+      section: "AI / ML",
+      title: "Transformer Architecture from Scratch",
+      url: "/ai/transformer-architecture/",
+      summary: "Complete implementation of multi-head scaled dot-product self-attention, positional encoding, and decoder blocks built from scratch in PyTorch."
+    },
+    {
+      section: "AI / ML",
+      title: "Distributed Training Infrastructure",
+      url: "/ai/distributed-training-infrastructure/",
+      summary: "Multi-GPU data-parallel and pipeline-parallel cluster architectures, Ring-AllReduce gradient synchronisation, mixed precision (FP16/BF16), and GPU cache efficiency."
+    },
+    {
+      section: "AI / ML",
+      title: "Multimodal Document & Text Extraction",
+      url: "/ai/image-text-extraction-v2/",
+      summary: "Production multimodal pipeline combining vision encoders, OCR layout analysis, and structured schema extraction for high-accuracy financial document ingestion."
+    }
+  ];
+
+  window.startGuidedTour = function() {
+    sessionStorage.setItem('guidedTourActive', 'true');
+    window.location.href = tourSteps[0].url;
+  };
+
+  window.exitGuidedTour = function() {
+    sessionStorage.removeItem('guidedTourActive');
+    window.location.href = "/";
+  };
+
+  function normalize(path) {
+    if (!path) return "/";
+    var p = path.split("?")[0].split("#")[0];
+    if (!p.endsWith("/")) p += "/";
+    return p;
+  }
+
+  function initTour() {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("tour") === "true") {
+      sessionStorage.setItem('guidedTourActive', 'true');
+    }
+
+    var isTourActive = sessionStorage.getItem('guidedTourActive') === 'true';
+    var currentPath = normalize(window.location.pathname);
+
+    
+    if (currentPath === "/" || currentPath === "/index.html") {
+      return;
+    }
+
+    if (!isTourActive) {
+      return;
+    }
+
+    var dock = document.getElementById("guided-tour-dock");
+    var summaryCard = document.getElementById("tour-summary-card");
+    if (!dock) return;
+
+    
+    var currentIndex = -1;
+    for (var i = 0; i < tourSteps.length; i++) {
+      if (normalize(tourSteps[i].url) === currentPath) {
+        currentIndex = i;
+        break;
+      }
+    }
+
+    
+    if (currentIndex === -1) currentIndex = 0;
+
+    var currentStep = tourSteps[currentIndex];
+    var stepNum = currentIndex + 1;
+    var totalSteps = tourSteps.length;
+    var percent = Math.round((stepNum / totalSteps) * 100);
+
+    
+    var label = document.getElementById("tour-step-label");
+    var title = document.getElementById("tour-step-title");
+    var progressFill = document.getElementById("tour-progress-fill");
+    var prevBtn = document.getElementById("tour-prev-btn");
+    var nextBtn = document.getElementById("tour-next-btn");
+    var homeBtn = document.getElementById("tour-home-btn");
+    var badge = document.getElementById("tour-step-badge");
+    var dropdown = document.getElementById("tour-dropdown");
+
+    if (label) label.textContent = "Step " + stepNum + " of " + totalSteps;
+    if (title) title.textContent = currentStep.title;
+    if (progressFill) progressFill.style.width = percent + "%";
+
+    
+    if (prevBtn) {
+      if (currentIndex > 0) {
+        prevBtn.classList.remove("disabled");
+        prevBtn.onclick = function() {
+          window.location.href = tourSteps[currentIndex - 1].url;
+        };
+      } else {
+        prevBtn.classList.add("disabled");
+      }
+    }
+
+    
+    if (homeBtn) {
+      homeBtn.onclick = function() {
+        window.exitGuidedTour();
+      };
+    }
+
+    
+    if (nextBtn) {
+      if (currentIndex < totalSteps - 1) {
+        nextBtn.innerHTML = 'Next <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+        nextBtn.onclick = function() {
+          window.location.href = tourSteps[currentIndex + 1].url;
+        };
+      } else {
+        nextBtn.innerHTML = '<i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Finish';
+        nextBtn.onclick = function() {
+          window.exitGuidedTour();
+        };
+      }
+    }
+
+    
+    if (dropdown) {
+      dropdown.innerHTML = "";
+      var lastSection = "";
+      tourSteps.forEach(function(step, idx) {
+        if (step.section !== lastSection) {
+          lastSection = step.section;
+          var secHeader = document.createElement("div");
+          secHeader.className = "tour-dropdown-section-header";
+          secHeader.textContent = lastSection;
+          dropdown.appendChild(secHeader);
+        }
+
+        var item = document.createElement("a");
+        item.className = "tour-dropdown-item" + (idx === currentIndex ? " active" : "");
+        item.href = step.url;
+        item.innerHTML = '<span class="tour-step-num">' + (idx + 1) + '</span><span>' + step.title + '</span>';
+        item.onclick = function(e) {
+          e.preventDefault();
+          window.location.href = step.url;
+        };
+        dropdown.appendChild(item);
+      });
+
+      if (badge) {
+        badge.onclick = function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle("show");
+        };
+      }
+
+      document.addEventListener("click", function(e) {
+        if (!dock.contains(e.target)) {
+          dropdown.classList.remove("show");
+        }
+      });
+    }
+
+    
+    if (summaryCard) {
+      var summarySecPill = document.getElementById("tour-summary-section");
+      var summaryTitle = document.getElementById("tour-summary-title");
+      var summaryText = document.getElementById("tour-summary-text");
+      var summaryHeader = document.getElementById("tour-summary-header");
+
+      if (summarySecPill) summarySecPill.textContent = currentStep.section.toUpperCase();
+      if (summaryTitle) summaryTitle.textContent = currentStep.title;
+      if (summaryText) summaryText.textContent = currentStep.summary;
+
+      
+      var isCollapsed = sessionStorage.getItem("tourSummaryCollapsed") === "true";
+      if (isCollapsed) {
+        summaryCard.classList.add("collapsed");
+      }
+
+      if (summaryHeader) {
+        summaryHeader.onclick = function() {
+          summaryCard.classList.toggle("collapsed");
+          var collapsedNow = summaryCard.classList.contains("collapsed");
+          sessionStorage.setItem("tourSummaryCollapsed", collapsedNow ? "true" : "false");
+        };
+      }
+
+      summaryCard.style.display = "block";
+    }
+
+    
+    document.addEventListener("keydown", function(e) {
+      if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+      if (e.key === "ArrowRight" && currentIndex < totalSteps - 1) {
+        window.location.href = tourSteps[currentIndex + 1].url;
+      } else if (e.key === "ArrowLeft" && currentIndex > 0) {
+        window.location.href = tourSteps[currentIndex - 1].url;
+      } else if (e.key === "Escape") {
+        window.exitGuidedTour();
+      }
+    });
+
+    dock.style.display = "flex";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTour);
+  } else {
+    initTour();
+  }
+})();
+</script>
+</body>
+</html>
