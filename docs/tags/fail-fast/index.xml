@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Fail-Fast on Mark Cooper</title>
-		<link>http://localhost:1313/tags/fail-fast/</link>
+		<link>https://mdcooper-mc.github.io/tags/fail-fast/</link>
 		<description>Recent content in Fail-Fast on Mark Cooper</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/fail-fast/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://mdcooper-mc.github.io/tags/fail-fast/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Cooper&#39;s Way</title>
-				<link>http://localhost:1313/projects/coopers-way/</link>
+				<link>https://mdcooper-mc.github.io/projects/coopers-way/</link>
 				<pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/projects/coopers-way/</guid>
+				<guid>https://mdcooper-mc.github.io/projects/coopers-way/</guid>
 				<description>&lt;h2 id=&#34;architectural-principles--engineering-directives&#34;&gt;&#xA;  Architectural Principles &amp;amp; Engineering Directives&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#architectural-principles--engineering-directives&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Complex distributed systems, whether pricing equity derivatives or orchestrating asynchronous browser workers, tend to degrade when incidental complexity is introduced under the guise of cleverness. Over decades of designing and delivering platforms for global financial institutions, I have refined &lt;strong&gt;Cooper&amp;rsquo;s Way&lt;/strong&gt;—a unified set of architectural directives, concurrency invariants, and coding standards designed to keep software deterministic, observable, and easy to maintain.&lt;/p&gt;</description>
 			</item>
 	</channel>

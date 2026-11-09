@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Cloud Infrastructure on Mark Cooper</title>
-		<link>http://localhost:1313/categories/cloud-infrastructure/</link>
+		<link>https://mdcooper-mc.github.io/categories/cloud-infrastructure/</link>
 		<description>Recent content in Cloud Infrastructure on Mark Cooper</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
@@ -12,19 +12,19 @@
 		
 			<lastBuildDate>Wed, 20 May 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/categories/cloud-infrastructure/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://mdcooper-mc.github.io/categories/cloud-infrastructure/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>High-Performance Go Systems &amp; Data Pipelines</title>
-				<link>http://localhost:1313/projects/high-performance-go-data-pipelines/</link>
+				<link>https://mdcooper-mc.github.io/projects/high-performance-go-data-pipelines/</link>
 				<pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/projects/high-performance-go-data-pipelines/</guid>
+				<guid>https://mdcooper-mc.github.io/projects/high-performance-go-data-pipelines/</guid>
 				<description>&lt;h2 id=&#34;zero-allocation-stream-processing-and-data-ingestion&#34;&gt;&#xA;  Zero-Allocation Stream Processing and Data Ingestion&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#zero-allocation-stream-processing-and-data-ingestion&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Processing multi-gigabyte personal data archives and high-volume email mailboxes presents significant memory management and resilience challenges. In-memory object deserialization quickly leads to GC pauses, memory exhaustion, and unrecoverable failures when batch jobs crash midway through execution. This project encompasses a suite of high-throughput CLI utilities, concurrent stream parsers, and data ingestion microservices engineered in Go to achieve deterministic memory bounds, sub-millisecond inter-process communication, and resume-safe state execution.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Cloud Cost Optimisation &amp; Platform Engineering</title>
-				<link>http://localhost:1313/projects/cloud-cost-optimisation/</link>
+				<link>https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/</link>
 				<pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/projects/cloud-cost-optimisation/</guid>
+				<guid>https://mdcooper-mc.github.io/projects/cloud-cost-optimisation/</guid>
 				<description>&lt;p&gt;Cloud cost is rarely a billing problem — it is an architecture and operational discipline problem. The savings&#xA;delivered here came from eliminating waste built into the platform&amp;rsquo;s foundations: over-provisioned compute,&#xA;manual deployment processes that required bespoke configuration per environment, and a lack of shared tooling&#xA;that caused every team to solve the same infrastructure problems independently.&lt;/p&gt;&#xA;&lt;p&gt;The work spanned three interconnected areas: right-sizing and tuning the Kubernetes workloads running on AWS&#xA;EKS, designing and delivering a versioned CI/CD framework that was subsequently adopted across multiple teams,&#xA;and architecting the broader AWS environment — an architecture reviewed by AWS and assessed as highly scalable&#xA;and well-designed.&lt;/p&gt;</description>
 			</item>
 	</channel>
